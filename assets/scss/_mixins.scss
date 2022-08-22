@@ -1,0 +1,92 @@
+/* Mixins */
+
+//Font configuration
+@mixin font-set($color) {
+  color: #{$color};
+  font-family: 'Red Hat Display', 'Helvetica', sans-serif;
+}
+
+@mixin grid-structure($columns: $columns, $col: $col, $padding: 0.5) {
+  display: grid;
+  grid-template-columns: repeat(#{$columns}, minmax(0, 1fr));
+
+  & > div {
+    padding-right: $col * $padding;
+  }
+}
+
+@mixin image-background($image) {
+  background-image: url('../assets/images/#{$image}');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+@mixin subheader {
+  &__title {
+    margin: 0 0 0 ($col-landscape * 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@mixin heading-before-content($image) {
+  margin-left: 1.25em;
+  &::before {
+    content: '';
+    position: absolute;
+    float: left;
+    background-image: url('../assets/images/#{$image}');
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    width: 1em;
+    height: 1em;
+    z-index: -1;
+    margin-left: -1.25em;
+  }
+}
+
+@mixin boton-a($color: $color, $bg: $bg) {
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+  color: #{$color};
+  background-color: #{$bg};
+  border: 0;
+  border-radius: 1em;
+  box-shadow: 0.1em 0.1em 0.25em #222;
+}
+
+@mixin boton-b($color: $color, $outline: $outline) {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #{$color};
+  text-decoration: none;
+  border-style: solid;
+  border-color: #{$outline};
+  border-width: 0.15em;
+  border-radius: 1em;
+  padding: 0.4em;
+}
+
+// Responsive Mobile
+@mixin responsive-max($max-width, $orientation) {
+  @media all and (max-device-width: #{$max-width}) and (orientation: #{$orientation}) and (-webkit-min-device-pixel-ratio: 1) {
+    @content;
+  }
+}
+
+// Responsive Tablet
+@mixin responsive-min-max($min-width, $max-width, $orientation) {
+  @media screen and (min-device-width: #{$min-width}) and (max-width: #{$max-width}) and (orientation: #{$orientation}) and (-webkit-min-device-pixel-ratio: 1) {
+    @content;
+  }
+}
+
+// Responsive Desktop
+@mixin responsive-min($min-width) {
+  @media screen and (min-device-width: #{$min-width}) and (-webkit-min-device-pixel-ratio: 1) {
+    @content;
+  }
+}
