@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27657146.da85542",
+    "@nuxtjs/strapi": "^1.5.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "nuxt": "3.0.0-rc.8",
     "sass": "^1.54.5",

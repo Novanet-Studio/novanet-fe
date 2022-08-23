@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     ],
   },
   buildModules: ["@nuxtjs/style-resources"],
-  modules: ["@nuxt/image-edge"],
+  modules: ["@nuxt/image-edge", "@nuxtjs/strapi"],
   vite: {
     css: {
       preprocessorOptions: {
