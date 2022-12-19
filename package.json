@@ -7,17 +7,17 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxt/image-edge": "^1.0.0-27657146.da85542",
-    "@nuxtjs/strapi": "^1.5.0",
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
+    "@nuxtjs/strapi": "^1.6.3",
     "@nuxtjs/style-resources": "^1.2.1",
-    "nuxt": "3.0.0-rc.8",
-    "sass": "^1.54.5",
-    "sass-loader": "^13.0.2"
+    "nuxt": "3.0.0",
+    "sass": "^1.57.0",
+    "sass-loader": "^13.2.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@fortawesome/vue-fontawesome": "^3.0.1"
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^2.0.9"
   }
 }
