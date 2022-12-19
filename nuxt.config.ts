@@ -1,7 +1,8 @@
-import { defineNuxtConfig } from "nuxt";
+// import { defineNuxtConfig } from "nuxt";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
+  telemetry: false,
   build: {
     transpile: [
       "@fortawesome/vue-fontawesome",
@@ -10,7 +11,7 @@ export default defineNuxtConfig({
       "@fortawesome/free-brands-svg-icons",
     ],
   },
-  buildModules: ["@nuxtjs/style-resources"],
+  // buildModules: ["@nuxtjs/style-resources"],
   modules: ["@nuxt/image-edge", "@nuxtjs/strapi"],
   vite: {
     css: {
