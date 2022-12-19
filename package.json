@@ -10,8 +10,7 @@
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/strapi": "^1.6.3",
     "nuxt": "3.0.0",
-    "sass": "^1.57.0",
-    "sass-loader": "^13.2.0"
+    "sass": "^1.57.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
