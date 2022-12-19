@@ -1,15 +1,47 @@
+import pwa from './pwa';
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   telemetry: false,
+  app: {
+    head: {
+      meta: [
+        {
+          name: 'title',
+          content: 'Novanet',
+        },
+        {
+          name: 'description',
+          content:
+            'Estudio de diseño dedicado al diseño gráfico, al desarrollo web y al marketing online.',
+        },
+        {
+          name: 'name',
+          content: 'Novanet Studio Aplicación web',
+        },
+        {
+          name: 'author',
+          content: 'Novanet Studio <info@novanet.studio>',
+        },
+      ],
+    },
+    pageTransition: {
+      name: 'fade',
+    },
+    layoutTransition: {
+      name: 'fade',
+    },
+  },
   build: {
     transpile: [
-      "@fortawesome/vue-fontawesome",
-      "@fortawesome/fontawesome-svg-core",
-      "@fortawesome/free-solid-svg-icons",
-      "@fortawesome/free-brands-svg-icons",
+      '@fortawesome/vue-fontawesome',
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/free-solid-svg-icons',
+      '@fortawesome/free-brands-svg-icons',
     ],
   },
-  modules: ["@nuxt/image-edge", "@nuxtjs/strapi"],
+  modules: ['@nuxt/image-edge', '@nuxtjs/strapi', '@kevinmarrec/nuxt-pwa'],
+  pwa,
   vite: {
     css: {
       preprocessorOptions: {
@@ -19,9 +51,16 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ["@fortawesome/fontawesome-svg-core/styles.css"],
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        types: ['project.d.ts'],
+      },
+    },
+  },
+  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
   image: {
-    dir: "assets/images",
+    dir: 'assets/images',
     // The screen sizes predefined by `@nuxt/image`:
     screens: {
       xs: 320,
@@ -30,7 +69,7 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       xxl: 1536,
-      "2xl": 1536,
+      '2xl': 1536,
     },
   },
 });

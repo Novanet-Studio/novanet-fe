@@ -1,0 +1,37 @@
+.card {
+  &__image {
+    width: 100%;
+  }
+
+  &__title {
+    margin-top: 0.5vh;
+  }
+
+  &__description {
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+    color: $dark-grey-2;
+  }
+}
+
+/*----------------------------------- Mobile Portrait ---------------------------------*/
+@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+  .card {
+    &__description {
+      display: none;
+    }
+  }
+}
+
+/*----------------------------------- Tablet Portrait ---------------------------------*/
+@include responsive-min-max(
+  $min-width: 48em,
+  $max-width: 64em,
+  $orientation: 'portrait'
+) {
+  .card {
+    &__description {
+      display: none;
+    }
+  }
+}

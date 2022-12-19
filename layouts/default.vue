@@ -2,18 +2,16 @@
   <transition name="fade" appear>
     <div class="layout">
       <div class="container">
-        <Header />
+        <app-header />
         <main class="main">
           <slot />
         </main>
-        <Footer />
+        <app-footer />
       </div>
     </div>
   </transition>
 </template>
 
-<script>
-export default {};
-
-import "./default.scss";
+<script lang="ts" setup>
+import './default.scss';
 </script>

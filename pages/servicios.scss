@@ -1,0 +1,211 @@
+.services {
+  @include grid-structure($columns: 1, $col: $col-landscape);
+  margin: ($col-landscape * 0.2) 0 ($col-landscape * 0.1) 0;
+
+  &__items {
+    width: 80vw;
+    margin: 0 auto 6vh;
+  }
+
+  &__heading {
+    display: flex;
+  }
+
+  &__image {
+    width: 11vw;
+    height: 11vw;
+  }
+
+  &__info {
+    padding-left: 1vw;
+  }
+
+  &__tabs {
+    margin-top: 1vh;
+    margin-left: 12vw;
+  }
+
+  &__tab {
+    display: flex;
+    padding: 5vh 0 5vh 0;
+  }
+
+  &__icon {
+    &:before {
+      display: block;
+      font-size: 8.5rem;
+      margin-top: $col-landscape * -0.65;
+      margin-left: -$col-landscape * 0.5;
+    }
+  }
+
+  &__description {
+    p,
+    ul {
+      font-size: 0.95rem;
+      line-height: 1.3rem;
+      font-weight: inherit;
+    }
+
+    ul {
+      list-style: disc;
+      list-style-position: inside;
+    }
+  }
+}
+
+/*----------------------------------- Mobile Portrait ---------------------------------*/
+@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+  .services {
+    &__items {
+      width: unset;
+      margin-bottom: 1vh;
+
+      &:nth-child(3) {
+        .services__image {
+          margin-left: -2.5vw;
+        }
+      }
+    }
+
+    &__tabs {
+      margin-left: unset;
+    }
+
+    &__heading {
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      width: 27vw;
+      height: 27vw;
+    }
+
+    &__info {
+      padding-left: unset;
+    }
+
+    &__icon {
+      &:before {
+        font-size: 5.5rem;
+      }
+    }
+
+    &__description {
+      p,
+      ul {
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+      }
+    }
+  }
+}
+
+/*----------------------------------- Mobile Landscape --------------------------------*/
+@include responsive-max($max-width: 46em, $orientation: 'landscape') {
+  .services {
+    &__items {
+      width: unset;
+      margin-bottom: 6vh;
+
+      &:nth-child(3) {
+        .services__image {
+          margin-left: -1.5vw;
+        }
+      }
+    }
+
+    &__heading {
+      flex-wrap: wrap;
+    }
+
+    &__image {
+      width: 20vw;
+      height: 20vw;
+    }
+
+    &__info {
+      padding-left: unset;
+    }
+
+    &__tabs {
+      margin-left: unset;
+    }
+
+    &__icon {
+      &:before {
+        font-size: 7rem;
+      }
+    }
+
+    &__description {
+      p,
+      ul {
+        font-size: 0.9rem;
+        line-height: 1.275rem;
+      }
+    }
+  }
+}
+
+/*----------------------------------- Tablet Portrait ---------------------------------*/
+@include responsive-min-max(
+  $min-width: 48em,
+  $max-width: 64em,
+  $orientation: 'portrait'
+) {
+  .services {
+    &__items {
+      width: unset;
+      margin-bottom: unset;
+    }
+
+    &__image {
+      width: 19vw;
+      height: 19vw;
+    }
+
+    &__info {
+      padding-left: 2vw;
+    }
+
+    &__tabs {
+      margin-left: unset;
+    }
+  }
+  
+}
+
+/*----------------------------------- Tablet Landscape -------------------------------*/
+@include responsive-min-max(
+  $min-width: 64em,
+  $max-width: 85.375em,
+  $orientation: 'landscape'
+) {
+  .services {
+    &__info {
+      padding-top: 2vw;
+    }
+  }
+}
+
+/*---------------------------------- Desktop 1280px ---------------------------------*/
+@include responsive-min($min-width: 80em) {
+  .services {
+    &__info {
+      padding-top: 1.5vw;
+    }
+  }
+}
+
+/*----------------------------------- Desktop 1600px --------------------------------*/
+@include responsive-min($min-width: 100em) {}
+
+/*---------------------------------- Desktop 1440px ---------------------------------*/
+@include responsive-min($min-width: 90em) {
+  .services {
+    &__info {
+      padding-top: 2.5vw;
+    }
+  }
+}
