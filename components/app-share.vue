@@ -26,8 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-import '../layouts/default.scss';
-
 type Props = {
   url: string;
   titulo: string;

@@ -35,8 +35,6 @@
 <script lang="ts" setup>
 import { Tabs as VTabs, Tab as VTab } from 'vue3-tabs-component';
 import MarkdownIt from 'markdown-it';
-import '~/assets/scss/_vue-tabs.scss';
-import './servicios.scss';
 
 definePageMeta({
   layout: 'page',

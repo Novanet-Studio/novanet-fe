@@ -20,8 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import '../portafolio.scss';
-
 const graphql = useStrapiGraphQL();
 
 const portfolio = ref<Project.PortfolioResponse>();

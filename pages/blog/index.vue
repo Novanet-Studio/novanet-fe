@@ -19,8 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import './blog.scss';
-
 definePageMeta({
   layout: 'page',
 });

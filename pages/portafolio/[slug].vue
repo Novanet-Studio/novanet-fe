@@ -23,8 +23,6 @@
 </template>
 
 <script lang="ts" setup>
-import '~/components/project.scss';
-
 definePageMeta({
   layout: 'page',
 });

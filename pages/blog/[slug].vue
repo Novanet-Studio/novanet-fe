@@ -22,7 +22,6 @@
 
 <script lang="ts" setup>
 import MarkdownIt from 'markdown-it';
-import './article.scss';
 
 definePageMeta({
   layout: 'page',

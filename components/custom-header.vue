@@ -13,8 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-import '~/layouts/default.scss';
-
 type Props = {
   view: string;
   icon: string;

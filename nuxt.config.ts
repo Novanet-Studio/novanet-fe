@@ -42,15 +42,6 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/image-edge', '@nuxtjs/strapi', '@kevinmarrec/nuxt-pwa'],
   pwa,
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "@/assets/scss/global.scss";',
-        },
-      },
-    },
-  },
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -58,7 +49,10 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ['@fortawesome/fontawesome-svg-core/styles.css'],
+  css: [
+    '~/assets/scss/global.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css',
+  ],
   image: {
     dir: 'assets/images',
     // The screen sizes predefined by `@nuxt/image`:

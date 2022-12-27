@@ -40,8 +40,6 @@
 </template>
 
 <script lang="ts" setup>
-import './modal.scss';
-
 type Image = {
   url: string;
   alternativeText: string;

@@ -10,8 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import '~/layouts/default.scss';
-
 useHead({
   meta: [
     {

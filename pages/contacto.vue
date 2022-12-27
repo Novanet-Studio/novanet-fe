@@ -59,7 +59,6 @@
 import MarkdownIt from 'markdown-it';
 import { useForm } from 'vee-validate';
 import * as yup from 'yup';
-import './contacto.scss';
 
 definePageMeta({
   layout: 'page',

@@ -16,7 +16,7 @@
 }
 
 @mixin image-background($image) {
-  background-image: url('../assets/images/#{$image}');
+  background-image: url('~/assets/images/#{$image}');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -37,7 +37,7 @@
     content: '';
     position: absolute;
     float: left;
-    background-image: url('../assets/images/#{$image}');
+    background-image: url('~/assets/images/#{$image}');
     background-repeat: no-repeat;
     background-size: 1em 1em;
     width: 1em;

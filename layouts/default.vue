@@ -11,7 +11,3 @@
     </div>
   </transition>
 </template>
-
-<script lang="ts" setup>
-import './default.scss';
-</script>

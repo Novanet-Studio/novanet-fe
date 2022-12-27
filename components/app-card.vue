@@ -16,8 +16,6 @@
 </template>
 
 <script lang="ts" setup>
-import './card.scss';
-
 interface Alias extends Project.Project {
   fecha?: string;
 }

@@ -6,9 +6,28 @@
  *
  */
 
+// Base
 @import './normalize';
 @import './variables';
 @import './fonts';
 @import './mixins';
 @import './utils';
 @import './transitions';
+
+// Layout
+@import './layouts/default';
+
+// Components
+@import './components/article';
+@import './components/card';
+@import './components/modal';
+@import './components/project';
+@import './components/vue-tabs';
+
+// Pages
+@import './pages/article';
+@import './pages/blog';
+@import './pages/contacto';
+@import './pages/home';
+@import './pages/portafolio';
+@import './pages/servicios';
