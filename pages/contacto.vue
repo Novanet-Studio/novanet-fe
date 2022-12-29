@@ -5,9 +5,9 @@
       <div class="contacto">
         <div class="contacto__items">
           <h2 class="blue">
-            {{ contact?.data.contacto.principal.titulo }}
+            {{ contact?.data.attributes.principal.titulo }}
           </h2>
-          <div v-html="markdown.render(contact?.data.contacto.principal.descripcion ?? '')"></div>
+          <div v-html="markdown.render(contact?.data.attributes.principal.descripcion ?? '')"></div>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d980.7857007733666!2d-66.87772169073442!3d10.489406951509675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1952146d76df33c4!2sNovanet%20Studio!5e0!3m2!1ses!2sve!4v1632839029172!5m2!1ses!2sve"
             class="contacto__mapa" allowfullscreen="true" loading="lazy"></iframe>
@@ -15,10 +15,10 @@
 
         <div class="contacto__items">
           <h2 class="blue">
-            {{ contact?.data.contacto.formulario.titulo }}
+            {{ contact?.data.attributes.formulario.titulo }}
           </h2>
           <p>
-            {{ contact?.data.contacto.formulario.descripcion }}
+            {{ contact?.data.attributes.formulario.descripcion }}
           </p>
           <form class="formulario" name="contacto" @submit.prevent="onSubmit" action="/gracias/" method="post"
             data-netlify="true" data-netlify-honeypot="bot-field">
@@ -65,7 +65,7 @@ definePageMeta({
 });
 
 const graphql = useStrapiGraphQL();
-const contact = ref<Project.ContactResponse>();
+const contact = ref<Project.Contact>();
 const markdown = new MarkdownIt();
 
 useHead({
@@ -73,7 +73,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: contact.value?.data.contacto.principal.descripcion.substring(0, 168),
+      content: contact.value?.data.attributes.principal.descripcion.substring(0, 168),
     },
   ],
 });
@@ -123,22 +123,28 @@ const onSubmit = handleSubmit(async (values) => {
 })
 
 try {
-  contact.value = await graphql<Project.ContactResponse>(`
+  const response = await graphql<Project.ContactResponse>(`
     query Contacto {
       contacto {
-        principal {
-          titulo
-          descripcion
+        data {
+          attributes {
+            principal {
+              titulo
+              descripcion
+            }
+            formulario {
+              titulo
+              descripcion
+            }
+            latitud
+            longitud
+          }
         }
-        formulario {
-          titulo
-          descripcion
-        }
-        latitud
-        longitud
       }
     }
   `);
+
+  contact.value = response.data.contacto;
 } catch (error) {
   console.error('An error ocurre while fetching contact data: ', error);
 }

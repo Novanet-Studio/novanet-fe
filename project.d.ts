@@ -180,14 +180,20 @@ namespace Project {
     };
   }
 
-  interface ContactResponse {
+  interface Contact {
     data: {
-      contacto: {
+      attributes: {
         principal: Content;
         formulario: Content;
         latitud: string;
         longitud: string;
       };
+    };
+  }
+
+  interface ContactResponse {
+    data: {
+      contacto: Contact;
     };
   }
 }
