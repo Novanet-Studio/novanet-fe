@@ -1,4 +1,8 @@
 .card {
+  &__info {
+    text-align: left;
+  }
+
   &__image {
     width: 100%;
   }

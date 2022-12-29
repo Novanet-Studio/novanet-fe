@@ -5,13 +5,32 @@ namespace Project {
   }
 
   interface Home {
-    inicio: Inicio;
+    data: {
+      attributes: {
+        principal: string;
+        contacto: {
+          prefix: string;
+          icono: string;
+          descripcion: string;
+        };
+      };
+    };
+  }
+
+  interface ImageRaw {
+    id: string;
+    attributes: {
+      url: string;
+      alternativeText: string;
+    };
   }
 
   interface Image {
-    id?: string;
-    url: string;
-    alternativeText: string;
+    data: ImageRaw;
+  }
+
+  interface Images {
+    data: ImageRaw[];
   }
 
   interface Speciality {
@@ -31,11 +50,17 @@ namespace Project {
   }
 
   interface Service {
-    servicios: Services[];
+    data: {
+      attributes: {
+        servicios: Services[];
+      };
+    };
   }
 
   interface HomeResponse {
-    data: Home;
+    data: {
+      inicio: Home;
+    };
   }
 
   interface ServiceResponse {
@@ -50,10 +75,14 @@ namespace Project {
   }
 
   interface AboutUs {
-    principal: Content;
-    proposito: Content;
-    objetivo: Content;
-    trabaja: Content;
+    data: {
+      attributes: {
+        principal: Content;
+        proposito: Content;
+        objetivo: Content;
+        trabajo: Content;
+      };
+    };
   }
 
   interface AboutUsResponse {
@@ -71,78 +100,125 @@ namespace Project {
     };
   }
 
-  interface PortfolioResponse {
+  interface Portfolio {
     data: {
-      portafolio: {
+      attributes: {
         descripcion: string;
       };
+    };
+  }
+
+  interface PortfolioResponse {
+    data: {
+      portafolio: Portfolio;
     };
   }
 
   interface Category {
     id: string;
-    icono: string;
-    nombre: string;
-    slug: string;
-    descripcion?: string;
+    attributes: {
+      icono: string;
+      nombre: string;
+      slug: string;
+      descripcion?: string;
+      proyecto: {
+        data: Project[];
+      };
+    };
+  }
+
+  interface CategoryBody {
+    data: Category[];
   }
 
   interface CategoryResponse {
     data: {
-      categorias: Category[];
+      categorias: CategoryBody;
     };
   }
 
   interface Project {
     id: string;
-    Ano: string;
-    ciudad: string;
-    titulo: string;
-    slug: string;
-    miniatura: Image;
-    imagenes: Image[];
-    categorias: {
-      nombre: string;
+    attributes: {
+      ano: string;
+      ciudad: string;
+      titulo: string;
+      descripcion: string;
+      slug: string;
+      miniatura: Image;
+      fecha?: string;
+      imagenes: {
+        data: {
+          id: string;
+          attributes: {
+            url: string;
+            alternativeText: string;
+          };
+        }[];
+      };
+      categorias: {
+        nombre: string;
+      };
     };
   }
 
-  interface ProjectResponse {
+  interface ProjectsResponse {
     data: {
       proyectos: Project[];
     };
   }
 
-  interface Categories extends Category {
-    proyectos: Project[];
+  interface ProjectResponse {
+    data: {
+      proyecto: {
+        data: Project;
+      };
+    };
+  }
+
+  interface Categories {
+    data: Category[];
   }
 
   interface CategoriesResponse {
     data: {
-      categorias: Categories[];
+      categorias: Categories;
     };
   }
 
-  interface BlogResponse {
+  interface Blog {
     data: {
-      blog: {
+      attributes: {
         descripcion: string;
       };
     };
   }
 
+  interface BlogResponse {
+    data: {
+      blog: Blog;
+    };
+  }
+
   interface Article {
     id: string;
-    titulo: string;
-    descripcion: string;
-    tag: string;
-    slug;
-    fecha: string;
-    imagen: Image;
+    attributes: {
+      titulo: string;
+      descripcion: string;
+      tag: string;
+      slug;
+      fecha: string;
+      imagen: Images;
+    };
+  }
+
+  interface ArticlesData {
+    data: Article | Article[];
   }
 
   interface ArticlesResponse {
     data: {
-      articulos: Article[];
+      articulos: ArticlesData;
     };
   }
 
@@ -153,18 +229,24 @@ namespace Project {
 
   interface ArticleResponse {
     data: {
-      articulo: Article;
+      articulo: ArticlesData;
     };
   }
 
-  interface ContactResponse {
+  interface Contact {
     data: {
-      contacto: {
+      attributes: {
         principal: Content;
         formulario: Content;
         latitud: string;
         longitud: string;
       };
+    };
+  }
+
+  interface ContactResponse {
+    data: {
+      contacto: Contact;
     };
   }
 }

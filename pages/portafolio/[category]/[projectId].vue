@@ -1,33 +1,34 @@
 <template>
-  <custom-header icon="t" :view="`Portafolio / ${project.titulo}`" bg="header--magenta" title-class="nav__title" />
-  <main class="main">
-    <section class="section">
-      <div class="project">
-        <nuxt-img class="project__image" :src="project.miniatura.url" :alt="project.miniatura.alternativeText" />
-        <div class="project__info">
-          <time class="date">{{ project.Ano }}</time>
-          <h1>{{ project.titulo }}</h1>
-          <div v-html="markdown.render(project.descripcion)" />
-          <ul class="project__gallery">
-            <li v-for="imagen in project.imagenes" :key="imagen.id">
-              <button @click="() => {
-  showModal = true
-  content = imagen
-}
-" class="project__button">
-                <nuxt-img class="project__thumbnail" :src="imagen.url" :alt="imagen.alternativeText"
-                  background="#ededed" />
-              </button>
-              <app-modal v-if="showModal" @close="showModal = false" :image="content" class="modal__item" />
-            </li>
-          </ul>
-        </div>
+  <routes-wrapper>
+    <custom-header icon="t" :view="`Portafolio / ${project?.attributes?.titulo}`" bg="header--magenta"
+      title-class="nav__title" />
+    <main class="main">
+      <section class="section">
+        <div class="project">
+          <nuxt-img class="project__image" :src="project?.attributes.miniatura.data.attributes.url"
+            :alt="project?.attributes.miniatura.data.attributes.alternativeText" />
+          <div class="project__info">
+            <time class="date">{{ project?.attributes.ano }}</time>
+            <h1>{{ project?.attributes.titulo }}</h1>
+            <div v-html="markdown.render(project!.attributes.descripcion)" />
+            <ul class="project__gallery">
+              <li v-for="imagen in project?.attributes.imagenes.data" :key="imagen.id">
+                <button @click="galleryClick(imagen)" class="project__button">
+                  <nuxt-img class="project__thumbnail" :src="imagen.attributes.url"
+                    :alt="imagen.attributes.alternativeText" background="#ededed" />
+                </button>
+                <app-modal v-if="showModal" @close="showModal = false" :image="content" class="modal__item" />
+              </li>
+            </ul>
+          </div>
 
-        <app-share :url="currentUrl" :titulo="project.titulo" :descripcion="project.descripcion"
-          :imagen="project.miniatura.url" />
-      </div>
-    </section>
-  </main>
+          <app-share :url="currentUrl" :titulo="project!.attributes.titulo"
+            :descripcion="project!.attributes.descripcion"
+            :imagen="project!.attributes.miniatura.data.attributes.url" />
+        </div>
+      </section>
+    </main>
+  </routes-wrapper>
 </template>
 
 <script lang="ts" setup>
@@ -44,39 +45,60 @@ const currentUrl = useCurrentUrl();
 const markdown = new MarkdownIt();
 const showModal = ref(false);
 const content = ref();
-const project = ref<Project.ProjectResponse>();
+const project = ref<Project.Project>();
 
 useHead({
-  title: '', // Project title
+  title: project.value?.attributes?.titulo,
   meta: [
     {
       name: 'description',
-      content: '' // substring based on the project description
+      content: project.value?.attributes?.descripcion.substring(0, 168),
     }
   ],
 });
 
+const galleryClick = (image: Project.ImageRaw) => {
+  showModal.value = true
+  content.value = image
+}
+
 try {
   const result = await graphql<Project.ProjectResponse>(`
-    query Projects($id: ID!) {
-      proyectos(where: { id: $id }) {
-        id
-        Ano
-        ciudad
-        titulo
-        slug
-        descripcion
-        miniatura {
-          url
-          alternativeText
-        }
-        imagenes {
+    query Project($id: ID!) {
+      proyecto(id: $id) {
+        data {
           id
-          url
-          alternativeText
-        }
-        categorias {
-          nombre
+          attributes {
+            ano
+            ciudad
+            titulo
+            descripcion
+            slug
+            miniatura {
+              data {
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            imagenes {
+              data {
+                id
+                attributes {
+                  url
+                  alternativeText
+                }
+              }
+            }
+            categoria {
+              data {
+                attributes {
+                  nombre
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -84,7 +106,9 @@ try {
     id: projectId.value,
   });
 
-  project.value = result.data.proyectos[0];
+  project.value = result.data.proyecto.data;
+
+  console.log(project.value.attributes)
 } catch (error) {
   console.error('An error occurred while fetching project data: ' + error);
 }

@@ -2,11 +2,13 @@
   <div class="card">
     <button @click="action">
       <transition name="fade" appear>
-        <nuxt-img class="card__image" :src="imagen.url" :alt="imagen.alternativeText" background="#ededed" />
+        <nuxt-img class="card__image" :src="imagen.attributes.url" :alt="imagen.attributes.alternativeText"
+          background="#ededed" />
+
       </transition>
       <div class="card__info">
-        <time class="date" v-if="alias.fecha">{{ toDate(alias.fecha) }}</time>
-        <h3 class="card__title">{{ alias.titulo }}</h3>
+        <time class="date" v-if="data.attributes.fecha">{{ toDate(data.attributes.fecha) }}</time>
+        <h3 class="card__title">{{ data.attributes.titulo }}</h3>
         <p class="card__description" v-if="descripcion">
           {{ maxWords(descripcion) + '...' }}
         </p>
@@ -16,21 +18,12 @@
 </template>
 
 <script lang="ts" setup>
-interface Alias extends Project.Project {
-  fecha?: string;
-}
-
-type Image = {
-  url: string;
-  alternativeText: string;
-};
-
 type Props = {
   view: string;
-  imagen: Image;
+  imagen: Project.ImageRaw;
   coleccion: string;
   descripcion?: string;
-  alias: Alias;
+  data: Project.Project | Project.Article;
   isBlog?: boolean;
 };
 
@@ -62,18 +55,17 @@ const maxWords = (description: string) => {
 };
 
 const action = () => {
-  if (props.alias?.id) {
-    projectId.value = props.alias.id;
+  if (props.data.id) {
+    projectId.value = props.data.id;
   }
 
   if (props.isBlog) {
-    console.log('id: ', props.alias.id);
-    articleId.value = props.alias.id;
-    router.push(`/${props.view}/${props.alias.slug}`);
+    articleId.value = props.data.id;
+    router.push(`/${props.view}/${props.data.attributes.slug}`);
     return;
   }
 
-  router.push(`/${props.view}/${props.coleccion}/${props.alias.slug}`);
+  router.push(`/${props.view}/${props.coleccion}/${props.data.attributes.slug}`);
 }
 </script>
 
