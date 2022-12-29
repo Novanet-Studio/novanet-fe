@@ -5,13 +5,26 @@ namespace Project {
   }
 
   interface Home {
-    inicio: Inicio;
+    data: {
+      attributes: {
+        principal: string;
+        contacto: {
+          prefix: string;
+          icono: string;
+          descripcion: string;
+        };
+      };
+    };
   }
 
   interface Image {
-    id?: string;
-    url: string;
-    alternativeText: string;
+    data: {
+      attributes: {
+        id?: string;
+        url: string;
+        alternativeText: string;
+      };
+    };
   }
 
   interface Speciality {
@@ -31,11 +44,17 @@ namespace Project {
   }
 
   interface Service {
-    servicios: Services[];
+    data: {
+      attributes: {
+        servicios: Services[];
+      };
+    };
   }
 
   interface HomeResponse {
-    data: Home;
+    data: {
+      inicio: Home;
+    };
   }
 
   interface ServiceResponse {
