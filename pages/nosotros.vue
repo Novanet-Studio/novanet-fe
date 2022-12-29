@@ -1,30 +1,25 @@
 <template>
-  <custom-header
-    icon="f"
-    view="Nosotros"
-    bg="header--green"
-    title-class="nav__title"
-  />
+  <custom-header icon="f" view="Nosotros" bg="header--green" title-class="nav__title" />
   <main class="main">
     <section class="section">
-      <h2>{{ aboutUs?.data.nosotro.principal.titulo }}</h2>
+      <h2>{{ about?.data.attributes.principal.titulo }}</h2>
       <p>
-        {{ aboutUs?.data.nosotro.principal.descripcion }}
+        {{ about?.data.attributes.principal.descripcion }}
       </p>
     </section>
     <section class="section">
-      <h2 class="green">{{ aboutUs?.data.nosotro.proposito.titulo }}</h2>
-      <p>{{ aboutUs?.data.nosotro.proposito.descripcion }}</p>
+      <h2 class="green">{{ about?.data.attributes.proposito.titulo }}</h2>
+      <p>{{ about?.data.attributes.proposito.descripcion }}</p>
     </section>
     <section class="section">
-      <h2 class="green">{{ aboutUs?.data.nosotro.objetivo.titulo }}</h2>
+      <h2 class="green">{{ about?.data.attributes.objetivo.titulo }}</h2>
       <p>
-        {{ aboutUs?.data.nosotro.objetivo.descripcion }}
+        {{ about?.data.attributes.objetivo.descripcion }}
       </p>
     </section>
     <section class="section">
-      <h2 class="green">{{ aboutUs?.data.nosotro.trabaja.titulo }}</h2>
-      <p>{{ aboutUs?.data.nosotro.trabaja.descripcion }}</p>
+      <h2 class="green">{{ about?.data.attributes.trabajo.titulo }}</h2>
+      <p>{{ about?.data.attributes.trabajo.descripcion }}</p>
     </section>
   </main>
 </template>
@@ -35,14 +30,14 @@ definePageMeta({
 });
 
 const graphql = useStrapiGraphQL();
-const aboutUs = ref<Project.AboutUsResponse>();
+const about = ref<Project.AboutUs>();
 
 useHead({
   title: 'Nosotros',
   meta: [
     {
       name: 'description',
-      content: aboutUs.value?.data?.nosotro?.principal.descripcion.substring(
+      content: about.value?.data.attributes.principal.descripcion.substring(
         0,
         168,
       ),
@@ -51,31 +46,37 @@ useHead({
 });
 
 try {
-  aboutUs.value = await graphql<Project.AboutUsResponse>(`
+  const response = await graphql<Project.AboutUsResponse>(`
     query AboutUs {
       nosotro {
-        principal {
-          titulo
-          descripcion
-        }
+        data {
+          attributes {
+            principal {
+              titulo
+              descripcion
+            }
 
-        proposito {
-          titulo
-          descripcion
-        }
+            proposito {
+              titulo
+              descripcion
+            }
 
-        objetivo {
-          titulo
-          descripcion
-        }
+            objetivo {
+              titulo
+              descripcion
+            }
 
-        trabaja {
-          titulo
-          descripcion
+            trabajo {
+              titulo
+              descripcion
+            }
+          }
         }
       }
     }
   `);
+
+  about.value = response.data.nosotro;
 } catch (error) {
   console.log('An error occurred while getting about-us data: ', error);
 }

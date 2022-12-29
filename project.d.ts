@@ -69,10 +69,14 @@ namespace Project {
   }
 
   interface AboutUs {
-    principal: Content;
-    proposito: Content;
-    objetivo: Content;
-    trabaja: Content;
+    data: {
+      attributes: {
+        principal: Content;
+        proposito: Content;
+        objetivo: Content;
+        trabajo: Content;
+      };
+    };
   }
 
   interface AboutUsResponse {
