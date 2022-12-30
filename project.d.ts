@@ -29,6 +29,10 @@ namespace Project {
     data: ImageRaw;
   }
 
+  interface Images {
+    data: ImageRaw[];
+  }
+
   interface Speciality {
     id: string;
     titulo: string;
@@ -182,27 +186,39 @@ namespace Project {
     };
   }
 
-  interface BlogResponse {
+  interface Blog {
     data: {
-      blog: {
+      attributes: {
         descripcion: string;
       };
     };
   }
 
+  interface BlogResponse {
+    data: {
+      blog: Blog;
+    };
+  }
+
   interface Article {
     id: string;
-    titulo: string;
-    descripcion: string;
-    tag: string;
-    slug;
-    fecha: string;
-    imagen: Image;
+    attributes: {
+      titulo: string;
+      descripcion: string;
+      tag: string;
+      slug;
+      fecha: string;
+      imagen: Images;
+    };
+  }
+
+  interface ArticlesData {
+    data: Article | Article[];
   }
 
   interface ArticlesResponse {
     data: {
-      articulos: Article[];
+      articulos: ArticlesData;
     };
   }
 
@@ -213,7 +229,7 @@ namespace Project {
 
   interface ArticleResponse {
     data: {
-      articulo: Article;
+      articulo: ArticlesData;
     };
   }
 

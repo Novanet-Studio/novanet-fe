@@ -2,8 +2,9 @@
   <div class="card">
     <button @click="action">
       <transition name="fade" appear>
-        <nuxt-img class="card__image" :src="imagen.data.attributes.url" :alt="imagen.data.attributes.alternativeText"
+        <nuxt-img class="card__image" :src="imagen.attributes.url" :alt="imagen.attributes.alternativeText"
           background="#ededed" />
+
       </transition>
       <div class="card__info">
         <time class="date" v-if="data.attributes.fecha">{{ toDate(data.attributes.fecha) }}</time>
@@ -19,10 +20,10 @@
 <script lang="ts" setup>
 type Props = {
   view: string;
-  imagen: Project.Image;
+  imagen: Project.ImageRaw;
   coleccion: string;
   descripcion?: string;
-  data: Project.Project;
+  data: Project.Project | Project.Article;
   isBlog?: boolean;
 };
 
@@ -59,7 +60,6 @@ const action = () => {
   }
 
   if (props.isBlog) {
-    console.log('id: ', props.data.id);
     articleId.value = props.data.id;
     router.push(`/${props.view}/${props.data.attributes.slug}`);
     return;

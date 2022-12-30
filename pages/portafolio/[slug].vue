@@ -16,7 +16,7 @@
       <section class="section">
         <div class="categories categories__internal">
           <div v-for="project in categories[0].attributes.proyecto.data" :key="project.id">
-            <app-card class="categories__items" view="portafolio" :imagen="project.attributes.miniatura"
+            <app-card class="categories__items" view="portafolio" :imagen="project.attributes.miniatura.data"
               :coleccion="categories[0].attributes.slug ?? ''" :data="project" />
           </div>
         </div>
