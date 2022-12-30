@@ -17,14 +17,16 @@ namespace Project {
     };
   }
 
-  interface Image {
-    data: {
-      attributes: {
-        id?: string;
-        url: string;
-        alternativeText: string;
-      };
+  interface ImageRaw {
+    id: string;
+    attributes: {
+      url: string;
+      alternativeText: string;
     };
+  }
+
+  interface Image {
+    data: ImageRaw;
   }
 
   interface Speciality {
@@ -94,54 +96,89 @@ namespace Project {
     };
   }
 
-  interface PortfolioResponse {
+  interface Portfolio {
     data: {
-      portafolio: {
+      attributes: {
         descripcion: string;
       };
     };
   }
 
+  interface PortfolioResponse {
+    data: {
+      portafolio: Portfolio;
+    };
+  }
+
   interface Category {
     id: string;
-    icono: string;
-    nombre: string;
-    slug: string;
-    descripcion?: string;
+    attributes: {
+      icono: string;
+      nombre: string;
+      slug: string;
+      descripcion?: string;
+      proyecto: {
+        data: Project[];
+      };
+    };
+  }
+
+  interface CategoryBody {
+    data: Category[];
   }
 
   interface CategoryResponse {
     data: {
-      categorias: Category[];
+      categorias: CategoryBody;
     };
   }
 
   interface Project {
     id: string;
-    Ano: string;
-    ciudad: string;
-    titulo: string;
-    slug: string;
-    miniatura: Image;
-    imagenes: Image[];
-    categorias: {
-      nombre: string;
+    attributes: {
+      ano: string;
+      ciudad: string;
+      titulo: string;
+      descripcion: string;
+      slug: string;
+      miniatura: Image;
+      fecha?: string;
+      imagenes: {
+        data: {
+          id: string;
+          attributes: {
+            url: string;
+            alternativeText: string;
+          };
+        }[];
+      };
+      categorias: {
+        nombre: string;
+      };
     };
   }
 
-  interface ProjectResponse {
+  interface ProjectsResponse {
     data: {
       proyectos: Project[];
     };
   }
 
-  interface Categories extends Category {
-    proyectos: Project[];
+  interface ProjectResponse {
+    data: {
+      proyecto: {
+        data: Project;
+      };
+    };
+  }
+
+  interface Categories {
+    data: Category[];
   }
 
   interface CategoriesResponse {
     data: {
-      categorias: Categories[];
+      categorias: Categories;
     };
   }
 

@@ -3,16 +3,16 @@
   <main class="main">
     <section class="section">
       <p>
-        {{ portfolio?.data.portafolio.descripcion }}
+        {{ portfolio?.data.attributes.descripcion }}
       </p>
     </section>
 
     <section class="section">
       <div class="categories">
-        <nuxt-link class="categories__items" v-for="category in categories?.data.categorias" :key="category.id"
-          :to="{ path: `/portafolio/${category.slug}` }">
-          <div class="categories__icon icon" :data-icon="category.icono" />
-          <h3 class="categories__title">{{ category.nombre }}</h3>
+        <nuxt-link class="categories__items" v-for="category in categories?.data" :key="category.id"
+          :to="{ path: `/portafolio/${category.attributes.slug}` }">
+          <div class="categories__icon icon" :data-icon="category.attributes.icono" />
+          <h3 class="categories__title">{{ category.attributes.nombre }}</h3>
         </nuxt-link>
       </div>
     </section>
@@ -22,8 +22,8 @@
 <script lang="ts" setup>
 const graphql = useStrapiGraphQL();
 
-const portfolio = ref<Project.PortfolioResponse>();
-const categories = ref<Project.CategoryResponse>();
+const portfolio = ref<Project.Portfolio>();
+const categories = ref<Project.CategoryBody>();
 
 definePageMeta({
   layout: 'page',
@@ -34,7 +34,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: portfolio.value?.data.portafolio.descripcion.substring(
+      content: portfolio.value?.data.attributes.descripcion.substring(
         0,
         168,
       ),
@@ -43,24 +43,35 @@ useHead({
 });
 
 try {
-  portfolio.value = await graphql<Project.PortfolioResponse>(`
+  const { data: portfolioResponse } = await graphql<Project.PortfolioResponse>(`
     query Portfolio {
       portafolio {
-        descripcion
+        data {
+          attributes {
+            descripcion
+          }
+        }
       }
     }
   `);
 
-  categories.value = await graphql<Project.CategoryResponse>(`
+  const { data: categoriesResponse } = await graphql<Project.CategoryResponse>(`
     query Categories {
       categorias {
-        id
-        icono
-        nombre
-        slug
+        data {
+          id
+          attributes {
+            icono
+            nombre
+            slug
+          }
+        }
       }
     }
   `);
+
+  portfolio.value = portfolioResponse.portafolio;
+  categories.value = categoriesResponse.categorias;
 } catch (error) {
   console.log('An error occurred while fetching data: ', error);
 }

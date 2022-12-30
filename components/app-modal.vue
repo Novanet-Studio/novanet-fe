@@ -7,8 +7,9 @@
             <font-awesome :icon="['fa', 'times']" size="1x" />
           </button>
           <div class="modal__converter">
-            <div v-if="image?.url">
-              <nuxt-img :src="image.url" :alt="image.alternativeText" background="#ededed" blur="40" />
+            <div v-if="image?.id">
+              <nuxt-img :src="image.attributes.url" :alt="image.attributes.alternativeText" background="#ededed"
+                blur="40" />
             </div>
 
             <div v-if="content">
@@ -40,10 +41,6 @@
 </template>
 
 <script lang="ts" setup>
-type Image = {
-  url: string;
-  alternativeText: string;
-};
 
 type Content = {
   icono: string;
@@ -52,12 +49,12 @@ type Content = {
 };
 
 type Props = {
-  image?: Image;
+  image?: Project.ImageRaw;
   content?: Content;
-  title: string;
-  item: Project.Speciality[];
-  link: string;
-  class: string;
+  title?: string;
+  item?: Project.Speciality[];
+  link?: string;
+  class?: string;
 };
 
 defineProps<Props>();
