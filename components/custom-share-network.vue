@@ -14,7 +14,7 @@ type Props = {
   hashtags?: string;
   twitterUser?: string;
   media?: string;
-  tag: string;
+  tag?: string;
   popup?: {
     width: number;
     height: number;

@@ -27,9 +27,9 @@
         </nav>
       </app-sidebar>
 
-      <nuxt-img
+      <img
         class="header__logo"
-        src="/novanet-logo.svg"
+        src="~/assets/images/novanet-logo.svg"
         width="192"
         alt="Logo de novanet"
       />

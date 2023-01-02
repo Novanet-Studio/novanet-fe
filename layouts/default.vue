@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" appear>
+  <Transition name="fade" appear>
     <div class="layout">
       <div class="container">
         <app-header />
@@ -9,5 +9,5 @@
         <app-footer />
       </div>
     </div>
-  </transition>
+  </Transition>
 </template>

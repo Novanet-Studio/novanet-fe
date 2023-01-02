@@ -94,8 +94,12 @@ namespace Project {
   interface ServicesResponse {
     data: {
       servicio: {
-        descripcion: string;
-        servicios: Services[];
+        data: {
+          attributes: {
+            descripcion: string;
+            servicios: Services[];
+          }
+        }        
       };
     };
   }

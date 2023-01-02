@@ -7,7 +7,7 @@
           {{ blog?.data.blog.data.attributes.descripcion }}
         </p>
       </section>
-
+      
       <section class="section">
         <div class="blog">
           <div v-for="article in articles" :key="article.id">

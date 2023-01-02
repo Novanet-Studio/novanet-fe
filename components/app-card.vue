@@ -21,7 +21,7 @@
 type Props = {
   view: string;
   imagen: Project.ImageRaw;
-  coleccion: string;
+  coleccion?: string;
   descripcion?: string;
   data: Project.Project | Project.Article;
   isBlog?: boolean;
