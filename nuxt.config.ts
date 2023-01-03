@@ -75,8 +75,8 @@ export default defineNuxtConfig({
   },  
   routeRules: {
     // Static page generated on-demand, revalidates in background
-    '/blog/**': { swr: true },
+    '/blog/**': { static: true },
     // Static page generated on-demand once
-    '/portafolio/**': { swr: true },
+    '/portafolio/**': { static: true },
   }
 });
