@@ -18,29 +18,13 @@
         <div class="pago">
           <div>
             <nuxt-img
+              v-for="image in images"
               class="pago__logos"
-              src="~/assets/images/novanet-inicio-diseno.jpg"
-              alt="Forma triangular del servicio de diseño gráfico"
+              :src="image.attributes.url"
+              :alt="image.attributes.alternativeText"
+              quality="1"
               background="#ededed"
-              quality="100"
-            />
-          </div>
-          <div>
-            <nuxt-img
-              class="pago__logos"
-              src="~/assets/images/novanet-inicio-web.jpg"
-              alt="Forma triangular del servicio de tecnologías web"
-              background="#ededed"
-              quality="100"
-            />
-          </div>
-          <div>
-            <nuxt-img
-              class="pago__logos"
-              src="~/assets/images/novanet-inicio-asesoria.jpg"
-              alt="Forma triangular del servicio de asesoría"
-              background="#ededed"
-              quality="100"
+              :key="image.id"
             />
           </div>
         </div>
@@ -64,4 +48,33 @@ useHead({
     },
   ],
 });
+
+const graphql = useStrapiGraphQL();
+const images = ref<Project.ImageRaw[]>([]);
+
+try {
+  const { data: servicesResponse } = await graphql<Project.ServiceResponse>(`
+    query Services {
+      servicio {
+        data {
+          attributes {
+            servicios {
+              imagen {
+                data {
+                  attributes {
+                    url
+                    alternativeText
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  images.value = servicesResponse.servicio.data.attributes.servicios.map(
+    (service) => service.imagen.data,
+  );
+} catch (error) {}
 </script>
