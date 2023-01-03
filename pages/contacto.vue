@@ -174,7 +174,7 @@ const onSubmit = handleSubmit(async (values) => {
         ...values,
       }),
     });
-    router.push('/success');
+    router.push('/gracias');
   } catch (error) {
     console.log('An error occurred while sending the form data: ', error);
   }
