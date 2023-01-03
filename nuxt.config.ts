@@ -35,6 +35,7 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
   },
+  
   build: {
     transpile: [
       '@fortawesome/vue-fontawesome',
@@ -71,5 +72,11 @@ export default defineNuxtConfig({
       xxl: 1536,
       '2xl': 1536,
     },
-  },
+  },  
+  routeRules: {
+    // Static page generated on-demand, revalidates in background
+    '/blog/**': { swr: true },
+    // Static page generated on-demand once
+    '/portafolio/**': { swr: true },
+  }
 });
