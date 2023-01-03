@@ -1,6 +1,11 @@
 <template>
   <container-wrapper>
-    <custom-header icon="p" view="¡Mensaje enviado!" bg="header--blue" title-class="nav__title" />
+    <custom-header
+      icon="p"
+      view="¡Mensaje enviado!"
+      bg="header--blue"
+      title-class="nav__title"
+    />
     <main class="main">
       <section class="section">
         <h2 class="blue">¡Gracias por contactarnos!</h2>
@@ -12,16 +17,31 @@
       <section class="section">
         <div class="pago">
           <div>
-            <nuxt-img class="pago__logos" src="/novanet-inicio-diseno.jpg"
-              alt="Forma triangular del servicio de diseño gráfico" background="#ededed" quality="100" />
+            <nuxt-img
+              class="pago__logos"
+              src="~/assets/images/novanet-inicio-diseno.jpg"
+              alt="Forma triangular del servicio de diseño gráfico"
+              background="#ededed"
+              quality="100"
+            />
           </div>
           <div>
-            <nuxt-img class="pago__logos" src="/novanet-inicio-web.jpg"
-              alt="Forma triangular del servicio de tecnologías web" background="#ededed" quality="100" />
+            <nuxt-img
+              class="pago__logos"
+              src="~/assets/images/novanet-inicio-web.jpg"
+              alt="Forma triangular del servicio de tecnologías web"
+              background="#ededed"
+              quality="100"
+            />
           </div>
           <div>
-            <nuxt-img class="pago__logos" src="/novanet-inicio-asesoria.jpg"
-              alt="Forma triangular del servicio de asesoría" background="#ededed" quality="100" />
+            <nuxt-img
+              class="pago__logos"
+              src="~/assets/images/novanet-inicio-asesoria.jpg"
+              alt="Forma triangular del servicio de asesoría"
+              background="#ededed"
+              quality="100"
+            />
           </div>
         </div>
       </section>
@@ -31,7 +51,7 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  layout: 'page'
+  layout: 'page',
 });
 
 useHead({
@@ -39,8 +59,9 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'Gracias por contactarnos. Te estaremos respondiendo lo más pronto posible.',
-    }
-  ]
+      content:
+        'Gracias por contactarnos. Te estaremos respondiendo lo más pronto posible.',
+    },
+  ],
 });
 </script>
