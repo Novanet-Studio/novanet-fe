@@ -1,4 +1,5 @@
 <template>
+  <container-wrapper>
   <custom-header icon="t" view="Portafolio" bg="header--magenta" title-class="nav__title" />
   <main class="main">
     <section class="section">
@@ -17,6 +18,7 @@
       </div>
     </section>
   </main>
+</container-wrapper>
 </template>
 
 <script lang="ts" setup>

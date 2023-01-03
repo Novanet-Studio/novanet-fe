@@ -1,4 +1,5 @@
 <template>
+  <container-wrapper>
   <custom-header icon="f" view="Nosotros" bg="header--green" title-class="nav__title" />
   <main class="main">
     <section class="section">
@@ -22,6 +23,7 @@
       <p>{{ about?.data.attributes.trabajo.descripcion }}</p>
     </section>
   </main>
+</container-wrapper>
 </template>
 
 <script lang="ts" setup>

@@ -1,4 +1,5 @@
 <template>
+  <container-wrapper>
   <custom-header icon="z" view="Contacto" bg="header--blue" title-class="nav__title" />
   <main class="main">
     <section class="section">
@@ -53,6 +54,7 @@
       </div>
     </section>
   </main>
+</container-wrapper>
 </template>
 
 <script lang="ts" setup>

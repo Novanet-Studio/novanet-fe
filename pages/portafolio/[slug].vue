@@ -1,5 +1,5 @@
 <template>
-  <routes-wrapper>
+  <container-wrapper>
     <custom-header icon="t" :view="`Portafolio / ${categories[0].attributes.nombre}`" bg="header--magenta"
       title-class="nav__title" />
 
@@ -22,7 +22,7 @@
         </div>
       </section>
     </main>
-  </routes-wrapper>
+  </container-wrapper>
 </template>
 
 <script lang="ts" setup>

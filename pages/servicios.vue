@@ -1,4 +1,5 @@
 <template>
+  <container-wrapper>
   <custom-header
     icon="m"
     view="Servicios"
@@ -47,6 +48,7 @@
       </div>
     </section>
   </main>
+</container-wrapper>
 </template>
 
 <script lang="ts" setup>

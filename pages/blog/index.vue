@@ -1,5 +1,5 @@
 <template>
-  <routes-wrapper>
+  <container-wrapper>
     <custom-header icon="q" view="Blog" bg="header--green" title-class="nav__title" />
     <main class="main">
       <section class="section">
@@ -18,7 +18,7 @@
         </div>
       </section>
     </main>
-  </routes-wrapper>
+  </container-wrapper>
 </template>
 
 <script lang="ts" setup>

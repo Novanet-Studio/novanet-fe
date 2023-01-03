@@ -1,5 +1,5 @@
 <template>
-  <routes-wrapper>
+  <container-wrapper>
     <custom-header icon="q" :view="`Blog / ${articleItem?.attributes.titulo}`" bg="header--green"
       title-class="nav__link--title" />
     <main class="main">
@@ -21,7 +21,7 @@
         </article>
       </section>
     </main>
-  </routes-wrapper>
+  </container-wrapper>
 </template>
 
 <script lang="ts" setup>

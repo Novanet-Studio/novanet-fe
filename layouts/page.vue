@@ -1,10 +1,7 @@
 <template>
   <Transition name="fade" appear>
-    <div class="layout">
-      <div class="container">
-        <slot />
-        <app-footer />
-      </div>
+    <div class="layout">      
+        <slot />         
     </div>
   </Transition>
 </template>
