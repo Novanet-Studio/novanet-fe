@@ -77,6 +77,6 @@ export default defineNuxtConfig({
     // Static page generated on-demand, revalidates in background
     '/blog/**': { static: true },
     // Static page generated on-demand once
-    '/portafolio/**': { static: true },
+    '/portafolio/**': { ssr: false },
   }
 });
