@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-import {
-  h,
-  toRefs,
-  getCurrentInstance
-} from 'vue';
+import { h, toRefs, getCurrentInstance } from 'vue';
 
 type Props = {
   network: string;
@@ -25,7 +21,7 @@ type Emits = {
   (e: 'change'): void;
   (e: 'close'): void;
   (e: 'open'): void;
-}
+};
 
 const emit = defineEmits<Emits>();
 
@@ -62,7 +58,7 @@ const {
   twitterUser,
   media,
   tag,
-  popup
+  popup,
 } = toRefs(props);
 
 /**
@@ -83,15 +79,19 @@ const availableNetworks = {
   buffer: 'https://bufferapp.com/add?text=@t&url=@u',
   email: 'mailto:?subject=@t&body=@u%0D%0A@d',
   evernote: 'https://www.evernote.com/clip.action?url=@u&title=@t',
-  facebook: 'https://www.facebook.com/sharer/sharer.php?u=@u&title=@t&description=@d&quote=@q&hashtag=@h',
-  flipboard: 'https://share.flipboard.com/bookmarklet/popout?v=2&url=@u&title=@t',
+  facebook:
+    'https://www.facebook.com/sharer/sharer.php?u=@u&title=@t&description=@d&quote=@q&hashtag=@h',
+  flipboard:
+    'https://share.flipboard.com/bookmarklet/popout?v=2&url=@u&title=@t',
   hackernews: 'https://news.ycombinator.com/submitlink?u=@u&t=@t',
   instapaper: 'http://www.instapaper.com/edit?url=@u&title=@t&description=@d',
   line: 'http://line.me/R/msg/text/?@t%0D%0A@u%0D%0A@d',
   linkedin: 'https://www.linkedin.com/shareArticle?url=@u',
   messenger: 'fb-messenger://share/?link=@u',
-  odnoklassniki: 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=@u&st.comments=@t',
-  pinterest: 'https://pinterest.com/pin/create/button/?url=@u&media=@m&description=@t',
+  odnoklassniki:
+    'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=@u&st.comments=@t',
+  pinterest:
+    'https://pinterest.com/pin/create/button/?url=@u&media=@m&description=@t',
   pocket: 'https://getpocket.com/save?url=@u&title=@t',
   quora: 'https://www.quora.com/share?url=@u&title=@t',
   reddit: 'https://www.reddit.com/submit?url=@u&title=@t',
@@ -107,7 +107,8 @@ const availableNetworks = {
   whatsapp: 'https://api.whatsapp.com/send?text=@t%0D%0A@u%0D%0A@d',
   wordpress: 'https://wordpress.com/press-this.php?u=@u&t=@t&s=@d&i=@m',
   xing: 'https://www.xing.com/social/share/spi?op=share&url=@u&title=@t',
-  yammer: 'https://www.yammer.com/messages/new?login=true&status=@t%0D%0A@u%0D%0A@d'
+  yammer:
+    'https://www.yammer.com/messages/new?login=true&status=@t%0D%0A@u%0D%0A@d',
 };
 
 const networks = computed(() => {
@@ -197,17 +198,17 @@ const share = () => {
     shareLink.value,
     'sharer-' + key.value,
     ',height=' +
-    popup.value.height +
-    ',width=' +
-    popup.value.width +
-    ',left=' +
-    popupLeft.value +
-    ',top=' +
-    popupTop.value +
-    ',screenX=' +
-    popupLeft.value +
-    ',screenY=' +
-    popupTop.value
+      popup.value.height +
+      ',width=' +
+      popup.value.width +
+      ',left=' +
+      popupLeft.value +
+      ',top=' +
+      popupTop.value +
+      ',screenX=' +
+      popupLeft.value +
+      ',screenY=' +
+      popupTop.value,
   );
 
   // If popup are prevented (AdBlocker, Mobile App context..), popup.window stays undefined and we can't display it
@@ -243,14 +244,14 @@ const renderData = () => {
   const node = {
     class: 'share-network-' + key.value,
     on: {
-      click: rawLink.value.substring(0, 4) === 'http' ? share : touch
+      click: rawLink.value.substring(0, 4) === 'http' ? share : touch,
     },
     attrs: {
       href:
         rawLink.value.substring(0, 4) === 'http'
           ? shareLink.value
-          : rawLink.value
-    }
+          : rawLink.value,
+    },
   };
 
   if (tag.value === 'a') {
@@ -265,14 +266,13 @@ const tg = `${data[0]}`;
 const node = data[1];
 const content = data[2];
 
-
 const render = h(
   tg,
   {
     onClick: node.on.click,
-    href: node.attrs.href
+    href: node.attrs.href,
   },
-  content
+  content,
 );
 </script>
 

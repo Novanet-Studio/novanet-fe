@@ -98,8 +98,8 @@ namespace Project {
           attributes: {
             descripcion: string;
             servicios: Services[];
-          }
-        }        
+          };
+        };
       };
     };
   }
@@ -168,7 +168,9 @@ namespace Project {
 
   interface ProjectsResponse {
     data: {
-      proyectos: Project[];
+      proyectos: {
+        data: Project[];
+      };
     };
   }
 
