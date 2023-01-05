@@ -21,10 +21,11 @@
               "
             ></div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d980.7857007733666!2d-66.87772169073442!3d10.489406951509675!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1952146d76df33c4!2sNovanet%20Studio!5e0!3m2!1ses!2sve!4v1632839029172!5m2!1ses!2sve"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15692.576250424276!2d-66.8779468!3d10.4893076!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1952146d76df33c4!2sNovanet%20Studio!5e0!3m2!1sen!2sve!4v1672924631601!5m2!1sen!2sve"
               class="contacto__mapa"
-              allowfullscreen="true"
+              allowfullscreen=""
               loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
 
