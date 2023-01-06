@@ -16,15 +16,13 @@
       </section>
       <section class="section">
         <div class="pago">
-          <div>
+          <div v-for="image in images" :key="image.id">
             <nuxt-img
-              v-for="image in images"
               class="pago__logos"
               :src="image.attributes.url"
               :alt="image.attributes.alternativeText"
               quality="1"
               background="#ededed"
-              :key="image.id"
             />
           </div>
         </div>

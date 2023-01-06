@@ -1,0 +1,62 @@
+.pago {
+  @include grid-structure($columns: 6, $col: $col-landscape, $padding: 0);
+  &__app {
+    display: flex;
+    justify-content: center;
+    margin-right: $col-landscape;
+    background-color: $light-grey;
+  }
+  &__logos {
+    width: 10em;
+    padding: 1em;
+  }
+}
+
+/*----------------------------------- Mobile Portrait ---------------------------------*/
+@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+  .pago {
+    @include grid-structure($columns: 2, $col: $col-portrait, $padding: 0);
+    &__app {
+      margin-bottom: $col-portrait * 2;
+      &:nth-child(odd) {
+        margin-right: $col-portrait;
+      }
+      &:nth-child(even) {
+        margin-right: 0;
+        margin-left: $col-portrait;
+      }
+    }
+  }
+}
+
+/*----------------------------------- Mobile Landscape --------------------------------*/
+@include responsive-max($max-width: 46em, $orientation: 'landscape') {
+  .pago {
+    @include grid-structure($columns: 4, $col: $col-landscape, $padding: 0);
+    margin-right: -$col-landscape;
+  }
+}
+
+/*----------------------------------- Tablet Portrait ---------------------------------*/
+@include responsive-min-max(
+  $min-width: 48em,
+  $max-width: 64em,
+  $orientation: 'portrait'
+) {
+  .pago {
+    @include grid-structure(
+      $columns: 4,
+      $col: $col-portrait-tablet,
+      $padding: 0
+    );
+    margin-right: -$col-portrait-tablet;
+
+    &__app {
+      &:nth-child(even),
+      &:nth-child(odd) {
+        margin-right: $col-portrait-tablet;
+        margin-left: 0;
+      }
+    }
+  }
+}
