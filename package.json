@@ -1,5 +1,11 @@
 {
-  "private": true,
+  "name": "novanet-fe-nuxt",
+  "private": false,
+  "description": "Novanet Studio web app",
+  "version": "3.5.1",
+  "author": "Novanet Studio <info@novanet.studio>",
+  "homepage": "https://novanet.studio",
+  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -7,11 +13,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@kevinmarrec/nuxt-pwa": "^0.13.0",
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/strapi": "^1.6.3",
     "@types/markdown-it": "^12.2.3",
-    "nuxt": "3.0.0",
+    "nuxt": "3.5.1",
     "sass": "^1.57.0"
   },
   "dependencies": {
@@ -23,6 +29,6 @@
     "markdown-it": "^13.0.1",
     "vee-validate": "^4.7.3",
     "vue3-tabs-component": "^1.1.2",
-    "yup": "^0.32.11"
+    "yup": "^1.1.1"
   }
 }
