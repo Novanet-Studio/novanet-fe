@@ -9,7 +9,7 @@
           loading="lazy" />
         <h4 class="shapes__subtitulo">{{ service.titulo }}</h4>
       </button>
-      <app-modal v-if="showModal" @close="showModal = false" :title="data?.titulo ?? ''"
+      <app-modal v-if="showModal" @close="showModal = false" :title="data?.titulo ?? ''" :description="data?.descripcion ?? ''"
         :item="data?.especialidad ?? []" :link="data?.link ?? ''" class="modal__index" />
     </div>
   </section>
@@ -34,6 +34,7 @@ const graphql = useStrapiGraphQL();
 const showModal = ref<Boolean>(false);
 const data = reactive<Partial<Project.Services>>({
   titulo: '',
+  descripcion:'',
   especialidad: [],
   link: '',
 });
@@ -43,6 +44,7 @@ const clickShapes = (service: Project.Services) => {
   data.especialidad = service.especialidad;
   data.link = service.link;
   data.titulo = service.titulo;
+  data.descripcion = service.descripcion
 }
 
 try {
@@ -72,6 +74,7 @@ try {
             servicios {
               id
               titulo
+              descripcion
               link
               imagen {
                 data {
