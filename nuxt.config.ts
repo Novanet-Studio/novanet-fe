@@ -25,6 +25,12 @@ export default defineNuxtConfig({
           content: 'Novanet Studio <info@novanet.studio>',
         },
       ],
+      script: [
+        {
+          children:
+            'function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"8ad2985e600b71f791445d3b7455dc49"})});',
+        },
+      ],
     },
     pageTransition: {
       name: 'page',
@@ -35,7 +41,7 @@ export default defineNuxtConfig({
       mode: 'out-in',
     },
   },
-  
+
   build: {
     transpile: [
       '@fortawesome/vue-fontawesome',
@@ -44,7 +50,13 @@ export default defineNuxtConfig({
       '@fortawesome/free-brands-svg-icons',
     ],
   },
-  modules: ['@nuxt/image-edge', '@nuxtjs/strapi', '@kevinmarrec/nuxt-pwa'],
+  modules: [
+    '@nuxt/image-edge',
+    '@nuxtjs/strapi',
+    '@kevinmarrec/nuxt-pwa',
+    'nuxt-gtag',
+    "@nuxt/image"
+  ],
   pwa,
   typescript: {
     tsConfig: {
@@ -72,11 +84,15 @@ export default defineNuxtConfig({
       xxl: 1536,
       '2xl': 1536,
     },
-  },  
+  },
   routeRules: {
     // Static page generated on-demand, revalidates in background
     '/blog/**': { static: true },
     // Static page generated on-demand once
     '/portafolio/**': { ssr: false },
-  }
+  },
+  gtag: {
+    // Your primary Google tag ID
+    id: 'G-RZX6HSVMPY',
+  },
 });
