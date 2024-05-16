@@ -14,17 +14,32 @@
       </section>
 
       <div class="section section-filters">
-        <button class="button active">Todos</button>
-        <button class="button" v-for="category in categories?.data">
+        <button
+          class="button"
+          :class="{
+            active: categoryActive === 'all',
+          }"
+          @click="filterByCategory('all')"
+        >
+          Todos
+        </button>
+        <button
+          class="button"
+          :class="{
+            active: categoryActive === category.attributes.slug,
+          }"
+          v-for="category in categories?.data"
+          @click="filterByCategory(category.attributes.slug)"
+        >
           {{ category.attributes.nombre }}
         </button>
       </div>
 
       <section class="section">
-        <div class="categories">
+        <div class="categories" :key="categoryActive">
           <nuxt-link
             class="project-item"
-            v-for="project in projects?.data"
+            v-for="project in projectsResult"
             :key="project?.id"
             :to="{
               path: `/portafolio/${project?.attributes?.categoria.data.attributes?.slug}/${project?.attributes?.slug}`,
@@ -69,7 +84,6 @@ const graphql = useStrapiGraphQL();
 
 const portfolio = ref<Project.Portfolio>();
 const categories = ref<Project.CategoryBody>();
-const projects = ref();
 
 definePageMeta({
   layout: 'page',
@@ -84,6 +98,8 @@ useHead({
     },
   ],
 });
+
+const { categoryActive, projectsResult, filterByCategory } = useProjects();
 
 function animateElements() {
   animate(
@@ -128,41 +144,14 @@ try {
     }
   `);
 
-  const { data: projectsResponse } = await graphql<any>(`
-    query Projects {
-      proyectos {
-        data {
-          id
-          attributes {
-            titulo
-            descripcion
-            slug
-            miniatura {
-              data {
-                attributes {
-                  url
-                  alternativeText
-                }
-              }
-            }
-
-            categoria {
-              data {
-                id
-                attributes {
-                  slug
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  watch(categoryActive, () => {
+    setTimeout(() => {
+      animateElements();
+    }, 400);
+  });
 
   portfolio.value = portfolioResponse.portafolio;
   categories.value = categoriesResponse.categorias;
-  projects.value = projectsResponse.proyectos;
 } catch (error) {
   console.log('An error occurred while fetching data: ', error);
 }
@@ -170,7 +159,7 @@ try {
 onMounted(() => {
   setTimeout(() => {
     animateElements();
-  }, 400);
+  }, 600);
 });
 </script>
 
