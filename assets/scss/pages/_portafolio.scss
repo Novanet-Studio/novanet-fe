@@ -1,7 +1,7 @@
 .section-filters {
   display: flex;
   gap: 1rem;
-  overflow-x: scroll;
+  overflow-x: hidden;
   white-space: nowrap;
 }
 
@@ -83,6 +83,10 @@
 
 /*----------------------------------- Mobile Portrait ---------------------------------*/
 @include responsive-max($max-width: 26em, $orientation: 'portrait') {
+  .section-filters {
+    overflow-x: scroll;
+  }
+
   .categories {
     @include grid-structure($columns: 1, $col: $col-portrait);
     &__items {
@@ -147,6 +151,10 @@
   $max-width: 64em,
   $orientation: 'portrait'
 ) {
+  .section-filters {
+    overflow-x: scroll;
+  }
+
   .categories {
     @include grid-structure($columns: 2, $col: $col-portrait-tablet);
 
@@ -209,6 +217,7 @@
 @include responsive-min($min-width: 80em) {
   .categories {
     @include grid-structure($columns: 4, $col: $col-landscape);
+
     &__items {
       margin-bottom: $col-landscape * 0.25;
       grid-column: auto;
