@@ -51,11 +51,10 @@ export default defineNuxtConfig({
     ],
   },
   modules: [
-    '@nuxt/image-edge',
     '@nuxtjs/strapi',
     '@kevinmarrec/nuxt-pwa',
     'nuxt-gtag',
-    "@nuxt/image"
+    '@nuxt/image',
   ],
   pwa,
   typescript: {
