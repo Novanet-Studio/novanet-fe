@@ -13,6 +13,11 @@
       font-size: 0.969rem;
       color: $dark-grey-2;
     }
+
+    img {
+      width: 100%;
+      margin-top: ($col-landscape * 0.5);
+    }
   }
 
   &__gallery {
@@ -35,7 +40,7 @@
 }
 
 /*----------------------------------- Mobile Portrait ---------------------------------*/
-@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+@include responsive-max($max-width: 26.875em, $orientation: 'portrait') {
   .project {
     @include grid-structure($columns: 1, $col: $col-portrait, $padding: 0);
 

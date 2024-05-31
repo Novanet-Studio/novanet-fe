@@ -367,7 +367,7 @@ button {
 }
 
 /*----------------------------------- Mobile Portrait ---------------------------------*/
-@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+@include responsive-max($max-width: 26.875em, $orientation: 'portrait') {
   body {
     font-size: 0.875rem;
     line-height: 1.125rem;

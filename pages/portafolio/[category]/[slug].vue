@@ -18,27 +18,7 @@
             <time class="date">{{ project?.attributes.ano }}</time>
             <h1>{{ project?.attributes.titulo }}</h1>
             <div v-html="markdown.render(project!.attributes.descripcion)" />
-            <ul class="project__gallery">
-              <li
-                v-for="imagen in project?.attributes.imagenes.data"
-                :key="imagen.id"
-              >
-                <button @click="galleryClick(imagen)" class="project__button">
-                  <nuxt-img
-                    class="project__thumbnail"
-                    :src="imagen.attributes.url"
-                    :alt="imagen.attributes.alternativeText"
-                    background="#ededed"
-                  />
-                </button>
-                <app-modal
-                  v-if="showModal"
-                  @close="showModal = false"
-                  :image="content"
-                  class="modal__item"
-                />
-              </li>
-            </ul>
+
           </div>
 
           <template v-if="currentUrl">
@@ -108,15 +88,7 @@ try {
                   }
                 }
               }
-              imagenes {
-                data {
-                  id
-                  attributes {
-                    url
-                    alternativeText
-                  }
-                }
-              }
+
               categoria {
                 data {
                   attributes {

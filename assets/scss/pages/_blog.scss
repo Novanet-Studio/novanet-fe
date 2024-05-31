@@ -20,7 +20,7 @@
 }
 
 /*----------------------------------- Mobile Portrait ---------------------------------*/
-@include responsive-max($max-width: 26em, $orientation: 'portrait') {
+@include responsive-max($max-width: 26.875em, $orientation: 'portrait') {
   .blog {
     @include grid-structure($columns: 2, $col: $col-portrait);
     margin: 0;
