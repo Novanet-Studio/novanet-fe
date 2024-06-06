@@ -35,8 +35,8 @@
         </button>
       </div>
 
-      <section class="section">
-        <div class="categories" :key="categoryActive">
+      <section class="section" :key="page">
+        <div class="categories" :key="categoryActive" ref="scrollComponent">
           <nuxt-link
             class="project-item"
             v-for="project in projectsResult"
@@ -52,6 +52,7 @@
                 project.attributes.miniatura.data.attributes.alternativeText
               "
               quality="1"
+              loading="lazy"
             />
             <div class="overlay">
               <h3 class="overlay-text">
@@ -59,6 +60,7 @@
               </h3>
             </div>
           </nuxt-link>
+
           <!-- <nuxt-link
             class="categories__items"
             v-for="category in categories?.data"
@@ -71,6 +73,14 @@
             />
             <h3 class="categories__title">{{ category.attributes.nombre }}</h3>
           </nuxt-link> -->
+          <!-- <skeleton-loading
+            :show="isLoading"
+            v-for="(n, index) in 4"
+            :key="n"
+            :style="{
+              opacity: 1 - index / 4,
+            }"
+          /> -->
         </div>
       </section>
     </main>
@@ -84,6 +94,8 @@ const graphql = useStrapiGraphQL();
 
 const portfolio = ref<Project.Portfolio>();
 const categories = ref<Project.CategoryBody>();
+const scrollComponent = ref<HTMLDivElement | null>(null);
+const page = ref<number>(1);
 
 definePageMeta({
   layout: 'page',
@@ -99,7 +111,13 @@ useHead({
   ],
 });
 
-const { categoryActive, projectsResult, filterByCategory } = useProjects();
+const {
+  categoryActive,
+  projectsResult,
+  fetchProjects,
+  filterByCategory,
+  pageCount,
+} = useProjects();
 
 function animateElements() {
   animate(
@@ -114,6 +132,26 @@ function animateElements() {
       delay: stagger(0.1),
     },
   );
+}
+
+function animateWithTimeout(time = 600) {
+  setTimeout(() => {
+    animateElements();
+  }, time);
+}
+
+function handleScroll() {
+  const element = scrollComponent.value;
+
+  if (
+    element &&
+    element?.getBoundingClientRect()?.bottom < window.innerHeight
+  ) {
+    if (page.value <= pageCount.value) {
+      page.value += 1;
+      fetchProjects(page.value, 10);
+    }
+  }
 }
 
 try {
@@ -156,10 +194,17 @@ try {
   console.log('An error occurred while fetching data: ', error);
 }
 
+watch(page, () => {
+  animateWithTimeout();
+});
+
 onMounted(() => {
-  setTimeout(() => {
-    animateElements();
-  }, 600);
+  window.addEventListener('scroll', handleScroll);
+  animateWithTimeout();
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 

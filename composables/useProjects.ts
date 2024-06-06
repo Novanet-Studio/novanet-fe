@@ -11,13 +11,16 @@ interface Result {
   projectsResult: Ref<any[]>;
   categoryActive: Ref<string>;
   isLoading: Ref<boolean>;
+  total: Ref<number>;
+  pageCount: Ref<number>;
   filterByCategory: (categoryId: string, selector?: string) => void;
-  removeFilters: () => void;
+  resetFilters: () => void;
+  fetchProjects: (page: number, pageSize: number) => void;
 }
 
-const simpleQuery = `
+const query = (page = 1, pageSize = 10) => `
 query Projects {
-  proyectos {
+  proyectos(pagination: { page: ${page}, pageSize: ${pageSize} }) {
     data {
       id
       attributes {
@@ -41,6 +44,13 @@ query Projects {
             }
           }
         }
+      }
+    }
+
+    meta {
+      pagination {
+        total
+        pageCount
       }
     }
   }
@@ -84,13 +94,15 @@ export default function useProjects(params?: Params): Result {
   const projectsResult = useState<any[]>('projectsResult', () => []);
   const categoryActive = useState('categoryActive', () => 'all');
   const isLoading = useState<boolean>('isCategoriesLoading', () => false);
+  const total = useState<number>('total', () => 0);
+  const pageCount = useState<number>('pageCount', () => 0);
 
   const graphql = useStrapiGraphQL();
 
   const getCategories = async () => {
     try {
       isLoading.value = true;
-      const response = await graphql<any>(simpleQuery);
+      const response = await graphql<any>(query());
 
       if (params?.ordered) {
         const ordered = response.data.proyectos.data.sort(
@@ -103,6 +115,36 @@ export default function useProjects(params?: Params): Result {
 
       projects.value = response.data.proyectos.data;
       projectsResult.value = response.data.proyectos.data;
+      total.value = response.data.proyectos.meta.pagination.total;
+      pageCount.value = response.data.proyectos.meta.pagination.pageCount;
+    } catch (error) {
+      console.log(error);
+      projects.value = [];
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
+  const fetchProjects = async (page = 1, pageSize = 10) => {
+    try {
+      isLoading.value = true;
+      const response = await graphql<any>(query(page, pageSize));
+
+      if (page > 1) {
+        projects.value = [...projects.value, ...response.data.proyectos.data];
+        projectsResult.value = [
+          ...projects.value,
+          ...response.data.proyectos.data,
+        ];
+        total.value = response.data.proyectos.meta.pagination.total;
+        pageCount.value = response.data.proyectos.meta.pagination.pageCount;
+        return;
+      }
+
+      projects.value = response.data.proyectos.data;
+      projectsResult.value = response.data.proyectos.data;
+      total.value = response.data.proyectos.meta.pagination.total;
+      pageCount.value = response.data.proyectos.meta.pagination.pageCount;
     } catch (error) {
       console.log(error);
       projects.value = [];
@@ -160,5 +202,8 @@ export default function useProjects(params?: Params): Result {
     isLoading,
     filterByCategory,
     resetFilters,
+    fetchProjects,
+    total,
+    pageCount,
   };
 }
