@@ -18,17 +18,15 @@
             <time class="date">{{ project?.attributes.ano }}</time>
             <h1>{{ project?.attributes.titulo }}</h1>
             <div v-html="markdown.render(project!.attributes.descripcion)" />
-
           </div>
 
-          <template v-if="currentUrl">
-            <app-share
-              :url="currentUrl"
-              :titulo="project!.attributes.titulo"
-              :descripcion="project!.attributes.descripcion"
-              :imagen="project!.attributes.miniatura.data.attributes.url"
-            />
-          </template>
+          <app-share
+            v-if="currentUrl"
+            :url="currentUrl"
+            :titulo="project!.attributes.titulo"
+            :descripcion="project!.attributes.descripcion"
+            :imagen="project!.attributes.miniatura.data.attributes.url"
+          />
         </div>
       </section>
     </main>
@@ -43,13 +41,13 @@ definePageMeta({
 });
 
 const graphql = useStrapiGraphQL();
-const projectId = useProjectId();
+// const projectId = useProjectId();
 const currentUrl = useCurrentUrl();
 const route = useRoute();
 
 const markdown = new MarkdownIt();
-const showModal = ref(false);
-const content = ref();
+// const showModal = ref(false);
+// const content = ref();
 const project = ref<Project.Project>();
 
 useHead({
@@ -62,10 +60,10 @@ useHead({
   ],
 });
 
-const galleryClick = (image: Project.ImageRaw) => {
-  showModal.value = true;
-  content.value = image;
-};
+// const galleryClick = (image: Project.ImageRaw) => {
+//   showModal.value = true;
+//   content.value = image;
+// };
 
 try {
   const result = await graphql<Project.ProjectsResponse>(
