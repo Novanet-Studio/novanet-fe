@@ -35,10 +35,10 @@
         </button>
       </div>
 
-      <section class="section" :key="page">
+      <section class="section">
         <div class="categories" :key="categoryActive" ref="scrollComponent">
           <nuxt-link
-            class="project-item"
+            class="project-item hidden"
             v-for="project in projectsResult"
             :key="project?.id"
             :to="{
@@ -195,7 +195,28 @@ try {
 }
 
 watch(page, () => {
-  animateWithTimeout();
+  if (page.value > pageCount.value) return;
+  setTimeout(() => {
+    const elements = document.querySelectorAll('.categories > .project-item');
+    const newElements = [...elements];
+
+    const hiddenElements = newElements.filter(
+      (element: any) => !element.style.transform.includes('--motion'),
+    );
+
+    animate(
+      hiddenElements,
+      {
+        y: [100, 0],
+        opacity: [0, 1],
+        visibility: 'visible',
+      },
+      {
+        duration: 1,
+        delay: stagger(0.1),
+      },
+    );
+  }, 1000);
 });
 
 onMounted(() => {

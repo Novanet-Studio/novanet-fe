@@ -128,14 +128,17 @@ export default function useProjects(params?: Params): Result {
   const fetchProjects = async (page = 1, pageSize = 10) => {
     try {
       isLoading.value = true;
+      if (page > pageCount.value) return;
+
       const response = await graphql<any>(query(page, pageSize));
 
       if (page > 1) {
-        projects.value = [...projects.value, ...response.data.proyectos.data];
-        projectsResult.value = [
+        const arrValue = new Set([
           ...projects.value,
           ...response.data.proyectos.data,
-        ];
+        ]);
+        projects.value = [...arrValue.values()];
+        projectsResult.value = [...arrValue.values()];
         total.value = response.data.proyectos.meta.pagination.total;
         pageCount.value = response.data.proyectos.meta.pagination.pageCount;
         return;
