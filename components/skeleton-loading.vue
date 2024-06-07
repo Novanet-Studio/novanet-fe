@@ -1,6 +1,6 @@
 <template>
   <div class="skeleton-loading" v-if="show">
-    <div class="skeleton-loading__item animate-pulse" v-for="n in 6">
+    <div class="skeleton-loading__item animate-pulse">
       <div class="skeleton-loading__image animate-pulse"></div>
     </div>
   </div>
