@@ -45,16 +45,16 @@
               path: `/portafolio/${project?.attributes?.categoria.data.attributes?.slug}/${project?.attributes?.slug}`,
             }"
           >
-            <NuxtImg
-              v-if="project.attributes.miniatura.data.attributes.url"
-              :src="project.attributes.miniatura.data.attributes.url"
-              :alt="
-                project.attributes.miniatura.data.attributes.alternativeText
-              "
-              quality="1"
-              loading="lazy"
-            />
             <div class="overlay">
+              <NuxtImg
+                v-if="project.attributes.miniatura.data.attributes.url"
+                :src="project.attributes.miniatura.data.attributes.url"
+                :alt="
+                  project.attributes.miniatura.data.attributes.alternativeText
+                "
+                quality="1"
+                loading="lazy"
+              />
               <h3 class="overlay-text">
                 {{ project.attributes.titulo }}
               </h3>
