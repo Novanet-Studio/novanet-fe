@@ -50,7 +50,7 @@
     </div>
     <div class="rrss">
       <p class="mensaje__legal">
-        Novanet Studio - Derechos reservados {{ new Date().getFullYear() }}
+        Novanet Studio - Derechos reservados {{ new Date().getFullYear() }}. Caracas - Miami.
       </p>
     </div>
   </footer>
