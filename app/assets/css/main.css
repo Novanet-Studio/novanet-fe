@@ -1,0 +1,74 @@
+@theme {
+  --font-display: "Inter", "sans-serif";
+}
+
+body {
+  --header-height: 16.6dvh;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: calc(var(--header-height));
+  overflow: hidden;
+}
+
+img,
+video {
+  max-width: unset;
+}
+
+.app-container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.background-emblem-1 {
+  background-image: url("/assets/images/novanet-emblema-semicirculo-2.svg"),
+    url("/assets/images/novanet-emblema-semicirculo-borde-azul.svg");
+  background-position: top right 7rem, bottom left 7rem;
+  background-repeat: no-repeat;
+}
+
+.background-emblem-2 {
+  background-image: url("/assets/images/novanet-emblema-semicirculo-borde-azul-reverso.svg"),
+    url("/assets/images/novanet-emblema-semicirculo-1.svg");
+  background-position: top left 7rem, bottom right 7rem;
+  background-repeat: no-repeat;
+}
+
+.background-emblem-3 {
+  background-image: url("/assets/images/novanet-columbia-reverse-right.svg"),
+    url("/assets/images/novanet-columbia-reverse-left.svg"),
+    url("/assets/images/novanet-emblema-semicirculo-1.svg");
+  background-position: top right, top left, bottom center;
+  background-repeat: no-repeat;
+  size: 62.899rem;
+}
+
+@media (width >=48rem) {
+  .app-container {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+@media (width >=64rem) {
+
+  .app-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .background-emblem-1 {
+    background-position: top center, bottom center;
+  }
+
+  .background-emblem-2 {
+    background-position: top center, bottom center;
+  }
+}
