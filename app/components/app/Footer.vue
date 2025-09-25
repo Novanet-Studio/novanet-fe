@@ -1,5 +1,5 @@
 <template>
-  <footer class="fixed bottom-0 flex justify-between items-center w-full pb-2 md:pb-5 lg:pb-20">
+  <footer class="fixed bottom-0 flex justify-between items-center px-9 pb-2 md:pb-5 w-full lg:px-20 lg:pb-20">
     <div>
       <p class="h-7 text-s1 md:text-p1 lg:text-p3">
         <span class="font-bold">Novanet Studio</span> | Creatividad | Innovación | Colaboración

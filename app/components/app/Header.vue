@@ -70,7 +70,7 @@ export default {
 </script>
 
 <template>
-  <header class="fixed top-0 w-screen bg-transparent h-1/6">
+  <header class="fixed top-0 w-screen bg-transparent px-6 h-1/6 md:px-9 lg:px-20 lg:pt-20">
     <nav class="mx-auto h-full flex flex-column flex-wrap content-center justify-between" aria-label="Global">
       <!-- Logo -->
       <div class="flex lg:flex-1">
