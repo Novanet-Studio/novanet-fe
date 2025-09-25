@@ -13,4 +13,16 @@ export default defineNuxtConfig({
       linkExactActiveClass: "exact-active"
     }
   },
+
+  fonts: {
+    families: [
+      {
+        name: 'Red Hat Display',
+        provider: 'google', // or 'local', 'adobe'
+        weights: [400, 500, 600, 700, 800, 900], // Include all desired weights
+        styles: ['normal', 'italic'],
+        subsets: ['latin-ext', 'latin'],
+      },
+    ],
+  },
 })

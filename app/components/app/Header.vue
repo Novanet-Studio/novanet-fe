@@ -3,7 +3,7 @@ export default {
   name: "NuxtTutorial",
   data() {
     return {
-      active: "Inicio", // Guarda el enlace activo
+      active: "Inicio", // Guarda el enlace activoe
       navigationLinks: [
         {
           name: "Inicio",
@@ -66,16 +66,14 @@ export default {
     });
   },
 };
-
 </script>
 
 <template>
-  <header class="fixed top-0 w-screen bg-transparent px-6 h-1/6 md:px-9 lg:px-20 lg:pt-20">
+  <header class="fixed top-0 w-full bg-transparent px-6 pt-8 md:px-9 lg:px-12 lg:pt-8">
     <nav class="mx-auto h-full flex flex-column flex-wrap content-center justify-between" aria-label="Global">
       <!-- Logo -->
       <div class="flex lg:flex-1">
         <NuxtLink to="/" class="logo" @click="setActive('Inicio')">
-
           <span class="sr-only">Your Company</span>
           <img class="h-[1.875rem] lg:h-[3.5rem] md:h-[3rem]" src="~/assets/images/novanet-emblema.svg" />
         </NuxtLink>
