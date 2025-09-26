@@ -13,6 +13,8 @@ section {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   overflow: hidden;
+  background-size: 26rem;
+  /* Emblem background size */
 }
 
 img,
@@ -34,6 +36,7 @@ h1 {
 p.description {
   font-size: 1rem;
   line-height: 1.25rem;
+  font-weight: 300;
 }
 
 .app-container {
@@ -43,14 +46,14 @@ p.description {
 .background-emblem-1 {
   background-image: url("/assets/images/novanet-emblema-semicirculo-2.svg"),
     url("/assets/images/novanet-emblema-semicirculo-borde-azul.svg");
-  background-position: top right 7rem, bottom left 7rem;
+  background-position: top center, bottom center;
   background-repeat: no-repeat;
 }
 
 .background-emblem-2 {
   background-image: url("/assets/images/novanet-emblema-semicirculo-borde-azul-reverso.svg"),
     url("/assets/images/novanet-emblema-semicirculo-1.svg");
-  background-position: top left 7rem, bottom right 7rem;
+  background-position: top center, bottom center;
   background-repeat: no-repeat;
 }
 

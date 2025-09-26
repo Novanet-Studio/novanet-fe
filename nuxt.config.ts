@@ -19,7 +19,7 @@ export default defineNuxtConfig({
       {
         name: 'Red Hat Display',
         provider: 'google', // or 'local', 'adobe'
-        weights: [400, 500, 600, 700, 800, 900], // Include all desired weights
+        weights: [300, 400, 500, 600, 700, 800, 900], // Include all desired weights
         styles: ['normal', 'italic'],
         subsets: ['latin-ext', 'latin'],
       },
