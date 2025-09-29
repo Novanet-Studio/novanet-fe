@@ -1,13 +1,12 @@
-<script setup>
+<script setup lang="ts">
 import { useSectionColor } from '~/composables/useSectionColor'
 const { currentColor } = useSectionColor()
-const headerFooterColor = currentColor
 </script>
 
 <template>
-   <AppHeader :color="headerFooterColor" />
+   <AppHeader :color="currentColor" />
    <main>
       <slot />
    </main>
-   <AppFooter :color="headerFooterColor" />
+   <AppFooter :color="currentColor" />
 </template>

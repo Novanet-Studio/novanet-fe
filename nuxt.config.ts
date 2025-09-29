@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', "@nuxt/fonts"],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/image', "@nuxt/fonts", '@nuxt/icon'],
   css: [
     "~/assets/css/main.css",
   ],
@@ -25,4 +25,11 @@ export default defineNuxtConfig({
       },
     ],
   },
+
+  icon: {
+    size: '22px', // default <Icon> size applied
+    class: 'icon', // default <Icon> class applied
+    mode: 'svg', // default <Icon> mode applied
+    cssLayer: 'base'
+  }
 })
