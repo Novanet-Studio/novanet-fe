@@ -14,7 +14,6 @@ section {
   padding-right: 1.5rem;
   overflow: hidden;
   background-size: 26rem;
-  /* Emblem background size */
 }
 
 img,
@@ -43,27 +42,34 @@ p.description {
   padding-bottom: 1.5rem;
 }
 
-.background-emblem-1 {
-  background-image: url("/assets/images/novanet-emblema-semicirculo-2.svg"),
-    url("/assets/images/novanet-emblema-semicirculo-borde-azul.svg");
-  background-position: top center, bottom center;
+.background-emblem-columbia-blue,
+.background-emblem-azure-top-botom,
+.background-emblem-columbia-blue-top-bottom,
+.background-emblem-azure-top {
+  justify-content: flex-end;
   background-repeat: no-repeat;
 }
 
-.background-emblem-2 {
-  background-image: url("/assets/images/novanet-emblema-semicirculo-borde-azul-reverso.svg"),
-    url("/assets/images/novanet-emblema-semicirculo-1.svg");
-  background-position: top center, bottom center;
-  background-repeat: no-repeat;
+.background-emblem-columbia-blue {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
+  background-position: bottom center;
 }
 
-.background-emblem-3 {
-  background-image: url("/assets/images/novanet-columbia-reverse-right.svg"),
-    url("/assets/images/novanet-columbia-reverse-left.svg"),
-    url("/assets/images/novanet-emblema-semicirculo-1.svg");
-  background-position: top right, top left, bottom center;
-  background-repeat: no-repeat;
-  size: 62.899rem;
+.background-emblem-azure-top-botom {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg"),
+    url("/assets/images/novanet-studio-emblema-semicirculo-lineas.svg");
+  background-position: top center, bottom center;
+}
+
+.background-emblem-azure-top {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg");
+  background-position: top center;
+}
+
+.background-emblem-columbia-blue-top-bottom {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue-lineas.svg"),
+    url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
+  background-position: top center, bottom center;
 }
 
 @media (width >=40rem) {}
@@ -72,25 +78,40 @@ p.description {
   section {
     padding-left: 2.25rem;
     padding-right: 2.25rem;
-    padding-bottom: 1.25rem;
+  }
+
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 47.50rem;
   }
 }
 
 @media (width >=64rem) {
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+  }
+
+  p.description,
+  .cta {
+    font-size: 1.875rem;
+    line-height: 2.5rem;
+  }
 
   section {
     flex-direction: row;
     align-items: center;
     padding-left: 3rem;
     padding-right: 3rem;
-    padding-bottom: 5rem;
   }
 
-  .background-emblem-1 {
-    background-position: top center, bottom center;
-  }
-
-  .background-emblem-2 {
-    background-position: top center, bottom center;
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 63rem;
   }
 }

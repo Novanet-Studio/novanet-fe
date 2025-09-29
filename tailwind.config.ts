@@ -10,18 +10,6 @@ module.exports = {
          "cadetGray": "#959CA4",
       },
       backgroundImage: {
-         "emblem-columbia-blue":
-            "url('/assets/images/novanet-emblema-semicirculo-1.svg')",
-
-         "azure-reverse":
-            "url('/assets/images/novanet-emblema-semicirculo-2.svg')",
-
-         "borde-emblem-columbia-blue":
-            "url('/assets/images/novanet-emblema-semicirculo-borde-azul.svg')",
-
-         "emblem-azure-reverse":
-            "url('/assets/images/novanet-emblema-semicirculo-borde-azul-reverso.svg')",
-
          "Background-autronaut":
             "url('/assets/images/novanet-emblema-semicirculo-fondo-autronauta.webp')",
 

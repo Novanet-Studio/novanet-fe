@@ -27,9 +27,8 @@ export default defineNuxtConfig({
   },
 
   icon: {
-    size: '22px', // default <Icon> size applied
     class: 'icon', // default <Icon> class applied
-    mode: 'svg', // default <Icon> mode applied
+    mode: 'css', // default <Icon> mode applied
     cssLayer: 'base'
   }
 })

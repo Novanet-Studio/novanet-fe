@@ -6,7 +6,7 @@ const home = [
     name: "Principal",
     title: "Novanet Studio",
     class:
-      "text-columbiaBlue bg-emblem-columbia-blue bg-no-repeat bg-bottom justify-end lg:bg-[bottom_right_7rem] lg:bg-[length:65.5rem] md:bg-[length:47.50rem]",
+      "background-emblem-columbia-blue text-columbiaBlue",
     bgColor: 'bg-azure',
     description:
       "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
@@ -21,7 +21,7 @@ const home = [
     name: "Creatividad",
     title: "Creatividad",
     class:
-      "background-emblem-1 text-columbiaBlue bg-no-repeat justify-end bg-bottom lg:bg-[length:65.5rem] md:bg-[length:47.50rem]",
+      "background-emblem-azure-top-botom text-columbiaBlue",
     bgColor: 'bg-oxfordBlue',
     description:
       "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte con la audiencia de manera efectiva..",
@@ -37,7 +37,7 @@ const home = [
     name: "Innovación",
     title: "Innovación",
     class:
-      "background-emblem-2 text-columbiaBlue bg-emblem-columbia-blue bg-no-repeat justify-end bg-[bottom_right_6rem] lg:bg-[length:65.5rem] md:bg-[length:47.50rem]",
+      "background-emblem-columbia-blue-top-bottom text-columbiaBlue",
     bgColor: 'bg-azure',
     description:
       "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones avanzadas y eficientes a nuestros clientes.",
@@ -53,7 +53,7 @@ const home = [
     name: "Colaboración",
     title: "Colaboración",
     class:
-      "text-oxfordBlue bg-azure-reverse bg-no-repeat justify-end bg-[top_center] lg:bg-[top_right_7rem] lg:bg-[length:65.5rem] md:bg-[length:47.50rem]",
+      "background-emblem-azure-top text-oxfordBlue",
     bgColor: 'bg-columbiaBlue',
     description:
       "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones avanzadas y eficientes a nuestros clientes.",

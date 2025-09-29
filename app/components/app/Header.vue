@@ -13,32 +13,22 @@ const navigationLinks = reactive([
   {
     name: "Inicio",
     link: "/",
-    activeClass: "border-b-2 border-black text-5xl",
-    baseClass: "pb-2 hover:border-b-2 hover:border-black text-center w-[6.5rem]",
   },
   {
     name: "Nosotros",
     link: "/nosotros",
-    activeClass: "border-b-2 border-black text-5xl",
-    baseClass: "pb-2 hover:border-b-2 hover:border-black text-center w-[6.5rem]",
   },
   {
     name: "Servicios",
     link: "/servicios",
-    activeClass: "border-b-2 border-black text-5xl",
-    baseClass: "pb-2 hover:border-b-2 hover:border-black text-center w-[6.5rem]",
   },
   {
     name: "Portafolio",
     link: "/portafolio",
-    activeClass: "border-b-2 border-black text-5xl",
-    baseClass: "pb-2 hover:border-b-2 hover:border-black text-center w-[6.5rem]",
   },
   {
     name: "Blog",
     link: "/blog",
-    activeClass: "border-b-2 border-black text-5xl",
-    baseClass: "pb-2 hover:border-b-2 hover:border-black text-center w-[6.5rem]",
   },
 ])
 
@@ -66,7 +56,7 @@ onMounted(() => {
 
 
 <template>
-  <header class="fixed top-0 w-full bg-transparent px-6 pt-8 md:px-9 lg:px-12 lg:pt-8 transition-colors"
+  <header class="fixed top-0 w-full bg-transparent px-6 pt-8 md:px-9 lg:px-12 lg:pt-12 transition-colors"
     :style="{ color: colorMap[color] || '#fff' }">
     <nav class="mx-auto h-full flex flex-column flex-wrap content-center justify-between" aria-label="Global">
       <!-- Logo -->
@@ -108,12 +98,12 @@ onMounted(() => {
       </div>
 
       <!-- Navbar (Desktop) -->
-      <div class="hidden flex-1 text-p3 list-none lg:flex lg:justify-end md:block">
-        <ul class="flex md:justify-end md:gap-10 lg:gap-32">
+      <div class="hidden lg:justify-end md:flex">
+        <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
           <li v-for="(item, index) in navigationLinks" :key="index">
-            <NuxtLink :to="item.link" :class="[
-              active === item.name ? item.activeClass : '',
-              item.baseClass
+            <NuxtLink :to="item.link" class="pb-2 text-center lg:text-3xl" :class="[
+              active === item.name ? `border-b-2 border-black` : '',
+              `hover:border-b-2 hover:border-black`
             ]" @click="setActive(item.name)">
               {{ item.name }}
             </NuxtLink>
