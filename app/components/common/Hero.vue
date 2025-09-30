@@ -5,7 +5,7 @@ const props = defineProps<{ content: any }>()
 <template>
    <section :data-color="item.dataColor" v-for="(item, index) in props.content" :key="index"
       :class="item.bgColor + ' ' + item.class">
-      <div class="flex flex-col gap-6 lg:justify-center">
+      <div class="flex flex-col gap-4 md:gap-4 lg:gap-6 lg:justify-center">
          <!-- Título -->
 
          <h1 :class="item.titleClass">{{ item.title }} </h1>
@@ -18,7 +18,7 @@ const props = defineProps<{ content: any }>()
          <!-- CTA -->
          <div v-if="item.buttonText">
             <NuxtLink :href="item.buttonLink" :class="item.buttonType"
-               class="cta transition duration-200 flex justify-between p-3 w-fit lg:p-6 ">
+               class="cta__primary transition duration-200 flex justify-between p-3 w-fit lg:p-6 ">
                {{ item.buttonText }}
                <span>&nbsp;→</span>
             </NuxtLink>
@@ -37,8 +37,8 @@ const props = defineProps<{ content: any }>()
          </div>
       </div>
       <!-- Imagen -->
-      <div v-if="item.image" class="lg:flex lg:flex-col lg:justify-end lg:h-full lg:w-2/4">
-         <NuxtImg :src="item.image" class="flex w-[40rem] -ml-28 md:w-[43rem] lg:w-[60rem] lg:-ml-64" />
+      <div v-if="item.image" class="lg:flex lg:flex-col lg:justify-end xl:h-full xl:w-2/4">
+         <NuxtImg :src="item.image" class="flex w-[40rem] -ml-28 md:ml-8 md:w-[43rem] lg:ml-20 lg:w-[54rem] xl:w-[60rem] xl:-ml-64 2xl:w-[50rem]" />
       </div>
    </section>
 </template>

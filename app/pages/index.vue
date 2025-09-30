@@ -14,7 +14,7 @@ const home = [
     buttonLink: "#",
     image: "images/novanet-studio-nina-mirando-izquierda.webp",
     buttonType: "bg-oxfordBlue text-columbiaBlue hover:bg-black hover:text-white",
-    descriptionClass: '',
+    
     dataColor: 'azure',
   },
   {
@@ -29,8 +29,7 @@ const home = [
     buttonLink: "#",
     image: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
     buttonType:
-      "bg-azure text-columbiaBlue hover:bg-black hover:text-white",
-    descriptionClass: '',
+      "bg-azure text-columbiaBlue hover:bg-black hover:text-white",    
     dataColor: 'oxfordBlue',
   },
   {
@@ -45,8 +44,7 @@ const home = [
     buttonLink: "#",
     image: "images/novanet-studio-nino-casco-realidad-virtual.webp",
     buttonType: "bg-oxfordBlue text-columbiaBlue hover:bg-black hover:text-white",
-    customClass: "justify-end lg:flex-row lg:items-center",
-    descriptionClass: '',
+    customClass: "justify-end lg:flex-row lg:items-center",    
     dataColor: 'azure',
   },
   {
@@ -60,8 +58,7 @@ const home = [
     buttonText: "Conoce más",
     buttonLink: "#",
     image: "images/novanet-studio-grupo-personas-juntando-manos.webp",
-    buttonType: " bg-oxfordBlue text-columbiaBlue hover:bg-black hover:text-white",
-    descriptionClass: '',
+    buttonType: "bg-oxfordBlue text-columbiaBlue hover:bg-black hover:text-white",    
     dataColor: 'columbiaBlue',
   },
 ];

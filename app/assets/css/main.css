@@ -72,8 +72,10 @@ p.description {
   background-position: top center, bottom center;
 }
 
+/* Width >= 640px */
 @media (width >=40rem) {}
 
+/* Width >= 768px */
 @media (width >=48rem) {
   section {
     padding-left: 2.25rem;
@@ -86,19 +88,64 @@ p.description {
   .background-emblem-azure-top {
     background-size: 47.50rem;
   }
+
+  h1 {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  p.description {
+    font-size: 1.375rem;
+    line-height: 1.5rem;
+  }
 }
 
-@media (width >=64rem) {
+/* Width >= 1024px */
+@media (width >=64rem) {  
+
+  h1 {
+    font-size: 2.375rem;
+    line-height: 2.625rem;
+  }
+
+  p.description {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  a.cta__primary {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 62rem;
+  }
+
+  .background-emblem-columbia-blue {
+    background-position: bottom center;
+  }
+}
+
+/* Width >= 1280px */
+@media (width >=80rem) {
 
   h1 {
     font-size: 2.5rem;
     line-height: 2.75rem;
   }
 
-  p.description,
-  .cta {
+  p.description {
     font-size: 1.875rem;
     line-height: 2.5rem;
+  }
+
+  a.cta__primary {
+    font-size: 1.625rem;
+    line-height: 1.875rem;
   }
 
   section {
@@ -114,4 +161,30 @@ p.description {
   .background-emblem-azure-top {
     background-size: 63rem;
   }
+}
+
+/* Width >= 1536px */
+@media (width >= 96rem) {
+
+  p.description {
+    padding-right: 12rem;
+  }
+
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 60rem;
+  }
+
+  .background-emblem-columbia-blue {
+    background-position: bottom right;
+  }
+
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom {
+  background-position: top right, bottom right;
+}
+
+
 }

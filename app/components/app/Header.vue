@@ -65,7 +65,7 @@ onMounted(() => {
           <span class="sr-only">Your Company</span>
           <!-- <img class="h-[1.875rem] lg:h-[3.5rem] md:h-[3rem]" src="~/assets/images/novanet-emblema.svg"
             :style="{ fill: colorMap[color] || '#fff' }" /> -->
-          <svg class="h-[1.875rem] lg:h-[3.5rem] md:h-[3rem]" viewBox="0 0 50 56" fill="none"
+          <svg class="h-[2.2rem] md:h-[2.5rem] lg:h-[3rem]" viewBox="0 0 50 56" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_492_1223)">
               <path
@@ -101,7 +101,7 @@ onMounted(() => {
       <div class="hidden lg:justify-end md:flex">
         <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
           <li v-for="(item, index) in navigationLinks" :key="index">
-            <NuxtLink :to="item.link" class="pb-2 text-center lg:text-3xl" :class="[
+            <NuxtLink :to="item.link" class="pb-2 text-center md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.7rem]" :class="[
               active === item.name ? `border-b-2 border-black` : '',
               `hover:border-b-2 hover:border-black`
             ]" @click="setActive(item.name)">
