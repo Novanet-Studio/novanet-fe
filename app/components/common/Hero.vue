@@ -38,7 +38,8 @@ const props = defineProps<{ content: any }>()
       </div>
       <!-- Imagen -->
       <div v-if="item.image" class="lg:flex lg:flex-col lg:justify-end xl:h-full xl:w-2/4">
-         <NuxtImg :src="item.image" class="flex w-[40rem] -ml-28 md:ml-8 md:w-[43rem] lg:ml-20 lg:w-[54rem] xl:w-[60rem] xl:-ml-64 2xl:w-[50rem]" />
+         <NuxtImg :src="item.image"
+            class="flex w-[34rem] -ml-20 xxs:max-xs:w-[24rem] xxs:max-xs:-ml-6 xs:w-[28rem] xs:-ml-6 md:ml-8 md:w-[43rem] lg:ml-20 lg:w-[54rem] xl:w-[60rem] xl:-ml-64 m4:w-[48rem] m4:-ml-8 2xl:w-[50rem]" />
       </div>
    </section>
 </template>

@@ -65,7 +65,7 @@ onMounted(() => {
           <span class="sr-only">Your Company</span>
           <!-- <img class="h-[1.875rem] lg:h-[3.5rem] md:h-[3rem]" src="~/assets/images/novanet-emblema.svg"
             :style="{ fill: colorMap[color] || '#fff' }" /> -->
-          <svg class="h-[2.2rem] md:h-[2.5rem] lg:h-[3rem]" viewBox="0 0 50 56" fill="none"
+          <svg class="h-[2.1rem] md:h-[2.5rem] lg:h-[3rem]" viewBox="0 0 50 56" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_492_1223)">
               <path

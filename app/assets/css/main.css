@@ -33,13 +33,14 @@ h1 {
 }
 
 p.description {
-  font-size: 1rem;
-  line-height: 1.25rem;
+  font-size: 1.4rem;
+  line-height: 1.65rem;
   font-weight: 300;
 }
 
-.app-container {
-  padding-bottom: 1.5rem;
+a.cta__primary {
+  font-size: 1rem;
+
 }
 
 .background-emblem-columbia-blue,
@@ -72,6 +73,17 @@ p.description {
   background-position: top center, bottom center;
 }
 
+/* Width >= 390px */
+@media (width <=24.375rem) {
+
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 24rem;
+  }
+}
+
 /* Width >= 640px */
 @media (width >=40rem) {}
 
@@ -101,7 +113,7 @@ p.description {
 }
 
 /* Width >= 1024px */
-@media (width >=64rem) {  
+@media (width >=64rem) {
 
   h1 {
     font-size: 2.375rem;
@@ -144,8 +156,8 @@ p.description {
   }
 
   a.cta__primary {
-    font-size: 1.625rem;
-    line-height: 1.875rem;
+    font-size: 1.5rem;
+    line-height: 1.25rem;
   }
 
   section {
@@ -163,8 +175,33 @@ p.description {
   }
 }
 
+/* Width >= 1512px */
+@media (width >=90rem) {
+
+  .background-emblem-columbia-blue,
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom,
+  .background-emblem-azure-top {
+    background-size: 46rem;
+  }
+
+  .background-emblem-columbia-blue {
+    background-position: bottom right 6rem;
+  }
+
+  .background-emblem-azure-top-botom,
+  .background-emblem-columbia-blue-top-bottom {
+    background-position: top right 6rem, bottom right 6rem;
+  }
+
+  .background-emblem-azure-top {
+    background-position: top right 6rem;
+  }
+
+}
+
 /* Width >= 1536px */
-@media (width >= 96rem) {
+@media (width >=96rem) {
 
   p.description {
     padding-right: 12rem;
@@ -183,8 +220,7 @@ p.description {
 
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom {
-  background-position: top right, bottom right;
-}
-
+    background-position: top right, bottom right;
+  }
 
 }
