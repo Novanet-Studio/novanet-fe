@@ -14,6 +14,20 @@ section {
   padding-right: 1.5rem;
   overflow: hidden;
   background-size: 26rem;
+  scroll-snap-align: start;
+}
+
+.section__container {
+  --tw-scroll-snap-strictness: mandatory;
+  scroll-snap-type: y var(--tw-scroll-snap-strictness);
+  overflow-y: auto;
+  height: 100vh;
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.section__container::-webkit-scrollbar {
+  display: none;
 }
 
 img,
@@ -215,12 +229,29 @@ a.cta__primary {
   }
 
   .background-emblem-columbia-blue {
-    background-position: bottom right;
+    background-position: bottom -50vh right;
+    animation: mainSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes mainSection {
+    0% {
+      background-position: bottom -50vh right;
+    }
+
+    100% {
+      background-position: bottom right;
+    }
   }
 
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom {
     background-position: top right, bottom right;
+  }
+
+  .background-emblem-azure-top {
+    background-position: top right;
   }
 
 }
