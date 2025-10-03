@@ -28,9 +28,17 @@ module.exports = {
             sm: '640px',
             md: '768px',
             lg: '1024px',
+            'ipadair': '1180px',
             xl: '1280px',
             'm4': '1512px',
             '2xl': '1536px',
+         },
+      },
+      variants: {
+         extend: {
+            // Extend any utility you want to be orientation-responsive
+            // For example, you might want to change flex direction based on orientation
+            flexDirection: ['landscape', 'portrait'],
          },
       },
    },

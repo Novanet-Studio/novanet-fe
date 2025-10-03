@@ -104,9 +104,10 @@ onMounted(() => {
       </Motion>
 
       <!-- Navbar (Desktop) -->
-      <Motion :initial="animations.header.initial" :animate="animations.header.animate"
-        :transition="{ ...animations.header.transition }">
-        <div class="hidden lg:justify-end md:flex">
+
+      <div class="hidden lg:justify-end md:flex">
+        <Motion :initial="animations.header.initial" :animate="animations.header.animate"
+          :transition="{ ...animations.header.transition }">
           <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
             <li v-for="(item, index) in navigationLinks" :key="index">
               <NuxtLink :to="item.link" class="pb-2 text-center md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.7rem]"
@@ -118,8 +119,9 @@ onMounted(() => {
               </NuxtLink>
             </li>
           </ul>
-        </div>
-      </Motion>
+        </Motion>
+      </div>
+
 
       <transition enter-class="opacity-0" enter-active-class="ease-out transition-medium" enter-to-class="opacity-100"
         leave-class="opacity-100" leave-active-class="ease-out transition-medium" leave-to-class="opacity-0">

@@ -15,6 +15,7 @@ section {
   overflow: hidden;
   background-size: 26rem;
   scroll-snap-align: start;
+
 }
 
 .section__container {
@@ -35,15 +36,15 @@ video {
   max-width: unset;
 }
 
-h1,
-h2,
-h3 {
+h1.main__title,
+h2.main__title,
+h3.main__title {
   font-weight: 900;
 }
 
-h1 {
+h1.main__title {
   font-size: 1.875rem;
-  line-height: 1.25rem;
+  line-height: 2.125rem;
 }
 
 p.description {
@@ -52,13 +53,39 @@ p.description {
   font-weight: 300;
 }
 
-a.cta__primary {
+a.cta__primary,
+button.cta__primary {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
   font-size: 1rem;
+  padding: 0.75rem;
 
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  font-size: 1rem;
+}
+
+
 .background-emblem-columbia-blue,
 .background-emblem-azure-top-botom,
+.background-emblem-azure-botom,
 .background-emblem-columbia-blue-top-bottom,
 .background-emblem-azure-top {
   justify-content: flex-end;
@@ -75,6 +102,13 @@ a.cta__primary {
     url("/assets/images/novanet-studio-emblema-semicirculo-lineas.svg");
   background-position: top center, bottom center;
 }
+
+.background-emblem-azure-botom {
+  background-image:
+    url("/assets/images/novanet-studio-emblema-semicirculo-lineas.svg");
+  background-position: bottom center;
+}
+
 
 .background-emblem-azure-top {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg");
@@ -129,7 +163,7 @@ a.cta__primary {
 /* Width >= 1024px */
 @media (width >=64rem) {
 
-  h1 {
+  h1.main__title {
     font-size: 2.375rem;
     line-height: 2.625rem;
   }
@@ -139,27 +173,58 @@ a.cta__primary {
     line-height: 2rem;
   }
 
-  a.cta__primary {
+  a.cta__primary,
+  button.cta__primary {
     font-size: 1.5rem;
     line-height: 1.75rem;
+    padding: 1.5rem;
+  }
+
+  input,
+  textarea {
+    width: 80%;
   }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
   .background-emblem-azure-top {
-    background-size: 62rem;
+    background-size: 40rem;
   }
 
   .background-emblem-columbia-blue {
-    background-position: bottom center;
+    background-position: bottom right;
   }
+
+  .background-emblem-azure-top-botom {
+    background-position: top right, bottom left;
+  }
+
+  .background-emblem-columbia-blue-top-bottom {
+    background-position: top left, bottom right;
+  }
+
+  .background-emblem-azure-top {
+    background-position: top right;
+  }
+
+  .background-emblem-azure-botom {  
+  background-position: bottom right;
+}
+
 }
 
 /* Width >= 1280px */
 @media (width >=80rem) {
 
-  h1 {
+  section {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  h1.main__title {
     font-size: 2.5rem;
     line-height: 2.75rem;
   }
@@ -169,24 +234,19 @@ a.cta__primary {
     line-height: 2.5rem;
   }
 
-  a.cta__primary {
+  a.cta__primary,
+  button.cta__primary {
     font-size: 1.5rem;
     line-height: 1.25rem;
-  }
-
-  section {
-    flex-direction: row;
-    align-items: center;
-    padding-left: 3rem;
-    padding-right: 3rem;
   }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
   .background-emblem-azure-top {
-    background-size: 63rem;
+    background-size: 50rem;
   }
+
 }
 
 /* Width >= 1512px */
@@ -212,6 +272,9 @@ a.cta__primary {
     background-position: top right 6rem;
   }
 
+  .background-emblem-azure-botom {
+    background-position: bottm right 6rem;
+  }
 }
 
 /* Width >= 1536px */
@@ -225,8 +288,26 @@ a.cta__primary {
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
   .background-emblem-azure-top {
-    background-size: 60rem;
+    background-size: 50rem;
   }
+
+  .background-emblem-azure-top-botom {
+    background-position: top right, bottom left;
+  }
+
+  .background-emblem-columbia-blue-top-bottom {
+    background-position: top left, bottom right;
+  }
+
+  .background-emblem-azure-top {
+    background-position: top right;
+  }
+
+  .background-emblem-azure-botom {
+    background-position: bottom right;
+  }
+
+  /* Background animations */
 
   .background-emblem-columbia-blue {
     background-position: bottom -50vh right;
@@ -237,21 +318,12 @@ a.cta__primary {
 
   @keyframes mainSection {
     0% {
-      background-position: bottom -50vh right;
+      background-position: bottom -60vh right;
     }
 
     100% {
       background-position: bottom right;
     }
-  }
-
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom {
-    background-position: top right, bottom right;
-  }
-
-  .background-emblem-azure-top {
-    background-position: top right;
   }
 
 }
