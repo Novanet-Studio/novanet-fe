@@ -104,13 +104,12 @@ onMounted(() => {
       </Motion>
 
       <!-- Navbar (Desktop) -->
-
       <div class="hidden lg:justify-end md:flex">
         <Motion :initial="animations.header.initial" :animate="animations.header.animate"
           :transition="{ ...animations.header.transition }">
           <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
             <li v-for="(item, index) in navigationLinks" :key="index">
-              <NuxtLink :to="item.link" class="pb-2 text-center md:text-[1.2rem] lg:text-[1.4rem] xl:text-[1.7rem]"
+              <NuxtLink :to="item.link" class="pb-2 text-center text-sm md:text-lg lg:text-2xl"
                 :class="[
                   active === item.name ? `border-b-2 border-black` : '',
                   `hover:border-b-2 hover:border-black`

@@ -12,26 +12,26 @@ import { animations } from '~/utils/animations'
       :style="{ color: colorMap[color] || '#fff' }">
 
       <div class="w-full pb-2 md:w-[70%]">
-        <p class="text-sm md:text-lg lg:text-xl xl:text-2xl">
+        <p class="text-sm md:text-lg lg:text-xl" >
           <b>Novanet Studio</b> | Creatividad | Innovación | Colaboración
         </p>
       </div>
 
       <div class="flex gap-1 h-9 w-full md:w-[30%] md:gap-3 md:justify-end">
         <a href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA" target="_blank" rel="noopener noreferrer">
-          <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-3xl"
+          <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-2xl"
             :style="{ color: colorMap[color] || '#fff' }" />
         </a>
         <a href="https://www.instagram.com/novanetstudio/" target="_blank" rel="noopener noreferrer">
-          <Icon name="fa6-brands:instagram" class="text-xl md:text-2xl lg:text-3xl"
+          <Icon name="fa6-brands:instagram" class="text-xl md:text-2xl lg:text-2xl"
             :style="{ color: colorMap[color] || '#fff' }" />
         </a>
         <a href="https://wa.me/message/QA5DVPVFSXYCJ1" target="_blank" rel="noopener noreferrer">
-          <Icon name="fa6-brands:whatsapp" class="text-xl md:text-2xl lg:text-3xl"
+          <Icon name="fa6-brands:whatsapp" class="text-xl md:text-2xl lg:text-2xl"
             :style="{ color: colorMap[color] || '#fff' }" />
         </a>
         <a href="https://www.facebook.com/NovanetStudio" target="_blank" rel="noopener noreferrer">
-          <Icon name="fa6-brands:facebook" class="text-xl md:text-2xl lg:text-3xl"
+          <Icon name="fa6-brands:facebook" class="text-xl md:text-2xl lg:text-2xl"
             :style="{ color: colorMap[color] || '#fff' }" />
         </a>
       </div>

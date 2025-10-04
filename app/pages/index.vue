@@ -20,7 +20,7 @@ const home = [
   {
     name: "Creatividad",
     title: "Creatividad",
-    titleColor: 'text-azure',
+    titleColor: 'text-columbiaBlue',
     color: "text-columbiaBlue",
     bgColor: 'bg-oxfordBlue',
     bgImage: 'background-emblem-azure-top-botom',
@@ -69,14 +69,14 @@ const home = [
     color: 'text-columbiaBlue',
     bgColor: 'bg-oxfordBlue',
     bgImage: 'background-emblem-azure-botom',
-    description: null,
+    description: 'Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.',
     buttonText: null,
     image: "images/novanet-studio-piezas-azules-rompecabezas.webp",
     buttonType: "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     dataColor: 'oxfordBlue',
     showForm: true,
     formButtonText: 'Enviar mensaje',    
-    formFieldBorder: 'border-b-2 border-columbiaBlue focus:border-raspberry',
+    formFieldBorder: 'border-b-[1px] border-columbiaBlue focus:border-raspberry',
   },
 ];
 </script>

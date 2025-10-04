@@ -35,7 +35,7 @@ onMounted(() => {
    <div class="section__container">
       <section v-for="(item, index) in props.content" :key="index" :data-section-index="index"
          :data-color="item.dataColor" :class="`${item.bgColor} ${item.bgImage} ${item.color}`">
-         <div class="flex flex-col gap-4 md:gap-4 lg:gap-6 lg:justify-center">
+         <div class="flex flex-col gap-4 md:gap-4 lg:gap-6 lg:justify-center xl:w-2/4">
 
             <!-- Título -->
             <Motion :key="`mainTitle-${index}`" :initial="animations.mainTitle.initial"
@@ -45,16 +45,16 @@ onMounted(() => {
             </Motion>
 
             <!-- Descripción -->
-            <Motion :key="`desc-${index}`" :initial="animations.description.initial"
+            <Motion v-if="item.description" :key="`desc-${index}`" :initial="animations.description.initial"
                :animate="isAnimated(index) ? animations.description.animate : animations.description.initial"
                :transition="{ ...animations.description.transition }">
-               <p class="description">
+               <p v-if="item.description" class="description">
                   {{ item.description }}
                </p>
             </Motion>
 
             <!-- CTA -->
-            <Motion :key="`cta-${index}`" :initial="animations.cta.initial"
+            <Motion v-if="item.buttonText" :key="`cta-${index}`" :initial="animations.cta.initial"
                :animate="isAnimated(index) ? animations.cta.animate : animations.cta.initial"
                :transition="{ ...animations.cta.transition }">
                <div v-if="item.buttonText">
@@ -66,7 +66,7 @@ onMounted(() => {
                </div>
             </Motion>
 
-            <Motion :key="`form-${index}`" :initial="animations.form.initial"
+            <Motion v-if="item.showForm" :key="`form-${index}`" :initial="animations.form.initial"
                :animate="isAnimated(index) ? animations.form.animate : animations.form.initial"
                :transition="{ ...animations.form.transition }">
                <CommonForm v-if="item.showForm" :content="item || {}" />
@@ -76,10 +76,10 @@ onMounted(() => {
                <NuxtLink :href="item.linkUrl" :class="item.linkClass" class=" p-2 lg:p-10 text-azure">
                   {{ item.linkText }}
                </NuxtLink>
-               <NuxtLink :href="item.linkUrl2" :class="item.linkClass" class="p-2  lg:p-10 text-azure">
+               <NuxtLink :href="item.linkUrl2" :class="item.linkClass" class="p-2 lg:p-10 text-azure">
                   {{ item.linkText2 }}
                </NuxtLink>
-               <NuxtLink :href="item.linkUrl3" :class="item.linkClass" class="p-2  lg:p-10 text-azure">
+               <NuxtLink :href="item.linkUrl3" :class="item.linkClass" class="p-2 lg:p-10 text-azure">
                   {{ item.linkText3 }}
                </NuxtLink>
             </div>
@@ -87,15 +87,13 @@ onMounted(() => {
 
          <!-- Imagen -->
          <div v-if="item.image" class="lg:flex lg:flex-col lg:justify-end xl:h-full xl:w-2/4">
-            <Motion :key="`mainImage-${index}`" :initial="animations.mainImage.initial"
+            <Motion v-if="item.image" :key="`mainImage-${index}`" :initial="animations.mainImage.initial"
                :animate="isAnimated(index) ? animations.mainImage.animate : animations.mainImage.initial"
                :transition="{ ...animations.mainImage.transition }">
                <NuxtImg :src="item.image"
-                  class="flex w-[34rem] -ml-20 xxs:max-xs:w-[24rem] xxs:max-xs:-ml-6 xxs:max-xs:w-[28rem] xxs:max-xs:-ml-6 md:ml-8 md:w-[43rem] ipadair:w-[32rem] ipadair:ml-[72vh] lg:ml-20 lg:w-[54rem] xl:w-[60rem] xl:-ml-64 m4:w-[48rem] m4:-ml-8 2xl:w-[50rem]" />
+                  class="3xs:w-[110%] 3xs:-ml-6 2xs:w-[120%] 2xs:-ml-12 md:w-[100%] md:ml-6 lg:w-[42%] lg:ml-[600px] xl:w-[100%] xl:ml-0 2xl:ml-14" />
             </Motion>
          </div>
-
-
       </section>
    </div>
 </template>

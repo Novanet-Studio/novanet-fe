@@ -15,7 +15,6 @@ section {
   overflow: hidden;
   background-size: 26rem;
   scroll-snap-align: start;
-
 }
 
 .section__container {
@@ -66,7 +65,8 @@ button.cta__primary {
 form {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
+
 }
 
 input,
@@ -121,8 +121,13 @@ form textarea::placeholder {
   background-position: top center, bottom center;
 }
 
-/* Width >= 390px */
-@media (width <=24.375rem) {
+
+/* Width <= 375px */
+@media (width <=23.438rem) {
+
+  p.description {
+    display: none;
+  }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
@@ -133,7 +138,7 @@ form textarea::placeholder {
 }
 
 /* Width >= 640px */
-@media (width >=40rem) {}
+
 
 /* Width >= 768px */
 @media (width >=48rem) {
@@ -145,18 +150,19 @@ form textarea::placeholder {
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
+  .background-emblem-azure-top,
+  .background-emblem-azure-botom {
     background-size: 47.50rem;
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     line-height: 2rem;
   }
 
   p.description {
     font-size: 1.375rem;
-    line-height: 1.5rem;
+    line-height: 1.625rem;
   }
 }
 
@@ -164,31 +170,27 @@ form textarea::placeholder {
 @media (width >=64rem) {
 
   h1.main__title {
-    font-size: 2.375rem;
-    line-height: 2.625rem;
+    font-size: 2rem;
+    line-height: 2.125rem;
   }
 
   p.description {
-    font-size: 1.75rem;
-    line-height: 2rem;
+    font-size: 1.625rem;
+    line-height: 1.75rem;
   }
 
   a.cta__primary,
   button.cta__primary {
-    font-size: 1.5rem;
-    line-height: 1.75rem;
+    font-size: 1.375rem;
+    line-height: 1.5rem;
     padding: 1.5rem;
-  }
-
-  input,
-  textarea {
-    width: 80%;
   }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
+  .background-emblem-azure-top,
+  .background-emblem-azure-botom {
     background-size: 40rem;
   }
 
@@ -208,9 +210,9 @@ form textarea::placeholder {
     background-position: top right;
   }
 
-  .background-emblem-azure-botom {  
-  background-position: bottom right;
-}
+  .background-emblem-azure-botom {
+    background-position: bottom right;
+  }
 
 }
 
@@ -225,69 +227,40 @@ form textarea::placeholder {
   }
 
   h1.main__title {
-    font-size: 2.5rem;
-    line-height: 2.75rem;
+    font-size: 2rem;
+    line-height: 2.125rem;
   }
 
   p.description {
-    font-size: 1.875rem;
-    line-height: 2.5rem;
+    font-size: 1.625rem;
+    line-height: 1.75rem;
   }
 
   a.cta__primary,
   button.cta__primary {
-    font-size: 1.5rem;
-    line-height: 1.25rem;
+    font-size: 1.375rem;
+    line-height: 1.625rem;
   }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
+  .background-emblem-azure-top,
+  .background-emblem-azure-botom {
     background-size: 50rem;
   }
 
 }
 
-/* Width >= 1512px */
-@media (width >=90rem) {
-
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
-    background-size: 46rem;
-  }
-
-  .background-emblem-columbia-blue {
-    background-position: bottom right 6rem;
-  }
-
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom {
-    background-position: top right 6rem, bottom right 6rem;
-  }
-
-  .background-emblem-azure-top {
-    background-position: top right 6rem;
-  }
-
-  .background-emblem-azure-botom {
-    background-position: bottm right 6rem;
-  }
-}
-
 /* Width >= 1536px */
 @media (width >=96rem) {
 
-  p.description {
-    padding-right: 12rem;
-  }
 
   .background-emblem-columbia-blue,
   .background-emblem-azure-top-botom,
   .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
+  .background-emblem-azure-top,
+  .background-emblem-azure-botom {
     background-size: 50rem;
   }
 

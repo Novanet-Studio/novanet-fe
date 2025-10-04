@@ -23,14 +23,13 @@ module.exports = {
       backgroundOpacity: ["active"],
       extend: {
          screens: {
-            xxs: '375px',
-            xs: '390px',
+            '3xs': '375px',
+            '2xs': '414px',
+            xs: '480px',
             sm: '640px',
             md: '768px',
             lg: '1024px',
-            'ipadair': '1180px',
             xl: '1280px',
-            'm4': '1512px',
             '2xl': '1536px',
          },
       },
