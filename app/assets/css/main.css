@@ -80,64 +80,118 @@ textarea {
 form input::placeholder,
 form textarea::placeholder {
   font-size: 1rem;
+  font-weight: 100;
+  color: white;
 }
 
+.direction-reverse {
+  flex-direction: column-reverse;
+  justify-content: center;
+}
 
-.background-emblem-columbia-blue,
-.background-emblem-azure-top-botom,
-.background-emblem-azure-botom,
-.background-emblem-columbia-blue-top-bottom,
-.background-emblem-azure-top {
+.background-emblem-main,
+.background-emblem-creatividad,
+.background-emblem-contacto,
+.background-emblem-innovacion,
+.background-emblem-colaboracion,
+.background-emblem-nosotros,
+.background-emblem-mision,
+.background-emblem-vision,
+.background-emblem-nosotros-contacto {
   justify-content: flex-end;
   background-repeat: no-repeat;
 }
 
-.background-emblem-columbia-blue {
+.background-emblem-main {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
   background-position: bottom center;
 }
 
-.background-emblem-azure-top-botom {
+.background-emblem-creatividad {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg"),
-    url("/assets/images/novanet-studio-emblema-semicirculo-lineas.svg");
+    url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg");
   background-position: top center, bottom center;
 }
 
-.background-emblem-azure-botom {
+.background-emblem-contacto {
   background-image:
-    url("/assets/images/novanet-studio-emblema-semicirculo-lineas.svg");
+    url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg");
   background-position: bottom center;
 }
 
-
-.background-emblem-azure-top {
+.background-emblem-colaboracion {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg");
   background-position: top center;
 }
 
-.background-emblem-columbia-blue-top-bottom {
+.background-emblem-innovacion {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue-lineas.svg"),
     url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
   background-position: top center, bottom center;
 }
 
+.background-emblem-nosotros {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-autronauta.webp");
+  background-position: bottom right;
+  background-size: 10rem;
+  justify-content: flex-start;
+}
+
+.background-emblem-mision {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas.svg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.background-emblem-vision {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
+  background-position: right center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.background-emblem-nosotros-contacto {
+  background-position: left center;
+}
 
 /* Width <= 375px */
 @media (width <=23.438rem) {
 
-  p.description {
-    display: none;
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-mision,
+  .background-emblem-vision {
+    background-size: 24rem;
   }
 
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top {
-    background-size: 24rem;
+  .background-emblem-nosotros {
+    background-size: 8rem;
+    padding-top: var(--header-height);
+    background-position: bottom 5rem right;
   }
 }
 
+/* Width => 390px */
+@media (width >=24.375rem) {
+
+  .background-emblem-nosotros {
+    background-size: 13rem;
+    padding-top: var(--header-height);
+    background-position: bottom 5rem right;
+  }
+}
+
+
 /* Width >= 640px */
+@media (width >=40rem) {
+
+  .background-emblem-nosotros {
+    padding-top: var(--header-height);
+  }
+}
 
 
 /* Width >= 768px */
@@ -147,12 +201,18 @@ form textarea::placeholder {
     padding-right: 2.25rem;
   }
 
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top,
-  .background-emblem-azure-botom {
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto,
+  .background-emblem-mision,
+  .background-emblem-vision {
     background-size: 47.50rem;
+  }
+
+  .background-emblem-nosotros {
+    background-size: 18rem;
   }
 
   h1 {
@@ -186,33 +246,46 @@ form textarea::placeholder {
     padding: 1.5rem;
   }
 
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top,
-  .background-emblem-azure-botom {
-    background-size: 40rem;
-  }
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto,
+  {
+  background-size: 40rem;
+}
 
-  .background-emblem-columbia-blue {
-    background-position: bottom right;
-  }
+.background-emblem-mision,
+.background-emblem-vision {
+  background-size: 23rem;
+}
 
-  .background-emblem-azure-top-botom {
-    background-position: top right, bottom left;
-  }
 
-  .background-emblem-columbia-blue-top-bottom {
-    background-position: top left, bottom right;
-  }
+.background-emblem-main {
+  background-position: bottom right;
+}
 
-  .background-emblem-azure-top {
-    background-position: top right;
-  }
+.background-emblem-creatividad {
+  background-position: top right, bottom left;
+}
 
-  .background-emblem-azure-botom {
-    background-position: bottom right;
-  }
+.background-emblem-innovacion {
+  background-position: top left, bottom right;
+}
+
+.background-emblem-colaboracion {
+  background-position: top right;
+}
+
+.background-emblem-contacto {
+  background-position: bottom right;
+}
+
+.background-emblem-nosotros {
+  background-size: 22rem;
+  background-position: bottom right;
+  justify-content: center;
+}
 
 }
 
@@ -242,47 +315,63 @@ form textarea::placeholder {
     line-height: 1.625rem;
   }
 
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top,
-  .background-emblem-azure-botom {
+  .direction-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-nosotros-contacto {
     background-size: 50rem;
   }
 
+  .background-emblem-nosotros {
+    background-size: 24rem;
+    background-position: center right;
+    padding-top: unset;
+    justify-content: flex-start;
+  }
+
+  .background-emblem-mision,
+  .background-emblem-vision {
+    background-size: 25rem;
+  }
 }
 
 /* Width >= 1536px */
 @media (width >=96rem) {
 
-
-  .background-emblem-columbia-blue,
-  .background-emblem-azure-top-botom,
-  .background-emblem-columbia-blue-top-bottom,
-  .background-emblem-azure-top,
-  .background-emblem-azure-botom {
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto,
+  .background-emblem-mision,
+  .background-emblem-vision {
     background-size: 50rem;
   }
 
-  .background-emblem-azure-top-botom {
+  .background-emblem-creatividad {
     background-position: top right, bottom left;
   }
 
-  .background-emblem-columbia-blue-top-bottom {
+  .background-emblem-innovacion {
     background-position: top left, bottom right;
   }
 
-  .background-emblem-azure-top {
+  .background-emblem-colaboracion {
     background-position: top right;
   }
 
-  .background-emblem-azure-botom {
+  .background-emblem-contacto {
     background-position: bottom right;
   }
 
   /* Background animations */
 
-  .background-emblem-columbia-blue {
+  .background-emblem-main {
     background-position: bottom -50vh right;
     animation: mainSection 2s linear forwards;
     animation-timing-function: ease-in-out;
@@ -298,5 +387,17 @@ form textarea::placeholder {
       background-position: bottom right;
     }
   }
+
+}
+
+/* Width >= 1920px */
+@media (width >=120rem) {
+
+  .background-emblem-nosotros,
+  .background-emblem-mision,
+  .background-emblem-vision {
+    background-size: 32rem;
+  }
+
 
 }

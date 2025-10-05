@@ -34,7 +34,12 @@ onMounted(() => {
 <template>
    <div class="section__container">
       <section v-for="(item, index) in props.content" :key="index" :data-section-index="index"
-         :data-color="item.dataColor" :class="`${item.bgColor} ${item.bgImage} ${item.color}`">
+         :data-color="item.dataColor" :class="[
+            item.bgColor,
+            item.bgImage,
+            item.color,
+            item.reverseDirection ? 'direction-reverse' : ''
+         ]">
          <div class="flex flex-col gap-4 md:gap-4 lg:gap-6 lg:justify-center xl:w-2/4">
 
             <!-- Título -->
@@ -86,7 +91,7 @@ onMounted(() => {
          </div>
 
          <!-- Imagen -->
-         <div v-if="item.image" class="lg:flex lg:flex-col lg:justify-end xl:h-full xl:w-2/4">
+         <div v-if="item.image" class="lg:flex lg:flex-col xl:h-full xl:w-2/4" :class="item.justifyEnd ? 'justify-end' : 'justify-center'">
             <Motion v-if="item.image" :key="`mainImage-${index}`" :initial="animations.mainImage.initial"
                :animate="isAnimated(index) ? animations.mainImage.animate : animations.mainImage.initial"
                :transition="{ ...animations.mainImage.transition }">

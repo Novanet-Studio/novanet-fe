@@ -2,8 +2,8 @@ import { easeInOut } from "motion-v";
 
 export const animations = {
    header: {
-      initial: { x: -100, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
+      initial: { y: -100, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
       transition: {
          duration: 0.8,
          delay: 0.25,

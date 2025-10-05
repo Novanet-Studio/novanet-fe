@@ -9,16 +9,6 @@ module.exports = {
          "chartreuse": "#D6F630",
          "cadetGray": "#959CA4",
       },
-      backgroundImage: {
-         "Background-autronaut":
-            "url('/assets/images/novanet-emblema-semicirculo-fondo-autronauta.webp')",
-
-         "emblem-white":
-            "url('/assets/images/novanet-emblema-blanco.svg')",
-
-         "emblem-portafolio":
-            "url('/assets/images/portafolio.webp')",
-      },
       backgroundSize: {},
       backgroundOpacity: ["active"],
       extend: {
