@@ -55,7 +55,7 @@ export const animations = {
          ease: easeInOut,
       },
    },
-   form: {
+   ThirdElement: {
       initial: { opacity: 0 },
       animate: { opacity: 1 },
       transition: {

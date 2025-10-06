@@ -84,6 +84,16 @@ form textarea::placeholder {
   color: white;
 }
 
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.3rem;
+}
+
+.lista a:hover .icon-svg svg path {
+  fill: #0f172a;
+}
+
 .direction-reverse {
   flex-direction: column-reverse;
   justify-content: center;
@@ -153,6 +163,13 @@ form textarea::placeholder {
 
 .background-emblem-nosotros-contacto {
   background-position: left center;
+}
+
+.background-emblem-servicios {
+  background-image: url("/assets/images/novanet-studio-emblema-invertido.svg");
+  background-position: left -20rem center;
+  background-repeat: no-repeat;
+  background-size: 160rem;
 }
 
 /* Width <= 375px */

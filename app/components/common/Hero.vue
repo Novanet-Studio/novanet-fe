@@ -71,27 +71,32 @@ onMounted(() => {
                </div>
             </Motion>
 
-            <Motion v-if="item.showForm" :key="`form-${index}`" :initial="animations.form.initial"
-               :animate="isAnimated(index) ? animations.form.animate : animations.form.initial"
-               :transition="{ ...animations.form.transition }">
+            <!-- Formulario -->
+            <Motion v-if="item.showForm" :key="`form-${index}`" :initial="animations.ThirdElement.initial"
+               :animate="isAnimated(index) ? animations.ThirdElement.animate : animations.ThirdElement.initial"
+               :transition="{ ...animations.ThirdElement.transition }">
                <CommonForm v-if="item.showForm" :content="item || {}" />
             </Motion>
 
-            <div v-if="item.linkText" class=" flex justify-center">
-               <NuxtLink :href="item.linkUrl" :class="item.linkClass" class=" p-2 lg:p-10 text-azure">
-                  {{ item.linkText }}
-               </NuxtLink>
-               <NuxtLink :href="item.linkUrl2" :class="item.linkClass" class="p-2 lg:p-10 text-azure">
-                  {{ item.linkText2 }}
-               </NuxtLink>
-               <NuxtLink :href="item.linkUrl3" :class="item.linkClass" class="p-2 lg:p-10 text-azure">
-                  {{ item.linkText3 }}
-               </NuxtLink>
-            </div>
+            <!-- Lista -->
+            <Motion v-if="item.showList" :key="`list-${index}`" :initial="animations.ThirdElement.initial"
+               :animate="isAnimated(index) ? animations.ThirdElement.animate : animations.ThirdElement.initial"
+               :transition="{ ...animations.ThirdElement.transition }">
+               <div class="lista">
+                  <NuxtLink v-if="item.list" v-for="(listItem, listIndex) in item.list" :key="listIndex"
+                     :href="listItem.url" class=" flex flex-wrap pr-10 hover:text-oxfordBlue hover:font-bold transition-all"
+                     :class="item.listColor">
+                     {{ listItem.text }}
+                     <div v-if="listItem.icon" v-html="listItem.icon" class="icon-svg w-9 ml-2"></div>
+                  </NuxtLink>
+               </div>
+            </Motion>
          </div>
 
+
          <!-- Imagen -->
-         <div v-if="item.image" class="lg:flex lg:flex-col xl:h-full xl:w-2/4" :class="item.justifyEnd ? 'justify-end' : 'justify-center'">
+         <div v-if="item.image" class="lg:flex lg:flex-col xl:h-full xl:w-2/4"
+            :class="item.justifyEndImage ? 'justify-end' : 'justify-center'">
             <Motion v-if="item.image" :key="`mainImage-${index}`" :initial="animations.mainImage.initial"
                :animate="isAnimated(index) ? animations.mainImage.animate : animations.mainImage.initial"
                :transition="{ ...animations.mainImage.transition }">
