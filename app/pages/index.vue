@@ -13,7 +13,7 @@ const home = [
     dataColor: 'azure',
     description:
       "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
-    image: "images/novanet-studio-nina-mirando-izquierda.webp",
+    HeroImage: "images/novanet-studio-nina-mirando-izquierda.webp",
     justifyEndImage: true,
     name: "Principal",
     title: "Novanet Studio",
@@ -30,7 +30,7 @@ const home = [
     dataColor: 'oxfordBlue',
     description:
       "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte con la audiencia de manera efectiva..",
-    image: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
+    HeroImage: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
     justifyEndImage: true,
     name: "Creatividad",
     title: "Creatividad",
@@ -47,7 +47,7 @@ const home = [
     dataColor: 'azure',
     description:
       "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones avanzadas y eficientes a nuestros clientes.",
-    image: "images/novanet-studio-nino-casco-realidad-virtual.webp",
+    HeroImage: "images/novanet-studio-nino-casco-realidad-virtual.webp",
     justifyEndImage: true,
     name: "Innovación",
     title: "Innovación",
@@ -64,7 +64,7 @@ const home = [
     dataColor: 'columbiaBlue',
     description:
       "Creemos en el poder de trabajar en equipo, tanto con nuestros clientes como dentro de nuestra empresa, para alcanzar resultados excepcionales.",
-    image: "images/novanet-studio-grupo-personas-juntando-manos.webp",
+    HeroImage: "images/novanet-studio-grupo-personas-juntando-manos.webp",
     justifyEndImage: true,
     name: "Colaboración",
     title: "Colaboración",
@@ -80,19 +80,18 @@ const home = [
     description: 'Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.',
     formButtonText: 'Enviar mensaje',
     formFieldBorder: 'border-b-[1px] border-columbiaBlue focus:border-raspberry',
-    justifyEndImage: true,
-    image: "images/novanet-studio-piezas-azules-rompecabezas.webp",
+
+    HeroImage: "images/novanet-studio-piezas-azules-rompecabezas.webp",
     name: "Contacto",
     showForm: true,
+    placeHolderColor: 'placeholder-columbiaBlue',
     title: "¡Queremos conectar contigo!",
     titleColor: 'text-azure',
-    buttonText: null,
-    buttonLink: null,
   },
 ];
 </script>
 
 <template>
   <!-- Componente iterado por los items del array del contenido -->
-  <CommonHero :content="home" />
+  <CommonSection :content="home" />
 </template>

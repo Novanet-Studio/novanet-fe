@@ -24,7 +24,7 @@ const nosotros = [
       dataColor: 'columbiaBlue',
       description:
          "Ofrecer soluciones que permitan a nuestros clientes conectar con sus usuarios de manera auténtica y consolidar sus emprendimientos en el mundo digital.",
-      image: "images/novanet-studio-heroina-brazo-extendido.webp",
+      HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
       name: "Mision",
       title: "Misión",
       titleColor: 'text-azure',
@@ -37,35 +37,35 @@ const nosotros = [
       dataColor: 'white',
       description:
          "Aspiramos a ser reconocidos como líderes en el campo del marketing digital y la comunicación visual, ofreciendo soluciones de vanguardia que inspiren, motiven y transformen.",
-      image: "images/novanet-studio-acrobata-tope-piramide-humana.webp",
+      HeroImage: "images/novanet-studio-acrobata-tope-piramide-humana.webp",
       name: "Vision",
       title: "Visión",
       titleColor: 'text-azure',
       reverseDirection: true,
    },
    // Sección contacto
-  {
-    bgColor: 'bg-azure',
-    bgImage: 'background-emblem-nosotros-contacto',
-    buttonType: "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-columbiaBlue",
-    color: 'text-columbiaBlue',
-    dataColor: 'oxfordBlue',
-    description: 'Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.',
-    formButtonText: 'Enviar mensaje',
-    formFieldBorder: 'border-b-[1px] border-oxfordBlue focus:border-raspberry',
-    image: "images/novanet-studio-manos-juntas.webp",
-    name: "Contacto",
-    showForm: true,
-    title: "¡Queremos conectar contigo!",
-    titleColor: 'text-oxfordBlue',
-    buttonText: null,
-    buttonLink: null,
-  },
+   {
+      bgColor: 'bg-azure',
+      bgImage: 'background-emblem-nosotros-contacto',
+      buttonType: "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-columbiaBlue",
+      color: 'text-columbiaBlue',
+      dataColor: 'oxfordBlue',
+      description: 'Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.',
+      formButtonText: 'Enviar mensaje',
+      formFieldBorder: 'border-b-[1px] border-oxfordBlue focus:border-raspberry',
+      HeroImage: "images/novanet-studio-manos-juntas.webp",
+      name: "Contacto",
+      showForm: true,
+      title: "¡Queremos conectar contigo!",
+      titleColor: 'text-oxfordBlue',
+      buttonText: null,
+      buttonLink: null,
+   },
 ]
 
 </script>
 
 <template>
    <!-- Componente iterado por los items del array del contenido -->
-   <CommonHero :content="nosotros" />
+   <CommonSection :content="nosotros" />
 </template>

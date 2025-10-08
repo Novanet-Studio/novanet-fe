@@ -20,13 +20,13 @@ function handleSubmit() {
 <template>
   <form @submit.prevent="handleSubmit">
     <div>
-      <input :class="content.formFieldBorder" placeholder="Email" id="email" v-model="form.email" type="email"
-        required />
+      <input :class="[content.formFieldBorder, content.placeHolderColor]" placeholder="Email" id="email"
+        v-model="form.email" type="email" required />
     </div>
     <div>
-      <textarea :class="content.formFieldBorder" placeholder="Mensaje" id="message" v-model="form.message"
-        required></textarea>
+      <textarea :class="[content.formFieldBorder, content.placeHolderColor]" placeholder="Mensaje" id="message"
+        v-model="form.message" required></textarea>
     </div>
-    <button :class="content.buttonType" class="cta__primary" type="submit">{{ content.formButtonText }}</button>
+    <button :class="[`cta__primary`, content.buttonType]" type="submit">{{ content.formButtonText }}</button>
   </form>
 </template>
