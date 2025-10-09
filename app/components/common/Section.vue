@@ -2,7 +2,6 @@
 import { ref, onMounted, nextTick, computed } from 'vue'
 import { animations } from '~/utils/animations'
 const props = defineProps<{ content: any }>()
-
 const activeSections = ref<number[]>([])
 const animatedSections = ref<number[]>([])
 
@@ -29,12 +28,19 @@ onMounted(() => {
       })
    })
 })
+
+const scrollToSection = (sectionId: string) => {
+   const el = document.getElementById(sectionId)
+   if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+   }
+}
 </script>
 
 <template>
    <div class="section__container">
-      <section v-for="(item, index) in props.content" :key="index" :data-section-index="index"
-         :data-color="item.dataColor" :class="[
+      <section :id="item.name ? item.name : ''" v-for="(item, index) in props.content" :key="index"
+         :data-section-index="index" :data-color="item.dataColor" :class="[
             item.bgColor,
             item.bgImage,
             item.color,
@@ -42,6 +48,20 @@ onMounted(() => {
             item.justifyContent ? 'justify-center' : '',
          ]">
          <div :class="[`flex flex-col gap-4 md:gap-4 lg:gap-6`, item.showTabs ? 'xl:w-[66.6666666%]' : 'lg:w-2/4']">
+
+            <!-- CTA Navegación -->
+            <Motion v-if="item.navButtonBack" :key="`cta-${index}`" :initial="animations.cta.initial"
+               :animate="isAnimated(index) ? animations.cta.animate : animations.cta.initial"
+               :transition="{ ...animations.cta.transition }">
+               <div v-if="item.navButtonBack">
+                  <a :href="`#${item.targetSection}`"
+                     :class="[`cta__navigation transition duration-200`, item.buttonType]"
+                     @click.prevent="scrollToSection(item.targetSection)">
+                     <span>↑&nbsp;</span>
+                     Volver arriba
+                  </a>
+               </div>
+            </Motion>
 
             <!-- Título -->
             <Motion :key="`mainTitle-${index}`" :initial="animations.mainTitle.initial"
@@ -63,7 +83,7 @@ onMounted(() => {
                </p>
             </Motion>
 
-            <!-- CTA -->
+            <!-- CTA Primario -->
             <Motion v-if="item.buttonText" :key="`cta-${index}`" :initial="animations.cta.initial"
                :animate="isAnimated(index) ? animations.cta.animate : animations.cta.initial"
                :transition="{ ...animations.cta.transition }">
@@ -96,12 +116,13 @@ onMounted(() => {
                :animate="isAnimated(index) ? animations.ThirdElement.animate : animations.ThirdElement.initial"
                :transition="{ ...animations.ThirdElement.transition }">
                <div class="lista">
-                  <NuxtLink v-if="item.list" v-for="(listItem, listIndex) in item.list" :key="listIndex"
-                     :href="listItem.url"
-                     :class="[`flex flex-wrap pr-4 hover:text-oxfordBlue hover:font-bold transition-all`, item.listColor]">
+                  <a v-if="item.list" v-for="(listItem, listIndex) in item.list" :key="listIndex"
+                     :href="`#${listItem.targetSection}`"
+                     :class="[`flex flex-wrap pr-4 hover:text-oxfordBlue hover:font-bold transition-all`, item.listColor]"
+                     @click.prevent="scrollToSection(listItem.targetSection)">
                      {{ listItem.text }}
                      <div v-if="listItem.icon" v-html="listItem.icon" class="icon-svg ml-2"></div>
-                  </NuxtLink>
+                  </a>
                </div>
             </Motion>
          </div>

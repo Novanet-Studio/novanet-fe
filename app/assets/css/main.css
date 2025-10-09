@@ -62,6 +62,15 @@ button.cta__primary {
 
 }
 
+.cta__navigation {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  font-size: .9rem;
+  text-decoration: underline;
+  text-underline-offset: .75rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -153,7 +162,7 @@ form textarea::placeholder {
 .background-emblem-creatividad,
 .background-emblem-innovacion,
 .background-emblem-colaboracion,
-.background-emblem-contacto, 
+.background-emblem-contacto,
 .background-emblem-nosotros,
 .background-emblem-mision,
 .background-emblem-vision,

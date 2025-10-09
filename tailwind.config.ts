@@ -8,6 +8,7 @@ module.exports = {
          "raspberry": "#DF1F5B",
          "chartreuse": "#D6F630",
          "cadetGray": "#959CA4",
+         "eerieBlack": "#212529",
       },
       backgroundSize: {},
       backgroundOpacity: ["active"],
@@ -48,6 +49,7 @@ module.exports = {
                '--color-raspberry': theme('colors.raspberry'),
                '--color-chartreuse': theme('colors.chartreuse'),
                '--color-cadetGray': theme('colors.cadetGray'),  
+               '--color-eerieBlack': theme('colors.eerieBlack'),
             },
          })
       },

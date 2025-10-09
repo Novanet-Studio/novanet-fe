@@ -1,8 +1,19 @@
 <script setup lang="ts">
 import { useSectionColor } from '~/composables/useSectionColor'
-const { currentColor } = useSectionColor()
-</script>
+import { useRoute } from 'vue-router'
+import { watch, nextTick } from 'vue'
 
+const { currentColor, initObserver } = useSectionColor()
+const route = useRoute()
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await nextTick()
+    initObserver()
+  }
+)
+</script>
 <template>
    <AppHeader :color="currentColor" />
    <main>

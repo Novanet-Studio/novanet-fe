@@ -8,7 +8,7 @@ import { animations } from '~/utils/animations'
   <Motion :initial="animations.footer.initial" :animate="animations.footer.animate"
     :transition="{ ...animations.footer.transition }">
     <footer
-      class="fixed bottom-0 flex flex-col justify-between items-center px-6 pb-2 w-full md:flex-row md:pb-5 lg:px-12 lg:pb-12 transition-colors"
+      class="fixed bottom-0 flex flex-col justify-between items-center px-6 pb-2 w-full md:flex-row md:pb-5 lg:px-12 lg:pb-12 transition-colors auto"
       :style="{ color: colorMap[color] || '#fff' }">
 
       <div class="w-full pb-2 md:w-[70%]">
@@ -17,7 +17,7 @@ import { animations } from '~/utils/animations'
         </p>
       </div>
 
-      <div class="flex gap-1 h-9 w-full md:w-[30%] md:gap-3 md:justify-end">
+      <div class="hidden md:flex md:gap-1 md:h-9 md:w-full md:w-[30%] md:gap-3 md:justify-end">
         <a href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA" target="_blank" rel="noopener noreferrer">
           <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-2xl"
             :style="{ color: colorMap[color] || '#fff' }" />

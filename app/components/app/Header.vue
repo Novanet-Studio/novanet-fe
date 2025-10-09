@@ -59,12 +59,12 @@ onMounted(() => {
   <header class="fixed top-0 w-full bg-transparent px-6 pt-8 md:px-9 lg:px-12 lg:pt-12 transition-colors"
     :style="{ color: colorMap[color] || '#fff' }">
     <nav class="mx-auto h-full flex flex-column flex-wrap content-center justify-between" aria-label="Global">
-      
+
       <!-- Logo -->
       <Motion :initial="animations.header.initial" :animate="animations.header.animate"
         :transition="{ ...animations.header.transition }">
         <div class="flex lg:flex-1">
-          <NuxtLink to="/" class="logo">
+          <NuxtLink to="/" class="logo" @click="setActive('Inicio')">
             <span class="sr-only">Novanet Studio</span>
             <svg class="h-[2.1rem] md:h-[2.5rem] lg:h-[3rem]" xmlns="http://www.w3.org/2000/svg" id="Layer_1"
               version="1.1" viewBox="0 0 50 54.04">
@@ -95,8 +95,7 @@ onMounted(() => {
           :transition="{ ...animations.header.transition }">
           <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
             <li v-for="(item, index) in navigationLinks" :key="index">
-              <NuxtLink :to="item.link" class="pb-2 text-center text-sm md:text-lg lg:text-2xl" :class="[
-                active === item.name ? `border-b-2 border-black` : '',
+              <NuxtLink :to="item.link" class="pb-2 text-center text-sm md:text-lg lg:text-2xl" :class="[active === item.name ? `border-b-2 border-black` : '',
                 `hover:border-b-2 hover:border-black`
               ]" @click="setActive(item.name)">
                 {{ item.name }}
@@ -116,10 +115,10 @@ onMounted(() => {
 
       <!-- Menu (Móvil) -->
       <aside
-        class="transform top-0 right-0 w-48 bg-oxfordBlue fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
+        class="flex flex-col pt-8 pl-6 pr-4 transform top-0 right-0 w-2/5 bg-eerieBlack fixed h-full overflow-auto ease-in-out transition-all duration-300 z-30"
         :class="isOpen ? 'translate-x-0' : 'translate-x-full'">
         <div class="close">
-          <button class="absolute top-0 right-0 mt-[2.9rem] mr-[1.6rem]" @click="isOpen = false">
+          <button class="flex w-full justify-end" @click="isOpen = false">
             <svg width="23" height="23" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="10" cy="10" r="9.60805" stroke="#007FFF" stroke-width="0.783908" />
               <path
@@ -129,16 +128,32 @@ onMounted(() => {
           </button>
         </div>
 
-        <ul class="text-columbiaBlue text-s3 flex flex-col gap-5 pt-[8.5rem] pr-[1.6rem] hover:bottom-1">
+        <ul class="flex flex-col gap-5 text-columbiaBlue hover:bottom-1">
           <li v-for="(item, index) in navigationLinks" :key="index">
             <NuxtLink :to="item.link" :class="[
-              'flex justify-end focus:outline-none',
+              'flex justify-start focus:outline-none',
               $route.path === item.link ? 'border-b-2 border-azure text-azure' : '',
             ]" @click="isOpen = false">
               {{ item.name }}
             </NuxtLink>
           </li>
         </ul>
+        <!-- Social Media Icons (Mobile) -->
+        <div class="flex gap-1 h-9 w-full justify-start">
+          <a href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA" target="_blank" rel="noopener noreferrer">
+            <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-2xl" />
+          </a>
+          <a href="https://www.instagram.com/novanetstudio/" target="_blank" rel="noopener noreferrer">
+            <Icon name="fa6-brands:instagram" class="text-xl md:text-2xl lg:text-2xl" />
+          </a>
+          <a href="https://wa.me/message/QA5DVPVFSXYCJ1" target="_blank" rel="noopener noreferrer">
+            <Icon name="fa6-brands:whatsapp" class="text-xl md:text-2xl lg:text-2xl" />
+          </a>
+          <a href="https://www.facebook.com/NovanetStudio" target="_blank" rel="noopener noreferrer">
+            <Icon name="fa6-brands:facebook" class="text-xl md:text-2xl lg:text-2xl" />
+          </a>
+        </div>
+
       </aside>
     </nav>
   </header>
