@@ -14,7 +14,7 @@ onMounted(() => {
          if (section) {
             const observer = new IntersectionObserver(
                ([entry]) => {
-                  if (entry.isIntersecting) {
+                  if (entry?.isIntersecting) {
                      if (!activeSections.value.includes(idx)) activeSections.value.push(idx)
                      if (!animatedSections.value.includes(idx)) animatedSections.value.push(idx)
                   } else {
@@ -68,7 +68,7 @@ const scrollToSection = (sectionId: string) => {
                :animate="isAnimated(index) ? animations.mainTitle.animate : animations.mainTitle.initial"
                :transition="{ ...animations.mainTitle.transition }">
                <div class="flex flex-wrap">
-                  <h1 :class="[`main__title`, item.titleColor]">{{ item.title }} </h1>
+                  <h1 :class="[`main__title`, item.titleColor]"  >{{ item.title }}</h1>
                   <div v-if="item.serviceIcon" v-html="item.serviceIcon" class="icon-svg w-9 ml-2"></div>
                </div>
 
