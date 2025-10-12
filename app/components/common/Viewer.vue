@@ -71,7 +71,7 @@ const carouselStyle = computed(() => ({
         <p
           v-if="currentItem.date"
           class="text-sm"
-          :class="content.textColorClass || 'text-gray-500'"
+          :class="content.textColorClass || 'text-cadeteGray-500'"
         >
           {{ currentItem.date }}
         </p>
@@ -85,7 +85,7 @@ const carouselStyle = computed(() => ({
 
         <p
           class="text-base leading-relaxed"
-          :class="content.textColorClass || 'text-gray-700'"
+          :class="content.textColorClass || 'text-cadeteGray-700'"
         >
           {{ currentItem.description }}
         </p>

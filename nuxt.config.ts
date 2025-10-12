@@ -38,7 +38,15 @@ export default defineNuxtConfig({
     port: 3000, // You can specify a different port if needed
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxt/fonts", "@nuxt/icon", "motion-v/nuxt", "@nuxtjs/strapi"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "motion-v/nuxt",
+    "@nuxtjs/strapi",
+    "@stefanobartoletti/nuxt-social-share",
+  ],
   css: ["~/assets/css/main.css"],
 
   router: {
@@ -64,5 +72,9 @@ export default defineNuxtConfig({
     class: "icon", // default <Icon> class applied
     mode: "css", // default <Icon> mode applied
     cssLayer: "base",
+  },
+
+  socialShare: {
+    baseUrl: "https://novanet.studio/",
   },
 });

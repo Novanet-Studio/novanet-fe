@@ -110,6 +110,34 @@ form textarea::placeholder {
   flex-direction: column-reverse;
 }
 
+.custom-scrollbar-y::-webkit-scrollbar {
+  width: 20px;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar {
+  height: 10px;
+}
+
+.custom-scrollbar-y::-webkit-scrollbar-button {
+  height: 0;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-button {
+  width: 0;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-track,
+.custom-scrollbar-y::-webkit-scrollbar-track {
+  border: 2px solid #007fff;
+  border-radius: 10rem;
+}
+
+.custom-scrollbar-x::-webkit-scrollbar-thumb,
+.custom-scrollbar-y::-webkit-scrollbar-thumb {
+  border-radius: 10rem;
+  background-color: #007fff;
+}
+
 .tabs {
   padding: 1rem 0 1rem 0;
 }
