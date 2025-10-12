@@ -21,3 +21,28 @@ export const cleanGraphQLResponse = (response: any) => {
 
   return cleanObject(response);
 };
+
+export function createExcerpt(markdownString: string, maxLength = 250): string {
+  if (!markdownString) return "";
+
+  const plainText = markdownString
+    .replace(/(\r\n|\n|\r)/gm, " ")
+    .replace(/!\[.*?\]\(.*?\)/g, "")
+    .replace(/\|.*\|/g, "")
+    .replace(/#+\s/g, "")
+    .replace(/(\*|_)/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (plainText.length <= maxLength) {
+    return plainText;
+  }
+
+  let trimmedText = plainText.substring(0, maxLength);
+  trimmedText = trimmedText.substring(
+    0,
+    Math.min(trimmedText.length, trimmedText.lastIndexOf(" "))
+  );
+
+  return `${trimmedText}...`;
+}

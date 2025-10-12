@@ -4,72 +4,59 @@ useHead({
 });
 
 const portfolio = [
-  // Sección Principal
   {
-    bgColor: "bg-columbiaBlue",
-    bgImage: "background-emblem-portafolio",
-
     name: "Portafolio",
 
     title: "Portafolio. Creatividad y funcionalidad",
     titleColor: "text-raspberry",
-
     description:
-      "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes.  Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
-
+      "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
     color: "text-oxfordBlue",
+
     dataColor: "azure",
+
+    bgColor: "bg-columbiaBlue",
+    bgImage: "background-emblem-portafolio",
   },
 ];
 
-const portfolioSection = {
-  componentType: "PortfolioGallery",
-  bgColor: "bg-white",
-  color: "text-oxfordBlue",
-  dataColor: "azureBlue",
-  name: "Portafolio",
-  title: "Nuestro Trabajo Reciente",
-  titleColor: "text-oxfordBlue",
-  description:
-    "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
+const recents = {
+  name: "Recientes",
+
+  sectionTitle: "Lo más reciente",
+  containerClass: "bg-transparent text-white",
+  bgImage: "background-emblem-proyectos-recientes",
+  titleColorClass: "text-columbiaBlue",
+  textColorClass: "text-columbiaBlue",
+  buttonClass: "bg-azure text-oxfordBlue font-bold hover:bg-opacity-90",
+  arrowClass: "border-azure text-azure",
+
+  bgColor: "bg-oxfordBlue",
+
+  dataColor: "oxfordBlue",
 };
 
-const { getRecentProjects } = usePortfolio();
+const gallery = {
+  name: "Galeria",
+  title: "Nuestros Proyectos",
+  titleColor: "text-oxfordBlue",
+  bgImage: "background-emblem-galeria",
+  description:
+    "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
+  color: "text-oxfordBlue",
 
-const { data: projects, pending: projectsPending } = await useAsyncData(
-  "recent-projects",
-  async () => {
-    const response = await getRecentProjects();
+  dataColor: "azure",
 
-    console.log(response.data);
-
-    if (response.status === "ok") return response.data;
-
-    return [];
-  },
-  { lazy: true }
-);
-
-/*
-
-{
-oneImageViewer: true,
-item: [
-{
-  title: '',
-  description: '',
-  date: '',
-  cta_route: '',
-  image_url: ''
-}
-]
-}
-
-*/
+  bgColor: "bg-white",
+};
 </script>
 
 <template>
-  <!-- <CommonSection :content="portfolio" />
+  <div class="section__container">
+    <CommonSection :content="portfolio" />
 
-  <PortfolioGallery :content="portfolioSection" /> -->
+    <PortfolioRecentProjects :content="recents" />
+
+    <PortfolioGallery :content="gallery" />
+  </div>
 </template>

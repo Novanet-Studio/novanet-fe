@@ -162,7 +162,9 @@ form textarea::placeholder {
 .background-emblem-contacto,
 .background-emblem-nosotros,
 .background-emblem-mision,
+.background-emblem-proyectos-recientes,
 .background-emblem-vision,
+.background-emblem-galeria,
 .background-emblem-nosotros-contacto,
 .background-emblem-portafolio {
   justify-content: flex-end;
@@ -218,7 +220,21 @@ form textarea::placeholder {
   justify-content: center;
 }
 
+.background-emblem-proyectos-recientes {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg");
+  background-position: bottom right;
+  background-size: 10rem;
+  justify-content: flex-start;
+}
+
 .background-emblem-vision {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
+  background-position: right center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+
+.background-emblem-galeria {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
   background-position: right center;
   background-repeat: no-repeat;
@@ -243,11 +259,13 @@ form textarea::placeholder {
   .background-emblem-innovacion,
   .background-emblem-colaboracion,
   .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-vision,
+  .background-emblem-galeria {
     background-size: 24rem;
   }
 
   .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     background-size: 8rem;
     padding-top: var(--header-height);
@@ -258,6 +276,7 @@ form textarea::placeholder {
 /* Width => 390px */
 @media (width >=24.375rem) {
   .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     background-size: 13rem;
     padding-top: var(--header-height);
@@ -268,6 +287,7 @@ form textarea::placeholder {
 /* Width >= 640px */
 @media (width >=40rem) {
   .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     padding-top: var(--header-height);
   }
@@ -289,12 +309,14 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     background-size: 18rem;
   }
 
   .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-vision,
+  .background-emblem-galeria {
     background-size: 32rem;
   }
 
@@ -350,6 +372,10 @@ form textarea::placeholder {
     background-size: 40rem;
   }
 
+  .background-emblem-galeria {
+    background-size: 32rem;
+  }
+
   .background-emblem-main {
     background-position: bottom right;
   }
@@ -371,6 +397,7 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     background-size: 22rem;
     background-position: bottom right;
@@ -414,7 +441,8 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
-  .background-emblem-portafolio {
+  .background-emblem-portafolio,
+  .background-emblem-proyectos-recientes {
     background-size: 24rem;
     background-position: center right;
     padding-top: unset;
@@ -422,7 +450,8 @@ form textarea::placeholder {
   }
 
   .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-vision,
+  .background-emblem-galeria {
     background-size: 25rem;
   }
 }
@@ -455,6 +484,15 @@ form textarea::placeholder {
     background-position: bottom right;
   }
 
+  .background-emblem-proyectos-recientes {
+    background-size: 32rem;
+    background-position: center right;
+  }
+
+  .background-emblem-galeria {
+    background-size: 32rem;
+  }
+
   /* Background animations */
 
   .background-emblem-main {
@@ -481,16 +519,16 @@ form textarea::placeholder {
   .background-emblem-creatividad,
   .background-emblem-innovacion,
   .background-emblem-colaboracion,
-  .background-emblem-contacto,
-  .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-contacto {
     background-size: 64rem;
   }
 
   .background-emblem-nosotros,
   .background-emblem-portafolio,
   .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-proyectos-recientes,
+  .background-emblem-vision,
+  .background-emblem-galeria {
     background-size: 32rem;
   }
 }
