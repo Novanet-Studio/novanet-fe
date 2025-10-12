@@ -140,14 +140,14 @@ const carouselStyle = computed(() => ({
           <button
             @click="prevItem"
             :class="[
-              'w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              'w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
               content.arrowClass || 'border-azure text-azure',
             ]"
             aria-label="Anterior"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -163,14 +163,14 @@ const carouselStyle = computed(() => ({
           <button
             @click="nextItem"
             :class="[
-              'w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              'w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
               content.arrowClass || 'border-azure text-azure',
             ]"
             aria-label="Siguiente"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-5 w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

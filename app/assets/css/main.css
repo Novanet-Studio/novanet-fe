@@ -111,7 +111,7 @@ form textarea::placeholder {
 }
 
 .custom-scrollbar-y::-webkit-scrollbar {
-  width: 20px;
+  width: 12px;
 }
 
 .custom-scrollbar-x::-webkit-scrollbar {
