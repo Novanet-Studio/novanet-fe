@@ -53,7 +53,7 @@ const carouselStyle = computed(() => ({
 <template>
   <div
     v-if="currentItem"
-    class="w-full min-h-screen flex items-center py-16"
+    class="w-full min-h-screen flex items-start lg:items-center lg:py-16"
     :class="content.containerClass || 'bg-white text-oxfordBlue'"
   >
     <div

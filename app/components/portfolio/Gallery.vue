@@ -128,7 +128,7 @@ onMounted(() => {
             :ref="el => (tabRefs[tab.key] = el as HTMLElement)"
             @click="activeTabKey = tab.key"
             :class="[
-              'pb-3 px-1 text-lg text-azure font-semibold transition-colors duration-200 ease-out focus:outline-none',
+              'pb-3 px-1 text-sm lg:text-lg text-azure font-semibold transition-colors duration-200 ease-out focus:outline-none',
               activeTabKey === tab.key ? 'font-bold' : '',
             ]"
           >
