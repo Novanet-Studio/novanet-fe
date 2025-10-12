@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
 
 interface ViewerItem {
   title: string;
@@ -12,10 +12,10 @@ interface ViewerItem {
 interface ViewerContent {
   oneImageViewer?: boolean;
   items: ViewerItem[];
-
   sectionTitle?: string;
   containerClass?: string;
   titleColorClass?: string;
+  itemColorClass?: string;
   subtitleColorClass?: string;
   textColorClass?: string;
   buttonClass?: string;
@@ -29,10 +29,31 @@ const props = defineProps<{
 const currentIndex = ref(0);
 const totalItems = computed(() => props.content.items.length);
 
-const currentItem = computed(() => {
-  if (!props.content.items || totalItems.value === 0) {
-    return null;
+const carouselTrackEl = ref<HTMLElement | null>(null);
+const itemWidth = ref(0);
+const gap = ref(32);
+
+const updateItemWidth = () => {
+  if (carouselTrackEl.value?.children[0]) {
+    itemWidth.value = (
+      carouselTrackEl.value.children[0] as HTMLElement
+    ).offsetWidth;
   }
+};
+
+onMounted(() => {
+  nextTick(() => {
+    updateItemWidth();
+    window.addEventListener("resize", updateItemWidth);
+  });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", updateItemWidth);
+});
+
+const currentItem = computed(() => {
+  if (!props.content.items || totalItems.value === 0) return null;
   return props.content.items[currentIndex.value];
 });
 
@@ -45,47 +66,52 @@ const prevItem = () => {
     (currentIndex.value - 1 + totalItems.value) % totalItems.value;
 };
 
-const carouselStyle = computed(() => ({
-  transform: `translateX(-${currentIndex.value * 100}%)`,
-}));
+const carouselStyle = computed(() => {
+  if (itemWidth.value === 0) return { transform: "translateX(0px)" };
+
+  const offset = currentIndex.value * (itemWidth.value + gap.value);
+  return {
+    transform: `translateX(-${offset}px)`,
+  };
+});
 </script>
 
 <template>
   <div
     v-if="currentItem"
-    class="w-full min-h-screen flex items-start lg:items-center lg:py-16"
+    class="w-full min-h-screen flex items-center py-16"
     :class="content.containerClass || 'bg-white text-oxfordBlue'"
   >
     <div
-      class="container mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 items-start px-6"
+      class="container mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 items-start px-6"
     >
-      <div class="flex flex-col gap-4 text-left">
+      <div class="flex flex-col gap-2 text-left ">
         <h2
           v-if="content.sectionTitle"
-          class="text-4xl font-bold mb-4"
-          :class="content.subtitleColorClass || 'text-azure'"
+          class="text-3xl font-bold mb-6"
+          :class="content.titleColorClass || 'text-azure'"
         >
           {{ content.sectionTitle }}
         </h2>
 
         <p
           v-if="currentItem.date"
-          class="text-sm"
-          :class="content.textColorClass || 'text-cadeteGray-500'"
+          class="text-lg"
+          :class="content.textColorClass || 'text-gray-500'"
         >
           {{ currentItem.date }}
         </p>
 
         <h3
-          class="text-3xl font-bold"
-          :class="content.titleColorClass || 'text-oxfordBlue'"
+          class="text-4xl"
+          :class="content.itemColorClass || 'text-oxfordBlue'"
         >
           {{ currentItem.title }}
         </h3>
 
         <p
           class="text-base leading-relaxed"
-          :class="content.textColorClass || 'text-cadeteGray-700'"
+          :class="content.textColorClass || 'text-gray-700'"
         >
           {{ currentItem.description }}
         </p>
@@ -94,60 +120,54 @@ const carouselStyle = computed(() => ({
           <NuxtLink
             :to="currentItem.cta_route"
             :class="[
-              'cta__primary transition duration-200',
-              content.buttonClass || '',
+              'inline-block px-8 py-3 font-semibold transition-all duration-300',
+              content.buttonClass ||
+                'bg-azure text-oxfordBlue hover:bg-opacity-80',
             ]"
           >
-            Ver más &rarr;
+            Leer más &rarr;
           </NuxtLink>
         </div>
       </div>
 
-      <div class="w-full">
-        <div class="relative">
-          <div v-if="content.oneImageViewer">
-            <NuxtImg
-              :src="currentItem.image_url"
-              :alt="currentItem.title"
-              class="w-full h-auto object-cover rounded-lg shadow-2xl"
-            />
-          </div>
-
-          <div v-else class="overflow-hidden rounded-lg shadow-2xl">
+      <div class="w-full flex flex-col">
+        <div class="relative w-full overflow-hidden max-h-[50vh]">
+          <div
+            ref="carouselTrackEl"
+            class="max-h-[50vh] flex gap-8 transition-transform duration-500 ease-in-out"
+            :style="carouselStyle"
+          >
             <div
-              class="flex transition-transform duration-500 ease-in-out"
-              :style="carouselStyle"
+              v-for="item in content.items"
+              :key="item.cta_route"
+              :class="[
+                'flex-shrink-0 h-full aspect-square overflow-hidden shadow-xl',
+                content.oneImageViewer
+                  ? 'w-full'
+                  : 'w-1/2 md:w-[40%] lg:w-[45%]',
+              ]"
             >
-              <div
-                v-for="(item, index) in content.items"
-                :key="index"
-                class="w-full flex-shrink-0"
-              >
-                <NuxtImg
-                  :src="item.image_url"
-                  :alt="item.title"
-                  class="w-full h-auto object-cover"
-                />
-              </div>
+              <NuxtImg
+                :src="item.image_url"
+                :alt="item.title"
+                class="max-h-[50vh] w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
 
-        <div
-          v-if="!content.oneImageViewer && totalItems > 1"
-          class="flex items-center gap-4 mt-4"
-        >
+        <div v-if="totalItems > 1" class="flex items-center gap-4 mt-8">
           <button
             @click="prevItem"
             :class="[
-              'w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              'w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
               content.arrowClass || 'border-azure text-azure',
             ]"
             aria-label="Anterior"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              class="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -163,14 +183,14 @@ const carouselStyle = computed(() => ({
           <button
             @click="nextItem"
             :class="[
-              'w-10 h-10 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              'w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
               content.arrowClass || 'border-azure text-azure',
             ]"
             aria-label="Siguiente"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              class="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

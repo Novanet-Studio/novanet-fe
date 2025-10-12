@@ -20,10 +20,29 @@ const blog = [
     HeroImage: "images/novanet-studio-modelo-telefono.webp",
   },
 ];
+
+const recentArticles = {
+  name: "Recientes",
+
+  sectionTitle: "Lo más reciente",
+  containerClass: "bg-columbiaBlue text-oxfordBlue",
+  titleColorClass: "text-oxfordBlue",
+  textColorClass: "text-gray-700",
+
+  buttonClass:
+    "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-oxfordBlue transition-colors",
+  arrowClass: "border-oxfordBlue text-oxfordBlue",
+
+  bgColor: "bg-columbiaBlue",
+
+  dataColor: "columbiaBlue",
+};
 </script>
 
 <template>
   <div class="section__container">
     <CommonSection :content="blog" />
+
+    <BlogRecentArticles :content="recentArticles" />
   </div>
 </template>

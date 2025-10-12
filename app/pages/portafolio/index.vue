@@ -26,14 +26,17 @@ const recents = {
   sectionTitle: "Lo más reciente",
   containerClass: "bg-transparent text-white",
   bgImage: "background-emblem-proyectos-recientes",
-  titleColorClass: "text-columbiaBlue",
+  titleColorClass: "text-azure",
+  itemColorClass: "text-columbiaBlue",
   textColorClass: "text-columbiaBlue",
-  buttonClass: "bg-azure text-oxfordBlue font-bold hover:bg-opacity-90",
+  buttonClass: "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
   arrowClass: "border-azure text-azure",
 
   bgColor: "bg-oxfordBlue",
 
   dataColor: "oxfordBlue",
+
+  oneImageViewer: true
 };
 
 const gallery = {

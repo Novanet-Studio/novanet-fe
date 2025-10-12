@@ -23,16 +23,14 @@ const viewerContent = computed(() => {
 
   const mappedItems = projects.value.map((project: any) => ({
     title: project.titulo,
-
     description: createExcerpt(project.descripcion, 250),
-
     cta_route: `/portafolio/${project.categoria.slug}/${project.slug}`,
     image_url: project.miniatura.url,
   }));
 
   return {
     ...props.content,
-    oneImageViewer: false,
+    oneImageViewer: true,
     items: mappedItems,
   };
 });
