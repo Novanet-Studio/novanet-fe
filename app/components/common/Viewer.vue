@@ -6,7 +6,7 @@ interface ViewerItem {
   description: string;
   date?: string;
   cta_route: string;
-  image_url: string;
+  portrait: string;
 }
 
 interface ViewerContent {
@@ -148,7 +148,7 @@ const carouselStyle = computed(() => {
               ]"
             >
               <NuxtImg
-                :src="item.image_url"
+                :src="item.portrait"
                 :alt="item.title"
                 class="max-h-[50vh] w-full h-full object-cover"
               />

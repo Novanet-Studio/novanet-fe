@@ -37,6 +37,11 @@ const recentArticles = {
 
   dataColor: "columbiaBlue",
 };
+
+const blogGallery = {
+  name: "Articulos",
+  dataColor: "white",
+};
 </script>
 
 <template>
@@ -44,5 +49,7 @@ const recentArticles = {
     <CommonSection :content="blog" />
 
     <BlogRecentArticles :content="recentArticles" />
+
+    <BlogGallery :content="blogGallery" />
   </div>
 </template>

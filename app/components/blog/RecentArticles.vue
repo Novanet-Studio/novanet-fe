@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { createExcerpt } from "~/utils/functions";
+import { createExcerpt, formatDate } from "~/utils/functions";
 
 const props = defineProps<{
   content: any;
@@ -16,26 +16,19 @@ const { data: articles, pending: articlesPending } = await useAsyncData(
   { lazy: true }
 );
 
-function formatDate(dateString: string) {
-  const options: Intl.DateTimeFormatOptions = {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-  };
-  return new Date(dateString).toLocaleDateString("es-ES", options);
-}
-
 const viewerContent = computed(() => {
   if (!articles.value || articles.value.length === 0) {
     return null;
   }
 
+  console.log(articles);
+
   const mappedItems = articles.value.map((article: any) => ({
     title: article.titulo,
     description: createExcerpt(article.descripcion, 125),
     date: formatDate(article.fecha),
-    cta_route: `/blog/${article.slug}`,
-    image_url: article.imagen[0]?.url,
+    cta_route: `/blog/${String(article.tag).trim()}/${article.slug}`,
+    portrait: article.imagen[0]?.url,
   }));
 
   return {

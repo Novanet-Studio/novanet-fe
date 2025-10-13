@@ -25,7 +25,7 @@ const viewerContent = computed(() => {
     title: project.titulo,
     description: createExcerpt(project.descripcion, 250),
     cta_route: `/portafolio/${project.categoria.slug}/${project.slug}`,
-    image_url: project.miniatura.url,
+    portrait: project.miniatura.url,
   }));
 
   return {
@@ -54,7 +54,7 @@ const viewerContent = computed(() => {
     >
       <p class="text-white text-lg">Cargando proyectos recientes...</p>
     </div>
-    
+
     <CommonViewer v-else-if="viewerContent" :content="viewerContent" />
 
     <div
