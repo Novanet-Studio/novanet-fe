@@ -20,21 +20,21 @@ interface DetailStyleProps {
 
 const props = defineProps<{
   data: DetailData;
-
   styles: DetailStyleProps;
 }>();
 </script>
 
 <template>
-  <div class="w-full min-h-screen flex items-center" :class="styles.bgClass">
-    <div class="container mx-auto px-6 py-16 md:py-24">
-      <div
-        class="h-[60vh] grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12 items-start"
-      >
+  <div
+    class="w-full min-h-screen flex items-center py-24 lg:py-16"
+    :class="styles.bgClass"
+  >
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-start">
         <aside class="flex flex-col gap-3 lg:sticky lg:top-24">
           <NuxtLink
             :to="data.backLink.url"
-            class="inline-flex items-center gap-2 mb-6 font-semibold hover:underline w-fit"
+            class="inline-flex items-center gap-2 mb-4 font-semibold hover:underline w-fit"
             :class="styles.linkClass"
           >
             <svg
@@ -57,7 +57,7 @@ const props = defineProps<{
           <p class="font-semibold" :class="styles.subtitleClass">
             {{ data.subtitle }}
           </p>
-          <h1 class="text-4xl lg:text-5xl font-bold" :class="styles.titleClass">
+          <h1 class="text-3xl lg:text-4xl font-bold" :class="styles.titleClass">
             {{ data.title }}
           </h1>
           <p class="text-base leading-relaxed mt-2" :class="styles.textClass">
@@ -67,13 +67,18 @@ const props = defineProps<{
           <slot name="sidebar-extra" />
         </aside>
 
-        <div class="h-[60vh]">
+        <div class="w-full lg:h-[75vh]">
           <div
             v-html="markdownToHtml(data.fullContent)"
-            class="w-full h-full pr-0 lg:pr-2 overflow-y-scroll flex flex-col gap-2 lg:gap-4 custom-scrollbar-y text-columbiaBlue"
+            :class="[
+              'w-full h-full pr-0 lg:pr-2 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y',
+              styles.textClass,
+            ]"
           ></div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<style></style>

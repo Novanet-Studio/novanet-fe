@@ -11,6 +11,7 @@ const { data: project, pending } = await useAsyncData(
   `project-${slug}`,
   async () => {
     const response = await getProjectBySlug(slug);
+    
     return response.status === "ok" && response.data.length > 0
       ? response.data[0]
       : null;
@@ -78,7 +79,7 @@ const projectDetailData = computed(() => {
           to="/portafolio"
           class="inline-block mt-6 px-6 py-2 bg-azure text-oxfordBlue rounded font-semibold hover:bg-opacity-80"
         >
-          Volver al Portafolio
+          Volver al portafolio
         </NuxtLink>
       </div>
     </section>

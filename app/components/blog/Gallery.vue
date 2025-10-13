@@ -4,12 +4,7 @@ import { computed } from "vue";
 import { formatDate } from "~/utils/functions";
 
 const props = defineProps<{
-  content: {
-    name?: string;
-    dataColor?: string;
-    title?: string;
-    description?: string;
-  };
+  content: any;
 }>();
 
 const { getAllArticles } = useBlog();
@@ -27,7 +22,9 @@ const formattedArticles = computed(() => {
 
   return articles.value.map((article: any) => ({
     title: article.titulo,
-    cta_route: `/blog/${String(article.tag).trim()}/${article.slug}`,
+    cta_route: `/blog/${article.tag
+      .slice(0, article.tag.indexOf(","))
+      .replaceAll(" ", "-")}/${article.slug}`,
     date: formatDate(article.fecha),
     portrait: article.imagen[0]?.url,
   }));
@@ -36,9 +33,15 @@ const formattedArticles = computed(() => {
 
 <template>
   <section
-    :id="props.content.name"
+    :id="props.content.name ? props.content.name : ''"
     :data-color="props.content.dataColor"
-    class="bg-columbiaBlue text-oxfordBlue py-16 md:py-24 snap-start"
+    :class="[
+      props.content.bgColor,
+      props.content.bgImage,
+      props.content.color,
+      props.content.reverseDirection ? 'direction-reverse' : '',
+      'bg-columbiaBlue text-oxfordBlue py-16 md:py-24 snap-start justify-center',
+    ]"
   >
     <div v-if="articlesPending" class="container mx-auto px-6 text-center">
       <p class="text-lg">Cargando artículos...</p>
@@ -53,7 +56,7 @@ const formattedArticles = computed(() => {
       </h2>
 
       <div
-        class="h-[50vh] 3xl:h-[60vh] overflow-y-scroll no-scrollbar grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12"
+        class="max-h-[65vh] overflow-y-scroll no-scrollbar grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12"
       >
         <article
           v-for="article in formattedArticles"

@@ -12,6 +12,7 @@ const portfolio = [
     description:
       "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
     color: "text-oxfordBlue",
+    justifyContent: true,
 
     dataColor: "azure",
 
@@ -29,14 +30,15 @@ const recents = {
   titleColorClass: "text-azure",
   itemColorClass: "text-columbiaBlue",
   textColorClass: "text-columbiaBlue",
-  buttonClass: "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
+  buttonClass:
+    "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
   arrowClass: "border-azure text-azure",
 
   bgColor: "bg-oxfordBlue",
 
   dataColor: "oxfordBlue",
 
-  oneImageViewer: true
+  oneImageViewer: true,
 };
 
 const gallery = {

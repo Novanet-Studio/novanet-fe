@@ -79,13 +79,13 @@ const carouselStyle = computed(() => {
 <template>
   <div
     v-if="currentItem"
-    class="w-full min-h-screen flex items-center py-16"
-    :class="content.containerClass || 'bg-white text-oxfordBlue'"
+    class="w-full flex items-center lg:py-16"
+    :class="content.containerClass || 'bg-columbiaBlue text-oxfordBlue'"
   >
     <div
-      class="container mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 items-start px-6"
+      class="container mx-auto grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-12 items-start px-6"
     >
-      <div class="flex flex-col gap-2 text-left ">
+      <div class="flex flex-col gap-2 text-left">
         <h2
           v-if="content.sectionTitle"
           class="text-3xl font-bold mb-6"
@@ -103,7 +103,7 @@ const carouselStyle = computed(() => {
         </p>
 
         <h3
-          class="text-4xl"
+          class="text-2xl lg:text-4xl"
           :class="content.itemColorClass || 'text-oxfordBlue'"
         >
           {{ currentItem.title }}
@@ -120,7 +120,7 @@ const carouselStyle = computed(() => {
           <NuxtLink
             :to="currentItem.cta_route"
             :class="[
-              'inline-block px-8 py-3 font-semibold transition-all duration-300',
+              'inline-block px-8 py-3 font-semibold transition-all duration-300 z-10',
               content.buttonClass ||
                 'bg-azure text-oxfordBlue hover:bg-opacity-80',
             ]"
@@ -134,14 +134,14 @@ const carouselStyle = computed(() => {
         <div class="relative w-full overflow-hidden max-h-[50vh]">
           <div
             ref="carouselTrackEl"
-            class="max-h-[50vh] flex gap-8 transition-transform duration-500 ease-in-out"
+            class="md:max-h-[30vh] lg:max-h-[50vh] flex gap-8 transition-transform duration-500 ease-in-out"
             :style="carouselStyle"
           >
             <div
               v-for="item in content.items"
               :key="item.cta_route"
               :class="[
-                'flex-shrink-0 h-full aspect-square overflow-hidden shadow-xl',
+                'flex-shrink-0 h-full overflow-hidden shadow-xl',
                 content.oneImageViewer
                   ? 'w-full'
                   : 'w-1/2 md:w-[40%] lg:w-[45%]',
@@ -150,7 +150,7 @@ const carouselStyle = computed(() => {
               <NuxtImg
                 :src="item.portrait"
                 :alt="item.title"
-                class="max-h-[50vh] w-full h-full object-cover"
+                class="md:max-h-[30vh] lg:max-h-[50vh] w-full h-auto object-cover"
               />
             </div>
           </div>

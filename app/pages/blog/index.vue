@@ -12,6 +12,7 @@ const blog = [
     description:
       "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
     color: "text-oxfordBlue",
+    justifyContent: true,
 
     dataColor: "azure",
 

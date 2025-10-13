@@ -11,6 +11,7 @@ const { data: articles, pending: articlesPending } = await useAsyncData(
   "recent-articles",
   async () => {
     const response = await getRecentArticles();
+
     return response.status === "ok" ? response.data : [];
   },
   { lazy: true }
@@ -21,15 +22,17 @@ const viewerContent = computed(() => {
     return null;
   }
 
-  console.log(articles);
-
-  const mappedItems = articles.value.map((article: any) => ({
-    title: article.titulo,
-    description: createExcerpt(article.descripcion, 125),
-    date: formatDate(article.fecha),
-    cta_route: `/blog/${String(article.tag).trim()}/${article.slug}`,
-    portrait: article.imagen[0]?.url,
-  }));
+  const mappedItems = articles.value.map((article: any) => {
+    return {
+      title: article.titulo,
+      description: createExcerpt(article.descripcion, 100),
+      date: formatDate(article.fecha),
+      cta_route: `/blog/${article.tag
+        .slice(0, article.tag.indexOf(","))
+        .replaceAll(" ", "-")}/${article.slug}`,
+      portrait: article.imagen[0]?.url,
+    };
+  });
 
   return {
     ...props.content,
@@ -48,7 +51,7 @@ const viewerContent = computed(() => {
       props.content.bgImage,
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
-      props.content.justifyContent ? 'justify-center' : '',
+      'justify-center',
     ]"
   >
     <div
