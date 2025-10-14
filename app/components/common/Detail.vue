@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface DetailData {
   title: string;
-  subtitle: string;
+  date: string;
   shortDescription: string;
   fullContent: string;
   backLink: {
@@ -13,7 +13,7 @@ interface DetailData {
 interface DetailStyleProps {
   bgClass: string;
   titleClass: string;
-  subtitleClass: string;
+  dateClass: string;
   textClass: string;
   linkClass: string;
 }
@@ -25,60 +25,35 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    class="w-full min-h-screen flex items-center py-24 lg:py-16"
-    :class="styles.bgClass"
-  >
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 items-start">
-        <aside class="flex flex-col gap-3 lg:sticky lg:top-24">
-          <NuxtLink
-            :to="data.backLink.url"
-            class="inline-flex items-center gap-2 mb-4 font-semibold hover:underline w-fit"
-            :class="styles.linkClass"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
-            {{ data.backLink.text }}
-          </NuxtLink>
+  <section :class="styles.bgClass" class="h-full pt-24 pb-20 md:min-h-screen">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 items-start">
+      <div class="flex flex-col gap-3 lg:sticky lg:top-24">
+        <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
+          <span>←&nbsp;</span>
+          {{ data.backLink.text }}
+        </NuxtLink>
 
-          <p class="font-semibold" :class="styles.subtitleClass">
-            {{ data.subtitle }}
-          </p>
-          <h1 class="text-3xl lg:text-4xl font-bold" :class="styles.titleClass">
-            {{ data.title }}
-          </h1>
-          <p class="text-base leading-relaxed mt-2" :class="styles.textClass">
-            {{ data.shortDescription }}
-          </p>
+        <p class="font-semibold" :class="styles.dateClass">
+          {{ data.date }}
+        </p>
+        <h1 class="main__title" :class="styles.titleClass">
+          {{ data.title }}
+        </h1>
+        <p class="text-base leading-relaxed mt-2" :class="styles.textClass">
+          {{ data.shortDescription }}
+        </p>
+        <slot name="sidebar-extra" />
+      </div>
 
-          <slot name="sidebar-extra" />
-        </aside>
-
-        <div class="w-full lg:h-[75vh]">
-          <div
-            v-html="markdownToHtml(data.fullContent)"
-            :class="[
-              'w-full h-full pr-0 lg:pr-2 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y',
-              styles.textClass,
-            ]"
-          ></div>
-        </div>
+      <div class="w-full lg:h-[75vh] xl:h-[66vh]">
+        <div v-html="markdownToHtml(data.fullContent)" :class="[
+          'detail w-full h-full pr-0 lg:pr-6 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y xl:pt-2',
+          styles.textClass,
+        ]"></div>
       </div>
     </div>
-  </div>
+
+  </section>
 </template>
 
 <style></style>

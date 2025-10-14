@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { title } from 'process';
+
 useHead({
   title: "Blog | Novanet Studio",
 });
@@ -6,42 +8,36 @@ useHead({
 const blog = [
   {
     name: "Blog",
-
     title: "Creatividad y conocimiento",
     titleColor: "text-oxfordBlue",
     description:
       "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
     color: "text-oxfordBlue",
     justifyContent: true,
-
     dataColor: "azure",
-
     bgColor: "bg-azure",
-
     HeroImage: "images/novanet-studio-modelo-telefono.webp",
   },
 ];
 
 const recentArticles = {
   name: "Recientes",
-
-  sectionTitle: "Lo más reciente",
-  containerClass: "bg-columbiaBlue text-oxfordBlue",
-  titleColorClass: "text-oxfordBlue",
-  textColorClass: "text-gray-700",
-
+  title: "Lo más reciente",
+  dateColor: "text-gray-500",
+  titleColor: "text-azure",
+  color: "text-oxfordBlue",
   buttonClass:
-    "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-oxfordBlue transition-colors",
+    "bg-azure text-columbiaBlue hover:bg-raspberry hover:text-oxfordBlue transition-colors",
   arrowClass: "border-oxfordBlue text-oxfordBlue",
-
-  bgColor: "bg-columbiaBlue",
-
+  bgColor: "bg-white",
   dataColor: "columbiaBlue",
 };
 
 const blogGallery = {
+  bgColor: "bg-columbiaBlue",
   name: "Articulos",
   dataColor: "white",
+  titleColor: "text-azure",
 };
 </script>
 

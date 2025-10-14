@@ -30,7 +30,7 @@ useHead(() => {
 const articleDetailStyles = {
   bgClass: "bg-columbiaBlue",
   titleClass: "text-oxfordBlue",
-  subtitleClass: "text-oxfordBlue",
+  dateClass: "text-oxfordBlue",
   textClass: "text-oxfordBlue",
   linkClass: "text-oxfordBlue",
 };
@@ -40,7 +40,7 @@ const articleDetailData = computed(() => {
 
   return {
     title: article.value.titulo,
-    subtitle: formatDate(article.value.fecha),
+    date: formatDate(article.value.fecha),
     shortDescription: createExcerpt(article.value.descripcion, 180),
     fullContent: article.value.descripcion,
     backLink: {

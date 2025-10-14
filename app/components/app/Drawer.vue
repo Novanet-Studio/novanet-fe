@@ -37,7 +37,7 @@ onMounted(() => {
    <Motion :initial="animations.header.initial" :animate="animations.header.animate"
       :transition="{ ...animations.header.transition }">
       <div class="absolute top-8 right-6 md:hidden">
-         <button @click="isOpen = !isOpen">
+         <button @click="drawer" aria-label="Toggle Menu">
             <svg class="h-8 w-8 fill-current text-black" fill="none" stroke-linecap="round" stroke-linejoin="round"
                stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                <path :style="{ color: colorMap[color] || '#fff' }" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -46,10 +46,17 @@ onMounted(() => {
       </div>
    </Motion>
 
+    <transition enter-class="opacity-0" enter-active-class="ease-out transition-medium" enter-to-class="opacity-100"
+        leave-class="opacity-100" leave-active-class="ease-out transition-medium" leave-to-class="opacity-0">
+        <div @keydown.esc="isOpen = false" v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
+          <div @click="isOpen = false" class="absolute inset-0 bg-black opacity-50" tabindex="0"></div>
+        </div>
+      </transition>
+
    <!-- Menu (Móvil) -->
    <aside
       class="flex flex-col fixed w-2/5 top-0 right-0 h-screen pt-8 pl-6 pr-4 bg-eerieBlack overflow-auto transform ease-in-out transition-all duration-300 z-30"
-      :class="isOpen ? 'translate-x-0' : 'translate-x-full'">
+      :class="isOpen ? 'translate-x-0' : 'translate-x-full transition-transform'">
       <div class="close">
          <button class="flex w-full justify-end" @click="isOpen = false">
             <Icon name="fa7-solid:close" class="text-raspberry text-xl md:text-2xl lg:text-2xl" />

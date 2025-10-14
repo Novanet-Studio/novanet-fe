@@ -11,7 +11,7 @@ const { data: project, pending } = await useAsyncData(
   `project-${slug}`,
   async () => {
     const response = await getProjectBySlug(slug);
-    
+
     return response.status === "ok" && response.data.length > 0
       ? response.data[0]
       : null;
@@ -30,7 +30,7 @@ useHead(() => {
 const projectDetailStyles = {
   bgClass: "bg-oxfordBlue",
   titleClass: "text-columbiaBlue",
-  subtitleClass: "text-azure",
+  dateClass: "text-azure",
   textClass: "text-columbiaBlue",
   linkClass: "text-azure",
 };
@@ -40,7 +40,7 @@ const projectDetailData = computed(() => {
 
   return {
     title: project.value.titulo,
-    subtitle: `${project.value.ano}`,
+    date: `${project.value.ano}`,
     shortDescription: createExcerpt(project.value.descripcion, 180),
     fullContent: project.value.descripcion,
     backLink: {
@@ -53,32 +53,20 @@ const projectDetailData = computed(() => {
 
 <template>
   <div>
-    <section
-      v-if="pending"
-      class="bg-oxfordBlue w-full min-h-screen flex justify-center items-center"
-    >
+    <section v-if="pending" class="bg-oxfordBlue w-full min-h-screen flex justify-center items-center">
       <p class="text-columbiaBlue text-2xl">Cargando proyecto...</p>
     </section>
 
-    <CommonDetail
-      v-else-if="projectDetailData"
-      :data="projectDetailData"
-      :styles="projectDetailStyles"
-    />
+    <CommonDetail v-else-if="projectDetailData" :data="projectDetailData" :styles="projectDetailStyles" />
 
-    <section
-      v-else
-      class="bg-white w-full min-h-screen flex justify-center items-center"
-    >
+    <section v-else class="bg-white w-full min-h-screen flex justify-center items-center">
       <div class="text-center">
         <h1 class="font-bold text-oxfordBlue text-5xl">404</h1>
         <p class="text-gray-700 text-xl mt-2">
           El proyecto que buscas no existe.
         </p>
-        <NuxtLink
-          to="/portafolio"
-          class="inline-block mt-6 px-6 py-2 bg-azure text-oxfordBlue rounded font-semibold hover:bg-opacity-80"
-        >
+        <NuxtLink to="/portafolio"
+          class="inline-block mt-6 px-6 py-2 bg-azure text-oxfordBlue rounded font-semibold hover:bg-opacity-80">
           Volver al portafolio
         </NuxtLink>
       </div>

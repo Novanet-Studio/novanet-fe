@@ -5,54 +5,42 @@ useHead({
 
 const portfolio = [
   {
-    name: "Portafolio",
-
-    title: "Portafolio. Creatividad y funcionalidad",
-    titleColor: "text-raspberry",
-    description:
-      "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
-    color: "text-oxfordBlue",
-    justifyContent: true,
-
-    dataColor: "azure",
-
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-portafolio",
-  },
+    color: "text-oxfordBlue",
+    dataColor: "columbiaBlue",
+    description:
+      "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
+    name: "Portafolio",
+    title: "Portafolio. Creatividad y funcionalidad",
+    titleColor: "text-raspberry",
+  }
 ];
 
 const recents = {
-  name: "Recientes",
-
-  sectionTitle: "Lo más reciente",
-  containerClass: "bg-transparent text-white",
+  arrowClass: "border-azure text-azure",
+  bgColor: "bg-oxfordBlue",
   bgImage: "background-emblem-proyectos-recientes",
-  titleColorClass: "text-azure",
-  itemColorClass: "text-columbiaBlue",
-  textColorClass: "text-columbiaBlue",
   buttonClass:
     "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
-  arrowClass: "border-azure text-azure",
-
-  bgColor: "bg-oxfordBlue",
-
-  dataColor: "oxfordBlue",
-
+  color: "text-columbiaBlue",
+  dateColor: "text-gray-400",
+  name: "Recientes",
   oneImageViewer: true,
+  sectionTitle: "Lo más reciente",
+  titleColor: "text-azure",
 };
 
 const gallery = {
+  bgColor: "bg-white",
+  bgImage: "background-emblem-galeria",
+  color: "text-oxfordBlue",
+  dataColor: "white",
+  description:
+    "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
   name: "Galeria",
   title: "Nuestros Proyectos",
   titleColor: "text-oxfordBlue",
-  bgImage: "background-emblem-galeria",
-  description:
-    "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
-  color: "text-oxfordBlue",
-
-  dataColor: "azure",
-
-  bgColor: "bg-white",
 };
 </script>
 
@@ -63,5 +51,6 @@ const gallery = {
     <PortfolioRecentProjects :content="recents" />
 
     <PortfolioGallery :content="gallery" />
+
   </div>
 </template>
