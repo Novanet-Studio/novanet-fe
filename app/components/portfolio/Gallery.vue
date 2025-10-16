@@ -108,7 +108,7 @@ onMounted(() => {
       props.content.reverseDirection ? 'direction-reverse' : '',
       props.content.justifyContent ? 'justify-center' : '',
     ]">
-    <div v-if="pending" class="w-full flex overflow-hidden max-h-[70dvh] lg:max-h-[70dvh]">
+    <div v-if="pending" class="w-full flex overflow-hidden">
       <p class="text-lg">Cargando portafolio...</p>
     </div>
 
@@ -134,7 +134,7 @@ onMounted(() => {
 
         <div v-if="activePanel.projects && activePanel.projects.length > 0">
           <div
-            class="pb-4 grid grid-cols-1 gap-4 overflow-y-scroll max-h-[70dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[50dvh]">
+            class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[50dvh]">
             <article v-for="project in activePanel.projects" :key="project.link"
               class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30">
               <NuxtLink :to="project.link">

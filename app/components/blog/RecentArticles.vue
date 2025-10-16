@@ -39,7 +39,6 @@ const viewerContent = computed(() => {
 
   return {
     ...props.content,
-    oneImageViewer: false,
     items: mappedItems,
   };
 });
