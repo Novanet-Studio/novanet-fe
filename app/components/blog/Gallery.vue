@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-
 import { formatDate } from "~/utils/functions";
 
 const props = defineProps<{
@@ -49,8 +48,8 @@ const formattedArticles = computed(() => {
       </h2>
 
       <div
-        class="max-h-[70vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 max-sm:pr-3 sm:grid-cols-2 lg:max-h-[50vh] lg:grid-cols-3 xl:grid-cols-4">
-        <article v-for="article in formattedArticles" :key="article.slug" class="group pt-6 flex flex-col justify-end">
+        class="max-h-[70vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4">
+        <article v-for="article in formattedArticles" :key="article.slug" class="group flex flex-col justify-end pt-8">
           <NuxtLink :to="article.cta_route" class="flex flex-col gap-2">
             <div class="text-left">
               <p class="text-gray-500 text-base">{{ article.date }}</p>
@@ -60,7 +59,7 @@ const formattedArticles = computed(() => {
             </div>
 
             <div
-              class="overflow-hidden shadow-lg transform group-hover:scale-[1.02] group-hover:shadow-2xl transition-all duration-300">
+              class="overflow-hidden shadow-sm transform group-hover:scale-[1.02] group-hover:shadow-md transition-all duration-300">
               <NuxtImg v-if="article.portrait" :src="article.portrait" :alt="`Imagen del artículo ${article.title}`"
                 class="w-full h-full object-cover" loading="lazy" />
 
