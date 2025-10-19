@@ -47,7 +47,13 @@ export function createExcerpt(markdownString: string, maxLength = 250): string {
   return `${trimmedText}...`;
 }
 
-export const markdownToHtml = (markdown: any) => {
+export const markdownToHtml = ({
+  markdown,
+  portrait,
+}: {
+  markdown: any;
+  portrait?: any;
+}) => {
   const getHTMLConvertion = (block: any) => {
     //? images block
     if (block.startsWith("![")) {
@@ -156,9 +162,12 @@ export const markdownToHtml = (markdown: any) => {
     .map((block: any) => getHTMLConvertion(block))
     .join("");
 
+  if (portrait) {
+    html = `<img src="${portrait}" alt="Imagen de portada" class="w-full"/> ${html}`;
+  }
+
   return `${html}`;
 };
-
 
 export function formatDate(dateString: string) {
   const options: Intl.DateTimeFormatOptions = {
@@ -166,6 +175,6 @@ export function formatDate(dateString: string) {
     month: "2-digit",
     day: "2-digit",
   };
-  
+
   return new Date(dateString).toLocaleDateString("es-ES", options);
 }

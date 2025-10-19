@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { createExcerpt } from "~/utils/functions";
+import { createExcerpt, formatDate } from "~/utils/functions"; // Asumo que formatDate está en utils
 
 const route = useRoute();
-
 const slug = route.params.slug as string;
 
 const { getArticleBySlug } = useBlog();
@@ -13,7 +12,6 @@ const { data: article, pending } = await useAsyncData(
   `article-${slug}`,
   async () => {
     const response = await getArticleBySlug(slug);
-
     return response.status === "ok" && response.data.length > 0
       ? response.data[0]
       : null;
@@ -42,6 +40,7 @@ const articleDetailData = computed(() => {
     title: article.value.titulo,
     date: formatDate(article.value.fecha),
     shortDescription: createExcerpt(article.value.descripcion, 180),
+    portrait: article.value.imagen[0].url ?? null,
     fullContent: article.value.descripcion,
     backLink: {
       url: "/blog",
@@ -53,25 +52,33 @@ const articleDetailData = computed(() => {
 
 <template>
   <div class="section__container">
-    <div class="bg-columbiaBlue" data-color="oxfordBlue">
-      <div v-if="pending" class="bg-columbiaBlue w-full min-h-screen flex justify-center items-center">
+    <section
+      id="article-detail"
+      data-color="columbiaBlue"
+      class="bg-columbiaBlue w-full min-h-screen flex justify-center items-center"
+    >
+      <div v-if="pending" class="text-center">
         <p class="text-oxfordBlue text-2xl">Cargando artículo...</p>
       </div>
 
-      <CommonDetail v-else-if="articleDetailData" :data="articleDetailData" :styles="articleDetailStyles" />
+      <CommonDetail
+        v-else-if="articleDetailData"
+        :data="articleDetailData"
+        :styles="articleDetailStyles"
+      />
 
-      <div v-else class="bg-white w-full min-h-screen flex justify-center items-center">
-        <div class="text-center">
-          <h1 class="font-bold text-oxfordBlue text-5xl">404</h1>
-          <p class="text-gray-700 text-xl mt-2">
-            El artículo que buscas no existe.
-          </p>
-          <NuxtLink to="/blog"
-            class="inline-block mt-6 px-6 py-2 bg-oxfordBlue text-columbiaBlue rounded font-semibold hover:bg-raspberry transition-colors">
-            Volver al blog
-          </NuxtLink>
-        </div>
+      <div v-else class="text-center bg-white p-10 rounded-lg shadow-xl">
+        <h1 class="font-bold text-oxfordBlue text-5xl">404</h1>
+        <p class="text-gray-700 text-xl mt-2">
+          El artículo que buscas no existe.
+        </p>
+        <NuxtLink
+          to="/blog"
+          class="inline-block mt-6 px-6 py-2 bg-oxfordBlue text-columbiaBlue rounded font-semibold hover:bg-raspberry transition-colors"
+        >
+          Volver al blog
+        </NuxtLink>
       </div>
-    </div>
+    </section>
   </div>
 </template>
