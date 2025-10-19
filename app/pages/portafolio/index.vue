@@ -9,18 +9,21 @@ const portfolio = [
     bgImage: "background-emblem-portafolio",
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
+
     description:
       "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
     name: "Portafolio",
     title: "Portafolio. Creatividad y funcionalidad",
     titleColor: "text-raspberry",
-  }
+  },
 ];
 
 const recents = {
   arrowClass: "border-azure text-azure",
   bgColor: "bg-oxfordBlue",
   bgImage: "background-emblem-proyectos-recientes",
+  dataColor: "oxfordBlue",
+
   buttonClass:
     "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
   color: "text-columbiaBlue",
@@ -51,6 +54,5 @@ const gallery = {
     <PortfolioRecentProjects :content="recents" />
 
     <PortfolioGallery :content="gallery" />
-
   </div>
 </template>

@@ -1,36 +1,72 @@
-import { ref, nextTick, onMounted } from "vue";
+import { onMounted, onUnmounted, nextTick, watch } from "vue";
+import { useRoute } from "vue-router";
 
-export function useSectionObserver(content: any) {
-  const activeSections = ref<number[]>([]);
-  const animatedSections = ref<number[]>([]);
+let observer: IntersectionObserver | null = null;
 
-  const isAnimated = (index: number) => animatedSections.value.includes(index);
+export function useSectionObserver() {
+  const currentColor = useState<string>("currentColor", () => "default");
+  const visibleSectionIds = useState<Set<string>>(
+    "visibleSectionIds",
+    () => new Set()
+  );
 
-  onMounted(() => {
-    nextTick(() => {
-      content.forEach((_: any, idx: number) => {
-        const section = document.querySelector(`[data-section-index="${idx}"]`);
-        if (section) {
-          const observer = new IntersectionObserver(
-            ([entry]) => {
-              if (entry?.isIntersecting) {
-                if (!activeSections.value.includes(idx))
-                  activeSections.value.push(idx);
-                if (!animatedSections.value.includes(idx))
-                  animatedSections.value.push(idx);
-              } else {
-                activeSections.value = activeSections.value.filter(
-                  (i) => i !== idx
-                );
-              }
-            },
-            { threshold: 0.5 }
-          );
-          observer.observe(section);
+  const route = useRoute();
+
+  const initObserver = () => {
+    if (observer) {
+      observer.disconnect();
+    }
+
+    visibleSectionIds.value.clear();
+
+    const options = {
+      threshold: 0.5,
+    };
+
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const targetElement = entry.target as HTMLElement;
+        const targetId = targetElement.id;
+        const targetColor = targetElement.dataset.color || "default";
+
+        if (!targetId) return;
+
+        if (entry.isIntersecting) {
+          currentColor.value = targetColor;
+          if (!visibleSectionIds.value.has(targetId)) {
+            visibleSectionIds.value.add(targetId);
+          }
+        } else {
+          visibleSectionIds.value.delete(targetId);
         }
       });
+    }, options);
+
+    nextTick(() => {
+      document
+        .querySelectorAll<HTMLElement>("section[data-color][id]")
+        .forEach((section) => {
+          observer!.observe(section);
+        });
     });
+  };
+
+  watch(
+    () => route.fullPath,
+    () => {
+      setTimeout(initObserver, 100);
+    },
+    { immediate: true }
+  );
+
+  onUnmounted(() => {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
   });
+
+  const isSectionVisible = (id: string) => visibleSectionIds.value.has(id);
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -38,9 +74,9 @@ export function useSectionObserver(content: any) {
   };
 
   return {
-    activeSections,
-    animatedSections,
-    isAnimated,
+    currentColor,
+    isSectionVisible,
+    initObserver,
     scrollToSection,
   };
 }

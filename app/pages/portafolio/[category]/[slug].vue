@@ -38,6 +38,8 @@ const projectDetailStyles = {
 const projectDetailData = computed(() => {
   if (!project.value) return null;
 
+  console.log(project.value);
+
   return {
     title: project.value.titulo,
     date: `${project.value.ano}`,
@@ -45,7 +47,7 @@ const projectDetailData = computed(() => {
     fullContent: project.value.descripcion,
     backLink: {
       url: "/portafolio",
-      text: "Volver al Portafolio",
+      text: "Volver al portafolio",
     },
   };
 });
