@@ -3,6 +3,7 @@
 const home = [
   // Sección principal
   {
+    alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-main",
     buttonLink: "#",
@@ -15,13 +16,13 @@ const home = [
       "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
     HeroImage: "images/novanet-studio-nina-mirando-izquierda.webp",
     justifyEndImage: true,
-    justifyContent: true,
     name: "Principal",
     title: "Novanet Studio",
     titleColor: "text-columbiaBlue",
   },
   // Sección creatividad
   {
+    alignCenter: true,
     bgColor: "bg-oxfordBlue",
     bgImage: "background-emblem-creatividad",
     buttonLink: "#",
@@ -40,6 +41,7 @@ const home = [
   },
   // Sección innovación
   {
+    alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-innovacion",
     buttonLink: "#",
@@ -58,6 +60,7 @@ const home = [
   },
   // Sección colaboración
   {
+    alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-colaboracion",
     buttonLink: "#",
@@ -76,6 +79,7 @@ const home = [
   },
   // Sección contacto
   {
+    alignCenter: true,
     bgColor: "bg-oxfordBlue",
     bgImage: "background-emblem-contacto",
     buttonType:

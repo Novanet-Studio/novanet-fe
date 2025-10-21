@@ -191,17 +191,7 @@ form textarea::placeholder {
   transition: 0.3s;
 }
 
-.justify-center {
-  justify-content: center;
-}
 
-.justify-start {
-  justify-content: flex-start;
-}
-
-.align-center {
-  align-items: center;
-}
 
 /* Fade transition styles */
 .fade-enter-active,
@@ -230,7 +220,6 @@ form textarea::placeholder {
 .background-emblem-vision,
 .background-emblem-nosotros-contacto,
 .background-emblem-portafolio {
-  align-items: center;
   background-repeat: no-repeat;
 }
 
@@ -272,7 +261,6 @@ form textarea::placeholder {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-piramides.webp");
   background-position: bottom right;
   background-size: 10rem;
-  justify-content: flex-start;
 }
 
 .background-emblem-mision {
@@ -403,8 +391,52 @@ form textarea::placeholder {
   }
 }
 
+/* Width >= 1024px and orientation portrait */
+@media (width >=64rem) and (orientation: portrait) {
+  section {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto {
+    background-size: 64rem;
+  }
+
+  .background-emblem-nosotros,
+  .background-emblem-proyectos-recientes,
+  .background-emblem-portafolio {
+    background-size: 22em;
+  }
+
+  .background-emblem-mision,
+  .background-emblem-vision,
+  .background-emblem-galeria {
+    background-size: 42rem;
+  }
+
+  .background-emblem-servicios {
+    background-size: 110rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  p.description {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
+  }
+}
+
+
+
 /* Width >= 1024px */
-@media (width >=64rem) {
+@media (width >=64rem) and (orientation: landscape) {
   section {
     flex-direction: row;    
   }

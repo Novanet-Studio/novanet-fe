@@ -14,20 +14,18 @@ module.exports = {
       backgroundOpacity: ["active"],
       extend: {
          screens: {
+            '3xs': '375px',
             '2xs': '390px',
-            xs: '480px',
+            xs: '430px',
             sm: '640px',
             md: '768px',
             lg: '1024px',
             xl: '1280px',
             '2xl': '1536px',
-         },
-      },
-      variants: {
-         extend: {
-            // Extend any utility you want to be orientation-responsive
-            // For example, you might want to change flex direction based on orientation
-            flexDirection: ['landscape', 'portrait'],
+            'portrait': { 'raw': '(orientation: portrait)' },
+            'landscape': { 'raw': '(orientation: landscape)' },
+            // Custom breakpoints with specific min-widths for portrait orientation
+            'portrait-lg': { 'raw': '(orientation: portrait) and (min-width: 1024px)' },
          },
       },
    },
@@ -48,7 +46,7 @@ module.exports = {
                '--color-columbiaBlue': theme('colors.columbiaBlue'),
                '--color-raspberry': theme('colors.raspberry'),
                '--color-chartreuse': theme('colors.chartreuse'),
-               '--color-cadetGray': theme('colors.cadetGray'),  
+               '--color-cadetGray': theme('colors.cadetGray'),
                '--color-eerieBlack': theme('colors.eerieBlack'),
             },
          })
