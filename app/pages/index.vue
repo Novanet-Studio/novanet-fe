@@ -15,6 +15,7 @@ const home = [
       "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
     HeroImage: "images/novanet-studio-nina-mirando-izquierda.webp",
     justifyEndImage: true,
+    justifyContent: true,
     name: "Principal",
     title: "Novanet Studio",
     titleColor: "text-columbiaBlue",

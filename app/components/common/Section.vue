@@ -19,7 +19,8 @@ const { isSectionVisible, scrollToSection } = useSectionObserver();
       item.bgImage,
       item.color,
       item.reverseDirection ? 'direction-reverse' : '',
-      item.justifyContent ? 'justify-center' : '',
+      item.alignCenter ? 'align-center' : '',
+      item.justifyContent ? 'justify-center' : '',      
     ]"
   >
     <div

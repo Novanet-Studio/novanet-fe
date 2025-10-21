@@ -38,7 +38,7 @@ const projectDetailData = computed(() => {
   return {
     title: project.value.titulo,
     date: `${project.value.ano}`,
-    topContectImage: project.value.miniatura.url,
+    topContentImage: project.value.miniatura.url,
     shortDescription: createExcerpt(project.value.descripcion, 180),
     fullContent: project.value.descripcion,
     backLink: {

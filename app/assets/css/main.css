@@ -3,7 +3,8 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   --header-mobile-height: 12dvh;
-  --header-desktop-height: 1dvh;
+  --header-desktop-height: 16dvh;
+
 }
 
 section {
@@ -190,6 +191,18 @@ form textarea::placeholder {
   transition: 0.3s;
 }
 
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
 /* Fade transition styles */
 .fade-enter-active,
 .fade-leave-active {
@@ -217,7 +230,6 @@ form textarea::placeholder {
 .background-emblem-vision,
 .background-emblem-nosotros-contacto,
 .background-emblem-portafolio {
-  justify-content: flex-end;
   align-items: center;
   background-repeat: no-repeat;
 }
@@ -253,7 +265,7 @@ form textarea::placeholder {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-autronauta.webp");
   background-position: bottom right;
   background-size: 10rem;
-  justify-content: flex-start;
+
 }
 
 .background-emblem-portafolio {
@@ -267,21 +279,20 @@ form textarea::placeholder {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas.svg");
   background-position: left center;
   background-repeat: no-repeat;
-  justify-content: center;
+
 }
 
 .background-emblem-proyectos-recientes {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg");
   background-position: bottom right;
   background-size: 10rem;
-  justify-content: flex-start;
+
 }
 
 .background-emblem-vision {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
   background-position: right center;
   background-repeat: no-repeat;
-  justify-content: center;
 }
 
 .background-emblem-galeria {
@@ -347,12 +358,7 @@ form textarea::placeholder {
 /* Width >= 640px */
 @media (width >=40rem) {
 
-  .background-emblem-nosotros,
-  .background-emblem-proyectos-recientes,
-  .background-emblem-portafolio,
-   .background-emblem-galeria {
-    padding-top: var(--header-desktop-height);
-  }
+
 }
 
 /* Width >= 768px */
@@ -400,8 +406,7 @@ form textarea::placeholder {
 /* Width >= 1024px */
 @media (width >=64rem) {
   section {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: row;    
   }
 
   h1.main__title {
@@ -418,7 +423,6 @@ form textarea::placeholder {
     font-size: 1.625rem;
     line-height: 2.125rem;
   }
-
 
   p.description {
     font-size: 1.625rem;
@@ -481,7 +485,6 @@ form textarea::placeholder {
   .background-emblem-portafolio {
     background-size: 22rem;
     background-position: bottom right;
-    justify-content: center;
   }
 }
 
@@ -490,6 +493,11 @@ form textarea::placeholder {
   section {
     padding-left: 3rem;
     padding-right: 3rem;
+    
+  }
+
+  .background-emblem-galeria {
+padding-top: var(--header-desktop-height);
   }
 
   h1.main__title {
@@ -533,7 +541,6 @@ form textarea::placeholder {
     background-size: 24rem;
     background-position: center right;
     padding-top: unset;
-    justify-content: flex-start;
   }
 
   .background-emblem-mision,

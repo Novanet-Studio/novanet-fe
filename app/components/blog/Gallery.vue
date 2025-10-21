@@ -36,6 +36,8 @@ const formattedArticles = computed(() => {
     props.content.bgImage,
     props.content.color,
     props.content.reverseDirection ? 'direction-reverse' : '',
+    props.content.alignCenter ? 'align-center' : '',
+    props.content.justifyContent ? 'justify-center' : '',  
     'snap-start',
   ]">
     <div v-if="articlesPending" class="w-full flex overflow-hidden max-h-[70dvh] lg:max-h-[70dvh]">
@@ -43,7 +45,7 @@ const formattedArticles = computed(() => {
     </div>
 
     <div v-else-if="formattedArticles.length > 0">
-      <h2 :class="[`main__title pb-6`, props.content.titleColor]">
+      <h2 :class="[`main__title`, props.content.titleColor]">
         Todos los artículos
       </h2>
 

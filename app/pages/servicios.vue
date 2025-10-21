@@ -2,6 +2,7 @@
 const servicios = [
   // Sección Servicios
   {
+    alignCenter: true,
     bgColor: "bg-white",
     bgImage: "background-emblem-servicios",
     color: "text-oxfordBlue",
@@ -33,6 +34,7 @@ const servicios = [
   },
   // Sección Diseño gráfico
   {
+    alignCenter: true,
     bgColor: "bg-columbiaBlue",
     navButtonBack: true,
     navButton: "text-azure",
@@ -71,6 +73,7 @@ const servicios = [
   },
   // Sección Tecnologías web
   {
+    alignCenter: true,
     bgColor: "bg-oxfordBlue",
     navButtonBack: true,
     navButton: "text-azure",
@@ -105,6 +108,7 @@ const servicios = [
   },
   // Sección Asesoría
   {
+    alignCenter: true,
     bgColor: "bg-azure",
     navButtonBack: true,
     navButton: "text-orfordBlue",

@@ -6,13 +6,13 @@ useHead({
 
 const blog = [
   {
-    HeroImage: "images/novanet-studio-modelo-telefono.webp",
+    alignCenter: true,
     bgColor: "bg-azure",
     color: "text-oxfordBlue",
     dataColor: "azure",
     description:
       "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
-    justifyContent: true,
+    HeroImage: "images/novanet-studio-modelo-telefono.webp",
     name: "Blog",
     title: "Creatividad y conocimiento",
     titleColor: "text-oxfordBlue",
@@ -20,6 +20,8 @@ const blog = [
 ];
 
 const recentArticles = {
+  alignCenter: true,
+  justifyContent: true,
   arrowClass: "border-oxfordBlue text-oxfordBlue",
   bgColor: "bg-white",
   buttonClass:
@@ -34,6 +36,7 @@ const recentArticles = {
 };
 
 const blogGallery = {
+  alignCenter: true,
   bgColor: "bg-columbiaBlue",
   bgImage: "background-emblem-galeria-blog",
   dataColor: "white",
