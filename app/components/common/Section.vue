@@ -98,7 +98,7 @@ const { isSectionVisible, scrollToSection } = useSectionObserver();
         <div class="lista">
           <a v-if="item.list" v-for="(listItem, listIndex) in item.list" :key="listIndex"
             :href="`#${listItem.targetSection}`" :class="[
-              `flex flex-wrap pr-4 hover:text-oxfordBlue hover:font-bold transition-all`,
+              `flex flex-wrap w-full pr-4 hover:text-oxfordBlue hover:font-bold transition-all`,
               item.listColor,
             ]" @click.prevent="scrollToSection(listItem.targetSection)">
             {{ listItem.text }}
@@ -123,14 +123,15 @@ const { isSectionVisible, scrollToSection } = useSectionObserver();
     </div>
 
     <!-- Imagen servicios -->
-    <div v-if="item.serviceImage" class="flex xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full">
+    <div v-if="item.serviceImage"
+      class="flex w-full xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full">
       <Motion v-if="item.serviceImage" :key="`serviceImage-${item.name}`" :initial="animations.mainImage.initial"
         :animate="isSectionVisible(item.name)
           ? animations.mainImage.animate
           : animations.mainImage.initial
           " :transition="{ ...animations.mainImage.transition }">
         <NuxtImg :src="item.serviceImage"
-          class="pb-4 2xs:hidden 2xs:max-xl:-scale-x-100 2xs:w-[60%] 2xs:ml-0 md:w-[100%] lg:w-[120%] xl:w-[100%] xl:justify-center" />
+          class="pb-4 3xs:hidden 2xs:block justify-self-start transform -scale-x-100 3xs:w-[60%] md:w-[100%] lg:w-[120%] xl:w-[100%]" />
       </Motion>
     </div>
   </section>

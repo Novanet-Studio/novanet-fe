@@ -3,6 +3,7 @@
 const nosotros = [
   // Sección nosotros
   {
+    alignCenter: true,
     bgColor: "bg-oxfordBlue",
     bgImage: "background-emblem-nosotros",
     buttonLink: "#",
@@ -19,6 +20,7 @@ const nosotros = [
   },
   // Sección Misión
   {
+    alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-mision",
     color: "text-oxfordBlue",
@@ -32,6 +34,7 @@ const nosotros = [
   },
   // Sección Visión
   {
+    alignCenter: true,
     bgColor: "bg-white",
     bgImage: "background-emblem-vision",
     color: "text-oxfordBlue",
@@ -46,6 +49,7 @@ const nosotros = [
   },
   // Sección contacto
   {
+    alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-nosotros-contacto",
     buttonType:

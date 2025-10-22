@@ -144,6 +144,7 @@ const servicios = [
   },
   // Sección contacto
   {
+    alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-contacto",
     buttonType:
