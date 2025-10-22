@@ -22,6 +22,8 @@ export default defineNuxtConfig({
           name: "author",
           content: "Novanet Studio <info@novanet.studio>",
         },
+        // Viewport meta for proper responsive behavior on mobile and devices
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },

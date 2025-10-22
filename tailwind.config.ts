@@ -30,7 +30,9 @@ module.exports = {
       },
    },
    content: [
-      "./components/**/*.{js,vue,ts}",
+        "./components/**/*.{js,vue,ts}",
+        // Include Nuxt 3 `app/` directory so Tailwind picks up classes in app/components and pages
+        "./app/**/*.{js,vue,ts}",
       "./layouts/**/*.vue",
       "./pages/**/*.vue",
       "./plugins/**/*.{js,ts}",

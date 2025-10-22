@@ -118,7 +118,7 @@ const { isSectionVisible, scrollToSection } = useSectionObserver();
         : animations.mainImage.initial
         " :transition="{ ...animations.mainImage.transition }">
         <NuxtImg :src="item.HeroImage"
-          class="w-full max-3xs:w-[120%] max-2xs:w-[150%] max-xs:w-[140%] portrait-lg:w-[150%] lg:w-[120%] xl:w-full" />
+          class="w-full justify-self-center 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[105%]" />
       </Motion>
     </div>
 
