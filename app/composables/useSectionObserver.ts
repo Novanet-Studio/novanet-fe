@@ -1,18 +1,30 @@
-import { onMounted, onUnmounted, nextTick, watch } from "vue";
+import { onUnmounted, nextTick } from "vue";
 import { useRoute } from "vue-router";
 
 let observer: IntersectionObserver | null = null;
 
 export function useSectionObserver() {
   const currentColor = useState<string>("currentColor", () => "default");
+  const currentEmblemColor = useState<string>(
+    "currentEmblemColor",
+    () => "default"
+  );
   const visibleSectionIds = useState<Set<string>>(
     "visibleSectionIds",
+    () => new Set()
+  );
+  const animatedSectionIds = useState<Set<string>>(
+    "animatedSectionIds",
     () => new Set()
   );
 
   const route = useRoute();
 
   const initObserver = () => {
+    if (!import.meta.client) {
+      return;
+    }
+
     if (observer) {
       observer.disconnect();
     }
@@ -28,13 +40,20 @@ export function useSectionObserver() {
         const targetElement = entry.target as HTMLElement;
         const targetId = targetElement.id;
         const targetColor = targetElement.dataset.color || "default";
+        const targetEmblemColor =
+          targetElement.dataset.emblemColor || targetColor;
 
         if (!targetId) return;
 
         if (entry.isIntersecting) {
           currentColor.value = targetColor;
+          currentEmblemColor.value = targetEmblemColor;
+
           if (!visibleSectionIds.value.has(targetId)) {
             visibleSectionIds.value.add(targetId);
+          }
+          if (!animatedSectionIds.value.has(targetId)) {
+            animatedSectionIds.value.add(targetId);
           }
         } else {
           visibleSectionIds.value.delete(targetId);
@@ -51,14 +70,6 @@ export function useSectionObserver() {
     });
   };
 
-  watch(
-    () => route.fullPath,
-    () => {
-      setTimeout(initObserver, 100);
-    },
-    { immediate: true }
-  );
-
   onUnmounted(() => {
     if (observer) {
       observer.disconnect();
@@ -66,7 +77,7 @@ export function useSectionObserver() {
     }
   });
 
-  const isSectionVisible = (id: string) => visibleSectionIds.value.has(id);
+  const hasBeenAnimated = (id: string) => animatedSectionIds.value.has(id);
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -75,7 +86,8 @@ export function useSectionObserver() {
 
   return {
     currentColor,
-    isSectionVisible,
+    currentEmblemColor,
+    hasBeenAnimated,
     initObserver,
     scrollToSection,
   };

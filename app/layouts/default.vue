@@ -1,24 +1,30 @@
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { watch, nextTick } from "vue";
+import { watch, onMounted } from "vue";
+import { useSectionObserver } from "~/composables/useSectionObserver";
 
-const { currentColor, initObserver } = useSectionObserver();
-
+const { currentColor, currentEmblemColor, initObserver } = useSectionObserver();
 const route = useRoute();
 
 watch(
   () => route.fullPath,
-  async () => {
-    await nextTick();
-    initObserver();
+  () => {
+    setTimeout(initObserver, 100);
   }
 );
+
+onMounted(() => {
+  initObserver();
+});
 </script>
+
 <template>
-  <AppHeader :color="currentColor" />
-  <AppDrawer :color="currentColor" />
-  <main>
-    <slot />
-  </main>
-  <AppFooter :color="currentColor" />
+  <div>
+    <AppHeader :color="currentColor" :emblem-color="currentEmblemColor" />
+    <AppDrawer :color="currentColor" />
+    <main>
+      <slot />
+    </main>
+    <AppFooter :color="currentColor" />
+  </div>
 </template>

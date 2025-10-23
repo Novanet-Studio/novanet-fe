@@ -12,6 +12,7 @@ const nosotros = [
       "bg-chartreuse text-oxfordBlue hover:bg-azure hover:text-oxfordBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
+    dataEmblemColor: "chartreuse",
     description:
       "Somos una agencia de marketing digital especializada en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
     name: "Nosotros",
