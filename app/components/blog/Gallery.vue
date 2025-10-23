@@ -32,12 +32,13 @@ const formattedArticles = computed(() => {
 
 <template>
   <section :id="props.content.name ? props.content.name : ''" :data-color="props.content.dataColor" :class="[
+    `section__viewport-height`,
     props.content.bgColor,
     props.content.bgImage,
     props.content.color,
     props.content.reverseDirection ? 'direction-reverse' : '',
-    props.content.alignCenter ? 'align-center' : '',
-    props.content.justifyContent ? 'justify-center' : '',  
+    props.content.alignCenter ? 'items-center' : '',
+    props.content.justifyContent ? 'justify-center' : '',
     'snap-start',
   ]">
     <div v-if="articlesPending" class="w-full flex overflow-hidden max-h-[70dvh] lg:max-h-[70dvh]">
@@ -45,13 +46,13 @@ const formattedArticles = computed(() => {
     </div>
 
     <div v-else-if="formattedArticles.length > 0">
-      <h2 :class="[`main__title`, props.content.titleColor]">
+      <h2 :class="[`main__title pb-8`, props.content.titleColor]">
         Todos los artículos
       </h2>
 
       <div
         class="max-h-[70vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4">
-        <article v-for="article in formattedArticles" :key="article.slug" class="group flex flex-col justify-end pt-8">
+        <article v-for="article in formattedArticles" :key="article.slug" class="group flex flex-col justify-end pb-8">
           <NuxtLink :to="article.cta_route" class="flex flex-col gap-2">
             <div class="text-left">
               <p class="text-gray-500 text-base">{{ article.date }}</p>

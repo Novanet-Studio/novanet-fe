@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { animations } from "~/utils/animations";
-
 import { useSectionObserver } from "~/composables/useSectionObserver";
 
 const props = defineProps<{ content: any }>();
-
 const { isSectionVisible, scrollToSection } = useSectionObserver();
 </script>
 
 <template>
   <section :id="item.name" v-for="item in props.content" :key="item.name" :data-color="item.dataColor" :class="[
+    `section__viewport-height`,
     item.bgColor,
     item.bgImage,
     item.color,
@@ -131,7 +130,7 @@ const { isSectionVisible, scrollToSection } = useSectionObserver();
           : animations.mainImage.initial
           " :transition="{ ...animations.mainImage.transition }">
         <NuxtImg :src="item.serviceImage"
-          class="pb-4 3xs:hidden 2xs:block justify-self-start transform -scale-x-100 lg:scale-x-100 3xs:w-[60%] md:!w-[100%] lg:!w-[120%] xl:!w-[100%]" />
+          class="pb-4 justify-self-start transform -scale-x-100 3xs:hidden 3xs:w-[60%] 2xs:block portrait-lg:-scale-x-100 lg:scale-x-100  md:!w-[60%] lg:!w-[80%] xl:!w-[100%]" />
       </Motion>
     </div>
   </section>

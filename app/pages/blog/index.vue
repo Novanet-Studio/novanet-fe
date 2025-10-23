@@ -8,11 +8,13 @@ const blog = [
   {
     alignCenter: true,
     bgColor: "bg-azure",
+    bgImage: "background-emblem-blog",
     color: "text-oxfordBlue",
     dataColor: "azure",
     description:
       "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
     HeroImage: "images/novanet-studio-modelo-telefono.webp",
+    justifyContent: true,
     name: "Blog",
     title: "Creatividad y conocimiento",
     titleColor: "text-oxfordBlue",

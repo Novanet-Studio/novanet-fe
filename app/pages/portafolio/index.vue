@@ -5,6 +5,7 @@ useHead({
 
 const portfolio = [
   {
+    alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-portafolio",
     color: "text-oxfordBlue",
@@ -17,7 +18,8 @@ const portfolio = [
   },
 ];
 
-const recents = {
+const recentsProjects = {
+  alignCenter: true,
   arrowClass: "border-azure text-azure",
   bgColor: "bg-oxfordBlue",
   bgImage: "background-emblem-proyectos-recientes",
@@ -33,13 +35,14 @@ const recents = {
 };
 
 const gallery = {
+  alignCenter: true,
   bgColor: "bg-white",
   bgImage: "background-emblem-galeria",
   color: "text-oxfordBlue",
   dataColor: "white",
   description:
     "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
-  justifyContent: true,
+  justifyContent: false,
   name: "Galeria",
   title: "Nuestros Proyectos",
   titleColor: "text-oxfordBlue",
@@ -50,7 +53,7 @@ const gallery = {
   <div class="section__container">
     <CommonSection :content="portfolio" />
 
-    <PortfolioRecentProjects :content="recents" />
+    <PortfolioRecentProjects :content="recentsProjects" />
 
     <PortfolioGallery :content="gallery" />
   </div>

@@ -48,10 +48,12 @@ const viewerContent = computed(() => {
   <section
     :id="props.content.name ? props.content.name : ''"
     :data-color="props.content.dataColor"
-    :class="[
+    :class="[      
+      `section__viewport-height`,
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,
+      props.content.alignCenter ? 'items-center' : '',
       props.content.reverseDirection ? 'direction-reverse' : '',
       'justify-center',
     ]"

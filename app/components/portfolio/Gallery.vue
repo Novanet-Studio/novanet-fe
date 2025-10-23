@@ -102,11 +102,12 @@ onMounted(() => {
 <template>
   <section :id="props.content.name ? props.content.name : ''" :data-color="props.content.dataColor"
     :data-section-index="2" :class="[
+      `section__viewport-height`,
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
-      props.content.justifyContent ? 'justify-center' : 'justify-start',
+      props.content.justifyContent ? 'justify-center' : '',
     ]">
     <div v-if="pending" class="w-full flex overflow-hidden">
       <p class="text-lg">Cargando portafolio...</p>

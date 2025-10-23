@@ -11,12 +11,14 @@ section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  overflow: hidden;
-  background-size: 26rem;
   scroll-snap-align: start;
+}
+
+.section__viewport-height {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .section__container {
@@ -321,7 +323,8 @@ form textarea::placeholder {
 
   .background-emblem-nosotros,
   .background-emblem-proyectos-recientes,
-  .background-emblem-portafolio {
+  .background-emblem-portafolio,
+  .background-emblem-blog {
     background-size: 8rem;
     padding-top: var(--header-mobile-height);
     background-position: bottom 5rem right;
@@ -333,7 +336,8 @@ form textarea::placeholder {
 
   .background-emblem-nosotros,
   .background-emblem-proyectos-recientes,
-  .background-emblem-portafolio {
+  .background-emblem-portafolio,
+  .background-emblem-blog {
     background-size: 13rem;
     padding-top: var(--header-mobile-height);
     background-position: bottom 5rem right;
@@ -341,10 +345,7 @@ form textarea::placeholder {
 }
 
 /* Width >= 640px */
-@media (width >=40rem) {
-
-
-}
+@media (width >=40rem) {}
 
 /* Width >= 768px */
 @media (width >=48rem) {
@@ -435,7 +436,7 @@ form textarea::placeholder {
 /* Width >= 1024px */
 @media (width >=64rem) and (orientation: landscape) {
   section {
-    flex-direction: row;    
+    flex-direction: row;
   }
 
   h1.main__title {
@@ -522,11 +523,11 @@ form textarea::placeholder {
   section {
     padding-left: 3rem;
     padding-right: 3rem;
-    
+
   }
 
   .background-emblem-galeria {
-padding-top: var(--header-desktop-height);
+    padding-top: var(--header-desktop-height);
   }
 
   h1.main__title {

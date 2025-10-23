@@ -42,6 +42,8 @@ const viewerContent = computed(() => {
     :data-section-index="1"
     :data-color="props.content.dataColor"
     :class="[
+      `section__viewport-height`,
+      props.content.alignCenter ? 'items-center' : '',
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,

@@ -28,7 +28,7 @@ const props = defineProps<{
 
 <template>
   <div
-    class="h-full pt-24 pb-20 grid grid-cols-1 gap-6 items-start overflow-hidden md:min-h-screen lg:grid-cols-[1fr_2fr]">
+    class="h-full pt-24 pb-20 grid grid-cols-1 gap-6 items-start lg:grid-cols-[1fr_2fr]">
     <div class="flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh] ">
       <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
         <span>←&nbsp;</span>

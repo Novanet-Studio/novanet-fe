@@ -9,6 +9,7 @@ const servicios = [
     dataColor: "white",
     description:
       "Somos una agencia de marketing digital especializada en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
+    showTabs: true,
     justifyContent: true,
     name: "Principal",
     title: "Nuestros servicios se orientan a los usuarios",
