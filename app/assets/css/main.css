@@ -117,9 +117,6 @@ form textarea::placeholder {
 }
 
 .lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   font-size: 1.3rem;
 }
 
