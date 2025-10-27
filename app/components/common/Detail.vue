@@ -28,7 +28,7 @@ const props = defineProps<{
 
 <template>
   <div
-    class="h-full pt-24 pb-20 grid grid-cols-1 gap-6 items-start lg:grid-cols-[1fr_2fr]">
+    class="h-full grid grid-cols-1 gap-6 items-start overflow-y-scroll lg:grid-cols-[1fr_2fr] xl:overflow-hidden">
     <div class="flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh] ">
       <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
         <span>←&nbsp;</span>
@@ -54,13 +54,13 @@ const props = defineProps<{
       <slot name="sidebar-extra" />
     </div>
 
-    <div class="w-full lg:h-[75vh] xl:h-[66vh]">
+    <div class="w-full lg:h-[75vh] xl:h-[72vh] 2xl:h-[74vh]">
       <div v-html="markdownToHtml({
         markdown: data.fullContent,
         portrait: data.topContentImage,
       })
         " :class="[
-          'detail w-full h-full pr-0 lg:pr-6 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y xl:pt-2',
+          'detail w-full h-full pr-0 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y lg:pr-6',
           styles.textClass,
         ]" />
     </div>

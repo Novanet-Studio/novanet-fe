@@ -29,6 +29,7 @@ const nosotros = [
     description:
       "Ofrecer soluciones que permitan a nuestros clientes conectar con sus usuarios de manera auténtica y consolidar sus emprendimientos en el mundo digital.",
     HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
+    justifyContent: true,
     name: "Mision",
     title: "Misión",
     titleColor: "text-azure",
@@ -43,6 +44,7 @@ const nosotros = [
     description:
       "Aspiramos a ser reconocidos como líderes en el campo del marketing digital y la comunicación visual, ofreciendo soluciones de vanguardia que inspiren, motiven y transformen.",
     HeroImage: "images/novanet-studio-acrobata-tope-piramide-humana.webp",
+    justifyContent: true,
     name: "Vision",
     title: "Visión",
     titleColor: "text-azure",
@@ -62,6 +64,7 @@ const nosotros = [
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",
+    justifyContent: true,
     name: "Contacto",
     showForm: true,
     title: "¡Queremos conectar contigo!",

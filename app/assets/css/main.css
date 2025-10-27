@@ -334,6 +334,18 @@ form textarea::placeholder {
 /* Width => 390px */
 @media (width >=24.375rem) {
 
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto,
+  .background-emblem-mision,
+  .background-emblem-vision,
+  .background-emblem-galeria {
+    background-size: 26rem;
+  }
+
+
   .background-emblem-nosotros,
   .background-emblem-proyectos-recientes,
   .background-emblem-portafolio,
@@ -350,8 +362,8 @@ form textarea::placeholder {
 /* Width >= 768px */
 @media (width >=48rem) {
   section {
-    padding-left: 2.25rem;
-    padding-right: 2.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   .background-emblem-main,

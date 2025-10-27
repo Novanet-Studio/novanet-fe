@@ -51,30 +51,21 @@ const projectDetailData = computed(() => {
 
 <template>
   <div class="section__container">
-    <section
-      id="project-detail"
-      data-color="oxfordBlue"
-      class="bg-oxfordBlue w-full min-h-screen flex justify-center items-center"
-    >
+    <section id="project-detail" data-color="oxfordBlue"
+      class="section__viewport-height bg-oxfordBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 lg:!pt-28 lg:!pb-24">
       <div v-if="pending" class="text-center">
         <p class="text-columbiaBlue text-2xl">Cargando proyecto...</p>
       </div>
 
-      <CommonDetail
-        v-else-if="projectDetailData"
-        :data="projectDetailData"
-        :styles="projectDetailStyles"
-      />
+      <CommonDetail v-else-if="projectDetailData" :data="projectDetailData" :styles="projectDetailStyles" />
 
       <div v-else class="text-center bg-white p-10 rounded-lg shadow-xl">
         <h1 class="font-bold text-oxfordBlue text-5xl">404</h1>
         <p class="text-gray-700 text-xl mt-2">
           El proyecto que buscas no existe.
         </p>
-        <NuxtLink
-          to="/portafolio"
-          class="inline-block mt-6 px-6 py-2 bg-azure text-white rounded font-semibold hover:bg-opacity-80"
-        >
+        <NuxtLink to="/portafolio"
+          class="inline-block mt-6 px-6 py-2 bg-azure text-white rounded font-semibold hover:bg-opacity-80">
           Volver al portafolio
         </NuxtLink>
       </div>
