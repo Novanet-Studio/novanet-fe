@@ -110,18 +110,18 @@ const { hasBeenAnimated, scrollToSection } = useSectionObserver();
     </div>
 
     <!-- Hero Image -->
-    <div v-if="item.HeroImage" :class="[
-      `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
-      item.justifyEndImage ? 'justify-end' : 'justify-center',
-    ]">
-      <Motion v-if="item.HeroImage" :key="`mainImage-${item.name}`" :initial="animations.mainImage.initial" :animate="hasBeenAnimated(item.name)
-        ? animations.mainImage.animate
-        : animations.mainImage.initial
-        " :transition="{ ...animations.mainImage.transition }">
+    <Motion v-if="item.HeroImage" :key="`mainImage-${item.name}`" :initial="animations.mainImage.initial" :animate="hasBeenAnimated(item.name)
+      ? animations.mainImage.animate
+      : animations.mainImage.initial
+      " :transition="{ ...animations.mainImage.transition }">
+      <div v-if="item.HeroImage" :class="[
+        `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
+        item.justifyEndImage ? 'justify-end' : 'justify-center',
+      ]">
         <NuxtImg :src="item.HeroImage"
-          :class="[item.HideOn3xs ? `3xs:hidden 2xs:block` : `w-full justify-self-center 2xs:w-[150%] xs:w-[140%] md:!w-[140%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[105%]`]" />
-      </Motion>
-    </div>
+          class="w-full justify-self-center 2xs:w-[150%] 2xs:-mr-24 xs:w-[140%] md:!w-[640px] portrait-lg:!w-[840px] lg:!w-[110%] xl:!w-[105%]" />
+      </div>
+    </Motion>
 
     <!-- Services Image -->
     <div v-if="item.serviceImage"

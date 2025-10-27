@@ -37,7 +37,7 @@ const props = defineProps<{
           {{ data.backLink.text }}
         </NuxtLink>
 
-        <p class="font-semibold" :class="styles.dateClass">
+        <p class="text-[1rem] leading-[1.25rem]" :class="styles.dateClass">
           {{ data.date }}
         </p>
         <h1 class="main__title" :class="styles.titleClass">

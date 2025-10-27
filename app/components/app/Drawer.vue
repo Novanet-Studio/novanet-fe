@@ -63,7 +63,7 @@ onMounted(() => {
          </button>
       </div>
 
-      <ul class="flex flex-col gap-5 text-xl mt-20 text-columbiaBlue hover:bottom-1">
+      <ul class="flex flex-col gap-5 text-[1rem] leading-[1.125rem] mt-20 text-columbiaBlue hover:bottom-1">
          <li v-for="(item, index) in navigationLinks" :key="index">
             <NuxtLink :to="item.link" :class="[
                'flex justify-start focus:outline-none',

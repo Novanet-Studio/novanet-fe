@@ -46,13 +46,13 @@ h3.main__title {
 }
 
 h1.main__title {
-  font-size: 1.875rem;
-  line-height: 2.125rem;
+  font-size: 1.625rem;
+  line-height: 1.875rem;
 }
 
 h2.main__title {
-  font-size: 1.75rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 }
 
 h3.main__title {
@@ -62,8 +62,8 @@ h3.main__title {
 
 
 p.description {
-  font-size: 1.4rem;
-  line-height: 1.65rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   font-weight: 300;
 }
 
@@ -79,6 +79,7 @@ button.cta__secondary {
 a.cta__primary,
 button.cta__primary {
   font-size: 1rem;
+  list-style: 1.125rem;
   padding: 0.75rem;
 }
 
@@ -114,6 +115,7 @@ textarea {
 form input::placeholder,
 form textarea::placeholder {
   font-size: 1rem;
+  line-height: 1.25rem;
   font-weight: 100;
   color: white;
 }
@@ -317,6 +319,7 @@ form textarea::placeholder {
   .background-emblem-creatividad,
   .background-emblem-innovacion,
   .background-emblem-colaboracion,
+  .background-emblem-contacto,
   .background-emblem-mision,
   .background-emblem-vision,
   .background-emblem-galeria {
@@ -368,6 +371,27 @@ form textarea::placeholder {
     padding-right: 1.5rem;
   }
 
+  h1 {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
+  }
+
+  p.description {
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+  }
+
+  a.cta__primary,
+  button.cta__primary {
+    font-size: 1.375rem;
+    list-style: 1.625rem;
+  }
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -390,17 +414,7 @@ form textarea::placeholder {
 
   .background-emblem-servicios {
     background-size: 144rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  p.description {
-    font-size: 1.375rem;
-    line-height: 1.625rem;
-  }
+  }  
 }
 
 /* Width >= 1024px and orientation portrait */
