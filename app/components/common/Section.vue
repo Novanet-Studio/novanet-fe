@@ -119,7 +119,7 @@ const { hasBeenAnimated, scrollToSection } = useSectionObserver();
         : animations.mainImage.initial
         " :transition="{ ...animations.mainImage.transition }">
         <NuxtImg :src="item.HeroImage"
-          class="w-full justify-self-center hidden 2xs:block 2xs:w-[150%] xs:w-[140%] md:!w-[115%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[105%]" />
+          :class="[item.HideOn3xs ? `3xs:hidden 2xs:block` : `w-full justify-self-center 2xs:w-[150%] xs:w-[140%] md:!w-[140%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[105%]`]" />
       </Motion>
     </div>
 

@@ -93,6 +93,7 @@ const home = [
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",
 
     HeroImage: "images/novanet-studio-piezas-azules-rompecabezas.webp",
+    HideOn3xs: true,
     justifyContent: true,
     name: "Contacto",
     showForm: true,

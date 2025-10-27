@@ -18,6 +18,7 @@ interface DetailStyleProps {
   dateClass: string;
   textClass: string;
   linkClass: string;
+  article?: boolean;
 }
 
 const props = defineProps<{
@@ -27,30 +28,28 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div
-    class="h-full grid grid-cols-1 gap-6 items-start overflow-y-scroll lg:grid-cols-[1fr_2fr] xl:overflow-hidden">
-    <div class="flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh] ">
-      <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
-        <span>←&nbsp;</span>
-        {{ data.backLink.text }}
-      </NuxtLink>
+  <div class="h-full grid grid-cols-1 gap-6 items-start overflow-y-scroll lg:grid-cols-[1fr_2fr] xl:overflow-hidden">
+    <div
+      :class="[styles.article ? 'flex flex-col gap-1 md:flex-row-reverse md:gap-5 lg:flex-col lg:gap-3 lg:h-[75vh] xl:h-[66vh]' : 'flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh]']">
+      <div :class="[styles.article ? 'flex flex-col justify-center' : '']">
+        <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
+          <span>←&nbsp;</span>
+          {{ data.backLink.text }}
+        </NuxtLink>
 
-      <p class="font-semibold" :class="styles.dateClass">
-        {{ data.date }}
-      </p>
-      <h1 class="main__title" :class="styles.titleClass">
-        {{ data.title }}
-      </h1>
-
-      <div>
-        <NuxtImg v-if="data.portrait" :src="data.portrait" :alt="`Imagen del proyecto ${data.title}`"
-          class="w-full max-w-[66.66%] h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
-          loading="lazy" />
+        <p class="font-semibold" :class="styles.dateClass">
+          {{ data.date }}
+        </p>
+        <h1 class="main__title" :class="styles.titleClass">
+          {{ data.title }}
+        </h1>
       </div>
 
-      <p class="text-base leading-relaxed mt-2" :class="styles.textClass">
-        {{ data.shortDescription }}
-      </p>
+      <div :class="[styles.article ? 'md:w-[80%] lg:w-full' : '']">
+        <NuxtImg v-if="data.portrait" :src="data.portrait" :alt="`Imagen del proyecto ${data.title}`"
+          class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+          loading="lazy" />
+      </div>
       <slot name="sidebar-extra" />
     </div>
 

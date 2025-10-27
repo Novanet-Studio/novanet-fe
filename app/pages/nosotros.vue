@@ -64,6 +64,7 @@ const nosotros = [
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",
+    HideOn3xs: true,
     justifyContent: true,
     name: "Contacto",
     showForm: true,

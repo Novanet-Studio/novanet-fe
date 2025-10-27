@@ -56,9 +56,9 @@ const formattedArticles = computed(() => {
           <NuxtLink :to="article.cta_route" class="flex flex-col gap-2">
             <div class="text-left">
               <p class="text-gray-500 text-base">{{ article.date }}</p>
-              <h3 class="main__title text-oxfordBlue group-hover:text-azure transition-colors duration-300">
+              <h2 class="main__title text-oxfordBlue group-hover:text-azure transition-colors duration-300">
                 {{ article.title }}
-              </h3>
+              </h2>
             </div>
 
             <div

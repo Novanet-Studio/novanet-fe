@@ -157,6 +157,8 @@ const servicios = [
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-fichas-colores-juesgos-mesa.webp",
+    HideOn3xs: true,
+    justifyContent: true,
     name: "Servicio-contacto",
     showForm: true,
     placeHolderColor: "placeholder-oxfordBlue",

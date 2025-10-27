@@ -135,11 +135,11 @@ form textarea::placeholder {
 }
 
 .custom-scrollbar-y::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 .custom-scrollbar-x::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .custom-scrollbar-y::-webkit-scrollbar-button {
@@ -152,13 +152,15 @@ form textarea::placeholder {
 
 .custom-scrollbar-x::-webkit-scrollbar-track,
 .custom-scrollbar-y::-webkit-scrollbar-track {
-  border: 1px solid var(--color-cadetGray);
-
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
 }
 
 .custom-scrollbar-x::-webkit-scrollbar-thumb,
 .custom-scrollbar-y::-webkit-scrollbar-thumb {
-  background-color: var(--color-cadetGray);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  opacity: 0;
 }
 
 .tabs {
