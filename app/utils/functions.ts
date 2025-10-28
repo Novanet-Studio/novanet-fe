@@ -63,7 +63,7 @@ export const markdownToHtml = ({
       const label = labelMatch ? labelMatch[1] : "";
 
       return `
-      <img src="${imgUrl}" alt="${alt}" class="w-full"/>
+      <img src="${imgUrl}" alt="${alt}" class="w-full md:pt-8 xl:pt-[unset]"/>
       ${label ? `<i class="text-s2 md:text-p1 xl:text-p2">${label}</i>` : ""}
     `;
     }
@@ -87,14 +87,13 @@ export const markdownToHtml = ({
       );
 
       const headingClass: any = {
-        "#": "text-5 xl:text-6 font-bold",
-        "##": "text-4 xl:text-5 font-bold",
-        "###": "text-3 xl:text-4 font-bold",
+        "#": "main__title text-azure",
+        "##": "main__title text-azure",
+        "###": "main__title",
       };
 
-      return `<h${level} class="${
-        headingClass[block.match(/^#+/)]
-      }">${textWithLinks}</h${level}>`;
+      return `<h${level} class="${headingClass[block.match(/^#+/)]
+        }">${textWithLinks}</h${level}>`;
     }
 
     //? unordered list block
@@ -154,7 +153,7 @@ export const markdownToHtml = ({
     }
 
     //> default paragraph
-    return `<p class="text-p1 2xl:text-p2 3xl:text-p2">${block}</p>`;
+    return `<p class="text-[1rem] leading-[1.25rem] md:text-[1.125rem] md:leading-[1.375rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]">${block}</p>`;
   };
 
   let html = markdown
@@ -163,7 +162,7 @@ export const markdownToHtml = ({
     .join("");
 
   if (portrait) {
-    html = `<img src="${portrait}" alt="Imagen de portada" class="w-full"/> ${html}`;
+    html = `<img src="${portrait}" alt="Imagen de portada" class="w-full pb-4 xl:pb-2 3xl:pb-6"/>${html}`;
   }
 
   return `${html}`;

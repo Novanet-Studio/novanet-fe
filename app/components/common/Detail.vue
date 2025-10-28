@@ -32,12 +32,13 @@ const props = defineProps<{
     <div
       :class="[styles.article ? 'flex flex-col gap-1 md:flex-row-reverse md:gap-5 lg:flex-col lg:gap-3 lg:h-[75vh] xl:h-[66vh]' : 'flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh]']">
       <div :class="[styles.article ? 'flex flex-col justify-center' : '']">
-        <NuxtLink :to="data.backLink.url" class="cta__navigation gap- pb-4" :class="styles.linkClass">
+        <NuxtLink :to="data.backLink.url" class="cta__navigation pb-6" :class="styles.linkClass">
           <span>←&nbsp;</span>
           {{ data.backLink.text }}
         </NuxtLink>
 
-        <p class="text-[1rem] leading-[1.25rem]" :class="styles.dateClass">
+        <p class="text-[1rem] leading-[1.25rem] md:text-[1.125rem] md:leading-[1.75rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]"
+          :class="styles.dateClass">
           {{ data.date }}
         </p>
         <h1 class="main__title" :class="styles.titleClass">
@@ -53,13 +54,13 @@ const props = defineProps<{
       <slot name="sidebar-extra" />
     </div>
 
-    <div class="w-full lg:h-[75vh] xl:h-[72vh] 2xl:h-[74vh]">
+    <div class="w-full portrait-lg:!h-[82vh] lg:h-[75vh] xl:h-[72vh] 2xl:h-[74vh]">
       <div v-html="markdownToHtml({
         markdown: data.fullContent,
         portrait: data.topContentImage,
       })
         " :class="[
-          'detail w-full h-full pr-0 overflow-y-auto flex flex-col gap-4 custom-scrollbar-y lg:pr-6',
+          'detail flex flex-col gap-4 w-full h-full overflow-y-auto pr-0 custom-scrollbar-y lg:pr-6',
           styles.textClass,
         ]" />
     </div>

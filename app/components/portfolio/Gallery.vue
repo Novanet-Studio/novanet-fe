@@ -102,7 +102,6 @@ onMounted(() => {
 <template>
   <section :id="props.content.name ? props.content.name : ''" :data-color="props.content.dataColor"
     :data-section-index="2" :class="[
-      `section__viewport-height`,
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,

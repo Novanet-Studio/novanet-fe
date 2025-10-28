@@ -16,7 +16,7 @@ import { animations } from "~/utils/animations";
       :style="{ color: colorMap[color] || '#fff' }"
     >
       <div class="w-full pb-2 md:w-[70%]">
-        <p class="text-[0.875rem] leading-[1.25rem] md:text-lg lg:text-xl">
+        <p class="text-[0.875rem] leading-[1.25rem] md:text-[1.125rem] md:leading-[1.75rem] xl:text-[1.375rem] xl:leading-[1.625rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]">
           <b>Novanet Studio</b> | Creatividad | Innovación | Colaboración
         </p>
       </div>

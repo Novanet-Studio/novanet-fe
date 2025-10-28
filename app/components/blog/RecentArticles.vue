@@ -49,7 +49,6 @@ const viewerContent = computed(() => {
     :id="props.content.name ? props.content.name : ''"
     :data-color="props.content.dataColor"
     :class="[      
-      `section__viewport-height`,
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,

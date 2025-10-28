@@ -9,7 +9,6 @@ const { hasBeenAnimated, scrollToSection } = useSectionObserver();
 <template>
   <section :id="item.name" v-for="item in props.content" :key="item.name" :data-color="item.dataColor"
     :data-emblem-color="item.dataEmblemColor" :class="[
-      `section__viewport-height`,
       item.bgColor,
       item.bgImage,
       item.color,
@@ -110,18 +109,19 @@ const { hasBeenAnimated, scrollToSection } = useSectionObserver();
     </div>
 
     <!-- Hero Image -->
-    <Motion v-if="item.HeroImage" :key="`mainImage-${item.name}`" :initial="animations.mainImage.initial" :animate="hasBeenAnimated(item.name)
-      ? animations.mainImage.animate
-      : animations.mainImage.initial
-      " :transition="{ ...animations.mainImage.transition }">
-      <div v-if="item.HeroImage" :class="[
-        `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
-        item.justifyEndImage ? 'justify-end' : 'justify-center',
-      ]">
+    <div v-if="item.HeroImage" :class="[
+      `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
+      item.justifyEndImage ? 'justify-end' : 'justify-center',
+    ]">
+      <Motion v-if="item.HeroImage" class="grid" :key="`mainImage-${item.name}`" :initial="animations.mainImage.initial"
+        :animate="hasBeenAnimated(item.name)
+          ? animations.mainImage.animate
+          : animations.mainImage.initial
+          " :transition="{ ...animations.mainImage.transition }">
         <NuxtImg :src="item.HeroImage"
-          class="w-full justify-self-center 2xs:w-[150%] 2xs:-mr-24 xs:w-[140%] md:!w-[640px] portrait-lg:!w-[840px] lg:!w-[110%] xl:!w-[105%]" />
-      </div>
-    </Motion>
+          :class="[item.HideOn3xs ? '3xs:hidden' : 'justify-self-center 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[100%]']" />
+      </Motion>
+    </div>
 
     <!-- Services Image -->
     <div v-if="item.serviceImage"

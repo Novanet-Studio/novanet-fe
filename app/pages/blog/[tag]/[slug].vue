@@ -56,7 +56,7 @@ const articleDetailData = computed(() => {
     <section
       id="article-detail"
       data-color="columbiaBlue"
-      class=" section__viewport-height bg-columbiaBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 lg:!pt-28 lg:!pb-24"
+      class="bg-columbiaBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 lg:!pt-28 lg:!pb-24 3xl:!pt-32 3xl:!pb-20"
     >
       <div v-if="pending" class="text-center">
         <p class="text-oxfordBlue text-2xl">Cargando artículo...</p>

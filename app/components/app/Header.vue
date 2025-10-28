@@ -102,7 +102,7 @@ onMounted(() => {
             <li v-for="(item, index) in navigationLinks" :key="index">
               <NuxtLink
                 :to="item.link"
-                class="pb-2 text-center text-sm md:text-lg lg:text-2xl"
+                class="pb-2 text-center md:text-[1.125rem] md:leading-[1.75rem] xl:text-[1.375rem] xl:leading-[1.625rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]"
                 :class="[
                   active === item.name
                     ? `border-b-2`

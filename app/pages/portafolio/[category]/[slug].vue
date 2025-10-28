@@ -52,7 +52,7 @@ const projectDetailData = computed(() => {
 <template>
   <div class="section__container">
     <section id="project-detail" data-color="oxfordBlue"
-      class="section__viewport-height bg-oxfordBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 lg:!pt-28 lg:!pb-24">
+      class="bg-oxfordBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 portrait-lg:!pt-32 lg:!pt-28 lg:!pb-24 3xl:!pt-32 3xl:!pb-20">
       <div v-if="pending" class="text-center">
         <p class="text-columbiaBlue text-2xl">Cargando proyecto...</p>
       </div>
