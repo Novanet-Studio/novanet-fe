@@ -43,7 +43,7 @@ const nosotros = [
     dataColor: "white",
     description:
       "Aspiramos a ser reconocidos como líderes en el campo del marketing digital y la comunicación visual, ofreciendo soluciones de vanguardia que inspiren, motiven y transformen.",
-    HeroImage: "images/novanet-studio-acrobata-tope-piramide-humana.webp",
+    HeroImage: "images/novanet-studio-bailarina-ballet.webp",
     justifyContent: true,
     name: "Vision",
     title: "Visión",
@@ -60,7 +60,7 @@ const nosotros = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",

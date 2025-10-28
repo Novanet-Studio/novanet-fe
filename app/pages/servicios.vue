@@ -153,10 +153,10 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
-    HeroImage: "images/novanet-studio-fichas-colores-juesgos-mesa.webp",
+    HeroImage: "images/novanet-studio-fichas-colores-juegos-mesa.webp",
     HideOn3xs: true,
     justifyContent: true,
     name: "Servicio-contacto",

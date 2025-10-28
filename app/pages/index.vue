@@ -87,7 +87,7 @@ const home = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Envíanos un mensaje a través de este formulario. Juntos desarrollaremos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
     formButtonText: "Enviar mensaje",
     formFieldBorder:
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",
