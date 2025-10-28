@@ -1,6 +1,15 @@
 import { easeInOut } from "motion-v";
 
 export const animations = {
+   emblem: {
+      initial: { x: -100, opacity: 0 },
+      animate: { x: 0, opacity: 1, rotate: 360 },
+      transition: {
+         duration: 0.8,
+         delay: 1,
+         ease: easeInOut,
+      },
+   },
    header: {
       initial: { y: -100, opacity: 0 },
       animate: { y: 0, opacity: 1 },

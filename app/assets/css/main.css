@@ -190,8 +190,6 @@ form textarea::placeholder {
   transition: 0.3s;
 }
 
-
-
 /* Fade transition styles */
 .fade-enter-active,
 .fade-leave-active {
@@ -256,30 +254,28 @@ form textarea::placeholder {
 
 }
 
-.background-emblem-portafolio {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-piramides.webp");
-  background-position: bottom right;
-  background-size: 10rem;
-}
-
 .background-emblem-mision {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas.svg");
   background-position: left center;
   background-repeat: no-repeat;
-
-}
-
-.background-emblem-proyectos-recientes {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg");
-  background-position: bottom right;
-  background-size: 10rem;
-
 }
 
 .background-emblem-vision {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
   background-position: right center;
   background-repeat: no-repeat;
+}
+
+.background-emblem-portafolio {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-piramides.webp");
+  background-position: bottom right;
+  background-size: 10rem;
+}
+
+.background-emblem-proyectos-recientes {
+  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg");
+  background-position: bottom right;
+  background-size: 10rem;
 }
 
 .background-emblem-galeria {
@@ -296,7 +292,6 @@ form textarea::placeholder {
   padding-top: var(--header-mobile-height);
 }
 
-
 .background-emblem-nosotros-contacto {
   background-position: left center;
 }
@@ -308,6 +303,147 @@ form textarea::placeholder {
   background-size: 70rem;
 }
 
+/* Background animations */
+
+.background-emblem-main,
+.background-emblem-contacto {
+  background-position: bottom -60vh center;
+  animation: mainSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes mainSection {
+  0% {
+    background-position: bottom -60vh center;
+  }
+
+  100% {
+    background-position: bottom center;
+  }
+}
+
+.background-emblem-creatividad {
+  background-position: top -60vh center, bottom -60vh center;
+  animation: creatividadSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes creatividadSection {
+  0% {
+    background-position: top -60vh center, bottom -60vh center;
+  }
+
+  100% {
+    background-position: top center, bottom center;
+  }
+}
+
+.background-emblem-innovacion {
+  background-position: top -60vh center, bottom -60vh center;
+  animation: innovacionSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes innovacionSection {
+  0% {
+    background-position: top -60vh center, bottom -60vh center;
+  }
+
+  100% {
+    background-position: top center, bottom center;
+  }
+}
+
+.background-emblem-colaboracion {
+  background-position: top -60vh center;
+  animation: colaboracionSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes colaboracionSection {
+  0% {
+    background-position: top -60vh center;
+  }
+
+  100% {
+    background-position: top center;
+  }
+}
+
+.background-emblem-nosotros,
+.background-emblem-portafolio {
+  background-position: bottom 5rem right -60vh;
+  animation: nosotrosSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes nosotrosSection {
+  0% {
+    background-position: bottom 5rem right -60vh;
+  }
+
+  100% {
+    background-position: bottom 5rem right;
+  }
+}
+
+.background-emblem-mision {
+  background-position: left -60vh center;
+  animation: misionSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+.background-emblem-vision {
+  background-position: bottom right -60vh;
+  animation: visionSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes visionSection {
+  0% {
+    background-position: bottom right -60vh;
+  }
+
+  100% {
+    background-position: bottom right;
+  }
+}
+
+@keyframes misionSection {
+  0% {
+    background-position: left -60vh center;
+  }
+
+  100% {
+    background-position: left center;
+  }
+}
+
+.background-emblem-servicios {
+  background-size: 0rem;
+  animation: serviciosSection 2s linear forwards;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1.5s;
+}
+
+@keyframes serviciosSection {
+  0% {
+    background-size: 0rem;
+  }
+
+  100% {
+    background-size: 70rem;
+  }
+}
+
+
 /* Width <= 390px */
 @media (width <=24.375rem) {
 
@@ -318,12 +454,12 @@ form textarea::placeholder {
   .background-emblem-contacto,
   .background-emblem-mision,
   .background-emblem-vision,
+  .background-emblem-proyectos-recientes,
   .background-emblem-galeria {
     background-size: 24rem;
   }
 
   .background-emblem-nosotros,
-  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio,
   .background-emblem-blog {
     background-size: 8rem;
@@ -342,18 +478,19 @@ form textarea::placeholder {
   .background-emblem-contacto,
   .background-emblem-mision,
   .background-emblem-vision,
-  .background-emblem-galeria {
-    background-size: 26rem;
-  }
-
-  .background-emblem-nosotros,
   .background-emblem-proyectos-recientes,
-  .background-emblem-portafolio,
-  .background-emblem-blog {
-    background-size: 13rem;
-    padding-top: var(--header-mobile-height);
-    background-position: bottom 5rem right;
-  }
+  .background-emblem-galeria,
+  {
+  background-size: 26rem;
+}
+
+.background-emblem-nosotros,
+.background-emblem-portafolio,
+.background-emblem-blog {
+  background-size: 13rem;
+  padding-top: var(--header-mobile-height);
+  background-position: bottom 5rem right;
+}
 }
 
 /* Width >= 768px */
@@ -416,7 +553,8 @@ form textarea::placeholder {
 
   .background-emblem-mision,
   .background-emblem-vision,
-  .background-emblem-galeria {
+  .background-emblem-galeria,
+  .background-emblem-proyectos-recientes {
     background-size: 32rem;
   }
 
@@ -458,6 +596,7 @@ form textarea::placeholder {
 
   .background-emblem-mision,
   .background-emblem-vision,
+  .background-emblem-proyectos-recientes,
   .background-emblem-galeria {
     background-size: 42rem;
   }
@@ -477,8 +616,8 @@ form textarea::placeholder {
   .background-emblem-creatividad,
   .background-emblem-innovacion,
   .background-emblem-colaboracion,
-  .background-emblem-contacto {
-    background-size: 40rem;
+  .background-emblem-nosotros-contacto {
+    background-size: 50rem;
   }
 
   .background-emblem-mision,
@@ -511,10 +650,123 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
-  .background-emblem-proyectos-recientes,
+  .background-emblem-portafolio,
+  .background-emblem-proyectos-recientes {
+    background-size: 24rem;
+    background-position: center right;
+    padding-top: unset;
+  }
+
+  .background-emblem-mision,
+  .background-emblem-vision,
+  .background-emblem-galeria {
+    background-size: 25rem;
+  }
+
+  /* Background animations */
+
+  .background-emblem-main,
+  .background-emblem-contacto {
+    background-position: bottom -60vh right;
+    animation: mainSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes mainSection {
+    0% {
+      background-position: bottom -60vh right;
+    }
+
+    100% {
+      background-position: bottom right;
+    }
+  }
+
+  .background-emblem-creatividad {
+    background-position: top -60vh right, bottom -60vh left;
+    animation: creatividadSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes creatividadSection {
+    0% {
+      background-position: top -60vh right, bottom -60vh left;
+    }
+
+    100% {
+      background-position: top right, bottom left;
+    }
+  }
+
+  .background-emblem-innovacion {
+    background-position: top -60vh left, bottom -60vh right;
+    animation: innovacionSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes innovacionSection {
+    0% {
+      background-position: top -60vh left, bottom -60vh right;
+    }
+
+    100% {
+      background-position: top left, bottom right;
+    }
+  }
+
+  .background-emblem-colaboracion {
+    background-position: top -60vh right;
+    animation: colaboracionSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes colaboracionSection {
+    0% {
+      background-position: top -60vh right;
+    }
+
+    100% {
+      background-position: top right;
+    }
+  }
+
+  .background-emblem-servicios {
+    background-size: 0rem;
+    animation: serviciosSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  .background-emblem-nosotros,
   .background-emblem-portafolio {
-    background-size: 22rem;
-    background-position: bottom right;
+    background-position: bottom right -60vh;
+    animation: nosotrosSection 2s linear forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes nosotrosSection {
+    0% {
+      background-position: bottom right -60vh;
+    }
+
+    100% {
+      background-position: bottom right;
+    }
+  }
+
+  @keyframes serviciosSection {
+    0% {
+      background-size: 0rem;
+    }
+
+    100% {
+      background-size: 110rem;
+    }
   }
 }
 
@@ -523,7 +775,6 @@ form textarea::placeholder {
   section {
     padding-left: 3rem;
     padding-right: 3rem;
-
   }
 
   h1.main__title {
@@ -547,28 +798,6 @@ form textarea::placeholder {
 
   .background-emblem-galeria {
     padding-top: var(--header-desktop-height);
-  }
-
-  .background-emblem-main,
-  .background-emblem-creatividad,
-  .background-emblem-innovacion,
-  .background-emblem-colaboracion,
-  .background-emblem-nosotros-contacto {
-    background-size: 50rem;
-  }
-
-  .background-emblem-nosotros,
-  .background-emblem-portafolio,
-  .background-emblem-proyectos-recientes {
-    background-size: 24rem;
-    background-position: center right;
-    padding-top: unset;
-  }
-
-  .background-emblem-mision,
-  .background-emblem-vision,
-  .background-emblem-galeria {
-    background-size: 25rem;
   }
 }
 
@@ -608,25 +837,6 @@ form textarea::placeholder {
 
   .background-emblem-galeria {
     background-size: 32rem;
-  }
-
-  /* Background animations */
-
-  .background-emblem-main {
-    background-position: bottom -50vh right;
-    animation: mainSection 2s linear forwards;
-    animation-timing-function: ease-in-out;
-    animation-delay: 1.5s;
-  }
-
-  @keyframes mainSection {
-    0% {
-      background-position: bottom -60vh right;
-    }
-
-    100% {
-      background-position: bottom right;
-    }
   }
 }
 

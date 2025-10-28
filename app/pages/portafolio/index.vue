@@ -22,12 +22,12 @@ const recentsProjects = {
   alignCenter: true,
   arrowClass: "border-azure text-azure",
   bgColor: "bg-oxfordBlue",
-  bgImage: "background-emblem-proyectos-recientes",
   dataColor: "oxfordBlue",
   buttonClass:
     "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
   color: "text-columbiaBlue",
   dateColor: "text-gray-400",
+  justifyContent: true,
   name: "Recientes",
   oneImageViewer: true,
   sectionTitle: "Lo más reciente",

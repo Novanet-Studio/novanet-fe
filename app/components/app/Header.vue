@@ -47,9 +47,9 @@ onMounted(() => {
       aria-label="Global"
     >
       <Motion
-        :initial="animations.header.initial"
-        :animate="animations.header.animate"
-        :transition="{ ...animations.header.transition }"
+        :initial="animations.emblem.initial"
+        :animate="animations.emblem.animate"
+        :transition="{ ...animations.emblem.transition }"
       >
         <div class="flex lg:flex-1">
           <NuxtLink to="/" class="logo" @click="setActive('Inicio')">
