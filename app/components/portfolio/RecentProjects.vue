@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { createExcerpt } from "~/utils/functions";
-import { useSectionObserver } from "~/composables/useSectionObserver";
 
-const props = defineProps<{
-  content: any;
-}>();
+const props = defineProps<{ content: any; others?: any }>();
+const emblemModifierSource = props.others?.emblemModifierSource || {};
 
 const { getRecentProjects } = usePortfolio();
 const { data: projects, pending: projectsPending } = await useAsyncData(
@@ -41,6 +39,9 @@ const viewerContent = computed(() => {
     :id="props.content.name ? props.content.name : ''"
     :data-section-index="1"
     :data-color="props.content.dataColor"
+    :data-emblem-color="
+      emblemModifierSource[props.content.name] || props.content.dataColor
+    "
     :class="[
       props.content.alignCenter ? 'items-center' : '',
       props.content.bgColor,

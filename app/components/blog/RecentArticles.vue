@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { createExcerpt, formatDate } from "~/utils/functions";
-import { useSectionObserver } from "~/composables/useSectionObserver";
 
-const props = defineProps<{
-  content: any;
-}>();
-
-const { activeSections, animatedSections, isAnimated, scrollToSection } = useSectionObserver(props.content.sections ?? []);
+const props = defineProps<{ content: any; others?: any }>();
+const emblemModifierSource = props.others?.emblemModifierSource || {};
 
 const { getRecentArticles } = useBlog();
 const { data: articles, pending: articlesPending } = await useAsyncData(
@@ -48,7 +44,10 @@ const viewerContent = computed(() => {
   <section
     :id="props.content.name ? props.content.name : ''"
     :data-color="props.content.dataColor"
-    :class="[      
+    :data-emblem-color="
+      emblemModifierSource[props.content.name] || props.content.dataColor
+    "
+    :class="[
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,

@@ -1,4 +1,15 @@
 <script lang="ts" setup>
+const emblenmModifierSource: Record<string, string> = {
+  /**
+   * Record<SectionName, CustomEmblemColor>
+   */
+  Nosotros: "chartreuse",
+};
+
+const others = {
+  emblemModifierSource: emblenmModifierSource,
+};
+
 //Array with about us page content
 const nosotros = [
   // Sección nosotros
@@ -12,7 +23,7 @@ const nosotros = [
       "bg-chartreuse text-oxfordBlue hover:bg-azure hover:text-oxfordBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
-    dataEmblemColor: "chartreuse",
+
     description:
       "Somos una agencia de marketing digital especializada en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
     name: "Nosotros",
@@ -78,6 +89,6 @@ const nosotros = [
 
 <template>
   <div class="section__container">
-    <CommonSection :content="nosotros" />
+    <CommonSection :content="nosotros" :others="others" />
   </div>
 </template>
