@@ -20,6 +20,24 @@ function setActive(linkName: string) {
 }
 
 watch(
+  () => route.path,
+  (newPath) => {
+    let bestMatch = null;
+    for (const link of navigationLinks) {
+      if (newPath.startsWith(link.link)) {
+        if (!bestMatch || link.link.length > bestMatch.link.length) {
+          bestMatch = link;
+        }
+      }
+    }
+    if (bestMatch) {
+      active.value = bestMatch.name;
+    }
+  },
+  { immediate: true }
+);
+
+watch(
   isOpen,
   (val) => {
     if (import.meta.client) {
@@ -63,7 +81,9 @@ onMounted(() => {
             >
               <path
                 d="M37.45 28.95c-6.97 0-12.55 5.58-12.55 12.55s5.58 12.55 12.55 12.55S50 48.47 50 41.5s-5.58-12.55-12.55-12.55m0 16.53c-2.39 0-4.18-1.79-4.18-4.18s1.79-4.18 4.18-4.18 4.18 1.79 4.18 4.18-1.79 4.18-4.18 4.18M37.45 0C30.48 0 24.9 5.58 24.9 12.55S30.48 25.1 37.45 25.1 50 19.52 50 12.55 44.42 0 37.45 0m0 16.53c-2.39 0-4.18-1.79-4.18-4.18s1.79-4.18 4.18-4.18 4.18 1.79 4.18 4.18-1.79 4.18-4.18 4.18M12.55 14.34C5.58 14.34 0 19.92 0 26.89s5.58 12.55 12.55 12.55S25.1 33.86 25.1 26.89s-5.58-12.55-12.55-12.55m0 16.53c-2.39 0-4.18-1.79-4.18-4.18s1.79-4.18 4.18-4.18 4.18 1.79 4.18 4.18-1.79 4.18-4.18 4.18"
-                :style="{ fill: colorMap[emblemColor] || colorMap[color] || '#fff' }"
+                :style="{
+                  fill: colorMap[emblemColor] || colorMap[color] || '#fff',
+                }"
               />
             </svg>
           </NuxtLink>
