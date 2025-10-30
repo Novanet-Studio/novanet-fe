@@ -8,7 +8,7 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "white",
     description:
-      "Somos una agencia de marketing digital especializada en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
+      "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
     showTabs: true,
     justifyContent: true,
     name: "Principal",
@@ -42,7 +42,7 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Enfocados en la creatividad y la colaboración estrecha, trabajamos mano a mano con nuestros clientes para desarrollar soluciones visuales que destacan y consiguen resultados tangibles.",
+      "Enfocados en la creatividad y la colaboración estrecha, trabajamos de la mano con nuestros clientes para desarrollar soluciones visuales que destacan y consiguen resultados tangibles.",
     justifyContent: true,
     name: "Diseno",
     title: "Diseño Gráfico",
@@ -56,12 +56,12 @@ const servicios = [
       {
         label: "Identidad visual",
         spanText: "",
-        content: `**Diseño de sitios web y redes sociales:** Nos aseguramos de que tu sitio web y perfiles sociales proyecten tu marca, atraigan a tu audiencia y ofrezcan una experiencia de usuario óptima, impulsando el crecimiento y la interacción digital.`,
+        content: `**Creamos identidades visuales consistentes** que refuerzan la imagen de tu empresa, asegurando que todos los elementos gráficos comuniquen eficazmente tu marca en cada punto de contacto.`,
       },
       {
         label: "Impresos y digital",
         spanText: "Material promocional:",
-        content: `Cubrimos sus necesidades esenciales de comunicación, desde el **diseño de activos de marca impresos** de uso diario hasta la creación de **contenido gráfico optimizado para redes sociales**.`,
+        content: `Cubrimos sus necesidades esenciales de comunicación, desde el **diseño de activos de marca impresos** de uso diario hasta la creación de contenido gráfico optimizado para redes sociales y medios digitales.`,
       },
       {
         label: "Diseño web y rrss",
@@ -93,15 +93,15 @@ const servicios = [
     tabs: [
       {
         label: "Aplicaciones web",
-        content: `**Diseñamos y desarrollamos aplicaciones web** a medida que optimizan procesos internos y externos, impulsando la eficiencia, reduciendo costos y facilitando el crecimiento digital estratégico de su negocio`,
+        content: `**Diseñamos y desarrollamos aplicaciones web** a medida que optimizan procesos internos y externos, impulsando la eficiencia, reduciendo costos y facilitando el crecimiento digital estratégico de su negocio.`,
       },
       {
         label: "Soporte técnico",
-        content: `Nos encargamos del **soporte técnico y la optimización web** para que su sitio siempre esté seguro, rápido y funcionando a su máxima capacidad.`,
+        content: `Nos encargamos del **soporte técnico y la optimización web** para que su sitio siempre sea seguro, rápido y funcional.`,
       },
       {
         label: "Pagos online",
-        content: `**Implementamos **botones de pago online** seguros y optimizados que simplifican el proceso de compra. Garantizamos una experiencia de usuario rápida y confiable para que sus clientes completen sus pedidos sin fricciones.**`,
+        content: `Implementamos **botones de pago online seguros y optimizados** que simplifican el proceso de compra. Garantizamos una experiencia de usuario rápida y confiable para que sus clientes completen sus pedidos sin fricciones.`,
       },
     ],
     tabColor: "text-azure",
@@ -116,7 +116,7 @@ const servicios = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Trabajamos mano a mano con usted para integrar su visión con nuestra metodología. Esta colaboración profunda nos permite generar estrategias precisas y soluciones personalizadas que garantizan el cumplimiento de sus objetivos de negocio.",
+      "Trabajamos de la mano con nuestros clientes para integrar su visión con nuestra metodología. Esta colaboración profunda nos permite generar estrategias precisas y soluciones personalizadas que garantizan el cumplimiento de sus objetivos de negocio.",
     justifyContent: true,
     buttonLink: "#",
     name: "Asesoria",
@@ -129,11 +129,11 @@ const servicios = [
     tabs: [
       {
         label: "Estrategia de marca",
-        content: `**Creamos sitios rápidos, seguros y completamente optimizados** para el éxito y el crecimiento continuo de su marca en línea.`,
+        content: `Construimos y posicionamos tu marca en la mente de los usuarios; incluye elementos como identidad visual, voz de la marca, valores y promesa al cliente. **Una estrategia sólida crea conexiones duraderas y fomenta la lealtad.**`,
       },
       {
         label: "Estrategia de marketing",
-        content: `**Optimización web** para el mejor rendimiento. Mantenemos su sitio rápido, seguro y eficiente. Su plataforma siempre funcionará a su máxima capacidad, lista para generar resultados.`,
+        content: `**Desarrollamos y articulamos su propuesta de valor para sus clientes** a través del entendimiento del perfil del usuario para destacarnos frente a la competencia y alcanzar los objetivos comerciales.`,
       },
       {
         label: "Marketing online",
@@ -153,7 +153,7 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-fichas-colores-juegos-mesa.webp",

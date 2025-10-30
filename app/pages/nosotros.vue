@@ -25,7 +25,7 @@ const nosotros = [
     dataColor: "oxfordBlue",
 
     description:
-      "Somos una agencia de marketing digital especializada en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
+      "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
     name: "Nosotros",
     title: "Nosotros",
     titleColor: "text-chartreuse",
@@ -38,7 +38,7 @@ const nosotros = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Ofrecer soluciones que permitan a nuestros clientes conectar con sus usuarios de manera auténtica y consolidar sus emprendimientos en el mundo digital.",
+      "Ofrecemos soluciones que permiten a nuestros clientes conectar con sus usuarios de manera auténtica y consolidar sus emprendimientos en el mundo digital.",
     HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
     justifyContent: true,
     name: "Mision",
@@ -71,7 +71,7 @@ const nosotros = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",

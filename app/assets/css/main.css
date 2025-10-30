@@ -73,8 +73,8 @@ button.cta__secondary {
 a.cta__primary,
 button.cta__primary {
   font-size: 1rem;
-  list-style: 1.125rem;
-  padding: 0.75rem;
+  line-height: 1.125rem;
+  padding: 1rem;
 }
 
 a.cta__secondary,
@@ -417,6 +417,7 @@ form textarea::placeholder {
 
 /* Width <= 390px */
 @media (width <=24.375rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -440,6 +441,7 @@ form textarea::placeholder {
 
 /* Width => 390px */
 @media (width >=24.375rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -486,7 +488,7 @@ form textarea::placeholder {
   a.cta__primary,
   button.cta__primary {
     font-size: 1.375rem;
-    list-style: 1.625rem;
+    line-height: 1.625rem;
   }
 
   a.cta__secondary,
@@ -638,26 +640,31 @@ form textarea::placeholder {
       background-position: bottom right;
     }
   }
+
   @keyframes creatividadSection {
     100% {
       background-position: top right, bottom left;
     }
   }
+
   @keyframes innovacionSection {
     100% {
       background-position: top left, bottom right;
     }
   }
+
   @keyframes colaboracionSection {
     100% {
       background-position: top right;
     }
   }
+
   @keyframes nosotrosSection {
     100% {
       background-position: bottom right;
     }
   }
+
   @keyframes serviciosSection {
     100% {
       background-size: 110rem;
@@ -698,6 +705,7 @@ form textarea::placeholder {
 
 /* Width >= 1536px */
 @media (width >=96rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,

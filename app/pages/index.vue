@@ -6,8 +6,8 @@ const home = [
     alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-main",
-    buttonLink: "#",
-    buttonText: "Conoce más",
+    buttonLink: "/nosotros",
+    buttonText: "Conócenos",
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
     color: "text-columbiaBlue",
@@ -25,14 +25,14 @@ const home = [
     alignCenter: true,
     bgColor: "bg-oxfordBlue",
     bgImage: "background-emblem-creatividad",
-    buttonLink: "#",
-    buttonText: "Conoce más",
+    buttonLink: "/servicios#Diseno",
+    buttonText: "Creemos juntos",
     buttonType:
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte con la audiencia de manera efectiva..",
+      "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte con la audiencia de manera efectiva.",
     HeroImage: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
     justifyEndImage: true,
     name: "Creatividad",
@@ -44,8 +44,8 @@ const home = [
     alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-innovacion",
-    buttonLink: "#",
-    buttonText: "Conoce más",
+    buttonLink: "/servicios#Web",
+    buttonText: "Innovemos juntos",
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
     color: "text-columbiaBlue",
@@ -63,14 +63,14 @@ const home = [
     alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-colaboracion",
-    buttonLink: "#",
-    buttonText: "Conoce más",
+    buttonLink: "/servicios#Asesoria",
+    buttonText: "Colaboremos juntos",
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-azure hover:text-columbiaBlue",
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Creemos en el poder de trabajar en equipo, tanto con nuestros clientes como dentro de nuestra empresa, para alcanzar resultados excepcionales.",
+      "Creemos en el poder del trabajo en equipo, tanto con nuestros clientes como dentro de nuestra empresa, para alcanzar resultados excepcionales.",
     HeroImage: "images/novanet-studio-grupo-personas-juntando-manos.webp",
     justifyEndImage: true,
     name: "Colaboración",
@@ -87,7 +87,7 @@ const home = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Desarrollemos juntos las tácticas y acciones para posicionarte donde quieres estar.",
+      "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder:
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",
