@@ -23,6 +23,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       item.alignCenter ? 'items-center' : '',
       item.justifyEndImage ? 'justify-end' : '',
       item.justifyContent ? 'justify-center' : '',
+      { 'animate-background': hasBeenAnimated(item.name) },
     ]"
   >
     <div
@@ -31,7 +32,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         item.showTabs ? 'lg:w-[66.6666666%]' : 'portrait-lg:w-full lg:w-2/4',
       ]"
     >
-      <!-- Navigation Button Back -->
       <Motion
         v-if="item.navButtonBack"
         :key="`cta-back-${item.name}`"
@@ -58,7 +58,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         </div>
       </Motion>
 
-      <!-- Main title -->
       <Motion
         :key="`mainTitle-${item.name}`"
         :initial="animations.mainTitle.initial"
@@ -79,7 +78,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         </div>
       </Motion>
 
-      <!-- Description -->
       <Motion
         v-if="item.description"
         :key="`desc-${item.name}`"
@@ -96,7 +94,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         </p>
       </Motion>
 
-      <!-- Call to Action Button -->
       <Motion
         v-if="item.buttonText"
         :key="`cta-primary-${item.name}`"
@@ -119,7 +116,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         </div>
       </Motion>
 
-      <!-- Form -->
       <Motion
         v-if="item.showForm"
         :key="`form-${item.name}`"
@@ -134,7 +130,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         <CommonForm v-if="item.showForm" :content="item || {}" />
       </Motion>
 
-      <!-- Tabs -->
       <Motion
         v-if="item.tabs"
         :key="`tabs-${item.name}`"
@@ -151,7 +146,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         </div>
       </Motion>
 
-      <!-- List -->
       <Motion
         v-if="item.list"
         :key="`list-${item.name}`"
@@ -186,7 +180,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
     </div>
 
-    <!-- Hero Image -->
     <div
       v-if="item.HeroImage"
       :class="[
@@ -216,7 +209,6 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
     </div>
 
-    <!-- Services Image -->
     <div
       v-if="item.serviceImage"
       class="flex w-full xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full"
