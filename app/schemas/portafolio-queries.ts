@@ -58,6 +58,7 @@ const getProjectBySlugQuery = `
             slug 
             titulo
             descripcion
+            descripcionCorta
             ano
             miniatura {
               id

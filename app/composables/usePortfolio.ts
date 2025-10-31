@@ -28,8 +28,6 @@ export default function () {
         getRecentProjectsQuery
       );
 
-      console.log("GraphQL error:", projects);
-
       if (error || !projects.proyectos) {
         return { status: "error", message: "GraphQL error", data: error.value };
       }

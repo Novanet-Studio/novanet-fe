@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { createExcerpt, formatDate } from "~/utils/functions"; // Asumo que formatDate está en utils
+import { formatDate } from "~/utils/functions";
 
 const route = useRoute();
 const slug = route.params.slug as string;
@@ -20,8 +20,10 @@ const { data: article, pending } = await useAsyncData(
 
 useHead(() => {
   if (pending.value) return { title: "Cargando Artículo..." };
+
   if (article.value)
     return { title: `${article.value.titulo} | Blog Novanet Studio` };
+
   return { title: "Artículo no encontrado" };
 });
 
@@ -37,14 +39,17 @@ const articleDetailStyles = {
 const articleDetailData = computed(() => {
   if (!article.value) return null;
 
+  const fromSection = route.query.from as string | undefined;
+
+  const backUrl = fromSection ? `/blog#${fromSection}` : "/blog";
+
   return {
     title: article.value.titulo,
     date: formatDate(article.value.fecha),
-    shortDescription: createExcerpt(article.value.descripcion, 180),
     portrait: article.value.imagen[0].url ?? null,
     fullContent: article.value.descripcion,
     backLink: {
-      url: "/blog",
+      url: backUrl,
       text: "Volver al Blog",
     },
   };

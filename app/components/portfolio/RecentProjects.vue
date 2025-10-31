@@ -11,8 +11,6 @@ const { data: projects, pending: projectsPending } = await useAsyncData(
   async () => {
     const response = await getRecentProjects();
 
-    console.log("Recent projects response:", response);
-
     return response.status === "ok" ? response.data : [];
   },
   { lazy: true }
@@ -23,10 +21,12 @@ const viewerContent = computed(() => {
     return null;
   }
 
+  const fromSectionId = props.content.name;
+
   const mappedItems = projects.value.map((project: any) => ({
     title: project.titulo,
     description: project.descripcionCorta,
-    cta_route: `/portafolio/${project.categoria.slug}/${project.slug}`,
+    cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
     portrait: project.miniatura.url,
   }));
 

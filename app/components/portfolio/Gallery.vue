@@ -34,13 +34,15 @@ const tabs = computed(() => {
     new Map(allProjects.map((p: any) => [p.id, p])).values()
   );
 
+  const fromSectionId = props.content.name;
+
   const allTab = {
     key: "todos",
     label: "Todos",
     description:
       "Explora una selección de nuestros proyectos más destacados en todas las áreas, desde identidad corporativa hasta desarrollo web y gestión de redes sociales.",
     projects: uniqueProjects.map((p: any) => ({
-      link: `/portafolio/${p.categorySlug}/${p.slug}`,
+      link: `/portafolio/${p.categorySlug}/${p.slug}?from=${fromSectionId}`,
       title: p.titulo,
       portrait: p.miniatura?.url,
     })),
@@ -51,7 +53,7 @@ const tabs = computed(() => {
     label: category.nombre,
     description: category.descripcion,
     projects: category.proyecto.map((project: any) => ({
-      link: `/portafolio/${category.slug}/${project.slug}`,
+      link: `/portafolio/${category.slug}/${project.slug}?from=${fromSectionId}`,
       title: project.titulo,
       portrait: project.miniatura?.url,
     })),

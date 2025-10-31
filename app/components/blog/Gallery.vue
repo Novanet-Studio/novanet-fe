@@ -18,14 +18,20 @@ const { data: articles, pending: articlesPending } = await useAsyncData(
 const formattedArticles = computed(() => {
   if (!articles.value) return [];
 
-  return articles.value.map((article: any) => ({
-    title: article.titulo,
-    cta_route: `/blog/${article.tag
+  const fromSectionId = props.content.name;
+
+  return articles.value.map((article: any) => {
+    const tagSlug = article.tag
       .slice(0, article.tag.indexOf(","))
-      .replaceAll(" ", "-")}/${article.slug}`,
-    date: formatDate(article.fecha),
-    portrait: article.imagen[0]?.url,
-  }));
+      .replaceAll(" ", "-");
+
+    return {
+      title: article.titulo,
+      cta_route: `/blog/${tagSlug}/${article.slug}?from=${fromSectionId}`,
+      date: formatDate(article.fecha),
+      portrait: article.imagen[0]?.url,
+    };
+  });
 });
 </script>
 

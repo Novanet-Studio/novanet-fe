@@ -35,14 +35,19 @@ const projectDetailStyles = {
 
 const projectDetailData = computed(() => {
   if (!project.value) return null;
+
+  const fromSection = route.query.from as string | undefined;
+
+  const backUrl = fromSection ? `/portafolio#${fromSection}` : "/portafolio";
+
   return {
     title: project.value.titulo,
     date: `${project.value.ano}`,
     topContentImage: project.value.miniatura.url,
-    shortDescription: createExcerpt(project.value.descripcion, 180),
+    shortDescription: project.value.descripcionCorta,
     fullContent: project.value.descripcion,
     backLink: {
-      url: "/portafolio",
+      url: backUrl,
       text: "Volver al portafolio",
     },
   };

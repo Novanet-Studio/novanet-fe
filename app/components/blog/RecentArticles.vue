@@ -22,13 +22,15 @@ const viewerContent = computed(() => {
   }
 
   const mappedItems = articles.value.map((article: any) => {
+    const fromSectionId = props.content.name;
+
     return {
       title: article.titulo,
       description: article.descripcionCorta,
       date: formatDate(article.fecha),
       cta_route: `/blog/${article.tag
         .slice(0, article.tag.indexOf(","))
-        .replaceAll(" ", "-")}/${article.slug}`,
+        .replaceAll(" ", "-")}/${article.slug}?from=${fromSectionId}`,
       portrait: article.imagen[0]?.url,
     };
   });
