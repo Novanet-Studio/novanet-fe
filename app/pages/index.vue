@@ -86,8 +86,7 @@ const home = [
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
-    description:
-      "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder:
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",

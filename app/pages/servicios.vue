@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+
+
 const servicios = [
   // Sección Servicios
   {
@@ -152,8 +154,7 @@ const servicios = [
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
-    description:
-      "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-fichas-colores-juegos-mesa.webp",
