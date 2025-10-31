@@ -11,7 +11,7 @@ const PORTFOLIO_MAIN_INFO: {
 
 useHead(() => {
   return {
-    title: PORTFOLIO_MAIN_INFO.title + "| Novanet Studio",
+    title: PORTFOLIO_MAIN_INFO.title + " | Novanet Studio",
     meta: [
       {
         name: "description",

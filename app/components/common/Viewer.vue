@@ -86,12 +86,19 @@ const carouselStyle = computed(() => {
   <div v-if="currentItem">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
       <div class="flex flex-col gap-4 lg:gap-6">
-        <h1
-          v-if="content.sectionTitle"
-          :class="[`main__title`, content.titleColor]"
+        <Motion
+          :key="content.sectionTitle"
+          :initial="animations.mainTitle.initial"
+          :animate="animations.mainTitle.animate"
+          :transition="{ ...animations.mainTitle.transition }"
         >
-          {{ content.sectionTitle }}
-        </h1>
+          <h1
+            v-if="content.sectionTitle"
+            :class="[`main__title`, content.titleColor]"
+          >
+            {{ content.sectionTitle }}
+          </h1>
+        </Motion>
 
         <p
           v-if="currentItem.date"

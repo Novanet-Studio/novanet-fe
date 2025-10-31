@@ -11,7 +11,7 @@ const SERVICES_MAIN_INFO: {
 
 useHead(() => {
   return {
-    title: SERVICES_MAIN_INFO.title + "| Novanet Studio",
+    title: SERVICES_MAIN_INFO.title + " | Novanet Studio",
     meta: [
       {
         name: "description",

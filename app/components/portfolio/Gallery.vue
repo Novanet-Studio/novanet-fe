@@ -103,30 +103,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <section :id="props.content.name ? props.content.name : ''" :data-color="props.content.dataColor" :data-emblem-color="emblemModifierSource[props.content.name] || props.content.dataColor
-    " :data-section-index="2" :class="[
+  <section
+    :id="props.content.name ? props.content.name : ''"
+    :data-color="props.content.dataColor"
+    :data-emblem-color="
+      emblemModifierSource[props.content.name] || props.content.dataColor
+    "
+    :data-section-index="2"
+    :class="[
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
       props.content.justifyContent ? 'justify-center' : '',
-    ]">
+    ]"
+  >
     <div v-if="pending" class="w-full flex overflow-hidden">
       <p class="text-lg">Cargando portafolio...</p>
     </div>
 
     <div v-else-if="tabs.length > 0" class="w-full overflow-hidden">
       <nav class="flex gap-x-8" aria-label="Tabs">
-        <button v-for="tab in tabs" :key="tab.key" :ref="el => (tabRefs[tab.key] = el as HTMLElement)"
-          @click="activeTabKey = tab.key" :class="[
+        <button
+          v-for="tab in tabs"
+          :key="tab.key"
+          :ref="el => (tabRefs[tab.key] = el as HTMLElement)"
+          @click="activeTabKey = tab.key"
+          :class="[
             'pb-3 text-azure text-left transition-colors duration-200 ease-out focus:outline-none',
             activeTabKey === tab.key ? 'font-bold' : '',
-          ]">
+          ]"
+        >
           {{ tab.label }}
         </button>
       </nav>
-      <div class="absolute bottom-[1px] h-[2px] bg-azure transition-all duration-300 ease-in-out" :style="markerStyle">
-      </div>
+      <div
+        class="absolute bottom-[1px] h-[2px] bg-azure transition-all duration-300 ease-in-out"
+        :style="markerStyle"
+      ></div>
 
       <div v-if="activePanel" class="mt-4 space-y-4">
         <p class="description">
@@ -135,15 +149,28 @@ onMounted(() => {
 
         <div v-if="activePanel.projects && activePanel.projects.length > 0">
           <div
-            class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]">
-            <article v-for="project in activePanel.projects" :key="project.link"
-              class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30">
-              <NuxtLink :to="project.link">
-                <NuxtImg v-if="project.portrait" :src="project.portrait" :alt="`Imagen del proyecto ${project.title}`"
-                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                  loading="lazy" />
-              </NuxtLink>
-            </article>
+            class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]"
+          >
+            <Motion
+              v-for="project in activePanel.projects"
+              :key="project.link"
+              :initial="animations.mainTitle.initial"
+              :animate="animations.mainTitle.animate"
+              :transition="{ ...animations.mainTitle.transition }"
+              class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30"
+            >
+              <article>
+                <NuxtLink :to="project.link">
+                  <NuxtImg
+                    v-if="project.portrait"
+                    :src="project.portrait"
+                    :alt="`Imagen del proyecto ${project.title}`"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    loading="lazy"
+                  />
+                </NuxtLink>
+              </article>
+            </Motion>
           </div>
         </div>
 

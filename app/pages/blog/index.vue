@@ -11,7 +11,7 @@ const BLOG_MAIN_INFO: {
 
 useHead(() => {
   return {
-    title: BLOG_MAIN_INFO.title + "| Novanet Studio",
+    title: BLOG_MAIN_INFO.title + " | Novanet Studio",
     meta: [
       {
         name: "description",
