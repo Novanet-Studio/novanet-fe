@@ -21,8 +21,39 @@ const { data: article, pending } = await useAsyncData(
 useHead(() => {
   if (pending.value) return { title: "Cargando Artículo..." };
 
-  if (article.value)
-    return { title: `${article.value.titulo} | Blog Novanet Studio` };
+  if (article.value) {
+    let metadata: any = [
+      {
+        property: "og:title",
+        content: `${article.value.titulo} | Novanet Studio`,
+      },
+    ];
+
+    if (article.value.descripcionCorta) {
+      metadata = [
+        ...metadata,
+        {
+          property: "og:description",
+          content: article.value.descripcionCorta,
+        },
+        {
+          name: "description",
+          content: article.value.descripcionCorta,
+        },
+      ];
+    }
+
+    if (article.value.miniatura?.url)
+      metadata.push({
+        property: "og:image",
+        content: article.value.imagen[0]?.url,
+      });
+
+    return {
+      title: `${article.value.titulo} | Novanet Studio`,
+      meta: metadata,
+    };
+  }
 
   return { title: "Artículo no encontrado" };
 });

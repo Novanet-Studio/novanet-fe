@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute } from "vue-router";
-import { createExcerpt } from "~/utils/functions";
 
 const route = useRoute();
 const slug = route.params.slug as string;
@@ -20,8 +19,40 @@ const { data: project, pending } = await useAsyncData(
 
 useHead(() => {
   if (pending.value) return { title: "Cargando Proyecto..." };
-  if (project.value)
-    return { title: `${project.value.titulo} | Novanet Studio` };
+  if (project.value) {
+    let metadata: any = [
+      {
+        property: "og:title",
+        content: `${project.value.titulo} | Novanet Studio`,
+      },
+    ];
+
+    if (project.value.descripcionCorta) {
+      metadata = [
+        ...metadata,
+        {
+          property: "og:description",
+          content: project.value.descripcionCorta,
+        },
+        {
+          name: "description",
+          content: project.value.descripcionCorta,
+        },
+      ];
+    }
+
+    if (project.value.miniatura?.url)
+      metadata.push({
+        property: "og:image",
+        content: project.value.miniatura.url,
+      });
+
+    return {
+      title: `${project.value.titulo} | Novanet Studio`,
+      meta: metadata,
+    };
+  }
+
   return { title: "Proyecto no encontrado" };
 });
 
