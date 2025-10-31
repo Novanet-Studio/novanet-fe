@@ -10,6 +10,9 @@ const { data: projects, pending: projectsPending } = await useAsyncData(
   "recent-projects",
   async () => {
     const response = await getRecentProjects();
+
+    console.log("Recent projects response:", response);
+
     return response.status === "ok" ? response.data : [];
   },
   { lazy: true }
@@ -22,7 +25,7 @@ const viewerContent = computed(() => {
 
   const mappedItems = projects.value.map((project: any) => ({
     title: project.titulo,
-    description: createExcerpt(project.descripcion, 250),
+    description: project.descripcionCorta,
     cta_route: `/portafolio/${project.categoria.slug}/${project.slug}`,
     portrait: project.miniatura.url,
   }));

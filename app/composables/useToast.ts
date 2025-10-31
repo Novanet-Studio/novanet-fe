@@ -6,10 +6,11 @@ interface ToastState {
   show: boolean;
 }
 
-const toastState = useState<ToastState | null>("toast", () => null);
 let timeoutId: NodeJS.Timeout | null = null;
 
 export const useToast = () => {
+  const toastState = useState<ToastState | null>("toast", () => null);
+
   const showToast = (
     message: string,
     type: "success" | "error" = "success",

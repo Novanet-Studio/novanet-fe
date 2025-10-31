@@ -10,6 +10,7 @@ const { data: categories, pending } = await useAsyncData(
   "categories-with-projects",
   async () => {
     const response = await getCategoriesWithProjects();
+
     return response.status === "ok" ? response.data : null;
   },
   { lazy: true }

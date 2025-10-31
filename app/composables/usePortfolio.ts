@@ -1,214 +1,88 @@
-import { cleanGraphQLResponse } from "~/utils/functions";
+import {
+  getAllProjectsQuery,
+  getCategoriesWithProjectsQuery,
+  getProjectBySlugQuery,
+  getRecentProjectsQuery,
+} from "~/schemas/portafolio-queries";
 
 export default function () {
+  const graphql = useStrapiGraphQL();
+
   async function getAllProjects() {
     try {
-      const graphql = useStrapiGraphQL();
+      const { data: projects, error } = await graphql<any>(getAllProjectsQuery);
 
-      const { data: projects, error } = await graphql<any>(`
-        query {
-          proyectos(pagination: { limit: -1 }) {
-            data {
-              attributes {
-                slug
-              }
-            }
-          }
-        }
-      `);
-
-      if (error) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
+      if (error.value) {
+        return { status: "error", message: "GraphQL error", data: error.value };
       }
 
-      return {
-        status: "ok",
-        message: "succesfull",
-        data: projects.proyectos.data,
-      };
+      return { status: "ok", message: "succesfull", data: projects.proyectos };
     } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      return { status: "error", message: "Unknown error", data: null };
     }
   }
 
   async function getRecentProjects() {
     try {
-      const graphql = useStrapiGraphQL();
+      const { data: projects, error } = await graphql<any>(
+        getRecentProjectsQuery
+      );
 
-      const { data: projects, error } = await graphql<any>(`
-        query {
-          proyectos(
-            pagination: { limit: 5 }
-            sort: ["ano:DESC", "updatedAt:DESC"]
-          ) {
-            data {
-              id
-              attributes {
-                slug
-                titulo
-                descripcion
-                ano
-                miniatura {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-                categoria {
-                  data {
-                    attributes {
-                      slug
-                      nombre
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
+      console.log("GraphQL error:", projects);
 
-      if (error) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
+      if (error || !projects.proyectos) {
+        return { status: "error", message: "GraphQL error", data: error.value };
       }
 
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(projects.proyectos.data),
+        data: projects.proyectos,
       };
     } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      return { status: "error", message: "Unknown error", data: null };
     }
   }
 
   async function getCategoriesWithProjects() {
     try {
-      const graphql = useStrapiGraphQL();
+      const { data: categories, error } = await graphql<any>(
+        getCategoriesWithProjectsQuery
+      );
 
-      const { data: categories, error } = await graphql<any>(`
-        query {
-          categorias {
-            data {
-              id
-              attributes {
-                nombre
-                slug
-                proyecto {
-                  data {
-                    id
-                    attributes {
-                      slug
-                      titulo
-                      miniatura {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
-
-      if (error) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
+      if (error || !categories.categorias) {
+        return { status: "error", message: "GraphQL error", data: error.value };
       }
 
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(categories.categorias.data),
+        data: categories.categorias,
       };
     } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      return { status: "error", message: "Unknown error", data: null };
     }
   }
 
-  async function getProjectBySlug(_slug: any) {
+  async function getProjectBySlug(_slug: string) {
     try {
-      const graphql = useStrapiGraphQL();
+      const variables = { slug: _slug };
+      const { data: projects, error } = await graphql<any>(
+        getProjectBySlugQuery,
+        variables
+      );
 
-      const { data: projects, error } = await graphql<any>(`
-        query {
-          proyectos(filters: { slug: { eq: "${_slug}" } }, pagination: { limit: 1 }) {
-            data {
-              id
-              attributes {
-                slug 
-                titulo
-                descripcion
-                ano
-                miniatura {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-                categoria {
-                  data {
-                    attributes {
-                      slug
-                      nombre
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
-
-      if (error) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
+      if (error || !projects.proyectos || projects.proyectos.length === 0) {
+        return { status: "error", message: "GraphQL error", data: error.value };
       }
 
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(projects.proyectos.data),
+        data: projects.proyectos,
       };
     } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      return { status: "error", message: "Unknown error", data: null };
     }
   }
 

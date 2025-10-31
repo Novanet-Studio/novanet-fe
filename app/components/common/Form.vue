@@ -79,7 +79,6 @@ async function handleSubmit() {
     form.value.email = "";
     form.value.message = "";
   } catch (error) {
-    console.error("Error al enviar el formulario:", error);
     showToast(
       "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
       "error"

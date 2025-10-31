@@ -24,7 +24,7 @@ const viewerContent = computed(() => {
   const mappedItems = articles.value.map((article: any) => {
     return {
       title: article.titulo,
-      description: createExcerpt(article.descripcion, 100),
+      description: article.descripcionCorta,
       date: formatDate(article.fecha),
       cta_route: `/blog/${article.tag
         .slice(0, article.tag.indexOf(","))

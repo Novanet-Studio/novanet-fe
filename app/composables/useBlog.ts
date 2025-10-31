@@ -1,38 +1,19 @@
-import { cleanGraphQLResponse } from "~/utils/functions";
+import {
+  getAllArticlesQuery,
+  getArticleBySlugQuery,
+  getRecentArticlesQuery,
+} from "~/schemas/blog-queries";
 
 export default function () {
+  const graphql = useStrapiGraphQL();
+
   async function getRecentArticles() {
     try {
-      const graphql = useStrapiGraphQL();
+      const { data: articles, error } = await graphql<any>(
+        getRecentArticlesQuery
+      );
 
-      const { data: articles, error } = await graphql<any>(`
-        query {
-          articulos(
-            pagination: { limit: 5 }
-            sort: ["fecha:DESC", "updatedAt:DESC"]
-          ) {
-            data {
-              id
-              attributes {
-                slug
-                titulo
-                fecha
-                tag
-                descripcion
-                imagen {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
-
-      if (error) {
+      if (error || !articles.articulos || articles.articulos.length === 0) {
         return {
           status: "error",
           message: "GraphQL error",
@@ -43,7 +24,7 @@ export default function () {
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(articles.articulos.data),
+        data: articles.articulos,
       };
     } catch (e) {
       return {
@@ -54,35 +35,14 @@ export default function () {
     }
   }
 
-  async function getArticleBySlug(_slug: any) {
+  async function getArticleBySlug(_slug: string) {
     try {
-      const graphql = useStrapiGraphQL();
+      const query = getArticleBySlugQuery;
 
-      const { data: articles, error } = await graphql<any>(`
-        query {
-          articulos(filters: { slug: { eq: "${_slug}" } }, pagination: { limit: 1 }) {
-           data {
-              id
-              attributes {
-                slug
-                titulo
-                fecha
-                tag
-                descripcion
-                imagen {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
+      const variables = { slug: _slug };
+      const { data: articles, error } = await graphql<any>(query, variables);
 
-      if (error) {
+      if (error || !articles.articulos || articles.articulos.length === 0) {
         return {
           status: "error",
           message: "GraphQL error",
@@ -93,7 +53,7 @@ export default function () {
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(articles.articulos.data),
+        data: articles.articulos,
       };
     } catch (e) {
       return {
@@ -106,33 +66,9 @@ export default function () {
 
   async function getAllArticles() {
     try {
-      const graphql = useStrapiGraphQL();
+      const { data: articles, error } = await graphql<any>(getAllArticlesQuery);
 
-      const { data: articles, error } = await graphql<any>(`
-        query {
-          articulos(pagination: { limit: -1 }, sort: ["fecha:desc"]) {
-            data {
-              id
-              attributes {
-                slug
-                titulo
-                fecha
-                tag
-                descripcion
-                imagen {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      `);
-
-      if (error) {
+      if (error || !articles.articulos || articles.articulos.length === 0) {
         return {
           status: "error",
           message: "GraphQL error",
@@ -143,7 +79,7 @@ export default function () {
       return {
         status: "ok",
         message: "succesfull",
-        data: cleanGraphQLResponse(articles.articulos.data),
+        data: articles.articulos,
       };
     } catch (e) {
       return {

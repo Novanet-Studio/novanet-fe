@@ -17,7 +17,7 @@ const { toastState } = useToast();
     >
       <p>
         {{ toastState.type === "success" ? "&check;" : "&#10006;" }}
-          {{ toastState.message }}
+        {{ toastState.message }}
       </p>
     </div>
   </Transition>
