@@ -48,5 +48,7 @@ onMounted(() => {
       <slot />
     </main>
     <AppFooter :color="currentColor" />
+
+    <CommonToast />
   </div>
 </template>
