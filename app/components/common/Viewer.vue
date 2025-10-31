@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from "vue";
-const props = defineProps<{
-  content: ViewerContent;
-}>();
 
 interface ViewerItem {
   title: string;
@@ -23,6 +20,10 @@ interface ViewerContent {
   buttonClass?: string;
   arrowClass?: string;
 }
+
+const props = defineProps<{
+  content: ViewerContent;
+}>();
 
 const currentIndex = ref(0);
 const totalItems = computed(() => props.content.items.length);
@@ -64,6 +65,13 @@ const prevItem = () => {
     (currentIndex.value - 1 + totalItems.value) % totalItems.value;
 };
 
+const gotoItem = (item: ViewerItem) => {
+  const index = props.content.items.findIndex((i) => i === item);
+  if (index !== -1) {
+    currentIndex.value = index;
+  }
+};
+
 const carouselStyle = computed(() => {
   if (itemWidth.value === 0) return { transform: "translateX(0px)" };
 
@@ -78,11 +86,17 @@ const carouselStyle = computed(() => {
   <div v-if="currentItem">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[2fr_3fr] lg:gap-12">
       <div class="flex flex-col gap-4 lg:gap-6">
-        <h1 v-if="content.sectionTitle" :class="[`main__title`, content.titleColor]">
+        <h1
+          v-if="content.sectionTitle"
+          :class="[`main__title`, content.titleColor]"
+        >
           {{ content.sectionTitle }}
         </h1>
 
-        <p v-if="currentItem.date" :class="content.dateColor || 'text-gray-500'">
+        <p
+          v-if="currentItem.date"
+          :class="content.dateColor || 'text-gray-500'"
+        >
           {{ currentItem.date }}
         </p>
 
@@ -90,18 +104,18 @@ const carouselStyle = computed(() => {
           {{ currentItem.title }}
         </h2>
 
-        <p :class="[
-          `description__short`,
-          content.color || 'text-gray-700',
-        ]">
+        <p :class="[`description__short`, content.color || 'text-gray-700']">
           {{ currentItem.description }}
         </p>
 
-        <NuxtLink :to="currentItem.cta_route" :class="[
-          'cta__secondary transition duration-200',
-          content.buttonClass ||
-          'bg-azure text-oxfordBlue hover:bg-opacity-80',
-        ]">
+        <NuxtLink
+          :to="currentItem.cta_route"
+          :class="[
+            'cta__secondary transition duration-200',
+            content.buttonClass ||
+              'bg-azure text-oxfordBlue hover:bg-opacity-80',
+          ]"
+        >
           Ver proyecto
           <span>&nbsp;→</span>
         </NuxtLink>
@@ -109,40 +123,85 @@ const carouselStyle = computed(() => {
 
       <div class="flex flex-col">
         <div class="overflow-hidden max-h-[50vh]">
-          <div ref="carouselTrackEl"
+          <div
+            ref="carouselTrackEl"
             class="flex gap-8 md:max-h-[30vh] lg:max-h-[50vh] transition-transform duration-500 ease-in-out"
-            :style="carouselStyle">
-            <div v-for="item in content.items" :key="item.cta_route" :class="[
-              'flex-shrink-0 h-full overflow-hidden shadow-xl',
-              content.oneImageViewer
-                ? 'w-full'
-                : 'w-1/2 md:w-[40%] lg:w-[45%]',
-            ]">
-              <NuxtLink :to="currentItem.cta_route">
-                <NuxtImg :src="item.portrait" :alt="item.title"
-                  class="md:max-h-[30vh] lg:max-h-[50vh] w-full h-auto object-cover" />
+            :style="carouselStyle"
+          >
+            <div
+              v-for="item in content.items"
+              :key="item.cta_route"
+              :class="[
+                'flex-shrink-0 h-full overflow-hidden shadow-xl',
+                content.oneImageViewer
+                  ? 'w-full'
+                  : 'w-1/2 md:w-[40%] lg:w-[45%]',
+              ]"
+            >
+              <NuxtLink v-if="item === currentItem" :to="item.cta_route">
+                <NuxtImg
+                  :src="item.portrait"
+                  :alt="item.title"
+                  class="md:max-h-[30vh] lg:max-h-[50vh] w-full h-auto object-cover"
+                />
               </NuxtLink>
+
+              <NuxtImg
+                v-else
+                @click="gotoItem(item)"
+                :src="item.portrait"
+                :alt="item.title"
+                class="md:max-h-[30vh] lg:max-h-[50vh] w-full h-auto object-cover cursor-pointer"
+              />
             </div>
           </div>
         </div>
 
         <div v-if="totalItems > 1" class="flex items-center gap-4 mt-8">
-          <button @click="prevItem" :class="[
-            'w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
-            content.arrowClass || 'border-azure text-azure',
-          ]" aria-label="Anterior">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          <button
+            @click="prevItem"
+            :class="[
+              'w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              content.arrowClass || 'border-azure text-azure',
+            ]"
+            aria-label="Anterior"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
-          <button @click="nextItem" :class="[
-            'w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
-            content.arrowClass || 'border-azure text-azure',
-          ]" aria-label="Siguiente">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          <button
+            @click="nextItem"
+            :class="[
+              'w-10 h-10 md:w-12 md:h-12 rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:bg-white hover:bg-opacity-10',
+              content.arrowClass || 'border-azure text-azure',
+            ]"
+            aria-label="Siguiente"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </div>
