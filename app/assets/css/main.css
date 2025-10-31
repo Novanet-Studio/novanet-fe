@@ -61,6 +61,12 @@ p.description {
   font-weight: 300;
 }
 
+p.description__short {
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  font-weight: 300;
+}
+
 a.cta__primary,
 a.cta__secondary,
 button.cta__primary,
@@ -80,7 +86,7 @@ button.cta__primary {
 a.cta__secondary,
 button.cta__secondary {
   font-size: 0.875rem;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .cta__navigation {
@@ -485,6 +491,11 @@ form textarea::placeholder {
     line-height: 1.875rem;
   }
 
+  p.description__short {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
   a.cta__primary,
   button.cta__primary {
     font-size: 1.375rem;
@@ -494,7 +505,6 @@ form textarea::placeholder {
   a.cta__secondary,
   button.cta__secondary {
     font-size: 1.25rem;
-    padding: 1.5rem;
   }
 
   .cta__navigation {
@@ -548,6 +558,11 @@ form textarea::placeholder {
   p.description {
     font-size: 1.375rem;
     line-height: 1.625rem;
+  }
+
+  p.description__short {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
   }
 
   .background-emblem-main,
@@ -694,6 +709,11 @@ form textarea::placeholder {
     line-height: 1.875rem;
   }
 
+  p.description {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+  }
+
   .direction-reverse {
     flex-direction: row-reverse;
   }
@@ -728,19 +748,15 @@ form textarea::placeholder {
 
 /* Width >= 1920px */
 @media (width >=120rem) {
-  h1.main__title {
-    font-size: 2.5rem;
-    line-height: 2.75rem;
-  }
-
-  h2.main__title {
-    font-size: 2rem;
-    line-height: 2.25rem;
-  }
 
   p.description {
-    font-size: 2rem;
-    line-height: 2.25rem;
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
+  p.description__short {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
   }
 
   a.cta__primary,

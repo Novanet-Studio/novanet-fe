@@ -153,7 +153,7 @@ export const markdownToHtml = ({
     }
 
     //> default paragraph
-    return `<p class="text-[1rem] leading-[1.25rem] md:text-[1.125rem] md:leading-[1.375rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]">${block}</p>`;
+    return `<p class="description__short">${block}</p>`;
   };
 
   let html = markdown
