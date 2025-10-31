@@ -1,6 +1,24 @@
 <script lang="ts" setup>
-useHead({
-  title: "Portafolio | Novanet Studio",
+const PORTFOLIO_MAIN_INFO: {
+  title: string;
+  description: string;
+  image?: string;
+} = {
+  title: "Portafolio",
+  description:
+    "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
+};
+
+useHead(() => {
+  return {
+    title: PORTFOLIO_MAIN_INFO.title + "| Novanet Studio",
+    meta: [
+      {
+        name: "description",
+        content: PORTFOLIO_MAIN_INFO.description,
+      },
+    ],
+  };
 });
 
 const portfolio = [
@@ -10,8 +28,7 @@ const portfolio = [
     bgImage: "background-emblem-portafolio",
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
-    description:
-      "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
+    description: PORTFOLIO_MAIN_INFO.description,
     name: "Portafolio",
     title: "Portafolio. Creatividad y funcionalidad",
     titleColor: "text-raspberry",

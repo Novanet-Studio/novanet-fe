@@ -1,14 +1,25 @@
 <script lang="ts" setup>
-const emblenmModifierSource: Record<string, string> = {
-  /**
-   * Record<SectionName, CustomEmblemColor>
-   */
-  Nosotros: "chartreuse",
+const ABOUT_MAIN_INFO: {
+  title: string;
+  description: string;
+  image?: string;
+} = {
+  title: "Nosotros",
+  description:
+    "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
 };
 
-const others = {
-  emblemModifierSource: emblenmModifierSource,
-};
+useHead(() => {
+  return {
+    title: ABOUT_MAIN_INFO.title + "| Novanet Studio",
+    meta: [
+      {
+        name: "description",
+        content: ABOUT_MAIN_INFO.description,
+      },
+    ],
+  };
+});
 
 //Array with about us page content
 const nosotros = [
@@ -24,10 +35,9 @@ const nosotros = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
 
-    description:
-      "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
+    description: ABOUT_MAIN_INFO.description,
     name: "Nosotros",
-    title: "Nosotros",
+    title: ABOUT_MAIN_INFO.title,
     titleColor: "text-chartreuse",
   },
   // Sección Misión
@@ -70,8 +80,7 @@ const nosotros = [
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-columbiaBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
-    description:
-      "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos las estrategias para que alcances tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",
@@ -85,6 +94,17 @@ const nosotros = [
     buttonLink: null,
   },
 ];
+
+const emblenmModifierSource: Record<string, string> = {
+  /**
+   * Record<SectionName, CustomEmblemColor>
+   */
+  Nosotros: "chartreuse",
+};
+
+const others = {
+  emblemModifierSource: emblenmModifierSource,
+};
 </script>
 
 <template>

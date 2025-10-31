@@ -1,7 +1,24 @@
 <script lang="ts" setup>
+const BLOG_MAIN_INFO: {
+  title: string;
+  description: string;
+  image?: string;
+} = {
+  title: "Blog",
+  description:
+    "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
+};
 
-useHead({
-  title: "Blog | Novanet Studio",
+useHead(() => {
+  return {
+    title: BLOG_MAIN_INFO.title + "| Novanet Studio",
+    meta: [
+      {
+        name: "description",
+        content: BLOG_MAIN_INFO.description,
+      },
+    ],
+  };
 });
 
 const blog = [
@@ -11,8 +28,7 @@ const blog = [
     bgImage: "background-emblem-blog",
     color: "text-oxfordBlue",
     dataColor: "azure",
-    description:
-      "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
+    description: BLOG_MAIN_INFO.description,
     HeroImage: "images/novanet-studio-modelo-telefono.webp",
     justifyContent: true,
     name: "Blog",

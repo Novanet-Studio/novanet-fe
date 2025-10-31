@@ -1,4 +1,26 @@
 <script lang="ts" setup>
+const HOME_MAIN_INFO: {
+  title: string;
+  description: string;
+  image?: string;
+} = {
+  title: "Novanet Studio",
+  description:
+    "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
+};
+
+useHead(() => {
+  return {
+    title: HOME_MAIN_INFO.title,
+    meta: [
+      {
+        name: "description",
+        content: HOME_MAIN_INFO.description,
+      },
+    ],
+  };
+});
+
 //Array with home page content
 const home = [
   // Sección principal
@@ -12,12 +34,11 @@ const home = [
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
     color: "text-columbiaBlue",
     dataColor: "azure",
-    description:
-      "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
+    description: HOME_MAIN_INFO.description,
     HeroImage: "images/novanet-studio-nina-mirando-izquierda.webp",
     justifyEndImage: true,
     name: "Principal",
-    title: "Novanet Studio",
+    title: HOME_MAIN_INFO.title,
     titleColor: "text-columbiaBlue",
   },
   // Sección creatividad

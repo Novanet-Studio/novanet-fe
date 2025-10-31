@@ -1,5 +1,25 @@
 <script lang="ts" setup>
+const SERVICES_MAIN_INFO: {
+  title: string;
+  description: string;
+  image?: string;
+} = {
+  title: "Servicios",
+  description:
+    "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
+};
 
+useHead(() => {
+  return {
+    title: SERVICES_MAIN_INFO.title + "| Novanet Studio",
+    meta: [
+      {
+        name: "description",
+        content: SERVICES_MAIN_INFO.description,
+      },
+    ],
+  };
+});
 
 const servicios = [
   // Sección Servicios
@@ -9,8 +29,7 @@ const servicios = [
     bgImage: "background-emblem-servicios",
     color: "text-oxfordBlue",
     dataColor: "white",
-    description:
-      "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
+    description: SERVICES_MAIN_INFO.description,
     showTabs: true,
     justifyContent: true,
     name: "Principal",
