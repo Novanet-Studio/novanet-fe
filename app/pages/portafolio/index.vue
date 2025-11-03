@@ -39,6 +39,7 @@ const recentsProjects = {
   alignCenter: true,
   arrowClass: "border-azure text-azure",
   bgColor: "bg-oxfordBlue",
+  bgImage: "background-emblem-proyectos-recientes",
   dataColor: "oxfordBlue",
   buttonClass:
     "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",

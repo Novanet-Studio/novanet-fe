@@ -6,7 +6,7 @@ const SERVICES_MAIN_INFO: {
 } = {
   title: "Servicios",
   description:
-    "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar a las empresas con su público.",
+    "Analizamos en detalle para comprender sus requerimientos, deseos y comportamientos y así crear soluciones que potencien sus procesos y mejoren su experiencia.",
 };
 
 useHead(() => {

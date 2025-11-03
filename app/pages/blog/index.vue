@@ -49,7 +49,7 @@ const recentArticles = {
   dataColor: "columbiaBlue",
   name: "Recientes",
   oneImageViewer: false,
-  title: "Lo más reciente",
+  sectionTitle: "Lo más reciente",
   titleColor: "text-azure",
 };
 

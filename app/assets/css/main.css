@@ -80,7 +80,7 @@ a.cta__primary,
 button.cta__primary {
   font-size: 1rem;
   line-height: 1.125rem;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 a.cta__secondary,
@@ -218,10 +218,14 @@ form textarea::placeholder {
 .background-emblem-contacto,
 .background-emblem-nosotros,
 .background-emblem-mision,
-.background-emblem-proyectos-recientes,
 .background-emblem-vision,
+.background-emblem-servicios,
 .background-emblem-nosotros-contacto,
-.background-emblem-portafolio {
+.background-emblem-portafolio,
+.background-emblem-proyectos-recientes,
+.background-emblem-galeria,
+.background-emblem-blog,
+.background-emblem-galeria-blog {
   background-repeat: no-repeat;
 }
 
@@ -286,7 +290,9 @@ form textarea::placeholder {
 
 .background-emblem-servicios {
   background-image: url("/assets/images/novanet-studio-emblema-invertido.svg");
-  background-size: 70rem;
+  background-size: 110rem;
+  background-position: center;
+
 }
 
 .background-emblem-main,
@@ -315,12 +321,11 @@ form textarea::placeholder {
   background-position: left -60vh center;
 }
 
-.background-emblem-vision {
-  background-position: bottom right -60vh;
-}
-
-.background-emblem-servicios {
-  background-size: 0rem;
+.background-emblem-vision,
+.background-emblem-galeria,
+.background-emblem-proyectos-recientes,
+.background-emblem-galeria-blog {
+  background-position: center right -60vh;
 }
 
 /* Background animations */
@@ -363,7 +368,10 @@ form textarea::placeholder {
   animation-delay: 1.5s;
 }
 
-.background-emblem-vision.animate-background {
+.background-emblem-vision.animate-background,
+.background-emblem-galeria.animate-background,
+.background-emblem-proyectos-recientes.animate-background,
+.background-emblem-galeria-blog.animate-background {
   animation: visionSectionPortrait 2s linear forwards;
   animation-timing-function: ease-in-out;
   animation-delay: 1.5s;
@@ -437,17 +445,17 @@ form textarea::placeholder {
 
 @keyframes visionSectionPortrait {
   0% {
-    background-position: bottom right -60vh;
+    background-position: center right -60vh;
   }
 
   100% {
-    background-position: bottom right;
+    background-position: center right;
   }
 }
 
 @keyframes serviciosSectionPortrait {
   0% {
-    background-size: 0rem;
+    background-size: 30rem;
   }
 
   100% {
@@ -507,11 +515,12 @@ form textarea::placeholder {
 
 @keyframes serviciosSectionLandscape {
   0% {
-    background-size: 0rem;
+    background-size: 70rem;
   }
 
   100% {
     background-size: 110rem;
+
   }
 }
 
@@ -527,13 +536,14 @@ form textarea::placeholder {
   .background-emblem-vision,
   .background-emblem-proyectos-recientes,
   .background-emblem-galeria,
-  {
-  background-size: 26rem;
-}
+  .background-emblem-blog,
+  .background-emblem-galeria-blog {
+    background-size: 26rem;
+  }
 
-.background-emblem-nosotros,
-.background-emblem-portafolio,
-.background-emblem-blog {
+  .background-emblem-nosotros,
+  .background-emblem-portafolio,
+  {
   background-size: 13rem;
   padding-top: var(--header-mobile-height);
   background-position: bottom 5rem right;
@@ -565,13 +575,12 @@ form textarea::placeholder {
   a.cta__primary,
   button.cta__primary {
     font-size: 1.375rem;
-    list-style: 1.625rem;
+    line-height: 1.625rem;
   }
 
   a.cta__secondary,
   button.cta__secondary {
     font-size: 1.25rem;
-    padding: 1.5rem;
   }
 
   .cta__navigation {
@@ -593,7 +602,6 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
-  .background-emblem-proyectos-recientes,
   .background-emblem-portafolio {
     background-size: 18rem;
   }
@@ -601,7 +609,8 @@ form textarea::placeholder {
   .background-emblem-mision,
   .background-emblem-vision,
   .background-emblem-galeria,
-  .background-emblem-proyectos-recientes {
+  .background-emblem-proyectos-recientes,
+  .background-emblem-galeria-blog {
     background-size: 32rem;
   }
 
@@ -644,7 +653,8 @@ form textarea::placeholder {
   .background-emblem-mision,
   .background-emblem-vision,
   .background-emblem-proyectos-recientes,
-  .background-emblem-galeria {
+  .background-emblem-galeria,
+  .background-emblem-galeria-blog {
     background-size: 42rem;
   }
 
@@ -670,10 +680,6 @@ form textarea::placeholder {
   .background-emblem-mision,
   .background-emblem-vision {
     background-size: 40rem;
-  }
-
-  .background-emblem-galeria {
-    background-size: 32rem;
   }
 
   .background-emblem-nosotros,
@@ -783,18 +789,17 @@ form textarea::placeholder {
   .background-emblem-colaboracion,
   .background-emblem-contacto,
   .background-emblem-mision,
-  .background-emblem-vision {
+  .background-emblem-vision,
+  .background-emblem-galeria {
     background-size: 50rem;
   }
 
-  .background-emblem-proyectos-recientes {
+  .background-emblem-proyectos-recientes,
+  .background-emblem-galeria {
     background-size: 32rem;
     background-position: center right;
   }
 
-  .background-emblem-galeria {
-    background-size: 32rem;
-  }
 }
 
 /* Width >= 1920px */

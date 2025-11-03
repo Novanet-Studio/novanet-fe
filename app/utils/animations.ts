@@ -73,5 +73,23 @@ export const animations = {
          ease: easeInOut,
       },
    },
+   FourthElement: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: {
+         duration: 0.8,
+         delay: 1.75,
+         ease: easeInOut,
+      },
+   },
+   FifthElement: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: {
+         duration: 0.8,
+         delay: 2,
+         ease: easeInOut,
+      },
+   },
 
 }
