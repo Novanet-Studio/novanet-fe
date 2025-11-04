@@ -34,12 +34,16 @@ const viewerContent = computed(() => {
 
   const fromSectionId = props.content.name;
 
-  const mappedItems = projects.value.map((project: any) => ({
-    title: project.titulo,
-    description: project.descripcionCorta,
-    cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
-    portrait: project.miniatura.url,
-  }));
+  const mappedItems = projects.value.map((project: any) => {
+    const imageUrl = project.miniatura.url;
+
+    return {
+      title: project.titulo,
+      description: project.descripcionCorta,
+      cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
+      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+    };
+  });
 
   return {
     ...props.content,

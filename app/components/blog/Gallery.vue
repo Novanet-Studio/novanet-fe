@@ -37,11 +37,13 @@ const formattedArticles = computed(() => {
       .slice(0, article.tag.indexOf(","))
       .replaceAll(" ", "-");
 
+    const imageUrl = article.imagen[0]?.url;
+
     return {
       title: article.titulo,
       cta_route: `/blog/${tagSlug}/${article.slug}?from=${fromSectionId}`,
       date: formatDate(article.fecha),
-      portrait: article.imagen[0]?.url,
+      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
     };
   });
 });

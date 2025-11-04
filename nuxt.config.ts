@@ -23,7 +23,7 @@ export default defineNuxtConfig({
           content: "Novanet Studio <info@novanet.studio>",
         },
         // Viewport meta for proper responsive behavior on mobile and devices
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },
@@ -43,6 +43,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
+    "@nuxt/image-cloudinary",
     "@nuxt/fonts",
     "@nuxt/icon",
     "motion-v/nuxt",
@@ -71,7 +72,9 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: "ipx",
+    cloudinary: {
+      baseURL: "https://res.cloudinary.com/novanet-studio/image/upload/",
+    },
   },
 
   icon: {

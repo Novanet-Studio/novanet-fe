@@ -71,10 +71,12 @@ const projectDetailData = computed(() => {
 
   const backUrl = fromSection ? `/portafolio#${fromSection}` : "/portafolio";
 
+  const imageUrl = project.value.miniatura.url;
+
   return {
     title: project.value.titulo,
     date: `${project.value.ano}`,
-    topContentImage: project.value.miniatura.url,
+    topContentImage: imageUrl ? `cloudinary:${imageUrl}` : undefined,
     shortDescription: project.value.descripcionCorta,
     fullContent: project.value.descripcion,
     backLink: {

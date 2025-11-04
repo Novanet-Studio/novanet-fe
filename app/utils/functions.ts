@@ -63,7 +63,7 @@ export const markdownToHtml = ({
       const label = labelMatch ? labelMatch[1] : "";
 
       return `
-      <img src="${imgUrl}" alt="${alt}" class="w-full md:pt-8 xl:pt-[unset]"/>
+      <img src="cloudinary:${imgUrl}" alt="${alt}" class="w-full md:pt-8 xl:pt-[unset]"/>
       ${label ? `<i class="text-s2 md:text-p1 xl:text-p2">${label}</i>` : ""}
     `;
     }
@@ -92,8 +92,9 @@ export const markdownToHtml = ({
         "###": "main__title",
       };
 
-      return `<h${level} class="${headingClass[block.match(/^#+/)]
-        }">${textWithLinks}</h${level}>`;
+      return `<h${level} class="${
+        headingClass[block.match(/^#+/)]
+      }">${textWithLinks}</h${level}>`;
     }
 
     //? unordered list block

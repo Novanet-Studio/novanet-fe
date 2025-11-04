@@ -26,6 +26,8 @@ const viewerContent = computed(() => {
   const mappedItems = articles.value.map((article: any) => {
     const fromSectionId = props.content.name;
 
+    const imageUrl = article.imagen[0]?.url;
+
     return {
       title: article.titulo,
       description: article.descripcionCorta,
@@ -33,7 +35,7 @@ const viewerContent = computed(() => {
       cta_route: `/blog/${article.tag
         .slice(0, article.tag.indexOf(","))
         .replaceAll(" ", "-")}/${article.slug}?from=${fromSectionId}`,
-      portrait: article.imagen[0]?.url,
+      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
     };
   });
 
