@@ -394,11 +394,11 @@ form textarea::placeholder {
 
 @keyframes creatividadSectionPortrait {
   0% {
-   background-position: top 200% center, bottom 200% center;
+   background-position: top 0% center, bottom 0% center;
   }
 
   100% {
-    background-position: top 0% center, bottom 0% center;
+    background-position: top 200% center, bottom 200% center;
   }
 }
 
