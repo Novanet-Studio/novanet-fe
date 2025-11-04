@@ -296,7 +296,7 @@ form textarea::placeholder {
 
 .background-emblem-main,
 .background-emblem-contacto {
-  background-position: bottom 400px center;
+  background-position: bottom -100% center;
 }
 
 .background-emblem-creatividad {
@@ -384,7 +384,7 @@ form textarea::placeholder {
 
 @keyframes mainSectionPortrait {
   0% {
-    background-position: bottom 400px center;
+    background-position: bottom -100% center;
   }
 
   100% {
@@ -717,7 +717,7 @@ form textarea::placeholder {
 
   .background-emblem-main,
   .background-emblem-contacto {
-    background-position: bottom 400px right;
+    background-position: bottom -60vh right;
   }
 
   .background-emblem-creatividad {
