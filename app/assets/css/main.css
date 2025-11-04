@@ -304,7 +304,7 @@ form textarea::placeholder {
 }
 
 .background-emblem-innovacion {
-  background-position: top -60vh center, bottom -60vh center;
+  background-position: top -60vh center, top 200% center;
 }
 
 .background-emblem-colaboracion {
@@ -404,11 +404,11 @@ form textarea::placeholder {
 
 @keyframes innovacionSectionPortrait {
   0% {
-    background-position: top -60vh center, bottom -60vh center;
+    background-position: top -60vh center, top 200% center;
   }
 
   100% {
-    background-position: top center, bottom center;
+    background-position: top center, top 0% center;
   }
 }
 
