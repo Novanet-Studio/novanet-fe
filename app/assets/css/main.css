@@ -566,7 +566,7 @@ form textarea::placeholder {
   .background-emblem-portafolio {
     background-size: 13rem;
     padding-top: var(--header-mobile-height);
-    background-position: bottom 5rem right;
+    background-position: bottom 5rem right -100%;
   }
 }
 
