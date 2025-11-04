@@ -300,7 +300,7 @@ form textarea::placeholder {
 }
 
 .background-emblem-creatividad {
-  background-position: top -60vh center, bottom -60vh center;
+  background-position: bottom 200% center, top 200% center;
 }
 
 .background-emblem-innovacion {
@@ -394,7 +394,7 @@ form textarea::placeholder {
 
 @keyframes creatividadSectionPortrait {
   0% {
-    background-position: top -60vh center, bottom -60vh center;
+    background-position: bottom 200% center, top 200% center;
   }
 
   100% {
