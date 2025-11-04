@@ -522,6 +522,30 @@ form textarea::placeholder {
   }
 }
 
+/* Width <= 390px */
+@media (width <=24.375rem) {
+
+  .background-emblem-main,
+  .background-emblem-creatividad,
+  .background-emblem-innovacion,
+  .background-emblem-colaboracion,
+  .background-emblem-contacto,
+  .background-emblem-mision,
+  .background-emblem-vision,
+  .background-emblem-proyectos-recientes,
+  .background-emblem-galeria {
+    background-size: 24rem;
+  }
+
+  .background-emblem-nosotros,
+  .background-emblem-portafolio,
+  .background-emblem-blog {
+    background-size: 8rem;
+    padding-top: var(--header-mobile-height);
+  }
+}
+
+
 /* Width => 390px */
 @media (width >=24.375rem) {
   .background-emblem-main,
