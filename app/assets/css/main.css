@@ -296,15 +296,15 @@ form textarea::placeholder {
 
 .background-emblem-main,
 .background-emblem-contacto {
-  background-position: bottom -60vh center;
+  background-position: top 200% center;
 }
 
 .background-emblem-creatividad {
-  background-position: top -60vh center, bottom -60vh center;
+  background-position: top -60vh center, top 200% center;
 }
 
 .background-emblem-innovacion {
-  background-position: top -60vh center, bottom -60vh center;
+  background-position: top -60vh center, top 200% center;
 }
 
 .background-emblem-colaboracion {
@@ -313,7 +313,7 @@ form textarea::placeholder {
 
 .background-emblem-nosotros,
 .background-emblem-portafolio {
-  background-position: bottom 5rem right -60vh;
+  background-position: bottom 5rem right -100%;
 }
 
 .background-emblem-mision {
@@ -384,31 +384,31 @@ form textarea::placeholder {
 
 @keyframes mainSectionPortrait {
   0% {
-    background-position: bottom -60vh center;
+    background-position: top 200% center;
   }
 
   100% {
-    background-position: bottom center;
+    background-position: top 100% center;
   }
 }
 
 @keyframes creatividadSectionPortrait {
   0% {
-    background-position: top -60vh center, bottom -60vh center;
+    background-position: top -60vh center, top 200% center;
   }
 
   100% {
-    background-position: top center, bottom center;
+    background-position: top center, top 100% center;
   }
 }
 
 @keyframes innovacionSectionPortrait {
   0% {
-    background-position: top -60vh center, bottom -60vh center;
+    background-position: top -60vh center, top 200% center;
   }
 
   100% {
-    background-position: top center, bottom center;
+    background-position: top center, top 100% center;
   }
 }
 
@@ -424,11 +424,11 @@ form textarea::placeholder {
 
 @keyframes nosotrosSectionPortrait {
   0% {
-    background-position: bottom 5rem right -60vh;
+    background-position: bottom 5rem right -100%;
   }
 
   100% {
-    background-position: bottom 5rem right;
+    background-position: bottom 5rem right 0%;
   }
 }
 
@@ -548,6 +548,7 @@ form textarea::placeholder {
 
 /* Width => 390px */
 @media (width >=24.375rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -566,7 +567,7 @@ form textarea::placeholder {
   .background-emblem-portafolio {
     background-size: 13rem;
     padding-top: var(--header-mobile-height);
-    background-position: bottom 5rem right;
+    background-position: bottom 5rem right -140%;
   }
 }
 
@@ -717,7 +718,7 @@ form textarea::placeholder {
 
   .background-emblem-main,
   .background-emblem-contacto {
-    background-position: bottom -60vh right;
+    background-position: top 100% right;
   }
 
   .background-emblem-creatividad {
@@ -802,6 +803,7 @@ form textarea::placeholder {
 
 /* Width >= 1536px */
 @media (width >=96rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
