@@ -37,6 +37,7 @@ const viewerContent = computed(() => {
 
   return {
     ...props.content,
+    sectionName: props.content.name,
     items: mappedItems,
   };
 });
@@ -45,6 +46,7 @@ const viewerContent = computed(() => {
 <template>
   <section
     :id="props.content.name ? props.content.name : ''"
+    :key="props.content.name ? props.content.name : ''"
     :data-color="props.content.dataColor"
     :data-emblem-color="
       emblemModifierSource[props.content.name] || props.content.dataColor

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { createExcerpt } from "~/utils/functions";
 
 const props = defineProps<{ content: any; others?: any }>();
 const emblemModifierSource = props.others?.emblemModifierSource || {};
+
+const { initObserver } = useSectionObserver();
 
 const { getRecentProjects } = usePortfolio();
 const { data: projects, pending: projectsPending } = await useAsyncData(
@@ -15,6 +16,14 @@ const { data: projects, pending: projectsPending } = await useAsyncData(
   },
   { lazy: true }
 );
+
+watch(projectsPending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initObserver();
+    });
+  }
+});
 
 const viewerContent = computed(() => {
   if (!projects.value || projects.value.length === 0) {
@@ -32,6 +41,7 @@ const viewerContent = computed(() => {
 
   return {
     ...props.content,
+    sectionName: props.content.name,
     items: mappedItems,
   };
 });
@@ -40,6 +50,7 @@ const viewerContent = computed(() => {
 <template>
   <section
     :id="props.content.name ? props.content.name : ''"
+    :key="props.content.name ? props.content.name : ''"
     :data-section-index="1"
     :data-color="props.content.dataColor"
     :data-emblem-color="

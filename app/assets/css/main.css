@@ -292,7 +292,6 @@ form textarea::placeholder {
   background-image: url("/assets/images/novanet-studio-emblema-invertido.svg");
   background-size: 110rem;
   background-position: center;
-
 }
 
 .background-emblem-main,
@@ -520,13 +519,11 @@ form textarea::placeholder {
 
   100% {
     background-size: 110rem;
-
   }
 }
 
 /* Width => 390px */
 @media (width >=24.375rem) {
-
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -542,12 +539,11 @@ form textarea::placeholder {
   }
 
   .background-emblem-nosotros,
-  .background-emblem-portafolio,
-  {
-  background-size: 13rem;
-  padding-top: var(--header-mobile-height);
-  background-position: bottom 5rem right;
-}
+  .background-emblem-portafolio {
+    background-size: 13rem;
+    padding-top: var(--header-mobile-height);
+    background-position: bottom 5rem right;
+  }
 }
 
 /* Width >= 768px */
@@ -782,7 +778,6 @@ form textarea::placeholder {
 
 /* Width >= 1536px */
 @media (width >=96rem) {
-
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -799,12 +794,10 @@ form textarea::placeholder {
     background-size: 32rem;
     background-position: center right;
   }
-
 }
 
 /* Width >= 1920px */
 @media (width >=120rem) {
-
   p.description {
     font-size: 1.75rem;
     line-height: 2rem;

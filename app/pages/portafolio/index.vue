@@ -46,7 +46,7 @@ const recentsProjects = {
   color: "text-columbiaBlue",
   dateColor: "text-gray-400",
   justifyContent: true,
-  name: "Recientes",
+  name: "Portafolio-Recientes",
   oneImageViewer: true,
   sectionTitle: "Lo más reciente",
   titleColor: "text-azure",
@@ -61,7 +61,7 @@ const gallery = {
   description:
     "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
   justifyContent: false,
-  name: "Galeria",
+  name: "Portafolio-Galeria",
   title: "Nuestros Proyectos",
   titleColor: "text-oxfordBlue",
 };

@@ -47,7 +47,7 @@ const recentArticles = {
   color: "text-oxfordBlue",
   dateColor: "text-gray-500",
   dataColor: "columbiaBlue",
-  name: "Recientes",
+  name: "Blog-Recientes",
   oneImageViewer: false,
   sectionTitle: "Lo más reciente",
   titleColor: "text-azure",
@@ -58,7 +58,7 @@ const blogGallery = {
   bgColor: "bg-columbiaBlue",
   bgImage: "background-emblem-galeria-blog",
   dataColor: "white",
-  name: "Articulos",
+  name: "Blog-Articulos",
   titleColor: "text-azure",
 };
 </script>

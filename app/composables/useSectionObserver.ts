@@ -77,7 +77,9 @@ export function useSectionObserver() {
     }
   });
 
-  const hasBeenAnimated = (id: string) => animatedSectionIds.value.has(id);
+  const hasBeenAnimated = (id: string) => {
+    return animatedSectionIds.value.has(id);
+  };
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);

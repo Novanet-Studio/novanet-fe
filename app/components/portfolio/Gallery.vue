@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch, nextTick } from "vue";
+import { ref, computed, watch, nextTick, onMounted } from "vue";
+import { useSectionObserver } from "~/composables/useSectionObserver";
+import { animations } from "~/utils/animations";
 
 const props = defineProps<{ content: any; others?: any }>();
 const emblemModifierSource = props.others?.emblemModifierSource || {};
+
+const { initObserver, hasBeenAnimated } = useSectionObserver();
 
 const { getCategoriesWithProjects } = usePortfolio();
 
@@ -10,11 +14,18 @@ const { data: categories, pending } = await useAsyncData(
   "categories-with-projects",
   async () => {
     const response = await getCategoriesWithProjects();
-
     return response.status === "ok" ? response.data : null;
   },
   { lazy: true }
 );
+
+watch(pending, (isPending) => {
+  if (!isPending) {
+    nextTick(() => {
+      initObserver();
+    });
+  }
+});
 
 const activeTabKey = ref<string | null>(null);
 const tabRefs = ref<{ [key: string]: HTMLElement }>({});
@@ -64,15 +75,12 @@ const tabs = computed(() => {
 
 const activePanel = computed(() => {
   if (!activeTabKey.value || tabs.value.length === 0) return null;
-
   return tabs.value.find((tab) => tab.key === activeTabKey.value);
 });
 
 function updateMarkerPosition() {
   const activeTabElement = tabRefs.value[activeTabKey.value!];
-
   if (!activeTabElement) return;
-
   markerStyle.value = {
     left: `${activeTabElement.offsetLeft}px`,
     width: `${activeTabElement.offsetWidth}px`,
@@ -89,7 +97,6 @@ watch(
   activeTabKey,
   async () => {
     await nextTick();
-
     updateMarkerPosition();
   },
   { immediate: true }
@@ -97,60 +104,100 @@ watch(
 
 onMounted(() => {
   activeTabKey.value = "todos";
-
   updateMarkerPosition();
 });
 </script>
 
 <template>
-  <section :id="props.content.name ? props.content.name : ''" :data-color="props.content.dataColor" :data-emblem-color="emblemModifierSource[props.content.name] || props.content.dataColor
-    " :data-section-index="2" :class="[
+  <section
+    :id="props.content.name ? props.content.name : ''"
+    :data-color="props.content.dataColor"
+    :data-emblem-color="
+      emblemModifierSource[props.content.name] || props.content.dataColor
+    "
+    :data-section-index="2"
+    :class="[
       props.content.bgColor,
       props.content.bgImage,
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
       props.content.justifyContent ? 'justify-center' : '',
-    ]">
+    ]"
+  >
     <div v-if="pending" class="w-full flex overflow-hidden">
       <p class="text-lg">Cargando portafolio...</p>
     </div>
 
     <div v-else-if="tabs.length > 0" class="w-full overflow-hidden">
       <nav class="flex gap-x-8" aria-label="Tabs">
-        <button v-for="tab in tabs" :key="tab.key" :ref="el => (tabRefs[tab.key] = el as HTMLElement)"
-          @click="activeTabKey = tab.key" :class="[
+        <button
+          v-for="tab in tabs"
+          :key="tab.key"
+          :ref="(el) => (tabRefs[tab.key] = el as HTMLElement)"
+          @click="activeTabKey = tab.key"
+          :class="[
             'lista pb-3 text-azure text-left transition-colors duration-200 ease-out focus:outline-none',
             activeTabKey === tab.key ? 'font-bold' : '',
-          ]">
-          <Motion :initial="animations.mainImage.initial" :animate="animations.mainImage.animate"
-            :transition="{ ...animations.mainImage.transition }">
+          ]"
+        >
+          <Motion
+            :initial="animations.mainImage.initial"
+            :animate="
+              hasBeenAnimated(props.content.name)
+                ? animations.mainImage.animate
+                : animations.mainImage.initial
+            "
+            :transition="{ ...animations.mainImage.transition }"
+          >
             {{ tab.label }}
           </Motion>
         </button>
-
       </nav>
-      <div class="absolute bottom-[1px] h-[2px] bg-azure transition-all duration-300 ease-in-out" :style="markerStyle">
-      </div>
+      <div
+        class="absolute bottom-[1px] h-[2px] bg-azure transition-all duration-300 ease-in-out"
+        :style="markerStyle"
+      ></div>
 
       <div v-if="activePanel" class="mt-4 space-y-4">
         <p class="description">
-          <Motion :initial="animations.description.initial" :animate="animations.description.animate"
-            :transition="{ ...animations.description.transition }">
+          <Motion
+            :initial="animations.description.initial"
+            :animate="
+              hasBeenAnimated(props.content.name)
+                ? animations.description.animate
+                : animations.description.initial
+            "
+            :transition="{ ...animations.description.transition }"
+          >
             {{ activePanel.description }}
           </Motion>
         </p>
 
         <div v-if="activePanel.projects && activePanel.projects.length > 0">
           <div
-            class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]">
-            <Motion v-for="project in activePanel.projects" :key="project.link" :initial="animations.mainTitle.initial"
-              :animate="animations.mainTitle.animate" :transition="{ ...animations.mainTitle.transition }"
-              class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30">
+            class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]"
+          >
+            <Motion
+              v-for="project in activePanel.projects"
+              :key="project.link"
+              :initial="animations.mainTitle.initial"
+              :animate="
+                hasBeenAnimated(props.content.name)
+                  ? animations.mainTitle.animate
+                  : animations.mainTitle.initial
+              "
+              :transition="{ ...animations.mainTitle.transition }"
+              class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30"
+            >
               <article>
                 <NuxtLink :to="project.link">
-                  <NuxtImg v-if="project.portrait" :src="project.portrait" :alt="`Imagen del proyecto ${project.title}`"
+                  <NuxtImg
+                    v-if="project.portrait"
+                    :src="project.portrait"
+                    :alt="`Imagen del proyecto ${project.title}`"
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                    loading="lazy" />
+                    loading="lazy"
+                  />
                 </NuxtLink>
               </article>
             </Motion>
