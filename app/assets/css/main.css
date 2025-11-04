@@ -290,7 +290,7 @@ form textarea::placeholder {
 
 .background-emblem-servicios {
   background-image: url("/assets/images/novanet-studio-emblema-invertido.svg");
-  background-size: 110rem;
+  background-size: 70rem;
   background-position: center;
 }
 
@@ -454,11 +454,11 @@ form textarea::placeholder {
 
 @keyframes serviciosSectionPortrait {
   0% {
-    background-size: 30rem;
+    background-size: 70rem;
   }
 
   100% {
-    background-size: 70rem;
+    background-size: 110rem;
   }
 }
 
@@ -514,11 +514,11 @@ form textarea::placeholder {
 
 @keyframes serviciosSectionLandscape {
   0% {
-    background-size: 70rem;
+    background-size: 110rem;
   }
 
   100% {
-    background-size: 110rem;
+    background-size: 150rem;
   }
 }
 
@@ -611,7 +611,7 @@ form textarea::placeholder {
   }
 
   .background-emblem-servicios {
-    background-size: 144rem;
+    background-size: 110rem;
   }
 }
 

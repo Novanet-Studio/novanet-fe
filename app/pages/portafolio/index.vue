@@ -7,16 +7,24 @@ const PORTFOLIO_MAIN_INFO: {
   title: "Portafolio",
   description:
     "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
+  image: "images/novanet-studio-og-portafolio.webp"
 };
 
 useHead(() => {
   return {
-    title: PORTFOLIO_MAIN_INFO.title + " | Novanet Studio",
+    title: PORTFOLIO_MAIN_INFO.title,
     meta: [
       {
         name: "description",
         content: PORTFOLIO_MAIN_INFO.description,
       },
+      { property: 'og:title', content: PORTFOLIO_MAIN_INFO.title },
+      { property: 'og:description', content: PORTFOLIO_MAIN_INFO.description },
+      { property: 'og:image', content: PORTFOLIO_MAIN_INFO.image },
+      { name: 'twitter:card', content: PORTFOLIO_MAIN_INFO.image },
+      { name: 'twitter:title', content: PORTFOLIO_MAIN_INFO.title },
+      { name: 'twitter:description', content: PORTFOLIO_MAIN_INFO.description },
+      { name: 'twitter:image', content: PORTFOLIO_MAIN_INFO.image },
     ],
   };
 });

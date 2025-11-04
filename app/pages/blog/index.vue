@@ -7,16 +7,24 @@ const BLOG_MAIN_INFO: {
   title: "Blog",
   description:
     "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
+  image: "images/novanet-studio-og-blog.webp",
 };
 
 useHead(() => {
   return {
-    title: BLOG_MAIN_INFO.title + " | Novanet Studio",
+    title: BLOG_MAIN_INFO.title,
     meta: [
       {
         name: "description",
         content: BLOG_MAIN_INFO.description,
       },
+      { property: 'og:title', content: BLOG_MAIN_INFO.title },
+      { property: 'og:description', content: BLOG_MAIN_INFO.description },
+      { property: 'og:image', content: BLOG_MAIN_INFO.image },
+      { name: 'twitter:card', content: BLOG_MAIN_INFO.image },
+      { name: 'twitter:title', content: BLOG_MAIN_INFO.title },
+      { name: 'twitter:description', content: BLOG_MAIN_INFO.description },
+      { name: 'twitter:image', content: BLOG_MAIN_INFO.image },
     ],
   };
 });
@@ -26,7 +34,11 @@ const blog = [
     alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-blog",
-    color: "text-oxfordBlue",
+    buttonLink: "/blog#Blog-Articulos",
+    buttonText: "Ver artículos",
+    buttonType:
+      "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
+    color: "text-columbiaBlue",
     dataColor: "azure",
     description: BLOG_MAIN_INFO.description,
     HeroImage: "images/novanet-studio-modelo-telefono.webp",

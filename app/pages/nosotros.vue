@@ -7,16 +7,24 @@ const ABOUT_MAIN_INFO: {
   title: "Nosotros",
   description:
     "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
+  image: "images/novanet-studio-og-nosotros.webp"
 };
 
 useHead(() => {
   return {
-    title: ABOUT_MAIN_INFO.title + " | Novanet Studio",
+    title: ABOUT_MAIN_INFO.title,
     meta: [
       {
         name: "description",
         content: ABOUT_MAIN_INFO.description,
       },
+      { property: 'og:title', content: ABOUT_MAIN_INFO.title },
+      { property: 'og:description', content: ABOUT_MAIN_INFO.description },
+      { property: 'og:image', content: ABOUT_MAIN_INFO.image },
+      { name: 'twitter:card', content: ABOUT_MAIN_INFO.image },
+      { name: 'twitter:title', content: ABOUT_MAIN_INFO.title },
+      { name: 'twitter:description', content: ABOUT_MAIN_INFO.description },
+      { name: 'twitter:image', content: ABOUT_MAIN_INFO.image },
     ],
   };
 });

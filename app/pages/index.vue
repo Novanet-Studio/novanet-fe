@@ -7,6 +7,8 @@ const HOME_MAIN_INFO: {
   title: "Novanet Studio",
   description:
     "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
+  image: "images/novanet-studio-og-inicio.webp",
+
 };
 
 useHead(() => {
@@ -17,6 +19,13 @@ useHead(() => {
         name: "description",
         content: HOME_MAIN_INFO.description,
       },
+      { property: 'og:title', content: HOME_MAIN_INFO.title },
+      { property: 'og:description', content: HOME_MAIN_INFO.description },
+      { property: 'og:image', content: HOME_MAIN_INFO.image },
+      { name: 'twitter:card', content: HOME_MAIN_INFO.image },
+      { name: 'twitter:title', content: HOME_MAIN_INFO.title },
+      { name: 'twitter:description', content: HOME_MAIN_INFO.description },
+      { name: 'twitter:image', content: HOME_MAIN_INFO.image },
     ],
   };
 });
