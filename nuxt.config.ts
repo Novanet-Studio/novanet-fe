@@ -70,6 +70,10 @@ export default defineNuxtConfig({
     ],
   },
 
+  image: {
+    provider: "ipx",
+  },
+
   icon: {
     class: "icon", // default <Icon> class applied
     mode: "css", // default <Icon> mode applied
