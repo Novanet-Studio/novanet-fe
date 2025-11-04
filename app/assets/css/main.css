@@ -408,7 +408,7 @@ form textarea::placeholder {
   }
 
   100% {
-    background-position: top center, top 0% center;
+    background-position: top center, top 100% center;
   }
 }
 
