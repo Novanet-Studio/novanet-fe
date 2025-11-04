@@ -718,7 +718,7 @@ form textarea::placeholder {
 
   .background-emblem-main,
   .background-emblem-contacto {
-    background-position: top 100% right;
+    background-position: top -60vh right;
   }
 
   .background-emblem-creatividad {
