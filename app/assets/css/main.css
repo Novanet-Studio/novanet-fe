@@ -313,7 +313,7 @@ form textarea::placeholder {
 
 .background-emblem-nosotros,
 .background-emblem-portafolio {
-  background-position: bottom 5rem right -60vh;
+  background-position: bottom 5rem right 200%;
 }
 
 .background-emblem-mision {
@@ -424,7 +424,7 @@ form textarea::placeholder {
 
 @keyframes nosotrosSectionPortrait {
   0% {
-    background-position: bottom 5rem right -60vh;
+    background-position: bottom 5rem right 200%;
   }
 
   100% {
