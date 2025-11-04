@@ -76,7 +76,7 @@ const projectDetailData = computed(() => {
   return {
     title: project.value.titulo,
     date: `${project.value.ano}`,
-    topContentImage: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+    topContentImage: imageUrl ? `${imageUrl}` : undefined,
     shortDescription: project.value.descripcionCorta,
     fullContent: project.value.descripcion,
     backLink: {

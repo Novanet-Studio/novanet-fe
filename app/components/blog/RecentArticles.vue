@@ -35,7 +35,7 @@ const viewerContent = computed(() => {
       cta_route: `/blog/${article.tag
         .slice(0, article.tag.indexOf(","))
         .replaceAll(" ", "-")}/${article.slug}?from=${fromSectionId}`,
-      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+      portrait: imageUrl ? `${imageUrl}` : undefined,
     };
   });
 

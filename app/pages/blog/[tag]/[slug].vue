@@ -87,7 +87,7 @@ const articleDetailData = computed(() => {
   return {
     title: article.value.titulo,
     date: formatDate(article.value.fecha),
-    portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+    portrait: imageUrl ? `${imageUrl}` : undefined,
     fullContent: article.value.descripcion,
     backLink: {
       url: backUrl,

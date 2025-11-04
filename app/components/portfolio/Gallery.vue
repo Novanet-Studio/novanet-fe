@@ -194,6 +194,7 @@ onMounted(() => {
                 <NuxtLink :to="project.link">
                   <NuxtImg
                     v-if="project.portrait"
+                    provider="cloudinary"
                     :src="project.portrait"
                     :alt="`Imagen del proyecto ${project.title}`"
                     class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"

@@ -43,7 +43,7 @@ const formattedArticles = computed(() => {
       title: article.titulo,
       cta_route: `/blog/${tagSlug}/${article.slug}?from=${fromSectionId}`,
       date: formatDate(article.fecha),
-      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+      portrait: imageUrl ? `${imageUrl}` : undefined,
     };
   });
 });
@@ -142,6 +142,7 @@ const formattedArticles = computed(() => {
               >
                 <NuxtImg
                   v-if="article.portrait"
+                  provider="cloudinary"
                   :src="article.portrait"
                   :alt="`Imagen del artículo ${article.title}`"
                   class="w-full h-full object-cover"

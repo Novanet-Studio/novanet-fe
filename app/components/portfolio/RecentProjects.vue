@@ -41,7 +41,7 @@ const viewerContent = computed(() => {
       title: project.titulo,
       description: project.descripcionCorta,
       cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
-      portrait: imageUrl ? `cloudinary:${imageUrl}` : undefined,
+      portrait: imageUrl ? `${imageUrl}` : undefined,
     };
   });
 

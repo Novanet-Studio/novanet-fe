@@ -203,6 +203,7 @@ const carouselStyle = computed(() => {
               >
                 <NuxtLink v-if="item === currentItem" :to="item.cta_route">
                   <NuxtImg
+                    provider="cloudinary"
                     :src="item.portrait"
                     :alt="item.title"
                     class="md:max-h-[30vh] lg:max-h-[50vh] w-full h-auto object-cover"
@@ -211,6 +212,7 @@ const carouselStyle = computed(() => {
 
                 <NuxtImg
                   v-else
+                  provider="cloudinary"
                   @click="gotoItem(item)"
                   :src="item.portrait"
                   :alt="item.title"

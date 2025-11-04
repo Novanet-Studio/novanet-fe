@@ -43,7 +43,6 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
-    "@nuxt/image-cloudinary",
     "@nuxt/fonts",
     "@nuxt/icon",
     "motion-v/nuxt",
