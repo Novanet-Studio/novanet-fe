@@ -48,6 +48,8 @@ const error = [
 
 <template>
   <div class="section__container">
+
     <CommonSection :content="error" />
+    
   </div>
 </template>
