@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+const { hasBeenAnimated } = useSectionObserver();
+
 const props = defineProps<{ content: any; others?: any }>();
 const emblemModifierSource = props.others?.emblemModifierSource || {};
 
@@ -63,6 +65,7 @@ const viewerContent = computed(() => {
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
       props.content.justifyContent ? 'justify-center' : '',
+      { 'animate-background': hasBeenAnimated(props.content.name) },
     ]"
   >
     <div

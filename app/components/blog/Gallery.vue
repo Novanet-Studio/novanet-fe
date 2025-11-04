@@ -62,6 +62,7 @@ const formattedArticles = computed(() => {
       props.content.alignCenter ? 'items-center' : '',
       props.content.justifyContent ? 'justify-center' : '',
       'snap-start',
+      { 'animate-background': hasBeenAnimated(props.content.name) },
     ]"
   >
     <div

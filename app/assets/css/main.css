@@ -324,7 +324,7 @@ form textarea::placeholder {
 .background-emblem-galeria,
 .background-emblem-proyectos-recientes,
 .background-emblem-galeria-blog {
-  background-position: center right -60vh;
+  background-position: center right -60vw;
 }
 
 /* Background animations */
@@ -792,7 +792,7 @@ form textarea::placeholder {
   .background-emblem-proyectos-recientes,
   .background-emblem-galeria {
     background-size: 32rem;
-    background-position: center right;
+    background-position: center right -60vw;
   }
 }
 

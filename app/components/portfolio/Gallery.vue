@@ -122,6 +122,7 @@ onMounted(() => {
       props.content.color,
       props.content.reverseDirection ? 'direction-reverse' : '',
       props.content.justifyContent ? 'justify-center' : '',
+      { 'animate-background': hasBeenAnimated(props.content.name) },
     ]"
   >
     <div v-if="pending" class="w-full flex overflow-hidden">
