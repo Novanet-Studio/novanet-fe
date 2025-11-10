@@ -41,14 +41,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <AppHeader :color="currentColor" :emblem-color="currentEmblemColor" />
-    <AppDrawer :color="currentColor" />
-    <main>
-      <slot />
-    </main>
-    <AppFooter :color="currentColor" />
-
-    <CommonToast />
-  </div>
+  <AppHeader :color="currentColor" :emblem-color="currentEmblemColor" />
+  <AppDrawer :color="currentColor" />
+  <main>
+    <slot />
+  </main>
+  <AppFooter :color="currentColor" />
+  <CommonToast />
 </template>

@@ -46,12 +46,12 @@ onMounted(() => {
       </div>
    </Motion>
 
-    <transition enter-class="opacity-0" enter-active-class="ease-out transition-medium" enter-to-class="opacity-100"
-        leave-class="opacity-100" leave-active-class="ease-out transition-medium" leave-to-class="opacity-0">
-        <div @keydown.esc="isOpen = false" v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
-          <div @click="isOpen = false" class="absolute inset-0 bg-black opacity-50" tabindex="0"></div>
-        </div>
-      </transition>
+   <transition enter-class="opacity-0" enter-active-class="ease-out transition-medium" enter-to-class="opacity-100"
+      leave-class="opacity-100" leave-active-class="ease-out transition-medium" leave-to-class="opacity-0">
+      <div @keydown.esc="isOpen = false" v-show="isOpen" class="z-10 fixed inset-0 transition-opacity">
+         <div @click="isOpen = false" class="absolute inset-0 bg-black opacity-50" tabindex="0"></div>
+      </div>
+   </transition>
 
    <!-- Menu (Móvil) -->
    <aside
@@ -63,7 +63,7 @@ onMounted(() => {
          </button>
       </div>
 
-      <ul class="flex flex-col gap-5 text-[1rem] leading-[1.125rem] mt-20 text-columbiaBlue hover:bottom-1">
+      <ul class="flex flex-col gap-5 text-[1rem] leading-[1.125rem] mt-8 text-columbiaBlue hover:bottom-1">
          <li v-for="(item, index) in navigationLinks" :key="index">
             <NuxtLink :to="item.link" :class="[
                'flex justify-start focus:outline-none',
@@ -75,19 +75,26 @@ onMounted(() => {
       </ul>
 
       <!-- Social Media Icons (Mobile) -->
-      <div class="flex gap-2 w-full h-9 mt-auto justify-end text-columbiaBlue">
-         <a href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA" target="_blank" rel="noopener noreferrer">
-            <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-2xl" />
-         </a>
-         <a href="https://www.instagram.com/novanetstudio/" target="_blank" rel="noopener noreferrer">
-            <Icon name="fa6-brands:instagram" class="text-xl md:text-2xl lg:text-2xl" />
-         </a>
-         <a href="https://wa.me/message/QA5DVPVFSXYCJ1" target="_blank" rel="noopener noreferrer">
-            <Icon name="fa6-brands:whatsapp" class="text-xl md:text-2xl lg:text-2xl" />
-         </a>
-         <a href="https://www.facebook.com/NovanetStudio" target="_blank" rel="noopener noreferrer">
-            <Icon name="fa6-brands:facebook" class="text-xl md:text-2xl lg:text-2xl" />
-         </a>
+      <div class="flex flex-col mt-auto text-columbiaBlue">
+         <p class="text-[0.875rem] leading-[1.375rem] mb-4">
+            Creatividad Innovación Colaboración <b class="text-azure">Novanet Studio</b>
+         </p>
+
+         <div class="flex gap-2 w-full h-9 text-azure">
+            <a href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA" target="_blank" rel="noopener noreferrer">
+               <Icon name="material-symbols:location-on" class="text-xl md:text-2xl lg:text-2xl" />
+            </a>
+            <a href="https://www.instagram.com/novanetstudio/" target="_blank" rel="noopener noreferrer">
+               <Icon name="fa6-brands:instagram" class="text-xl md:text-2xl lg:text-2xl" />
+            </a>
+            <a href="https://wa.me/message/QA5DVPVFSXYCJ1" target="_blank" rel="noopener noreferrer">
+               <Icon name="fa6-brands:whatsapp" class="text-xl md:text-2xl lg:text-2xl" />
+            </a>
+            <a href="https://www.facebook.com/NovanetStudio" target="_blank" rel="noopener noreferrer">
+               <Icon name="fa6-brands:facebook" class="text-xl md:text-2xl lg:text-2xl" />
+            </a>
+         </div>
+
       </div>
    </aside>
 </template>

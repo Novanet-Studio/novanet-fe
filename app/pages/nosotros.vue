@@ -36,8 +36,8 @@ const nosotros = [
     alignCenter: true,
     bgColor: "bg-oxfordBlue",
     bgImage: "background-emblem-nosotros",
-    buttonLink: "#",
-    buttonText: "Conoce más",
+    buttonLink: "/portafolio#Portafolio-Galeria",
+    buttonText: "Ver portafolio",
     buttonType:
       "bg-chartreuse text-oxfordBlue hover:bg-azure hover:text-oxfordBlue",
     color: "text-columbiaBlue",
