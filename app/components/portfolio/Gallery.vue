@@ -130,8 +130,8 @@ onMounted(() => {
             activeTabKey === tab.key ? 'font-bold' : '',
           ]">
           <Motion :initial="animations.mainImage.initial" :animate="hasBeenAnimated(props.content.name)
-              ? animations.mainImage.animate
-              : animations.mainImage.initial
+            ? animations.mainImage.animate
+            : animations.mainImage.initial
             " :transition="{ ...animations.mainImage.transition }">
             {{ tab.label }}
           </Motion>
@@ -143,8 +143,8 @@ onMounted(() => {
       <div v-if="activePanel" class="mt-4 space-y-4">
         <p class="description">
           <Motion :initial="animations.description.initial" :animate="hasBeenAnimated(props.content.name)
-              ? animations.description.animate
-              : animations.description.initial
+            ? animations.description.animate
+            : animations.description.initial
             " :transition="{ ...animations.description.transition }">
             {{ activePanel.description }}
           </Motion>
@@ -155,8 +155,8 @@ onMounted(() => {
             class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]">
             <Motion v-for="project in activePanel.projects" :key="project.link" :initial="animations.mainTitle.initial"
               :animate="hasBeenAnimated(props.content.name)
-                  ? animations.mainTitle.animate
-                  : animations.mainTitle.initial
+                ? animations.mainTitle.animate
+                : animations.mainTitle.initial
                 " :transition="{ ...animations.mainTitle.transition }"
               class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30">
               <article>

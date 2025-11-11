@@ -25,8 +25,8 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       item.showTabs ? 'lg:w-[66.6666666%]' : 'portrait-lg:w-full lg:w-2/4',
     ]">
       <Motion v-if="item.navButtonBack" :key="`cta-back-${item.name}`" :initial="animations.cta.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.cta.animate
-          : animations.cta.initial
+        ? animations.cta.animate
+        : animations.cta.initial
         " :transition="{ ...animations.cta.transition }">
         <div v-if="item.navButtonBack">
           <a :href="`#${item.targetSection}`" :class="[
@@ -40,8 +40,8 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
 
       <Motion :key="`mainTitle-${item.name}`" :initial="animations.mainTitle.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.mainTitle.animate
-          : animations.mainTitle.initial
+        ? animations.mainTitle.animate
+        : animations.mainTitle.initial
         " :transition="{ ...animations.mainTitle.transition }">
         <div class="flex flex-wrap">
           <h1 :class="[`main__title`, item.titleColor]">{{ item.title }}</h1>
@@ -50,8 +50,8 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
 
       <Motion v-if="item.description" :key="`desc-${item.name}`" :initial="animations.description.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.description.animate
-          : animations.description.initial
+        ? animations.description.animate
+        : animations.description.initial
         " :transition="{ ...animations.description.transition }">
         <p v-if="item.description" class="description">
           {{ item.description }}
@@ -59,8 +59,8 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
 
       <Motion v-if="item.buttonText" :key="`cta-primary-${item.name}`" :initial="animations.cta.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.cta.animate
-          : animations.cta.initial
+        ? animations.cta.animate
+        : animations.cta.initial
         " :transition="{ ...animations.cta.transition }">
         <div v-if="item.buttonText">
           <NuxtLink :href="item.buttonLink" :class="[`cta__primary transition duration-200`, item.buttonType]">
@@ -71,15 +71,15 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
 
       <Motion v-if="item.showForm" :key="`form-${item.name}`" :initial="animations.ThirdElement.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.ThirdElement.animate
-          : animations.ThirdElement.initial
+        ? animations.ThirdElement.animate
+        : animations.ThirdElement.initial
         " :transition="{ ...animations.ThirdElement.transition }">
         <CommonForm v-if="item.showForm" :content="item || {}" />
       </Motion>
 
       <Motion v-if="item.tabs" :key="`tabs-${item.name}`" :initial="animations.ThirdElement.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.ThirdElement.animate
-          : animations.ThirdElement.initial
+        ? animations.ThirdElement.animate
+        : animations.ThirdElement.initial
         " :transition="{ ...animations.ThirdElement.transition }">
         <div class="tabs">
           <CommonTabs v-if="item.tabs" :content="item" />
@@ -87,8 +87,8 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
 
       <Motion v-if="item.list" :key="`list-${item.name}`" :initial="animations.ThirdElement.initial" :animate="hasBeenAnimated(item.name)
-          ? animations.ThirdElement.animate
-          : animations.ThirdElement.initial
+        ? animations.ThirdElement.animate
+        : animations.ThirdElement.initial
         " :transition="{ ...animations.ThirdElement.transition }">
         <div class="lista flex flex-col gap-2 pt-2 md:pt-[unset] md:flex-row">
           <a v-if="item.list" v-for="(listItem, listIndex) in item.list" :key="listIndex"
@@ -109,10 +109,10 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     ]">
       <Motion v-if="item.HeroImage" class="grid" :key="`mainImage-${item.name}`" :initial="animations.mainImage.initial"
         :animate="hasBeenAnimated(item.name)
-            ? animations.mainImage.animate
-            : animations.mainImage.initial
+          ? animations.mainImage.animate
+          : animations.mainImage.initial
           " :transition="{ ...animations.mainImage.transition }">
-        <NuxtImg :src="item.HeroImage" :class="[
+        <NuxtImg :src="item.HeroImage" :alt="`Imagen princpal de ${item.name}`" :class="[
           'justify-self-center 2xs:block 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[100%]',
           item.HideOn3xs ? '3xs:hidden' : '',
         ]" />
@@ -123,10 +123,10 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       class="flex w-full xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full">
       <Motion v-if="item.serviceImage" :key="`serviceImage-${item.name}`" :initial="animations.mainImage.initial"
         :animate="hasBeenAnimated(item.name)
-            ? animations.mainImage.animate
-            : animations.mainImage.initial
+          ? animations.mainImage.animate
+          : animations.mainImage.initial
           " :transition="{ ...animations.mainImage.transition }">
-        <NuxtImg :src="item.serviceImage"
+        <NuxtImg :src="item.serviceImage" :alt="`Imagen princpal de ${item.name}`"
           class="pb-4 justify-self-start transform -scale-x-100 3xs:hidden 3xs:w-[60%] 2xs:block portrait-lg:-scale-x-100 lg:scale-x-100 md:!w-[60%] lg:!w-[80%] xl:!w-[100%]" />
       </Motion>
     </div>

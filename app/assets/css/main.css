@@ -32,6 +32,7 @@ section {
 
 img,
 video {
+  z-index: 100;
   max-width: unset;
 }
 
@@ -524,7 +525,8 @@ form textarea::placeholder {
 }
 
 /* Width <= 390px */
-@media (width <=24.375rem) {  
+@media (width <=24.375rem) {
+
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,

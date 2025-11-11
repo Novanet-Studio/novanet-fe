@@ -76,7 +76,7 @@ const formattedArticles = computed(() => {
       </h1>
 
       <div
-        class="max-h-[70vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4">
+        class="max-h-[80vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4">
         <article v-for="article in formattedArticles" :key="article.slug" class="group flex flex-col justify-end pb-8">
           <NuxtLink :to="article.cta_route" class="flex flex-col gap-2">
             <div class="text-left">
