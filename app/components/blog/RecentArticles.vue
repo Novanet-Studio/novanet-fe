@@ -65,22 +65,24 @@ const viewerContent = computed(() => {
       { 'animate-background': hasBeenAnimated(props.content.name) },
     ]"
   >
-    <div
-      v-if="articlesPending"
-      class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
-    >
-      <p class="text-oxfordBlue text-lg">Cargando artículos...</p>
-    </div>
+    <ClientOnly>
+      <div
+        v-if="articlesPending"
+        class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
+      >
+        <p class="text-oxfordBlue text-lg">Cargando artículos...</p>
+      </div>
 
-    <CommonViewer v-else-if="viewerContent" :content="viewerContent" />
+      <CommonViewer v-else-if="viewerContent" :content="viewerContent" />
 
-    <div
-      v-else
-      class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
-    >
-      <p class="text-oxfordBlue text-lg">
-        No hay artículos recientes para mostrar.
-      </p>
-    </div>
+      <div
+        v-else
+        class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
+      >
+        <p class="text-oxfordBlue text-lg">
+          No hay artículos recientes para mostrar.
+        </p>
+      </div>
+    </ClientOnly>
   </section>
 </template>

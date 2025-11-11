@@ -18,8 +18,6 @@ export function useSectionObserver() {
     () => new Set()
   );
 
-  const route = useRoute();
-
   const initObserver = () => {
     if (!import.meta.client) {
       return;
