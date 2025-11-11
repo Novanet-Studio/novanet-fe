@@ -76,17 +76,6 @@ onMounted(() => {
         </div>
       </Motion>
 
-      <Motion :initial="animations.header.initial" :animate="animations.header.animate"
-        :transition="{ ...animations.header.transition }">
-        <div class="md:hidden">
-          <button @click="isOpen = !isOpen">
-            <svg class="h-8 w-8 fill-current" fill="none" stroke-linecap="round" stroke-linejoin="round"
-              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          </button>
-        </div>
-      </Motion>
 
       <div class="hidden lg:justify-end md:flex">
         <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
