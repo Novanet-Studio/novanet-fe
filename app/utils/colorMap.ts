@@ -1,5 +1,5 @@
 export const colorMap: Record<string, string> = {
-  default: "#fff",
+  default: "#FFF",
   azure: "#001933",
   oxfordBlue: "#CCE5FF",
   columbiaBlue: "#001933",

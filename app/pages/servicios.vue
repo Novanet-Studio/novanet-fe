@@ -7,8 +7,16 @@ const SERVICES_MAIN_INFO: {
   title: "Servicios",
   description:
     "Analizamos en detalle para comprender sus requerimientos, deseos y comportamientos y así crear soluciones que potencien sus procesos y mejoren su experiencia.",
-  image: "images/novanet-studio-og-servicios.webp"
+  image: "images/novanet-studio-og-servicios.webp",
 };
+
+const { initObserver } = useSectionObserver();
+
+onMounted(() => {
+  nextTick(() => {
+    initObserver();
+  });
+});
 
 useHead(() => {
   return {
@@ -18,13 +26,13 @@ useHead(() => {
         name: "description",
         content: SERVICES_MAIN_INFO.description,
       },
-      { property: 'og:title', content: SERVICES_MAIN_INFO.title },
-      { property: 'og:description', content: SERVICES_MAIN_INFO.description },
-      { property: 'og:image', content: SERVICES_MAIN_INFO.image },
-      { name: 'twitter:card', content: SERVICES_MAIN_INFO.image },
-      { name: 'twitter:title', content: SERVICES_MAIN_INFO.title },
-      { name: 'twitter:description', content: SERVICES_MAIN_INFO.description },
-      { name: 'twitter:image', content: SERVICES_MAIN_INFO.image },
+      { property: "og:title", content: SERVICES_MAIN_INFO.title },
+      { property: "og:description", content: SERVICES_MAIN_INFO.description },
+      { property: "og:image", content: SERVICES_MAIN_INFO.image },
+      { name: "twitter:card", content: SERVICES_MAIN_INFO.image },
+      { name: "twitter:title", content: SERVICES_MAIN_INFO.title },
+      { name: "twitter:description", content: SERVICES_MAIN_INFO.description },
+      { name: "twitter:image", content: SERVICES_MAIN_INFO.image },
     ],
   };
 });
