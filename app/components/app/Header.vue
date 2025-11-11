@@ -76,7 +76,6 @@ onMounted(() => {
         </div>
       </Motion>
 
-
       <div class="hidden lg:justify-end md:flex">
         <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
           <li v-for="(item, index) in navigationLinks" :key="index">
