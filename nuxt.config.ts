@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "motion-v/nuxt",
     "@nuxtjs/strapi",
-    "@stefanobartoletti/nuxt-social-share",
+    "nuxt-gtag",
   ],
   css: ["~/assets/css/main.css"],
 
@@ -82,7 +82,7 @@ export default defineNuxtConfig({
     cssLayer: "base",
   },
 
-  socialShare: {
-    baseUrl: "https://novanet.studio/",
-  },
+  gtag: {
+    id: 'G-RZX6HSVMPY',
+  }
 });
