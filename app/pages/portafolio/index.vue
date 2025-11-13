@@ -10,6 +10,14 @@ const PORTFOLIO_MAIN_INFO: {
   image: "images/novanet-studio-og-portafolio.webp"
 };
 
+const { initObserver } = useSectionObserver();
+
+onMounted(() => {
+  nextTick(() => {
+    initObserver();
+  });
+});
+
 useHead(() => {
   return {
     title: PORTFOLIO_MAIN_INFO.title,
@@ -73,11 +81,23 @@ const gallery = {
   title: "Nuestros Proyectos",
   titleColor: "text-oxfordBlue",
 };
+
+const emblenmModifierSource: Record<string, string> = {
+  /**
+   * Record<SectionName, CustomEmblemColor>
+   */
+  Portafolio: "raspberry",
+};
+
+const others = {
+  emblemModifierSource: emblenmModifierSource,
+};
+
 </script>
 
 <template>
   <div class="section__container">
-    <CommonSection :content="portfolio" />
+    <CommonSection :content="portfolio" :others="others" />
 
     <PortfolioRecentProjects :content="recentsProjects" />
 

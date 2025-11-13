@@ -40,6 +40,7 @@ export function useSectionObserver() {
         const targetColor = targetElement.dataset.color || "default";
         const targetEmblemColor =
           targetElement.dataset.emblemColor || targetColor;
+          console.log('targetEmblemColor', targetEmblemColor);
 
         if (!targetId) return;
 
