@@ -4,7 +4,7 @@ export const colorMap: Record<string, string> = {
   oxfordBlue: "#CCE5FF",
   columbiaBlue: "#001933",
   white: "#001933",
-  chartreuse: "#007FFF",
+  chartreuse: "#D6F630",
   raspberry: "#DF1F5B",
   // add more as needed
 };
