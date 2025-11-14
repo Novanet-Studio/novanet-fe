@@ -6,7 +6,7 @@ const PORTFOLIO_MAIN_INFO: {
 } = {
   title: "Portafolio",
   description:
-    "Creamos identidades visuales, desde logotipos hasta materiales de marca coherentes. Construimos aplicaciones interactivas y sitios web utilizando HTML5, CSS3 y frameworks de JavaScript.",
+    "Diseñamos material de marca coherente a través de la creación de logos, material impreso, digital y audiovisual. Construimos sitios y aplicaciones web modernos, utilizando plataformas y tecnologías de vanguardia.",
   image: "images/novanet-studio-og-portafolio.webp"
 };
 
@@ -46,7 +46,7 @@ const portfolio = [
     dataColor: "columbiaBlue",
     description: PORTFOLIO_MAIN_INFO.description,
     name: "Portafolio",
-    title: "Portafolio. Creatividad y funcionalidad",
+    title: "Creatividad y funcionalidad",
     titleColor: "text-raspberry",
   },
 ];
@@ -75,7 +75,7 @@ const gallery = {
   color: "text-oxfordBlue",
   dataColor: "white",
   description:
-    "Explora una selección de proyectos que hemos desarrollado para nuestros clientes en diversas industrias.",
+    "Te invitamos a explorar una muestra de nuestro trabajo, cubriendo desde la identidad corporativa hasta el desarrollo web y la gestión de redes sociales.",
   justifyContent: false,
   name: "Portafolio-Galeria",
   title: "Nuestros Proyectos",

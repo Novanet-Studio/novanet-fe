@@ -6,7 +6,7 @@ const SERVICES_MAIN_INFO: {
 } = {
   title: "Servicios",
   description:
-    "Analizamos en detalle para comprender sus requerimientos, deseos y comportamientos y así crear soluciones que potencien sus procesos y mejoren su experiencia.",
+    "Analizamos cada detalle para entender lo que necesitas, lo que quieres y cómo actúas. Así creamos soluciones que impulsan tus procesos y mejoran tu experiencia.",
   image: "images/novanet-studio-og-servicios.webp",
 };
 
@@ -53,7 +53,7 @@ const servicios = [
     titleColor: "text-azure",
     list: [
       {
-        text: "Diseño gráfico",
+        text: "Comunicación visual",
         targetSection: "Diseno",
         icon: '<svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_118_839)"><path d="M21.54 38H3.9613C3.62136 38 3.34546 37.7299 3.34546 37.3971C3.34546 37.0642 3.62136 36.7941 3.9613 36.7941H21.54C21.8799 36.7941 22.1558 37.0642 22.1558 37.3971C22.1558 37.7299 21.8799 38 21.54 38Z" fill="#007FFF"/><path d="M1.91171 36.1191C0.857379 36.1191 0.00012207 35.2798 0.00012207 34.2427C0.00012207 33.9774 0.0592433 33.717 0.167632 33.4758L4.47855 24.1036C4.51304 24.0361 4.55245 23.9782 4.60665 23.9251L27.4816 1.59687C29.6592 -0.53514 33.1868 -0.53514 35.3644 1.59687C37.5421 3.72889 37.5421 7.18255 35.3644 9.31457L12.4648 31.6428C12.4106 31.6959 12.3515 31.7345 12.2825 31.7634L2.69506 35.9503C2.44872 36.0612 2.18268 36.1191 1.91171 36.1191ZM5.55751 24.6969L1.31064 33.9678C1.1924 34.2186 1.24659 34.5177 1.44859 34.7154C1.64566 34.9132 1.95605 34.9711 2.21224 34.8505L11.6568 30.7071L34.4727 8.45597C36.0985 6.73396 35.9901 4.04724 34.2313 2.45547C32.571 0.95534 30.014 0.950517 28.3537 2.45064L5.55751 24.6969Z" fill="#007FFF"/><path d="M23.6196 6.22912L21.4629 8.3333L28.453 15.2009L30.6097 13.0967L23.6196 6.22912Z" fill="#007FFF"/><path d="M27.2306 2.70356L25.0704 4.81114L32.0605 11.6787L34.2207 9.57117L27.2306 2.70356Z" fill="#007FFF"/><path d="M11.7111 31.5027C11.5485 31.5027 11.3908 31.44 11.2775 31.3242L4.92691 25.0874C4.6855 24.851 4.6855 24.47 4.92691 24.2336C5.16832 23.9972 5.55753 23.9972 5.79895 24.2336L12.1495 30.4753C12.386 30.7116 12.386 31.0879 12.1495 31.3242C12.0362 31.44 11.8786 31.5075 11.7111 31.5027Z" fill="#007FFF"/><path d="M2.29609 31.8981L1.33537 33.9916C1.1925 34.2955 1.33537 34.6572 1.64576 34.7971C1.80834 34.8695 1.99063 34.8695 2.15321 34.7971L4.29636 33.8324C3.37505 33.4996 2.64589 32.7953 2.29609 31.8981Z" fill="#007FFF"/><path d="M1.91665 35.1011C1.70973 35.0866 1.50773 35.0094 1.35008 34.8792C1.06432 34.6428 0.970716 34.2473 1.12837 33.9145L2.34036 31.2808L2.54728 31.8307C2.86752 32.67 3.54249 33.3357 4.39974 33.654L4.96139 33.8566L2.29602 35.0143C2.17777 35.0721 2.04968 35.1011 1.91665 35.1011ZM2.32065 32.4771L1.57671 34.0881C1.50773 34.2232 1.53237 34.3824 1.64076 34.4885C1.81319 34.6139 1.90187 34.6573 2.06446 34.5801L3.71985 33.8566C3.13357 33.5334 2.65074 33.0559 2.32065 32.4771Z" fill="#007FFF"/></g><defs><clipPath id="clip0_118_839"><rect width="37" height="38" fill="white"/></clipPath></defs></svg>',
       },
@@ -79,7 +79,7 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Enfocados en la creatividad y la colaboración estrecha, trabajamos de la mano con nuestros clientes para desarrollar soluciones visuales que destacan y consiguen resultados tangibles.",
+      "Nos centramos en ser creativos y en la colaboración cercana. Trabajamos codo a codo con nuestros clientes para crear soluciones visuales que no solo llamen la atención, sino que también generen resultados reales.",
     justifyContent: true,
     name: "Diseno",
     title: "Diseño Gráfico",
@@ -92,17 +92,15 @@ const servicios = [
     tabs: [
       {
         label: "Identidad visual",
-        spanText: "",
-        content: `**Creamos identidades visuales consistentes** que refuerzan la imagen de tu empresa, asegurando que todos los elementos gráficos comuniquen eficazmente tu marca en cada punto de contacto.`,
-      },
-      {
-        label: "Impresos y digital",
-        spanText: "Material promocional:",
-        content: `Cubrimos sus necesidades esenciales de comunicación, desde el **diseño de activos de marca impresos** de uso diario hasta la creación de contenido gráfico optimizado para redes sociales y medios digitales.`,
+        content: `**Diseñamos identidades visuales coherentes** que potencian la imagen de tu empresa. Nos aseguramos de que cada elemento gráfico comunique tu marca de forma efectiva, desde el diseño de materiales impresos hasta la creación de contenido para medios digitales.`,
       },
       {
         label: "Diseño web y rrss",
-        content: `**Desarrollamos su presencia digital integral.** Creamos sitios web orientados a resultados y diseñamos estrategias de redes sociales visualmente impactantes para asegurar su crecimiento y visibilidad.`,
+        content: `**¡Potenciamos tu presencia digital al máximo!** Creamos tu web enfocada en resultados y diseñamos estrategias de redes sociales que te harán ver increíble para que crezcas y seas súper visible.`,
+      },
+      {
+        label: "Contenido audiovisual",
+        content: `**Creamos videos que enganchan y contenido multimedia** que cuenta tu historia. Desde reels para redes sociales hasta piezas que impactan a tu audiencia, nos encargamos de que tu marca conecte de forma auténtica.`,
       },
     ],
     tabColor: "text-azure",
@@ -118,7 +116,7 @@ const servicios = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Con un enfoque en la innovación y la eficiencia, construimos soluciones digitales robustas, seguras y escalables.",
+      "Buscamos la innovación y la eficiencia para crear soluciones digitales sólidas, seguras y que te acompañen mientras creces.",
     justifyContent: true,
     name: "Web",
     title: "Tecnologías web",
@@ -130,15 +128,15 @@ const servicios = [
     tabs: [
       {
         label: "Aplicaciones web",
-        content: `**Diseñamos y desarrollamos aplicaciones web** a medida que optimizan procesos internos y externos, impulsando la eficiencia, reduciendo costos y facilitando el crecimiento digital estratégico de su negocio.`,
+        content: `**Diseñamos y creamos sitios web a la medida** para optimizar tus procesos y hacerlos más eficientes para que tu negocio crezca en el mundo digital de forma estratégica.`,
       },
       {
         label: "Soporte técnico",
-        content: `Nos encargamos del **soporte técnico y la optimización web** para que su sitio siempre sea seguro, rápido y funcional.`,
+        content: `Nos ocupamos del **soporte técnico para que tu web esté optimizada**, para que siempre esté segura, rápida y funcione a la perfección.`,
       },
       {
         label: "Pagos online",
-        content: `Implementamos **botones de pago online seguros y optimizados** que simplifican el proceso de compra. Garantizamos una experiencia de usuario rápida y confiable para que sus clientes completen sus pedidos sin fricciones.`,
+        content: `Integramos botones de pago online que son seguros y fáciles de usar. Queremos que la compra sea sencilla para tus clientes.`,
       },
     ],
     tabColor: "text-azure",
@@ -153,7 +151,7 @@ const servicios = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Trabajamos de la mano con nuestros clientes para integrar su visión con nuestra metodología. Esta colaboración profunda nos permite generar estrategias precisas y soluciones personalizadas que garantizan el cumplimiento de sus objetivos de negocio.",
+      "Trabajamos codo a codo con nuestros clientes integrando su visión con nuestro enfoque. Esta colaboración cercana nos ayuda a crear estrategias acordes y soluciones a medida que aseguran que logren sus metas de negocio.",
     justifyContent: true,
     buttonLink: "#",
     name: "Asesoria",
@@ -166,15 +164,17 @@ const servicios = [
     tabs: [
       {
         label: "Estrategia de marca",
-        content: `Construimos y posicionamos tu marca en la mente de los usuarios; incluye elementos como identidad visual, voz de la marca, valores y promesa al cliente. **Una estrategia sólida crea conexiones duraderas y fomenta la lealtad.**`,
+        content: `**Construimos tu marca y hacemos que se quede en la mente de la gente**. Esto incluye cómo se ve, cómo suena, sus valores y lo que prometes a tus clientes. Con una buena estrategia, creas lazos fuertes que hacen que te sigan eligiendo.`,
       },
       {
         label: "Estrategia de marketing",
-        content: `**Desarrollamos y articulamos su propuesta de valor para sus clientes** a través del entendimiento del perfil del usuario para destacarnos frente a la competencia y alcanzar los objetivos comerciales.`,
+        content: `**Tu propuesta de valor al alcance de tus clientes**. Entendemos a quién le estás hablando para que tu negocio destaque y logre sus metas de venta.
+`,
       },
       {
         label: "Marketing online",
-        content: `**Marketing Online con propósito.** Llevamos su marca directamente a su público objetivo, utilizando data y creatividad para impulsar ventas y reconocimiento en todos los canales digitales clave.`,
+        content: `**Marketing Digital con un toque personal**. Llevamos tu marca directo a quienes te buscan, usando datos y creatividad para acelerar tus ventas y que todos te reconozcan en el mundo digital.
+`,
       },
     ],
     tabColor: "text-oxfordBlue",
@@ -189,7 +189,7 @@ const servicios = [
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
-    description: "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-fichas-colores-juegos-mesa.webp",

@@ -6,7 +6,7 @@ const ABOUT_MAIN_INFO: {
 } = {
   title: "Nosotros",
   description:
-    "Somos un estudio de marketing digital especializado en diseño y desarrollo orientado a los usuarios. Ofrecemos soluciones creativas e innovadoras para conectar empresas con su público.",
+    "Somos un equipo multidisciplinario, especializado en diseño y desarrollo centrado en los usuarios. Creamos soluciones creativas e innovadoras para que las empresas se conecten con su público",
   image: "images/novanet-studio-og-nosotros.webp",
 };
 
@@ -64,7 +64,7 @@ const nosotros = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Ofrecemos soluciones que permiten a nuestros clientes conectar con sus usuarios de manera auténtica y consolidar sus emprendimientos en el mundo digital.",
+      "Queremos que conectes de forma genuina y efectiva con tus clientes, usando estrategias innovadoras y herramientas de vanguardia para que puedas llevar tu negocio al siguiente nivel de crecimiento y éxito.",
     HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
     justifyContent: true,
     name: "Mision",
@@ -79,7 +79,7 @@ const nosotros = [
     color: "text-oxfordBlue",
     dataColor: "white",
     description:
-      "Aspiramos a ser reconocidos como líderes en el campo del marketing digital y la comunicación visual, ofreciendo soluciones de vanguardia que inspiren, motiven y transformen.",
+      "Buscamos ser referentes en marketing digital y comunicación visual. Queremos dar soluciones súper innovadoras y creativas que dejen un impacto positivo en cada proyecto.",
     HeroImage: "images/novanet-studio-bailarina-ballet.webp",
     justifyContent: true,
     name: "Vision",
@@ -96,7 +96,7 @@ const nosotros = [
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-columbiaBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
-    description: "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     HeroImage: "images/novanet-studio-manos-juntas.webp",

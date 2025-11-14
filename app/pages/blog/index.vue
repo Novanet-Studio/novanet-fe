@@ -6,7 +6,7 @@ const BLOG_MAIN_INFO: {
 } = {
   title: "Blog",
   description:
-    "Exploramos temas de diseño gráfico, consejos sobre desarrollo web y asesoría personalizada para ayudarte a alcanzar sus metas digitales.",
+    "Hablamos de diseño gráfico, te damos tips de desarrollo web y te asesoramos personalmente para que logres tus metas digitales.",
   image: "images/novanet-studio-og-blog.webp",
 };
 
@@ -44,7 +44,7 @@ const blog = [
     HeroImage: "images/novanet-studio-modelo-telefono.webp",
     justifyContent: true,
     name: "Blog",
-    title: "Creatividad y conocimiento",
+    title: "Creatividad, innovación y colaboración para tus metas digitales",
     titleColor: "text-oxfordBlue",
   },
 ];

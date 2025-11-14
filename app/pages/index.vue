@@ -6,7 +6,7 @@ const HOME_MAIN_INFO: {
 } = {
   title: "Novanet Studio",
   description:
-    "Creatividad, innovación y colaboración para conectar a las empresas con sus usuarios y fortalecer sus objetivos empresariales.",
+    "Creatividad, innovación y colaboración para ayudar a las empresas a conectar con sus usuarios y potenciar sus metas de negocio.",
   image: "images/novanet-studio-og-inicio.webp",
 };
 
@@ -69,7 +69,7 @@ const home = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte con la audiencia de manera efectiva.",
+      "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte de forma efectiva con tu audiencia.",
     HeroImage: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
     justifyEndImage: true,
     name: "Creatividad",
@@ -88,7 +88,7 @@ const home = [
     color: "text-columbiaBlue",
     dataColor: "azure",
     description:
-      "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones avanzadas y eficientes a nuestros clientes.",
+      "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones eficientes a nuestros clientes.",
     HeroImage: "images/novanet-studio-nino-casco-realidad-virtual.webp",
     justifyEndImage: true,
     name: "Innovación",
@@ -107,7 +107,7 @@ const home = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Creemos en el poder del trabajo en equipo, tanto con nuestros clientes como dentro de nuestra empresa, para alcanzar resultados excepcionales.",
+      "Creemos en el poder del trabajo en equipo, tanto con nuestros clientes como en la  empresa, para lograr resultados increíbles.",
     HeroImage: "images/novanet-studio-grupo-personas-juntando-manos.webp",
     justifyEndImage: true,
     name: "Colaboración",
@@ -123,7 +123,7 @@ const home = [
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
-    description: "Creemos juntos las estrategias para que alcances tus metas.",
+    description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder:
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",
