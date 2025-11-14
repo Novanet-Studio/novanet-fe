@@ -136,7 +136,7 @@ const servicios = [
       },
       {
         label: "Pagos online",
-        content: `Integramos botones de pago online que son seguros y fáciles de usar. Queremos que la compra sea sencilla para tus clientes.`,
+        content: `Integramos **botones de pago online que son seguros y fáciles de usar**. Queremos que la compra sea sencilla para tus clientes.`,
       },
     ],
     tabColor: "text-azure",
