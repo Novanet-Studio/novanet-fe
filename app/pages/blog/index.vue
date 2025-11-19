@@ -6,7 +6,7 @@ const BLOG_MAIN_INFO: {
 } = {
   title: "Blog",
   description:
-    "Hablamos de diseño gráfico, te damos tips de desarrollo web y te asesoramos personalmente para que logres tus metas digitales.",
+    "Hablamos de diseño gráfico, te damos tips de desarrollo web y te asesoramos personalmente para que alcances tus metas digitales.",
   image: "images/novanet-studio-og-blog.webp",
 };
 

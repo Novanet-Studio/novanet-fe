@@ -100,7 +100,7 @@ const servicios = [
       },
       {
         label: "Contenido audiovisual",
-        content: `**Creamos videos que enganchan y contenido multimedia** que cuenta tu historia. Desde reels para redes sociales hasta piezas que impactan a tu audiencia, nos encargamos de que tu marca conecte de forma auténtica.`,
+        content: `**Creamos videos que enganchan y contenido multimedia** que cuentan tu historia. Desde reels para redes sociales hasta piezas que impactan a tu audiencia, nos encargamos de que tu marca conecte de forma auténtica.`,
       },
     ],
     tabColor: "text-azure",
