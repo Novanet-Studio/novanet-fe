@@ -6,7 +6,7 @@ const HOME_MAIN_INFO: {
 } = {
   title: "Novanet Studio",
   description:
-    "Creatividad, innovación y colaboración para ayudar a las empresas a conectar con sus usuarios y potenciar sus metas de negocio.",
+    "Creatividad, innovación y colaboración para ofrecer soluciones digitales a la medida. Diseño centrado en el usuario que conecta, impulsa y hace posible tus metas.",
   image: "images/novanet-studio-og-inicio.webp",
 };
 

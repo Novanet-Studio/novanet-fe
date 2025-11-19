@@ -6,7 +6,7 @@ const ABOUT_MAIN_INFO: {
 } = {
   title: "Nosotros",
   description:
-    "Somos un equipo multidisciplinario, especializado en diseño y desarrollo centrado en los usuarios. Creamos soluciones creativas e innovadoras para que las empresas se conecten con su público",
+    "Somos un equipo multidisciplinario que crea soluciones innovadoras y se especializa en el diseño centrado en los usuarios para conectar a tu empresa con su público.",
   image: "images/novanet-studio-og-nosotros.webp",
 };
 

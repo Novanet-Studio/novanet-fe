@@ -6,7 +6,7 @@ const SERVICES_MAIN_INFO: {
 } = {
   title: "Servicios",
   description:
-    "Analizamos cada detalle para entender lo que necesitas, lo que quieres y cómo actúas. Así creamos soluciones que impulsan tus procesos y mejoran tu experiencia.",
+    "Analizamos los detalles para entender tus requerimientos y acciones. Así, creamos soluciones  que impulsan tus procesos y mejoran tu experiencia.",
   image: "images/novanet-studio-og-servicios.webp",
 };
 
@@ -79,10 +79,10 @@ const servicios = [
     color: "text-oxfordBlue",
     dataColor: "columbiaBlue",
     description:
-      "Nos centramos en ser creativos y en la colaboración cercana. Trabajamos codo a codo con nuestros clientes para crear soluciones visuales que no solo llamen la atención, sino que también generen resultados reales.",
+      "Diseño gráfico centrado en la creatividad y colaboración cercana con nuestros clientes para crear soluciones visuales que generen resultados reales.",
     justifyContent: true,
     name: "Diseno",
-    title: "Diseño Gráfico",
+    title: "Comunicación visual",
     titleColor: "text-azure",
     serviceImage:
       "images/novanet-studio-semicirculo-figuras-geometricas-3d.webp",
@@ -116,7 +116,7 @@ const servicios = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Buscamos la innovación y la eficiencia para crear soluciones digitales sólidas, seguras y que te acompañen mientras creces.",
+      "Buscamos innovación y eficiencia para crear soluciones digitales sólidas que te acompañen mientras creces.",
     justifyContent: true,
     name: "Web",
     title: "Tecnologías web",
@@ -151,7 +151,7 @@ const servicios = [
     color: "text-columbiaBlue",
     dataColor: "oxfordBlue",
     description:
-      "Trabajamos codo a codo con nuestros clientes integrando su visión con nuestro enfoque. Esta colaboración cercana nos ayuda a crear estrategias acordes y soluciones a medida que aseguran que logren sus metas de negocio.",
+      "Integramos tu visión con nuestro enfoque creando estrategias y soluciones a la medida para que logres tus metas.",
     justifyContent: true,
     buttonLink: "#",
     name: "Asesoria",
