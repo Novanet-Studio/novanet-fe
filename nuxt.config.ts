@@ -42,6 +42,7 @@ export default defineNuxtConfig({
       strapi: {
         url: process.env.STRAPI_URL,
       },
+      metaPixelId: process.env.META_PIXEL_ID || ''
     },
   },
 

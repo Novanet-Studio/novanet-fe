@@ -73,3 +73,20 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Meta Pixel (Facebook)
+
+To enable Meta Pixel (Facebook Pixel) tracking, set the `META_PIXEL_ID` environment variable for your runtime. Example using a `.env` file:
+
+```bash
+# .env
+META_PIXEL_ID=your_pixel_id_here
+```
+
+The project includes a client plugin `plugins/metaPixel.client.ts` that initializes the pixel and tracks page views automatically. Use the composable `useMetaPixel()` to send events from components:
+
+```ts
+const { track, trackCustom } = useMetaPixel()
+track('Purchase', { value: 9.99, currency: 'USD' })
+trackCustom('MyCustomEvent', { foo: 'bar' })
+```
