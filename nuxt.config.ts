@@ -12,7 +12,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Estudio de diseño dedicado al diseño gráfico, al desarrollo web y al marketing online.",
+            "Creatividad, innovación y colaboración para ayudar a las empresas a conectar con sus usuarios y potenciar sus metas de negocio.",
         },
         {
           name: "name",
@@ -28,6 +28,15 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },
   },
+
+  devServer: {
+    host: "localhost", // Exposes the server to the local network
+    port: 3000, // You can specify a different port if needed
+  },
+
+  devtools: { enabled: true },
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxt/fonts", "@nuxt/icon", "motion-v/nuxt", "@nuxtjs/strapi", "nuxt-gtag"],
+
   runtimeConfig: {
     public: {
       strapi: {
@@ -35,20 +44,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  devServer: {
-    host: "0.0.0.0", // Exposes the server to the local network
-    port: 3000, // You can specify a different port if needed
-  },
-  devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxt/image",
-    "@nuxt/fonts",
-    "@nuxt/icon",
-    "motion-v/nuxt",
-    "@nuxtjs/strapi",
-    "nuxt-gtag",
-  ],
+
   css: ["~/assets/css/main.css"],
 
   router: {
