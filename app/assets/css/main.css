@@ -196,6 +196,14 @@ form textarea::placeholder {
   transition: 0.3s;
 }
 
+.detail img {
+  padding-top: 1rem;
+}
+
+.detail i {
+  padding-bottom: 1rem;
+}
+
 /* Fade transition styles */
 .fade-enter-active,
 .fade-leave-active {
