@@ -2,19 +2,17 @@ body {
   font-family: "Red Hat Display", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  --header-mobile-height: 12dvh;
-  --header-desktop-height: 16dvh;
 }
 
 section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
-  padding-top: var(--header-mobile-height);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+
+  padding: 20dvh 2.25rem 0 2.25rem;
+
   scroll-snap-align: start;
 }
 
@@ -286,12 +284,10 @@ form textarea::placeholder {
 
 .background-emblem-galeria {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
-
 }
 
 .background-emblem-galeria-blog {
   background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas-derecha.svg");
-
 }
 
 .background-emblem-nosotros-contacto {
@@ -534,7 +530,6 @@ form textarea::placeholder {
 
 /* Width <= 390px */
 @media (width <=24.375rem) {
-
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -554,10 +549,8 @@ form textarea::placeholder {
   }
 }
 
-
 /* Width => 390px */
 @media (width >=24.375rem) {
-
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
@@ -697,6 +690,7 @@ form textarea::placeholder {
   section {
     flex-direction: row;
     height: 100vh;
+    padding: 0 2.25rem 0 2.25rem;
   }
 
   .background-emblem-main,
@@ -716,7 +710,6 @@ form textarea::placeholder {
   .background-emblem-portafolio,
   .background-emblem-proyectos-recientes {
     background-size: 24rem;
-    padding-top: unset;
   }
 
   .background-emblem-mision,
@@ -806,13 +799,12 @@ form textarea::placeholder {
   }
 
   .background-emblem-galeria {
-    padding-top: var(--header-desktop-height);
+    padding-top: 16dvh;
   }
 }
 
 /* Width >= 1536px */
 @media (width >=96rem) {
-
   .background-emblem-main,
   .background-emblem-creatividad,
   .background-emblem-innovacion,
