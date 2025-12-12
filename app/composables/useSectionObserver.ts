@@ -1,11 +1,15 @@
 import { onUnmounted, nextTick } from "vue";
 import { useRoute } from "vue-router";
+import type { COLORS_MAP_KEYS } from "~/types";
 
 let observer: IntersectionObserver | null = null;
 
 export function useSectionObserver() {
-  const currentColor = useState<string>("currentColor", () => "default");
-  const currentEmblemColor = useState<string>(
+  const currentColor = useState<COLORS_MAP_KEYS>(
+    "currentColor",
+    () => "default"
+  );
+  const currentEmblemColor = useState<COLORS_MAP_KEYS>(
     "currentEmblemColor",
     () => "default"
   );
@@ -40,13 +44,12 @@ export function useSectionObserver() {
         const targetColor = targetElement.dataset.color || "default";
         const targetEmblemColor =
           targetElement.dataset.emblemColor || targetColor;
-          console.log('targetEmblemColor', targetEmblemColor);
 
         if (!targetId) return;
 
         if (entry.isIntersecting) {
-          currentColor.value = targetColor;
-          currentEmblemColor.value = targetEmblemColor;
+          currentColor.value = targetColor as COLORS_MAP_KEYS;
+          currentEmblemColor.value = targetEmblemColor as COLORS_MAP_KEYS;
 
           if (!visibleSectionIds.value.has(targetId)) {
             visibleSectionIds.value.add(targetId);

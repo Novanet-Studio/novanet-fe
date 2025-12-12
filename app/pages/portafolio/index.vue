@@ -1,4 +1,11 @@
 <script lang="ts" setup>
+import type {
+  COLORS_MAP_KEYS,
+  CommonSectionProps,
+  CommonViewerProps,
+  GalleryProps,
+} from "~/types";
+
 const PORTFOLIO_MAIN_INFO: {
   title: string;
   description: string;
@@ -7,7 +14,7 @@ const PORTFOLIO_MAIN_INFO: {
   title: "Portafolio",
   description:
     "Diseñamos material de marca coherente a través de la creación de logos, material impreso, digital y audiovisual. Construimos sitios y aplicaciones web modernos, utilizando plataformas y tecnologías de vanguardia.",
-  image: "images/novanet-studio-og-portafolio.webp"
+  image: "images/novanet-studio-og-portafolio.webp",
 };
 
 const { initObserver } = useSectionObserver();
@@ -26,24 +33,29 @@ useHead(() => {
         name: "description",
         content: PORTFOLIO_MAIN_INFO.description,
       },
-      { property: 'og:title', content: PORTFOLIO_MAIN_INFO.title },
-      { property: 'og:description', content: PORTFOLIO_MAIN_INFO.description },
-      { property: 'og:image', content: PORTFOLIO_MAIN_INFO.image },
-      { name: 'twitter:card', content: PORTFOLIO_MAIN_INFO.image },
-      { name: 'twitter:title', content: PORTFOLIO_MAIN_INFO.title },
-      { name: 'twitter:description', content: PORTFOLIO_MAIN_INFO.description },
-      { name: 'twitter:image', content: PORTFOLIO_MAIN_INFO.image },
+      { property: "og:title", content: PORTFOLIO_MAIN_INFO.title },
+      { property: "og:description", content: PORTFOLIO_MAIN_INFO.description },
+      { property: "og:image", content: PORTFOLIO_MAIN_INFO.image },
+      { name: "twitter:card", content: PORTFOLIO_MAIN_INFO.image },
+      { name: "twitter:title", content: PORTFOLIO_MAIN_INFO.title },
+      { name: "twitter:description", content: PORTFOLIO_MAIN_INFO.description },
+      { name: "twitter:image", content: PORTFOLIO_MAIN_INFO.image },
     ],
   };
 });
 
-const portfolio = [
+type PORTFOLIO_SECTIONS_IDS =
+  | "Portafolio"
+  | "Portafolio-Recientes"
+  | "Portafolio-Galeria";
+
+const portfolio: CommonSectionProps<PORTFOLIO_SECTIONS_IDS>[] = [
   {
     alignCenter: true,
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-portafolio",
     color: "text-oxfordBlue",
-    dataColor: "columbiaBlue",
+    dataColor: "oxfordBlue",
     description: PORTFOLIO_MAIN_INFO.description,
     name: "Portafolio",
     title: "Creatividad y funcionalidad",
@@ -51,12 +63,12 @@ const portfolio = [
   },
 ];
 
-const recentsProjects = {
+const recentsProjects: CommonViewerProps<PORTFOLIO_SECTIONS_IDS> = {
   alignCenter: true,
   arrowClass: "border-azure text-azure",
   bgColor: "bg-oxfordBlue",
   bgImage: "background-emblem-proyectos-recientes",
-  dataColor: "oxfordBlue",
+  dataColor: "columbiaBlue",
   buttonClass:
     "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue transition-colors",
   color: "text-columbiaBlue",
@@ -68,12 +80,12 @@ const recentsProjects = {
   titleColor: "text-azure",
 };
 
-const gallery = {
+const gallery: GalleryProps<PORTFOLIO_SECTIONS_IDS> = {
   alignCenter: true,
   bgColor: "bg-white",
   bgImage: "background-emblem-galeria",
   color: "text-oxfordBlue",
-  dataColor: "white",
+  dataColor: "oxfordBlue",
   description:
     "Te invitamos a explorar una muestra de nuestro trabajo, cubriendo desde la identidad corporativa hasta el desarrollo web y la gestión de redes sociales.",
   justifyContent: false,
@@ -82,17 +94,15 @@ const gallery = {
   titleColor: "text-oxfordBlue",
 };
 
-const emblenmModifierSource: Record<string, string> = {
-  /**
-   * Record<SectionName, CustomEmblemColor>
-   */
+const emblenmModifierSource: Partial<
+  Record<PORTFOLIO_SECTIONS_IDS, COLORS_MAP_KEYS>
+> = {
   Portafolio: "raspberry",
 };
 
 const others = {
   emblemModifierSource: emblenmModifierSource,
 };
-
 </script>
 
 <template>

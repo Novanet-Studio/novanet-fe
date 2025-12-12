@@ -1,10 +1,15 @@
-export const colorMap: Record<string, string> = {
+import type { COLORS_MAP_KEYS } from "~/types";
+
+export const colorMap: Record<COLORS_MAP_KEYS, string> = {
   default: "#FFF",
-  azure: "#001933",
-  oxfordBlue: "#CCE5FF",
-  columbiaBlue: "#001933",
-  white: "#001933",
-  chartreuse: "#D6F630",
+
+  eerieBlack: "#212529",
+  cadetGray: "#959CA4",
+
+  oxfordBlue: "#001933",
+  azure: "#007FFF",
+  columbiaBlue: "#CCE5FF",
+
   raspberry: "#DF1F5B",
-  // add more as needed
+  chartreuse: "#D6F630",
 };

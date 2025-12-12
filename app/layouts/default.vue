@@ -7,7 +7,7 @@ const { currentColor, currentEmblemColor } = useSectionObserver();
 <template>
   <div>
     <AppHeader :color="currentColor" :emblem-color="currentEmblemColor" />
-    <AppDrawer :color="currentColor" />
+    <AppDrawer :color="currentColor" :emblem-color="currentEmblemColor" />
     <main>
       <slot />
     </main>

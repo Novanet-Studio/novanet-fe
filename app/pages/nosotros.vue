@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { COLORS_MAP_KEYS, CommonSectionProps } from "~/types";
+
 const ABOUT_MAIN_INFO: {
   title: string;
   description: string;
@@ -37,8 +39,10 @@ useHead(() => {
   };
 });
 
+type ABOUT_SECTIONS_IDS = "Nosotros" | "Mision" | "Vision" | "Contacto";
+
 //Array with about us page content
-const nosotros = [
+const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
   // Sección nosotros
   {
     alignCenter: true,
@@ -49,7 +53,7 @@ const nosotros = [
     buttonType:
       "bg-chartreuse text-oxfordBlue hover:bg-azure hover:text-oxfordBlue",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
 
     description: ABOUT_MAIN_INFO.description,
     name: "Nosotros",
@@ -62,7 +66,7 @@ const nosotros = [
     bgColor: "bg-columbiaBlue",
     bgImage: "background-emblem-mision",
     color: "text-oxfordBlue",
-    dataColor: "columbiaBlue",
+    dataColor: "oxfordBlue",
     description:
       "Queremos que conectes de forma genuina y efectiva con tus clientes, usando estrategias innovadoras y herramientas de vanguardia para que puedas llevar tu negocio al siguiente nivel de crecimiento y éxito.",
     HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
@@ -77,7 +81,7 @@ const nosotros = [
     bgColor: "bg-white",
     bgImage: "background-emblem-vision",
     color: "text-oxfordBlue",
-    dataColor: "white",
+    dataColor: "oxfordBlue",
     description:
       "Buscamos ser referentes en marketing digital y comunicación visual. Queremos dar soluciones súper innovadoras y creativas que dejen un impacto positivo en cada proyecto.",
     HeroImage: "images/novanet-studio-bailarina-ballet.webp",
@@ -95,7 +99,7 @@ const nosotros = [
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-columbiaBlue",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
     description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
@@ -106,15 +110,12 @@ const nosotros = [
     showForm: true,
     title: "¡Queremos conectar contigo!",
     titleColor: "text-oxfordBlue",
-    buttonText: null,
-    buttonLink: null,
   },
 ];
 
-const emblenmModifierSource: Record<string, string> = {
-  /**
-   * Record<SectionName, CustomEmblemColor>
-   */
+const emblenmModifierSource: Partial<
+  Record<ABOUT_SECTIONS_IDS, COLORS_MAP_KEYS>
+> = {
   Nosotros: "chartreuse",
 };
 

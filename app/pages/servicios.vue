@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { CommonSectionProps } from "~/types";
+
 const SERVICES_MAIN_INFO: {
   title: string;
   description: string;
@@ -37,14 +39,23 @@ useHead(() => {
   };
 });
 
-const servicios = [
+type SERVICES_SECTIONS_IDS =
+  | "Principal"
+  | "Diseno"
+  | "Web"
+  | "Asesoria"
+  | "Servicio-contacto";
+
+//Array with about us page content
+
+const servicios: CommonSectionProps<SERVICES_SECTIONS_IDS>[] = [
   // Sección Servicios
   {
     alignCenter: true,
     bgColor: "bg-white",
     bgImage: "background-emblem-servicios",
     color: "text-oxfordBlue",
-    dataColor: "white",
+    dataColor: "oxfordBlue",
     description: SERVICES_MAIN_INFO.description,
     showTabs: true,
     justifyContent: true,
@@ -70,6 +81,7 @@ const servicios = [
     ],
     listColor: "text-azure",
   },
+
   // Sección Diseño gráfico
   {
     alignCenter: true,
@@ -77,7 +89,7 @@ const servicios = [
     navButtonBack: true,
     navButton: "text-azure",
     color: "text-oxfordBlue",
-    dataColor: "columbiaBlue",
+    dataColor: "oxfordBlue",
     description:
       "Diseño gráfico centrado en la creatividad y colaboración cercana con nuestros clientes para crear soluciones visuales que generen resultados reales.",
     justifyContent: true,
@@ -98,6 +110,7 @@ const servicios = [
         label: "Diseño web y rrss",
         content: `**¡Potenciamos tu presencia digital al máximo!** Creamos tu web enfocada en resultados y diseñamos estrategias de redes sociales que te harán ver increíble para que crezcas y seas súper visible.`,
       },
+
       {
         label: "Contenido audiovisual",
         content: `**Creamos videos que enganchan y contenido multimedia** que cuentan tu historia. Desde reels para redes sociales hasta piezas que impactan a tu audiencia, nos encargamos de que tu marca conecte de forma auténtica.`,
@@ -114,7 +127,7 @@ const servicios = [
     navButtonBack: true,
     navButton: "text-azure",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
     description:
       "Buscamos innovación y eficiencia para crear soluciones digitales sólidas que te acompañen mientras creces.",
     justifyContent: true,
@@ -149,7 +162,7 @@ const servicios = [
     navButtonBack: true,
     navButton: "text-orfordBlue",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
     description:
       "Integramos tu visión con nuestro enfoque creando estrategias y soluciones a la medida para que logres tus metas.",
     justifyContent: true,
@@ -188,7 +201,7 @@ const servicios = [
     buttonType:
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-oxfordBlue",
-    dataColor: "columbiaBlue",
+    dataColor: "oxfordBlue",
     description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",

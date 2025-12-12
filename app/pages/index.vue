@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import type { CommonSectionProps } from "~/types";
+
 const HOME_MAIN_INFO: {
   title: string;
   description: string;
@@ -37,10 +39,18 @@ useHead(() => {
   };
 });
 
+type HOME_SECTIONS_IDS =
+  | "Principal"
+  | "Creatividad"
+  | "Innovación"
+  | "Colaboración"
+  | "Contacto";
+
 //Array with home page content
-const home = [
+const home: CommonSectionProps<HOME_SECTIONS_IDS>[] = [
   // Sección principal
   {
+    name: "Principal",
     alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-main",
@@ -49,11 +59,10 @@ const home = [
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
     color: "text-columbiaBlue",
-    dataColor: "azure",
+    dataColor: "oxfordBlue",
     description: HOME_MAIN_INFO.description,
     HeroImage: "images/novanet-studio-nina-mirando-izquierda.webp",
     justifyEndImage: true,
-    name: "Principal",
     title: HOME_MAIN_INFO.title,
     titleColor: "text-columbiaBlue",
   },
@@ -67,7 +76,7 @@ const home = [
     buttonType:
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
     description:
       "Nos apasiona generar ideas innovadoras y hacer de lo común algo que sorprenda en el mercado y conecte de forma efectiva con tu audiencia.",
     HeroImage: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
@@ -86,7 +95,7 @@ const home = [
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",
     color: "text-columbiaBlue",
-    dataColor: "azure",
+    dataColor: "oxfordBlue",
     description:
       "Estamos comprometidos con la búsqueda constante de nuevas tecnologías y enfoques para ofrecer soluciones eficientes a nuestros clientes.",
     HeroImage: "images/novanet-studio-nino-casco-realidad-virtual.webp",
@@ -105,7 +114,7 @@ const home = [
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-azure hover:text-columbiaBlue",
     color: "text-oxfordBlue",
-    dataColor: "columbiaBlue",
+    dataColor: "oxfordBlue",
     description:
       "Creemos en el poder del trabajo en equipo, tanto con nuestros clientes como en la  empresa, para lograr resultados increíbles.",
     HeroImage: "images/novanet-studio-grupo-personas-juntando-manos.webp",
@@ -122,7 +131,7 @@ const home = [
     buttonType:
       "bg-azure text-columbiaBlue hover:bg-chartreuse hover:text-oxfordBlue",
     color: "text-columbiaBlue",
-    dataColor: "oxfordBlue",
+    dataColor: "columbiaBlue",
     description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder:
