@@ -35,14 +35,23 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "@nuxt/fonts", "@nuxt/icon", "motion-v/nuxt", "@nuxtjs/strapi", "nuxt-gtag"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "motion-v/nuxt",
+    "@nuxtjs/strapi",
+    "nuxt-gtag",
+    "@vite-pwa/nuxt",
+  ],
 
   runtimeConfig: {
     public: {
       strapi: {
         url: process.env.STRAPI_URL,
       },
-      metaPixelId: process.env.META_PIXEL_ID || ''
+      metaPixelId: process.env.META_PIXEL_ID || "",
     },
   },
 
@@ -80,6 +89,48 @@ export default defineNuxtConfig({
   },
 
   gtag: {
-    id: 'G-RZX6HSVMPY',
-  }
+    id: "G-RZX6HSVMPY",
+  },
+
+  pwa: {
+    manifest: {
+      name: "Novanet Studio",
+      short_name: "Novanet",
+      description:
+        "Creatividad, innovación y colaboración para ayudar a las empresas a conectar con sus usuarios y potenciar sus metas de negocio.",
+      theme_color: "#007FFF",
+      background_color: "#ffffff",
+      display: "standalone",
+      orientation: "portrait",
+      lang: "es",
+      icons: [
+        {
+          src: "pwa-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+        {
+          src: "pwa-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "any maskable",
+        },
+      ],
+    },
+
+    workbox: {
+      navigateFallback: "/",
+      globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+    },
+
+    devOptions: {
+      enabled: true,
+      type: "module",
+    },
+  },
 });
