@@ -8,6 +8,22 @@ export type COLORS_MAP_KEYS =
   | "raspberry"
   | "chartreuse";
 
+export interface VisualLayer {
+  id: string;
+  type: "image" | "shape";
+  src?: string;
+  bgColor?: string;
+  mask?: string;
+  blendMode?: string;
+  zIndex: number;
+  cssClass?: string;
+  animation?: {
+    initial: any;
+    animate: any;
+    transition: any;
+  };
+}
+
 export interface CommonSectionProps<SectionName = string> {
   name: SectionName;
 
@@ -21,6 +37,7 @@ export interface CommonSectionProps<SectionName = string> {
   titleColor: String;
   description: String;
   HeroImage?: String;
+  visualLayers?: VisualLayer[];
 
   alignCenter?: Boolean;
   justifyContent?: Boolean;

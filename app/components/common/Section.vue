@@ -2,6 +2,8 @@
 import { animations } from "~/utils/animations";
 import { useSectionObserver } from "~/composables/useSectionObserver";
 
+import CompositeVisual from "~/components/common/CompositeVisual.vue";
+
 const props = defineProps<{ content: any; others?: any }>();
 const { hasBeenAnimated, scrollToSection } = useSectionObserver();
 
@@ -181,12 +183,18 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     </div>
 
     <div
-      v-if="item.HeroImage"
+      v-if="item.visualLayers || item.HeroImage"
       :class="[
         `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
         item.justifyEndImage ? 'justify-end' : 'justify-center',
       ]"
     >
+      <CompositeVisual
+        v-if="item.visualLayers"
+        :layers="item.visualLayers"
+        :hasAnimated="hasBeenAnimated(item.name)"
+      />
+
       <Motion
         v-if="item.HeroImage"
         class="grid"
