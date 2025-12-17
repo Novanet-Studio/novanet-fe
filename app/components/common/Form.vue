@@ -12,6 +12,7 @@ const MAX_MESSAGE_LENGTH = 500;
 const isSubmitting = ref(false);
 
 const form = ref({
+  "bot-field": "",
   email: "",
   message: "",
 });
@@ -64,7 +65,7 @@ async function handleSubmit() {
       ...form.value,
     });
 
-    const response = await fetch("/", {
+    const response = await fetch("/contact-form-netlify.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: formData,
@@ -78,7 +79,9 @@ async function handleSubmit() {
 
     form.value.email = "";
     form.value.message = "";
+    form.value["bot-field"] = "";
   } catch (error) {
+    console.error(error);
     showToast(
       "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
       "error"
@@ -91,7 +94,9 @@ async function handleSubmit() {
 
 <template>
   <form
+    netlify
     name="contact-form"
+    method="POST"
     @submit.prevent="handleSubmit"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
@@ -100,9 +105,10 @@ async function handleSubmit() {
     <input type="hidden" name="form-name" value="contact-form" />
 
     <p class="hidden">
-      <label
-        >Don’t fill this out if you’re human: <input name="bot-field"
-      /></label>
+      <label>
+        Don’t fill this out if you’re human:
+        <input name="bot-field" v-model="form['bot-field']" />
+      </label>
     </p>
 
     <div>

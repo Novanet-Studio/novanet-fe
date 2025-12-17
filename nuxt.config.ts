@@ -33,6 +33,12 @@ export default defineNuxtConfig({
     host: "localhost", // Exposes the server to the local network
     port: 3000, // You can specify a different port if needed
   },
+  
+  nitro: {
+    prerender: {
+      routes: ["/contact-form-netlify.html"],
+    },
+  },
 
   devtools: { enabled: true },
   modules: [
@@ -122,12 +128,17 @@ export default defineNuxtConfig({
         },
       ],
     },
-
+    
     workbox: {
-      navigateFallback: "/",
       globPatterns: ["**/*.{js,css,html,png,svg,ico}"],
+      navigateFallback: null,
     },
 
+    client: {
+      installPrompt: true,
+    },
+
+    registerType: "autoUpdate",
     devOptions: {
       enabled: true,
       type: "module",
