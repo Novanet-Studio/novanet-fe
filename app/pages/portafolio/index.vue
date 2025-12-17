@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useRoute } from "vue-router";
+
 import type {
   COLORS_MAP_KEYS,
   CommonSectionProps,
@@ -17,12 +19,14 @@ const PORTFOLIO_MAIN_INFO: {
   image: "images/novanet-studio-og-portafolio.webp",
 };
 
-const { initObserver } = useSectionObserver();
+const { initObserver, watchUrlHash } = useSectionObserver();
 
 onMounted(() => {
   nextTick(() => {
     initObserver();
   });
+  
+  watchUrlHash();
 });
 
 useHead(() => {

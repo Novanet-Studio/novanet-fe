@@ -46,9 +46,12 @@ export interface CommonSectionProps<SectionName = string> {
   justifyEndImage?: Boolean;
 
   buttonLink?: String;
+  
   buttonText?: String;
   buttonType?: String;
-
+  
+  targetSection?: SectionName;
+  
   //? With form
   showForm?: Boolean;
   formButtonText?: String;
@@ -59,7 +62,6 @@ export interface CommonSectionProps<SectionName = string> {
   showTabs?: Boolean;
   navButtonBack?: Boolean;
   navButton?: String;
-  targetSection?: SectionName;
 
   serviceImage?: String;
   serviceIcon?: String;

@@ -111,6 +111,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
           <NuxtLink
             :href="item.buttonLink"
             :class="[`cta__primary transition duration-200`, item.buttonType]"
+            @click.prevent="scrollToSection(item.targetSection)"
           >
             {{ item.buttonText }}
             <span>&nbsp;→</span>

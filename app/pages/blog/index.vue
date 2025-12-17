@@ -16,6 +16,12 @@ const BLOG_MAIN_INFO: {
   image: "images/novanet-studio-og-blog.webp",
 };
 
+const { watchUrlHash } = useSectionObserver();
+
+onMounted(() => {
+  watchUrlHash();
+});
+
 useHead(() => {
   return {
     title: BLOG_MAIN_INFO.title,
@@ -42,7 +48,7 @@ const blog: CommonSectionProps<BLOG_SECTIONS_IDS>[] = [
     alignCenter: true,
     bgColor: "bg-azure",
     bgImage: "background-emblem-blog",
-    buttonLink: "/blog#Blog-Articulos",
+    targetSection: "Blog-Articulos",
     buttonText: "Ver artículos",
     buttonType:
       "bg-oxfordBlue text-columbiaBlue hover:bg-raspberry hover:text-white",

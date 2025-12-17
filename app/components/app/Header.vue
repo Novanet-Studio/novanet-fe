@@ -58,7 +58,7 @@ onMounted(() => {
 
 <template>
   <header
-    class="fixed w-full px-6 md:px-9 lg:px-12 top-[5dvh] lg:top-[7dvh] bg-transparent transition-colors"
+    class="fixed w-full px-6 md:px-9 lg:px-12 top-[5dvh] lg:top-[7dvh] bg-transparent transition-colors z-50"
     :style="{ color: colorMap[emblemColor] || colorMap[color] || '#fff' }"
   >
     <nav

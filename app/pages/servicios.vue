@@ -12,12 +12,14 @@ const SERVICES_MAIN_INFO: {
   image: "images/novanet-studio-og-servicios.webp",
 };
 
-const { initObserver } = useSectionObserver();
+const { initObserver, watchUrlHash } = useSectionObserver();
 
 onMounted(() => {
   nextTick(() => {
     initObserver();
   });
+
+  watchUrlHash();
 });
 
 useHead(() => {

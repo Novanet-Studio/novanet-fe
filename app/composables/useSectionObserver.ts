@@ -5,6 +5,8 @@ import type { COLORS_MAP_KEYS } from "~/types";
 let observer: IntersectionObserver | null = null;
 
 export function useSectionObserver() {
+  const route = useRoute();
+
   const currentColor = useState<COLORS_MAP_KEYS>(
     "currentColor",
     () => "default"
@@ -85,7 +87,18 @@ export function useSectionObserver() {
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
+
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const watchUrlHash = () => {
+    const hash = route.hash;
+
+    if (hash) {
+      scrollToSection(hash.replace("#", ""));
+    }
+
+    return null;
   };
 
   return {
@@ -94,5 +107,6 @@ export function useSectionObserver() {
     hasBeenAnimated,
     initObserver,
     scrollToSection,
+    watchUrlHash,
   };
 }
