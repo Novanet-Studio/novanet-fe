@@ -69,33 +69,34 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     dataColor: "oxfordBlue",
     description:
       "Queremos que conectes de forma genuina y efectiva con tus clientes, usando estrategias innovadoras y herramientas de vanguardia para que puedas llevar tu negocio al siguiente nivel de crecimiento y éxito.",
-    visualLayers: [
-      {
-        id: "shape-bg",
-        type: "shape",
-        bgColor: "bg-azure",
-        zIndex: 10,
+    HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
+    // visualLayers: [
+    //   {
+    //     id: "shape-bg",
+    //     type: "shape",
+    //     bgColor: "bg-azure",
+    //     zIndex: 10,
 
-        mask: "/masks/rounded-triangle.svg",
-        animation: {
-          initial: { x: -100, opacity: 0 },
-          animate: { x: 0, opacity: 1 },
-          transition: { delay: 1, duration: 0.8 },
-        },
-      },
-      {
-        id: "hero-woman",
-        type: "image",
-        src: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
-        zIndex: 20,
-        cssClass: "w-full",
-        animation: {
-          initial: { x: 100, opacity: 0 },
-          animate: { x: 0, opacity: 1 },
-          transition: { delay: 1, duration: 0.8 },
-        },
-      },
-    ],
+    //     mask: "/masks/rounded-triangle.svg",
+    //     animation: {
+    //       initial: { x: -100, opacity: 0 },
+    //       animate: { x: 0, opacity: 1 },
+    //       transition: { delay: 1, duration: 0.8 },
+    //     },
+    //   },
+    //   {
+    //     id: "hero-woman",
+    //     type: "image",
+    //     src: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
+    //     zIndex: 20,
+    //     cssClass: "w-full",
+    //     animation: {
+    //       initial: { x: 100, opacity: 0 },
+    //       animate: { x: 0, opacity: 1 },
+    //       transition: { delay: 1, duration: 0.8 },
+    //     },
+    //   },
+    // ],
     justifyContent: true,
     name: "Mision",
     title: "Misión",

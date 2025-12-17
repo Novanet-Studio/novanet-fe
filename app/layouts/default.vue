@@ -12,5 +12,7 @@ const { currentColor, currentEmblemColor } = useSectionObserver();
       <slot />
     </main>
     <AppFooter :color="currentColor" />
+
+    <CommonToast />
   </div>
 </template>
