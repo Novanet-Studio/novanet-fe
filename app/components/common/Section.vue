@@ -225,11 +225,21 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     </div>
 
     <div
-      v-if="item.serviceImage"
+      v-if="item.serviceImage || item.serviceVisualLayers"
       class="flex w-full xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full"
     >
+      <CompositeVisual
+        v-if="item.serviceVisualLayers"
+        :layers="item.serviceVisualLayers.images || item.serviceVisualLayers"
+        :hasAnimated="hasBeenAnimated(item.name)"
+        :containerClass="item.serviceVisualLayers.cssClass"
+        :imageClasses="[
+          'pb-4 justify-self-start transform -scale-x-100 3xs:hidden 3xs:w-[60%] 2xs:block portrait-lg:-scale-x-100 lg:scale-x-100 md:!w-[60%] lg:!w-[80%] xl:!w-[100%]',
+        ]"
+      />
+
       <Motion
-        v-if="item.serviceImage"
+        v-else-if="item.serviceImage"
         :key="`serviceImage-${item.name}`"
         :initial="animations.mainImage.initial"
         :animate="

@@ -69,6 +69,12 @@ export interface CommonSectionProps<SectionName = string> {
   navButton?: String;
 
   serviceImage?: String;
+  serviceVisualLayers?:
+    | VisualLayer[]
+    | {
+        cssClass?: string;
+        images: VisualLayer[];
+      };
   serviceIcon?: String;
 
   list?: Array<{
