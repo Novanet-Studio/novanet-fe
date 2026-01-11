@@ -69,34 +69,34 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     dataColor: "oxfordBlue",
     description:
       "Queremos que conectes de forma genuina y efectiva con tus clientes, usando estrategias innovadoras y herramientas de vanguardia para que puedas llevar tu negocio al siguiente nivel de crecimiento y éxito.",
-    HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
-    // visualLayers: [
-    //   {
-    //     id: "shape-bg",
-    //     type: "shape",
-    //     bgColor: "bg-azure",
-    //     zIndex: 10,
-
-    //     mask: "/masks/rounded-triangle.svg",
-    //     animation: {
-    //       initial: { x: -100, opacity: 0 },
-    //       animate: { x: 0, opacity: 1 },
-    //       transition: { delay: 1, duration: 0.8 },
-    //     },
-    //   },
-    //   {
-    //     id: "hero-woman",
-    //     type: "image",
-    //     src: "images/novanet-studio-mujer-joven-sentada-sonriendo.webp",
-    //     zIndex: 20,
-    //     cssClass: "w-full",
-    //     animation: {
-    //       initial: { x: 100, opacity: 0 },
-    //       animate: { x: 0, opacity: 1 },
-    //       transition: { delay: 1, duration: 0.8 },
-    //     },
-    //   },
-    // ],
+    //HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
+    visualLayers: {
+      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mb-16",
+      images: [
+        {
+          id: "shape-bg",
+          type: "image",
+          zIndex: 10,
+          src: "images/heros/novanet-studio-mision-elemento.webp",
+          animation: {
+            initial: { x: -100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+        {
+          id: "hero-woman",
+          type: "image",
+          src: "images/heros/novanet-studio-mision-persona.webp",
+          zIndex: 20,
+          animation: {
+            initial: { x: 100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+      ],
+    },
     justifyContent: true,
     name: "Mision",
     title: "Misión",
@@ -111,7 +111,33 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     dataColor: "oxfordBlue",
     description:
       "Buscamos ser referentes en marketing digital y comunicación visual. Queremos dar soluciones súper innovadoras y creativas que dejen un impacto positivo en cada proyecto.",
-    HeroImage: "images/novanet-studio-bailarina-ballet.webp",
+    visualLayers: {
+      cssClass: "max-w-[50%] lg:max-w-[70%] place-self-center lg:mb-16",
+      images: [
+        {
+          id: "shape-bg",
+          type: "image",
+          zIndex: 10,
+          src: "images/heros/novanet-studio-vision-elemento.webp",
+          animation: {
+            initial: { x: -100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+        {
+          id: "hero-woman",
+          type: "image",
+          src: "images/heros/novanet-studio-vision-persona.webp",
+          zIndex: 20,
+          animation: {
+            initial: { x: 100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+      ],
+    },
     justifyContent: true,
     name: "Vision",
     title: "Visión",
@@ -130,7 +156,33 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
-    HeroImage: "images/novanet-studio-manos-juntas.webp",
+    visualLayers: {
+      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-20",
+      images: [
+        {
+          id: "shape-bg",
+          type: "image",
+          zIndex: 10,
+          src: "images/heros/novanet-studio-contacto-nosotros-elemento.webp",
+          animation: {
+            initial: { x: -100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+        {
+          id: "hero-woman",
+          type: "image",
+          src: "images/heros/novanet-studio-contacto-nosotros-manos.webp",
+          zIndex: 20,
+          animation: {
+            initial: { x: 100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+      ],
+    },
     HideOn3xs: true,
     justifyContent: true,
     name: "Contacto",

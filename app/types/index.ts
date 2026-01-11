@@ -37,7 +37,12 @@ export interface CommonSectionProps<SectionName = string> {
   titleColor: String;
   description: String;
   HeroImage?: String;
-  visualLayers?: VisualLayer[];
+  visualLayers?:
+    | VisualLayer[]
+    | {
+        cssClass?: string;
+        images: VisualLayer[];
+      };
 
   alignCenter?: Boolean;
   justifyContent?: Boolean;
@@ -46,12 +51,12 @@ export interface CommonSectionProps<SectionName = string> {
   justifyEndImage?: Boolean;
 
   buttonLink?: String;
-  
+
   buttonText?: String;
   buttonType?: String;
-  
+
   targetSection?: SectionName;
-  
+
   //? With form
   showForm?: Boolean;
   formButtonText?: String;

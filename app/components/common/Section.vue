@@ -192,8 +192,13 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     >
       <CompositeVisual
         v-if="item.visualLayers"
-        :layers="item.visualLayers"
+        :layers="item.visualLayers.images || item.visualLayers"
         :hasAnimated="hasBeenAnimated(item.name)"
+        :containerClass="item.visualLayers.cssClass"
+        :imageClasses="[
+          'justify-self-center 2xs:block 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[100%]',
+          item.HideOn3xs ? '3xs:hidden' : '',
+        ]"
       />
 
       <Motion

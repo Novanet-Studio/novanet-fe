@@ -2,6 +2,8 @@
 const props = defineProps<{
   layers: any[];
   hasAnimated: boolean;
+  imageClasses?: any;
+  containerClass?: string;
 }>();
 
 const getMaskStyle = (maskUrl?: string) => {
@@ -19,9 +21,7 @@ const getMaskStyle = (maskUrl?: string) => {
 </script>
 
 <template>
-  <div
-    class="relative w-full h-[400px] lg:h-[500px] flex items-center justify-center"
-  >
+  <div :class="['w-full grid place-items-center', props.containerClass]">
     <Motion
       v-for="layer in layers"
       :key="layer.id"
@@ -32,7 +32,7 @@ const getMaskStyle = (maskUrl?: string) => {
           : layer.animation?.initial
       "
       :transition="layer.animation?.transition || { duration: 0.5 }"
-      class="absolute inset-0 flex items-center justify-center"
+      class="col-start-1 row-start-1 w-full flex justify-center"
       :style="{ zIndex: layer.zIndex }"
     >
       <div
@@ -44,7 +44,7 @@ const getMaskStyle = (maskUrl?: string) => {
       <NuxtImg
         v-else-if="layer.type === 'image'"
         :src="layer.src"
-        :class="['max-w-none h-auto', layer.cssClass]"
+        :class="['max-w-none h-auto', layer.cssClass, props.imageClasses]"
         :style="{
           ...getMaskStyle(layer.mask),
           mixBlendMode: layer.blendMode || 'normal',

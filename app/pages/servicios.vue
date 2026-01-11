@@ -184,12 +184,12 @@ const servicios: CommonSectionProps<SERVICES_SECTIONS_IDS>[] = [
       {
         label: "Estrategia de marketing",
         content: `**Tu propuesta de valor al alcance de tus clientes**. Entendemos a quién le estás hablando para que tu negocio destaque y logre sus metas de venta.
-`,
+  `,
       },
       {
         label: "Marketing online",
         content: `**Marketing Digital con un toque personal**. Llevamos tu marca directo a quienes te buscan, usando datos y creatividad para acelerar tus ventas y que todos te reconozcan en el mundo digital.
-`,
+  `,
       },
     ],
     tabColor: "text-oxfordBlue",
@@ -207,7 +207,35 @@ const servicios: CommonSectionProps<SERVICES_SECTIONS_IDS>[] = [
     description: "Creemos juntos estrategias para que logres tus metas.",
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
-    HeroImage: "images/novanet-studio-fichas-colores-juegos-mesa.webp",
+
+    visualLayers: {
+      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-16",
+      images: [
+        {
+          id: "shape-bg",
+          type: "image",
+          zIndex: 10,
+          src: "images/heros/novanet-studio-contacto-servicios-elemento.webp",
+          animation: {
+            initial: { x: -100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+        {
+          id: "hero-woman",
+          type: "image",
+          src: "images/heros/novanet-studio-contacto-servicios-fichas.webp",
+          zIndex: 20,
+          animation: {
+            initial: { x: 100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+      ],
+    },
+
     HideOn3xs: true,
     justifyContent: true,
     name: "Servicio-contacto",

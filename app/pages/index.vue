@@ -137,7 +137,34 @@ const home: CommonSectionProps<HOME_SECTIONS_IDS>[] = [
     formFieldBorder:
       "border-b-[1px] border-columbiaBlue focus:border-raspberry",
 
-    HeroImage: "images/novanet-studio-piezas-azules-rompecabezas.webp",
+    visualLayers: {
+      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-20",
+      images: [
+        {
+          id: "shape-bg",
+          type: "image",
+          zIndex: 10,
+          src: "images/heros/novanet-studio-contacto-inicio-elemento.webp",
+          animation: {
+            initial: { x: -100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+        {
+          id: "hero-woman",
+          type: "image",
+          src: "images/heros/novanet-studio-contacto-inicio-rompecabezas.webp",
+          zIndex: 20,
+          animation: {
+            initial: { x: 100, opacity: 0 },
+            animate: { x: 0, opacity: 1 },
+            transition: { delay: 1, duration: 0.8 },
+          },
+        },
+      ],
+    },
+
     HideOn3xs: true,
     justifyContent: true,
     name: "Contacto",
