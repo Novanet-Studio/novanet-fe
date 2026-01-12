@@ -3,6 +3,7 @@ import { animations } from "~/utils/animations";
 import { useSectionObserver } from "~/composables/useSectionObserver";
 
 import CompositeVisual from "~/components/common/CompositeVisual.vue";
+import EmblemBackground from "~/components/common/EmblemBackground.vue";
 
 const props = defineProps<{ content: any; others?: any }>();
 const { hasBeenAnimated, scrollToSection } = useSectionObserver();
@@ -17,17 +18,32 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     :key="item.name"
     :data-color="item.dataColor"
     :data-emblem-color="emblemModifierSource[item.name] || item.dataColor"
+    :style="{ contain: item.emblemAnimation ? 'layout' : 'none' }"
     :class="[
       item.bgColor,
       item.bgImage,
       item.color,
-      item.reverseDirection ? 'direction-reverse' : '',
+      item.flexOrientation ? item.flexOrientation : 'flex-col md:flex-row',
+      item.reverseDirection
+        ? item.flexOrientation == 'flex-row'
+          ? 'flex-col-reverse md:flex-row-reverse'
+          : 'flex-col-reverse'
+        : '',
       item.alignCenter ? 'items-center' : '',
       item.justifyEndImage ? 'justify-end' : '',
       item.justifyContent ? 'justify-center' : '',
       { 'animate-background': hasBeenAnimated(item.name) },
+      ,
     ]"
   >
+    <EmblemBackground
+      v-if="item.emblemAnimation"
+      :imageSrc="item.emblemAnimation.imageSrc"
+      :hasAnimated="hasBeenAnimated(item.name)"
+      :direction="item.emblemAnimation.direction || 'right'"
+      -
+      :clipPathShape="item.emblemAnimation.clipPath"
+    />
     <div
       :class="[
         `flex flex-col gap-4 lg:gap-6`,
@@ -224,37 +240,13 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
       </Motion>
     </div>
 
-    <div
-      v-if="item.serviceImage || item.serviceVisualLayers"
-      class="flex w-full xl:flex-col xl:pr-10 xl:w-[33.3333333%] xl:justify-center xl:h-full"
-    >
+    <div v-if="item.serviceVisualLayers" class="mr-8">
       <CompositeVisual
-        v-if="item.serviceVisualLayers"
         :layers="item.serviceVisualLayers.images || item.serviceVisualLayers"
         :hasAnimated="hasBeenAnimated(item.name)"
         :containerClass="item.serviceVisualLayers.cssClass"
-        :imageClasses="[
-          'pb-4 justify-self-start transform -scale-x-100 3xs:hidden 3xs:w-[60%] 2xs:block portrait-lg:-scale-x-100 lg:scale-x-100 md:!w-[60%] lg:!w-[80%] xl:!w-[100%]',
-        ]"
+        :imageClasses="['max-h-[80dvh]']"
       />
-
-      <Motion
-        v-else-if="item.serviceImage"
-        :key="`serviceImage-${item.name}`"
-        :initial="animations.mainImage.initial"
-        :animate="
-          hasBeenAnimated(item.name)
-            ? animations.mainImage.animate
-            : animations.mainImage.initial
-        "
-        :transition="{ ...animations.mainImage.transition }"
-      >
-        <NuxtImg
-          :src="item.serviceImage"
-          :alt="`Imagen princpal de ${item.name}`"
-          class="pb-4 justify-self-start transform -scale-x-100 3xs:hidden 3xs:w-[60%] 2xs:block portrait-lg:-scale-x-100 lg:scale-x-100 md:!w-[60%] lg:!w-[80%] xl:!w-[100%]"
-        />
-      </Motion>
     </div>
   </section>
 </template>

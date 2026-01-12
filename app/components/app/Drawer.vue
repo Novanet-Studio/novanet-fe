@@ -48,7 +48,7 @@ onMounted(() => {
     :animate="animations.header.animate"
     :transition="{ ...animations.header.transition }"
   >
-    <div class="absolute top-8 right-6 md:hidden">
+    <div class="fixed top-[5dvh] lg:top-[7dvh] right-6 md:hidden z-50">
       <button @click="drawer" aria-label="Toggle Menu">
         <svg
           class="h-8 w-8 fill-current text-black"
@@ -93,7 +93,7 @@ onMounted(() => {
 
   <!-- Menu (Móvil) -->
   <aside
-    class="flex flex-col fixed w-2/5 top-0 right-0 h-screen pt-8 pl-6 pr-4 bg-eerieBlack overflow-auto transform ease-in-out transition-all duration-300 z-30"
+    class="flex flex-col fixed w-2/5 top-0 right-0 h-screen pt-8 pl-6 pr-4 bg-eerieBlack overflow-auto transform ease-in-out transition-all duration-300 z-50"
     :class="isOpen ? 'translate-x-0' : 'translate-x-full transition-transform'"
   >
     <div class="close">

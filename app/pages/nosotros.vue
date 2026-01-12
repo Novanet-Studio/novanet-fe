@@ -47,7 +47,10 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
   {
     alignCenter: true,
     bgColor: "bg-oxfordBlue",
-    bgImage: "background-emblem-nosotros",
+    emblemAnimation: {
+      imageSrc: "images/hero-emblens/nosotros-astronauta.webp",
+      direction: "right",
+    },
     buttonLink: "/portafolio#Portafolio-Galeria",
     buttonText: "Ver portafolio",
     buttonType:
@@ -69,15 +72,14 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     dataColor: "oxfordBlue",
     description:
       "Queremos que conectes de forma genuina y efectiva con tus clientes, usando estrategias innovadoras y herramientas de vanguardia para que puedas llevar tu negocio al siguiente nivel de crecimiento y éxito.",
-    //HeroImage: "images/novanet-studio-heroina-brazo-extendido.webp",
     visualLayers: {
-      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mb-16",
+      cssClass: "grid max-w-[60%] lg:max-w-[80%] place-self-center lg:mb-16",
       images: [
         {
           id: "shape-bg",
           type: "image",
           zIndex: 10,
-          src: "images/heros/novanet-studio-mision-elemento.webp",
+          src: "images/hero-images/novanet-studio-mision-elemento.webp",
           animation: {
             initial: { x: -100, opacity: 0 },
             animate: { x: 0, opacity: 1 },
@@ -87,7 +89,7 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
         {
           id: "hero-woman",
           type: "image",
-          src: "images/heros/novanet-studio-mision-persona.webp",
+          src: "images/hero-images/novanet-studio-mision-persona.webp",
           zIndex: 20,
           animation: {
             initial: { x: 100, opacity: 0 },
@@ -112,13 +114,13 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     description:
       "Buscamos ser referentes en marketing digital y comunicación visual. Queremos dar soluciones súper innovadoras y creativas que dejen un impacto positivo en cada proyecto.",
     visualLayers: {
-      cssClass: "max-w-[50%] lg:max-w-[70%] place-self-center lg:mb-16",
+      cssClass: "grid max-w-[50%] lg:max-w-[70%] place-self-center lg:mb-16",
       images: [
         {
           id: "shape-bg",
           type: "image",
           zIndex: 10,
-          src: "images/heros/novanet-studio-vision-elemento.webp",
+          src: "images/hero-images/novanet-studio-vision-elemento.webp",
           animation: {
             initial: { x: -100, opacity: 0 },
             animate: { x: 0, opacity: 1 },
@@ -128,7 +130,7 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
         {
           id: "hero-woman",
           type: "image",
-          src: "images/heros/novanet-studio-vision-persona.webp",
+          src: "images/hero-images/novanet-studio-vision-persona.webp",
           zIndex: 20,
           animation: {
             initial: { x: 100, opacity: 0 },
@@ -142,6 +144,8 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     name: "Vision",
     title: "Visión",
     titleColor: "text-azure",
+
+    flexOrientation: "flex-row",
     reverseDirection: true,
   },
   // Sección contacto
@@ -157,13 +161,13 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
     formButtonText: "Enviar mensaje",
     formFieldBorder: "border-b-[1px] border-oxfordBlue focus:border-raspberry",
     visualLayers: {
-      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-20",
+      cssClass: "grid max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-20",
       images: [
         {
           id: "shape-bg",
           type: "image",
           zIndex: 10,
-          src: "images/heros/novanet-studio-contacto-nosotros-elemento.webp",
+          src: "images/hero-images/novanet-studio-contacto-nosotros-elemento.webp",
           animation: {
             initial: { x: -100, opacity: 0 },
             animate: { x: 0, opacity: 1 },
@@ -173,7 +177,7 @@ const nosotros: CommonSectionProps<ABOUT_SECTIONS_IDS>[] = [
         {
           id: "hero-woman",
           type: "image",
-          src: "images/heros/novanet-studio-contacto-nosotros-manos.webp",
+          src: "images/hero-images/novanet-studio-contacto-nosotros-manos.webp",
           zIndex: 20,
           animation: {
             initial: { x: 100, opacity: 0 },

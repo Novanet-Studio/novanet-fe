@@ -24,11 +24,23 @@ export interface VisualLayer {
   };
 }
 
+export interface EmblemAnimation {
+  imageSrc: string;
+  direction?: "left" | "right" | "top" | "bottom";
+  clipPath?: string;
+  timing?: {
+    duration?: number;
+    delay?: number;
+    easing?: string;
+  };
+}
+
 export interface CommonSectionProps<SectionName = string> {
   name: SectionName;
 
   bgColor: String;
   bgImage?: String;
+  emblemAnimation?: EmblemAnimation;
 
   color: String;
   dataColor: COLORS_MAP_KEYS;
@@ -46,7 +58,11 @@ export interface CommonSectionProps<SectionName = string> {
 
   alignCenter?: Boolean;
   justifyContent?: Boolean;
+
   reverseDirection?: Boolean;
+  flexOrientation?: "flex-row" | "flex-col";
+
+  
 
   justifyEndImage?: Boolean;
 

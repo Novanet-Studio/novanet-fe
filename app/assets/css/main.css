@@ -11,7 +11,7 @@ section {
   min-height: 100dvh;
   overflow: hidden;
 
-  padding: 20dvh 2.25rem 0 2.25rem;
+  padding: 10dvh 2.25rem 0 2.25rem;
 
   scroll-snap-align: start;
 }

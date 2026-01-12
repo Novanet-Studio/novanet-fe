@@ -57,13 +57,13 @@ const blog: CommonSectionProps<BLOG_SECTIONS_IDS>[] = [
     description: BLOG_MAIN_INFO.description,
 
     visualLayers: {
-      cssClass: "max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-24",
+      cssClass: "grid max-w-[60%] lg:max-w-[80%] place-self-center lg:mt-24",
       images: [
         {
           id: "shape-bg",
           type: "image",
           zIndex: 10,
-          src: "images/heros/novanet-studio-blog-elemento.webp",
+          src: "images/hero-images/novanet-studio-blog-elemento.webp",
           animation: {
             initial: { x: -100, opacity: 0 },
             animate: { x: 0, opacity: 1 },
@@ -73,7 +73,7 @@ const blog: CommonSectionProps<BLOG_SECTIONS_IDS>[] = [
         {
           id: "hero-woman",
           type: "image",
-          src: "images/heros/novanet-studio-blog-persona.webp",
+          src: "images/hero-images/novanet-studio-blog-persona.webp",
           zIndex: 20,
           animation: {
             initial: { x: 100, opacity: 0 },
