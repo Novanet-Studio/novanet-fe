@@ -1,5 +1,5 @@
 body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
@@ -238,56 +238,58 @@ form textarea::placeholder {
 }
 
 .background-emblem-main {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg');
 }
 
 .background-emblem-creatividad {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg"),
-    url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg");
+  background-image:
+    url('/assets/images/novanet-studio-emblema-semicirculo-azure.svg'),
+    url('/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg');
 }
 
 .background-emblem-contacto {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-azure-lineas.svg');
 }
 
 .background-emblem-colaboracion {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-azure.svg');
 }
 
 .background-emblem-innovacion {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue-lineas.svg"),
-    url("/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg");
+  background-image:
+    url('/assets/images/novanet-studio-emblema-semicirculo-columbia-blue-lineas.svg'),
+    url('/assets/images/novanet-studio-emblema-semicirculo-columbia-blue.svg');
 }
 
 .background-emblem-nosotros {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-autronauta.webp");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-autronauta.webp');
   background-size: 10rem;
 }
 
 .background-emblem-mision {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas.svg');
 }
 
 .background-emblem-vision {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg');
 }
 
 .background-emblem-portafolio {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-piramides.webp");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-piramides.webp');
   background-size: 10rem;
 }
 
 .background-emblem-proyectos-recientes {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-azure-lineas-derecho.svg');
   background-size: 10rem;
 }
 
 .background-emblem-galeria {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-columbia-lineas-derecho.svg');
 }
 
 .background-emblem-galeria-blog {
-  background-image: url("/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas-derecha.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-semicirculo-blanco-lineas-derecha.svg');
 }
 
 .background-emblem-nosotros-contacto {
@@ -295,7 +297,7 @@ form textarea::placeholder {
 }
 
 .background-emblem-servicios {
-  background-image: url("/assets/images/novanet-studio-emblema-invertido.svg");
+  background-image: url('/assets/images/novanet-studio-emblema-invertido.svg');
   background-size: 70rem;
   background-position: center;
 }
@@ -306,11 +308,15 @@ form textarea::placeholder {
 }
 
 .background-emblem-creatividad {
-  background-position: top -60vh center, top 200% center;
+  background-position:
+    top -60vh center,
+    top 200% center;
 }
 
 .background-emblem-innovacion {
-  background-position: top -60vh center, top 200% center;
+  background-position:
+    top -60vh center,
+    top 200% center;
 }
 
 .background-emblem-colaboracion {
@@ -400,21 +406,29 @@ form textarea::placeholder {
 
 @keyframes creatividadSectionPortrait {
   0% {
-    background-position: top -60vh center, top 200% center;
+    background-position:
+      top -60vh center,
+      top 200% center;
   }
 
   100% {
-    background-position: top center, top 100% center;
+    background-position:
+      top center,
+      top 100% center;
   }
 }
 
 @keyframes innovacionSectionPortrait {
   0% {
-    background-position: top -60vh center, top 200% center;
+    background-position:
+      top -60vh center,
+      top 200% center;
   }
 
   100% {
-    background-position: top center, top 100% center;
+    background-position:
+      top center,
+      top 100% center;
   }
 }
 
@@ -480,21 +494,29 @@ form textarea::placeholder {
 
 @keyframes creatividadSectionLandscape {
   0% {
-    background-position: top -60vh right, bottom -60vh left;
+    background-position:
+      top -60vh right,
+      bottom -60vh left;
   }
 
   100% {
-    background-position: top right, bottom left;
+    background-position:
+      top right,
+      bottom left;
   }
 }
 
 @keyframes innovacionSectionLandscape {
   0% {
-    background-position: top -60vh left, bottom -60vh right;
+    background-position:
+      top -60vh left,
+      bottom -60vh right;
   }
 
   100% {
-    background-position: top left, bottom right;
+    background-position:
+      top left,
+      bottom right;
   }
 }
 
@@ -724,11 +746,15 @@ form textarea::placeholder {
   }
 
   .background-emblem-creatividad {
-    background-position: top -60vh right, bottom -60vh left;
+    background-position:
+      top -60vh right,
+      bottom -60vh left;
   }
 
   .background-emblem-innovacion {
-    background-position: top -60vh left, bottom -60vh right;
+    background-position:
+      top -60vh left,
+      bottom -60vh right;
   }
 
   .background-emblem-colaboracion {

@@ -1,94 +1,47 @@
-import {
-  getAllArticlesQuery,
-  getArticleBySlugQuery,
-  getRecentArticlesQuery,
-} from "~/schemas/blog-queries";
+export default function useBlog() {
+  const { get } = useKairos()
 
-export default function () {
-  const graphql = useStrapiGraphQL();
+  function normalize(item: any) {
+    return {
+      slug: item.slug,
+      titulo: item.titulo,
+      fecha: item.fecha,
+      tag: item.tag,
+      descripcion: item.descripcion,
+      descripcionCorta: item['descripcion-corta'],
+      imagen: item.imagen,
+    }
+  }
 
   async function getRecentArticles() {
     try {
-      const { data: articles, error } = await graphql<any>(
-        getRecentArticlesQuery
-      );
-
-      if (error || !articles.articulos || articles.articulos.length === 0) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
-      }
-
-      return {
-        status: "ok",
-        message: "succesfull",
-        data: articles.articulos,
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      const data = await get<any>('articulos', { limit: '5', sort: 'fecha:DESC' })
+      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      return { status: 'ok', message: 'ok', data: data.map(normalize) }
+    } catch {
+      return { status: 'error', message: 'Unknown error', data: null }
     }
   }
 
   async function getArticleBySlug(_slug: string) {
     try {
-      const query = getArticleBySlugQuery;
-
-      const variables = { slug: _slug };
-      const { data: articles, error } = await graphql<any>(query, variables);
-
-      if (error || !articles.articulos || articles.articulos.length === 0) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
-      }
-
-      return {
-        status: "ok",
-        message: "succesfull",
-        data: articles.articulos,
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      const data = await get<any>('articulos', { 'filters[slug][$eq]': _slug })
+      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      return { status: 'ok', message: 'ok', data: data.map(normalize) }
+    } catch {
+      return { status: 'error', message: 'Unknown error', data: null }
     }
   }
 
   async function getAllArticles() {
     try {
-      const { data: articles, error } = await graphql<any>(getAllArticlesQuery);
-
-      if (error || !articles.articulos || articles.articulos.length === 0) {
-        return {
-          status: "error",
-          message: "GraphQL error",
-          data: error.value,
-        };
-      }
-
-      return {
-        status: "ok",
-        message: "succesfull",
-        data: articles.articulos,
-      };
-    } catch (e) {
-      return {
-        status: "error",
-        message: "Unknown error",
-        data: null,
-      };
+      const data = await get<any>('articulos', { sort: 'fecha:DESC' })
+      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      return { status: 'ok', message: 'ok', data: data.map(normalize) }
+    } catch {
+      return { status: 'error', message: 'Unknown error', data: null }
     }
   }
 
-  return { getRecentArticles, getAllArticles, getArticleBySlug };
+  return { getRecentArticles, getAllArticles, getArticleBySlug }
 }

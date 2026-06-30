@@ -1,63 +1,64 @@
 <script setup lang="ts">
-import { ref, computed, watch, nextTick, onMounted } from "vue";
-import { useSectionObserver } from "~/composables/useSectionObserver";
-import { animations } from "~/utils/animations";
+import { ref, computed, watch, nextTick, onMounted } from 'vue'
+import { useSectionObserver } from '~/composables/useSectionObserver'
+import { animations } from '~/utils/animations'
 
-const props = defineProps<{ content: any; others?: any }>();
-const emblemModifierSource = props.others?.emblemModifierSource || {};
+const props = defineProps<{ content: any; others?: any }>()
+const emblemModifierSource = props.others?.emblemModifierSource || {}
 
-const { initObserver, hasBeenAnimated } = useSectionObserver();
+const { initObserver, hasBeenAnimated } = useSectionObserver()
 
-const { getCategoriesWithProjects } = usePortfolio();
+const { getCategoriesWithProjects } = usePortfolio()
 
 const { data: categories, pending } = await useAsyncData(
-  "categories-with-projects",
+  'categories-with-projects',
   async () => {
-    const response = await getCategoriesWithProjects();
-    return response.status === "ok" ? response.data : null;
+    const response = await getCategoriesWithProjects()
+
+    return response.status === 'ok' ? response.data : null
   },
-  { lazy: true }
-);
+  { lazy: true },
+)
 
 watch(pending, (isPending) => {
   if (!isPending) {
     nextTick(() => {
-      initObserver();
-    });
+      initObserver()
+    })
   }
-});
+})
 
-const activeTabKey = ref<string | null>(null);
-const tabRefs = ref<{ [key: string]: HTMLElement }>({});
-const markerStyle = ref({});
+const activeTabKey = ref<string | null>(null)
+const tabRefs = ref<{ [key: string]: HTMLElement }>({})
+const markerStyle = ref({})
 
 const tabs = computed(() => {
-  if (!categories.value) return [];
+  if (!categories.value) return []
 
   const allProjects = categories.value.flatMap((category: any) =>
     category.proyecto.map((project: any) => ({
       ...project,
       categorySlug: category.slug,
-    }))
-  );
+    })),
+  )
 
   const uniqueProjects = Array.from(
-    new Map(allProjects.map((p: any) => [p.id, p])).values()
-  );
+    new Map(allProjects.map((p: any) => [p.slug, p])).values(),
+  )
 
-  const fromSectionId = props.content.name;
+  const fromSectionId = props.content.name
 
   const allTab = {
-    key: "todos",
-    label: "Todos",
+    key: 'todos',
+    label: 'Todos',
     description:
-      "Explora una selección de nuestros proyectos más destacados en todas las áreas, desde identidad corporativa hasta desarrollo web y gestión de redes sociales.",
+      'Explora una selección de nuestros proyectos más destacados en todas las áreas, desde identidad corporativa hasta desarrollo web y gestión de redes sociales.',
     projects: uniqueProjects.map((p: any) => ({
       link: `/portafolio/${p.categorySlug}/${p.slug}?from=${fromSectionId}`,
       title: p.titulo,
-      portrait: p.miniatura?.url,
+      portrait: p.miniatura,
     })),
-  };
+  }
 
   const categoryTabs = categories.value.map((category: any) => ({
     key: category.slug,
@@ -68,44 +69,44 @@ const tabs = computed(() => {
       title: project.titulo,
       portrait: project.miniatura?.url,
     })),
-  }));
+  }))
 
-  return [allTab, ...categoryTabs];
-});
+  return [allTab, ...categoryTabs]
+})
 
 const activePanel = computed(() => {
-  if (!activeTabKey.value || tabs.value.length === 0) return null;
-  return tabs.value.find((tab) => tab.key === activeTabKey.value);
-});
+  if (!activeTabKey.value || tabs.value.length === 0) return null
+  return tabs.value.find((tab) => tab.key === activeTabKey.value)
+})
 
 function updateMarkerPosition() {
-  const activeTabElement = tabRefs.value[activeTabKey.value!];
-  if (!activeTabElement) return;
+  const activeTabElement = tabRefs.value[activeTabKey.value!]
+  if (!activeTabElement) return
   markerStyle.value = {
     left: `${activeTabElement.offsetLeft}px`,
     width: `${activeTabElement.offsetWidth}px`,
-  };
+  }
 }
 
 watch(tabs, (newTabs) => {
   if (!activeTabKey.value && newTabs.length > 0) {
-    activeTabKey.value = newTabs[0].key;
+    activeTabKey.value = newTabs[0].key
   }
-});
+})
 
 watch(
   activeTabKey,
   async () => {
-    await nextTick();
-    updateMarkerPosition();
+    await nextTick()
+    updateMarkerPosition()
   },
-  { immediate: true }
-);
+  { immediate: true },
+)
 
 onMounted(() => {
-  activeTabKey.value = "todos";
-  updateMarkerPosition();
-});
+  activeTabKey.value = 'todos'
+  updateMarkerPosition()
+})
 </script>
 
 <template>
@@ -126,7 +127,7 @@ onMounted(() => {
     ]"
   >
     <ClientOnly>
-      <div v-if="pending" class="w-full flex overflow-hidden">
+      <div v-if="pending" class="flex w-full overflow-hidden">
         <p class="text-lg">Cargando portafolio...</p>
       </div>
 
@@ -138,7 +139,7 @@ onMounted(() => {
             :ref="(el) => (tabRefs[tab.key] = el as HTMLElement)"
             @click="activeTabKey = tab.key"
             :class="[
-              'lista pb-3 text-azure text-left transition-colors duration-200 ease-out focus:outline-none',
+              'lista pb-3 text-left text-azure transition-colors duration-200 ease-out focus:outline-none',
               activeTabKey === tab.key ? 'font-bold' : '',
             ]"
           >
@@ -177,7 +178,7 @@ onMounted(() => {
 
           <div v-if="activePanel.projects && activePanel.projects.length > 0">
             <div
-              class="pb-4 grid grid-cols-1 gap-6 overflow-y-scroll custom-scrollbar-y max-h-[62dvh] sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[54dvh]"
+              class="custom-scrollbar-y grid max-h-[62dvh] grid-cols-1 gap-6 overflow-y-scroll pb-4 sm:grid-cols-2 lg:max-h-[54dvh] lg:grid-cols-3"
             >
               <Motion
                 v-for="project in activePanel.projects"
@@ -189,7 +190,7 @@ onMounted(() => {
                     : animations.mainTitle.initial
                 "
                 :transition="{ ...animations.mainTitle.transition }"
-                class="max-h-[25vh] group rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-cadetGray/30"
+                class="group max-h-[25vh] overflow-hidden rounded-lg border border-cadetGray/30 shadow-md transition-shadow duration-300 hover:shadow-xl"
               >
                 <article>
                   <NuxtLink :to="project.link">
@@ -198,7 +199,7 @@ onMounted(() => {
                       provider="cloudinary"
                       :src="project.portrait"
                       :alt="`Imagen del proyecto ${project.title}`"
-                      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                      class="h-full w-full transform object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                       loading="lazy"
                     />
                   </NuxtLink>
@@ -213,8 +214,8 @@ onMounted(() => {
         </div>
       </div>
 
-      <div v-else class="flex justify-center items-center w-full max-h-[70dvh]">
-        <p class="text-lg text-red-500">
+      <div v-else class="flex max-h-[70dvh] w-full items-center justify-center">
+        <p class="text-red-500 text-lg">
           No se encontraron proyectos para mostrar.
         </p>
       </div>

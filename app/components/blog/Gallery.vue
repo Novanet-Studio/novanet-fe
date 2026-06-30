@@ -1,52 +1,53 @@
 <script setup lang="ts">
-import { computed, watch, nextTick } from "vue";
-import { formatDate } from "~/utils/functions";
-import { useSectionObserver } from "~/composables/useSectionObserver";
-import { animations } from "~/utils/animations";
+import { computed, watch, nextTick } from 'vue'
+import { formatDate } from '~/utils/functions'
+import { useSectionObserver } from '~/composables/useSectionObserver'
+import { animations } from '~/utils/animations'
 
-const props = defineProps<{ content: any; others?: any }>();
-const emblemModifierSource = props.others?.emblemModifierSource || {};
+const props = defineProps<{ content: any; others?: any }>()
+const emblemModifierSource = props.others?.emblemModifierSource || {}
 
-const { initObserver, hasBeenAnimated } = useSectionObserver();
-const { getAllArticles } = useBlog();
+const { initObserver, hasBeenAnimated } = useSectionObserver()
+const { getAllArticles } = useBlog()
 
 const { data: articles, pending: articlesPending } = await useAsyncData(
-  "all-articles-gallery",
+  'all-articles-gallery',
   async () => {
-    const response = await getAllArticles();
-    return response.status === "ok" ? response.data : [];
+    const response = await getAllArticles()
+
+    return response.status === 'ok' ? response.data : []
   },
-  { lazy: true }
-);
+  { lazy: true },
+)
 
 watch(articlesPending, (isPending) => {
   if (!isPending) {
     nextTick(() => {
-      initObserver();
-    });
+      initObserver()
+    })
   }
-});
+})
 
 const formattedArticles = computed(() => {
-  if (!articles.value) return [];
+  if (!articles.value) return []
 
-  const fromSectionId = props.content.name;
+  const fromSectionId = props.content.name
 
   return articles.value.map((article: any) => {
     const tagSlug = article.tag
-      .slice(0, article.tag.indexOf(","))
-      .replaceAll(" ", "-");
+      .slice(0, article.tag.indexOf(','))
+      .replaceAll(' ', '-')
 
-    const imageUrl = article.imagen[0]?.url;
+    const imageUrl = article.imagen
 
     return {
       title: article.titulo,
       cta_route: `/blog/${tagSlug}/${article.slug}?from=${fromSectionId}`,
       date: formatDate(article.fecha),
       portrait: imageUrl ? `${imageUrl}` : undefined,
-    };
-  });
-});
+    }
+  })
+})
 </script>
 
 <template>
@@ -70,7 +71,7 @@ const formattedArticles = computed(() => {
     <ClientOnly>
       <div
         v-if="articlesPending"
-        class="w-full flex overflow-hidden max-h-[70dvh] lg:max-h-[70dvh]"
+        class="flex max-h-[70dvh] w-full overflow-hidden lg:max-h-[70dvh]"
       >
         <p class="text-lg">Cargando artículos...</p>
       </div>
@@ -91,7 +92,7 @@ const formattedArticles = computed(() => {
         </h1>
 
         <div
-          class="max-h-[80vh] overflow-y-scroll overflow-x-hidden custom-scrollbar-y gap-x-8 gap-y-1 grid grid-cols-1 pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4"
+          class="custom-scrollbar-y grid max-h-[80vh] grid-cols-1 gap-x-8 gap-y-1 overflow-x-hidden overflow-y-scroll pr-3 sm:grid-cols-2 lg:max-h-[55vh] lg:grid-cols-3 xl:grid-cols-4"
         >
           <article
             v-for="article in formattedArticles"
@@ -113,7 +114,7 @@ const formattedArticles = computed(() => {
                   </Motion>
                 </p>
                 <h2
-                  class="main__title text-oxfordBlue group-hover:text-azure transition-colors duration-300"
+                  class="main__title text-oxfordBlue transition-colors duration-300 group-hover:text-azure"
                 >
                   <Motion
                     :initial="animations.mainTitle.initial"
@@ -130,7 +131,7 @@ const formattedArticles = computed(() => {
               </div>
 
               <div
-                class="overflow-hidden shadow-sm transform group-hover:scale-[1.02] group-hover:shadow-md transition-all duration-300"
+                class="transform overflow-hidden shadow-sm transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-md"
               >
                 <Motion
                   :initial="animations.mainImage.initial"
@@ -146,16 +147,16 @@ const formattedArticles = computed(() => {
                     provider="cloudinary"
                     :src="article.portrait"
                     :alt="`Imagen del artículo ${article.title}`"
-                    class="w-full h-full object-cover"
+                    class="h-full w-full object-cover"
                     loading="lazy"
                   />
 
                   <div
                     v-else
-                    class="w-full h-full bg-gray-200 flex items-center justify-center"
+                    class="bg-gray-200 flex h-full w-full items-center justify-center"
                   >
                     <svg
-                      class="w-12 h-12 text-gray-400"
+                      class="text-gray-400 h-12 w-12"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -179,7 +180,7 @@ const formattedArticles = computed(() => {
         v-else-if="!articlesPending"
         class="container mx-auto px-6 text-center"
       >
-        <p class="text-lg text-red-500">
+        <p class="text-red-500 text-lg">
           No se encontraron artículos para mostrar.
         </p>
       </div>

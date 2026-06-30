@@ -1,89 +1,89 @@
 <script setup lang="ts">
-import { easeInOut } from "motion-v";
+import { easeInOut } from 'motion-v'
 
 const props = defineProps<{
-  imageSrc: string;
-  hasAnimated: boolean;
-  direction?: "left" | "right" | "top" | "bottom";
-  clipPathShape?: string;
-}>();
+  imageSrc: string
+  hasAnimated: boolean
+  direction?: 'left' | 'right' | 'top' | 'bottom'
+  clipPathShape?: string
+}>()
 
 // Default clip-path shape (círculo con hueco)
-const defaultClipPath = `shape(from 50% 0%, curve by -50% 50% with -27.77% 0%/-50% 22.23%, smooth by 50% 50% with 22.23% 50%, smooth by 50% -50% with 50% -22.23%, smooth by -50% -50% with -22.23% -50%, move to 50% 65.87%, curve by -16.67% -16.67% with -9.52% 0%/-16.67% -7.15%, smooth by 16.67% -16.67% with 7.15% -16.67%, smooth by 16.67% 16.67% with 16.67% 7.15%, smooth by -16.67% 16.67% with -7.15% 16.67%)`;
+const defaultClipPath = `shape(from 50% 0%, curve by -50% 50% with -27.77% 0%/-50% 22.23%, smooth by 50% 50% with 22.23% 50%, smooth by 50% -50% with 50% -22.23%, smooth by -50% -50% with -22.23% -50%, move to 50% 65.87%, curve by -16.67% -16.67% with -9.52% 0%/-16.67% -7.15%, smooth by 16.67% -16.67% with 7.15% -16.67%, smooth by 16.67% 16.67% with 16.67% 7.15%, smooth by -16.67% 16.67% with -7.15% 16.67%)`
 
-const isLandscape = ref(false);
+const isLandscape = ref(false)
 
 const updateDeviceState = () => {
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     isLandscape.value =
-      window.innerWidth >= 1024 && window.innerHeight < window.innerWidth;
+      window.innerWidth >= 1024 && window.innerHeight < window.innerWidth
   }
-};
+}
 
 onMounted(() => {
-  updateDeviceState();
-  window.addEventListener("resize", updateDeviceState);
-});
+  updateDeviceState()
+  window.addEventListener('resize', updateDeviceState)
+})
 
 onUnmounted(() => {
-  window.removeEventListener("resize", updateDeviceState);
-});
+  window.removeEventListener('resize', updateDeviceState)
+})
 
 // Container animation (shape movement)
 const containerInitial = computed(() => {
   const positions = {
-    right: { x: "100%", opacity: 0 },
-    left: { x: "-100%", opacity: 0 },
-    top: { y: "-100%", opacity: 0 },
-    bottom: { y: "100%", opacity: 0 },
-  };
-  return positions[props.direction || "right"];
-});
+    right: { x: '100%', opacity: 0 },
+    left: { x: '-100%', opacity: 0 },
+    top: { y: '-100%', opacity: 0 },
+    bottom: { y: '100%', opacity: 0 },
+  }
+  return positions[props.direction || 'right']
+})
 
 const containerAnimate = computed(() => {
   // In landscape/desktop, we want the circle's center to be on the right edge (translateX(50%))
   // so the right half is hidden.
   return {
-    x: "50%",
+    x: '50%',
     y: 0,
     opacity: 1,
-  };
-});
+  }
+})
 
 const containerTransition = {
   duration: 2,
   delay: 1.5,
   ease: easeInOut,
-};
+}
 
 // Background animation (image movement - opposite direction)
 const backgroundInitial = computed(() => {
   // We start shifted to one side
   const positions = {
-    right: { backgroundPosition: "0% 50%" },
-    left: { backgroundPosition: "100% 50%" },
-    top: { backgroundPosition: "50% 100%" },
-    bottom: { backgroundPosition: "50% 0%" },
-  };
-  return positions[props.direction || "right"];
-});
+    right: { backgroundPosition: '0% 50%' },
+    left: { backgroundPosition: '100% 50%' },
+    top: { backgroundPosition: '50% 100%' },
+    bottom: { backgroundPosition: '50% 0%' },
+  }
+  return positions[props.direction || 'right']
+})
 
 const backgroundAnimate = computed(() => {
   // Move to the opposite side to create the parallax effect
   const positions = {
-    right: { backgroundPosition: "100% 50%" },
-    left: { backgroundPosition: "0% 50%" },
-    top: { backgroundPosition: "50% 0%" },
-    bottom: { backgroundPosition: "50% 100%" },
-  };
-  return positions[props.direction || "right"];
-});
+    right: { backgroundPosition: '100% 50%' },
+    left: { backgroundPosition: '0% 50%' },
+    top: { backgroundPosition: '50% 0%' },
+    bottom: { backgroundPosition: '50% 100%' },
+  }
+  return positions[props.direction || 'right']
+})
 
 const backgroundTransition = {
   duration: 2,
   delay: 1.5,
   ease: easeInOut,
-};
+}
 </script>
 
 <template>

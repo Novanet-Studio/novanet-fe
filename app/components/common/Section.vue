@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { animations } from "~/utils/animations";
-import { useSectionObserver } from "~/composables/useSectionObserver";
+import { animations } from '~/utils/animations'
+import { useSectionObserver } from '~/composables/useSectionObserver'
 
-import CompositeVisual from "~/components/common/CompositeVisual.vue";
-import EmblemBackground from "~/components/common/EmblemBackground.vue";
+import CompositeVisual from '~/components/common/CompositeVisual.vue'
+import EmblemBackground from '~/components/common/EmblemBackground.vue'
 
-const props = defineProps<{ content: any; others?: any }>();
-const { hasBeenAnimated, scrollToSection } = useSectionObserver();
+const props = defineProps<{ content: any; others?: any }>()
+const { hasBeenAnimated, scrollToSection } = useSectionObserver()
 
-const emblemModifierSource = props.others?.emblemModifierSource || {};
+const emblemModifierSource = props.others?.emblemModifierSource || {}
 </script>
 
 <template>
@@ -47,7 +47,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     <div
       :class="[
         `flex flex-col gap-4 lg:gap-6`,
-        item.showTabs ? 'lg:w-[66.6666666%]' : 'portrait-lg:w-full lg:w-2/4',
+        item.showTabs ? 'lg:w-[66.6666666%]' : 'lg:w-2/4 portrait-lg:w-full',
       ]"
     >
       <Motion
@@ -91,7 +91,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
           <div
             v-if="item.serviceIcon"
             v-html="item.serviceIcon"
-            class="icon-svg w-9 ml-2"
+            class="icon-svg ml-2 w-9"
           ></div>
         </div>
       </Motion>
@@ -176,14 +176,14 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
         "
         :transition="{ ...animations.ThirdElement.transition }"
       >
-        <div class="lista flex flex-col gap-2 pt-2 md:pt-[unset] md:flex-row">
+        <div class="lista flex flex-col gap-2 pt-2 md:flex-row md:pt-[unset]">
           <a
             v-if="item.list"
             v-for="(listItem, listIndex) in item.list"
             :key="listIndex"
             :href="`#${listItem.targetSection}`"
             :class="[
-              `flex flex-wrap w-fit pr-6 hover:text-oxfordBlue hover:font-bold transition-all`,
+              `flex w-fit flex-wrap pr-6 transition-all hover:font-bold hover:text-oxfordBlue`,
               item.listColor,
             ]"
             @click.prevent="scrollToSection(listItem.targetSection)"
@@ -202,7 +202,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
     <div
       v-if="item.visualLayers || item.HeroImage"
       :class="[
-        `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4`,
+        `flex lg:h-full lg:flex-col xl:w-2/4 portrait-lg:h-[unset]`,
         item.justifyEndImage ? 'justify-end' : 'justify-center',
       ]"
     >
@@ -233,7 +233,7 @@ const emblemModifierSource = props.others?.emblemModifierSource || {};
           :src="item.HeroImage"
           :alt="`Imagen princpal de ${item.name}`"
           :class="[
-            'justify-self-center 2xs:block 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[100%]',
+            'justify-self-center md:!w-[120%] lg:!w-[110%] xl:!w-[100%] 3xs:w-[120%] 2xs:block 2xs:w-[150%] xs:w-[140%] portrait-lg:!w-[150%]',
             item.HideOn3xs ? '3xs:hidden' : '',
           ]"
         />

@@ -1,93 +1,93 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { useToast } from "~/composables/useToast";
+import { ref, reactive } from 'vue'
+import { useToast } from '~/composables/useToast'
 
-const props = defineProps<{ content: any }>();
+const props = defineProps<{ content: any }>()
 
-const { showToast } = useToast();
+const { showToast } = useToast()
 
-const MIN_MESSAGE_LENGTH = 10;
-const MAX_MESSAGE_LENGTH = 500;
+const MIN_MESSAGE_LENGTH = 10
+const MAX_MESSAGE_LENGTH = 500
 
-const isSubmitting = ref(false);
+const isSubmitting = ref(false)
 
 const form = ref({
-  "bot-field": "",
-  email: "",
-  message: "",
-});
+  'bot-field': '',
+  email: '',
+  message: '',
+})
 
 const errors = reactive({
-  email: "",
-  message: "",
-});
+  email: '',
+  message: '',
+})
 
 function validateForm(): boolean {
-  errors.email = "";
-  errors.message = "";
+  errors.email = ''
+  errors.message = ''
 
   if (!form.value.email) {
-    errors.email = "El correo electrónico es obligatorio.";
+    errors.email = 'El correo electrónico es obligatorio.'
   } else if (
     !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(form.value.email)
   ) {
-    errors.email = "Por favor, introduce un correo electrónico válido.";
+    errors.email = 'Por favor, introduce un correo electrónico válido.'
   }
 
   if (!form.value.message) {
-    errors.message = "El mensaje es obligatorio.";
+    errors.message = 'El mensaje es obligatorio.'
   } else if (form.value.message.length < MIN_MESSAGE_LENGTH) {
-    errors.message = `El mensaje debe tener al menos ${MIN_MESSAGE_LENGTH} caracteres.`;
+    errors.message = `El mensaje debe tener al menos ${MIN_MESSAGE_LENGTH} caracteres.`
   } else if (form.value.message.length > MAX_MESSAGE_LENGTH) {
-    errors.message = `El mensaje no puede exceder los ${MAX_MESSAGE_LENGTH} caracteres.`;
+    errors.message = `El mensaje no puede exceder los ${MAX_MESSAGE_LENGTH} caracteres.`
   }
 
-  return !errors.email && !errors.message;
+  return !errors.email && !errors.message
 }
 
 const encode = (data: Record<string, any>) => {
   return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
 async function handleSubmit() {
   if (!validateForm()) {
-    showToast("Por favor, corrige los errores en el formulario.", "error");
-    return;
+    showToast('Por favor, corrige los errores en el formulario.', 'error')
+    return
   }
 
-  isSubmitting.value = true;
+  isSubmitting.value = true
 
   try {
     const formData = encode({
-      "form-name": "contact-form",
+      'form-name': 'contact-form',
       ...form.value,
-    });
+    })
 
-    const response = await fetch("/contact-form-netlify.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    const response = await fetch('/contact-form-netlify.html', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: formData,
-    });
+    })
 
     if (!response.ok) {
-      throw new Error("Error en la respuesta del servidor");
+      throw new Error('Error en la respuesta del servidor')
     }
 
-    showToast("¡Mensaje enviado con éxito!", "success");
+    showToast('¡Mensaje enviado con éxito!', 'success')
 
-    form.value.email = "";
-    form.value.message = "";
-    form.value["bot-field"] = "";
+    form.value.email = ''
+    form.value.message = ''
+    form.value['bot-field'] = ''
   } catch (error) {
-    console.error(error);
+    console.error(error)
     showToast(
-      "Hubo un problema al enviar el mensaje. Inténtalo de nuevo.",
-      "error"
-    );
+      'Hubo un problema al enviar el mensaje. Inténtalo de nuevo.',
+      'error',
+    )
   } finally {
-    isSubmitting.value = false;
+    isSubmitting.value = false
   }
 }
 </script>
@@ -116,7 +116,7 @@ async function handleSubmit() {
         :class="[
           content.formFieldBorder,
           content.placeHolderColor,
-          { 'border-raspberry !border-b-2': errors.email },
+          { '!border-b-2 border-raspberry': errors.email },
           'resize-none outline-none focus:bg-azure/5',
         ]"
         placeholder="Email"
@@ -125,7 +125,7 @@ async function handleSubmit() {
         v-model="form.email"
         type="email"
       />
-      <p v-if="errors.email" class="text-raspberry text-sm mb-1">
+      <p v-if="errors.email" class="mb-1 text-sm text-raspberry">
         {{ errors.email }}
       </p>
     </div>
@@ -134,7 +134,7 @@ async function handleSubmit() {
         :class="[
           content.formFieldBorder,
           content.placeHolderColor,
-          { 'border-raspberry !border-b-2': errors.message },
+          { '!border-b-2 border-raspberry': errors.message },
           'resize-none outline-none focus:bg-azure/5',
         ]"
         placeholder="Mensaje"
@@ -143,7 +143,7 @@ async function handleSubmit() {
         v-model="form.message"
         rows="2"
       ></textarea>
-      <p v-if="errors.message" class="text-raspberry text-sm mb-1">
+      <p v-if="errors.message" class="mb-1 text-sm text-raspberry">
         {{ errors.message }}
       </p>
     </div>

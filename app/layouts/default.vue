@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useSectionObserver } from "~/composables/useSectionObserver";
+import { useSectionObserver } from '~/composables/useSectionObserver'
 
-const { currentColor, currentEmblemColor } = useSectionObserver();
+const { currentColor, currentEmblemColor } = useSectionObserver()
 </script>
 
 <template>

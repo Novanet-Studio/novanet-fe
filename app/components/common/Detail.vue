@@ -1,47 +1,47 @@
 <script setup lang="ts">
 interface DetailData {
-  title: string;
-  date: string;
-  portrait?: string;
-  topContentImage?: string;
-  shortDescription?: string;
-  fullContent: string;
+  title: string
+  date: string
+  portrait?: string
+  topContentImage?: string
+  shortDescription?: string
+  fullContent: string
   backLink: {
-    url: string;
-    text: string;
-  };
+    url: string
+    text: string
+  }
 }
 
 interface DetailStyleProps {
-  bgClass: string;
-  titleClass: string;
-  dateClass: string;
-  textClass: string;
-  linkClass: string;
-  article?: boolean;
+  bgClass: string
+  titleClass: string
+  dateClass: string
+  textClass: string
+  linkClass: string
+  article?: boolean
 }
 
 const props = defineProps<{
-  data: DetailData;
-  styles: DetailStyleProps;
-}>();
+  data: DetailData
+  styles: DetailStyleProps
+}>()
 </script>
 
 <template>
   <div
-    class="h-full grid grid-cols-1 gap-6 items-start overflow-y-scroll lg:grid-cols-[1fr_2fr] xl:overflow-hidden"
+    class="grid h-full grid-cols-1 items-start gap-6 overflow-y-scroll lg:grid-cols-[1fr_2fr] xl:overflow-hidden"
   >
     <div
       :class="[
         styles.article
-          ? 'flex flex-col gap-1 md:flex-row-reverse md:gap-5 lg:flex-col lg:gap-3 lg:h-[75vh] xl:h-[66vh]'
-          : 'flex flex-col gap-1 lg:gap-3 lg:h-[75vh] xl:h-[66vh]',
+          ? 'flex flex-col gap-1 md:flex-row-reverse md:gap-5 lg:h-[75vh] lg:flex-col lg:gap-3 xl:h-[66vh]'
+          : 'flex flex-col gap-1 lg:h-[75vh] lg:gap-3 xl:h-[66vh]',
       ]"
     >
       <div
         :class="[
           styles.article
-            ? 'flex flex-col gap-2 justify-center'
+            ? 'flex flex-col justify-center gap-2'
             : 'flex flex-col gap-2',
         ]"
       >
@@ -115,7 +115,7 @@ const props = defineProps<{
             provider="cloudinary"
             :src="data.portrait"
             :alt="`Imagen del proyecto ${data.title}`"
-            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+            class="h-full w-full transform object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
             loading="lazy"
           />
         </div>
@@ -130,7 +130,7 @@ const props = defineProps<{
       :transition="{ ...animations.description.transition }"
     >
       <div
-        class="w-full portrait-lg:!h-[82vh] lg:h-[75vh] xl:h-[72vh] 2xl:h-[74vh]"
+        class="w-full lg:h-[75vh] xl:h-[72vh] 2xl:h-[74vh] portrait-lg:!h-[82vh]"
       >
         <div
           v-html="
@@ -140,7 +140,7 @@ const props = defineProps<{
             })
           "
           :class="[
-            'detail flex flex-col gap-4 w-full h-full overflow-y-auto pr-0 custom-scrollbar-y lg:pr-6',
+            'detail custom-scrollbar-y flex h-full w-full flex-col gap-4 overflow-y-auto pr-0 lg:pr-6',
             styles.textClass,
           ]"
         />

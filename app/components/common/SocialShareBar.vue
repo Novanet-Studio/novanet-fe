@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { content } = defineProps<{ content: any }>();
+const { content } = defineProps<{ content: any }>()
 </script>
 
 <template>

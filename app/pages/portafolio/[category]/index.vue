@@ -1,6 +1,6 @@
 <script setup lang="ts">
 onMounted(() => {
-  navigateTo({ path: "/portafolio" }, { external: false });
-});
+  navigateTo({ path: '/portafolio' }, { external: false })
+})
 </script>
 <template></template>

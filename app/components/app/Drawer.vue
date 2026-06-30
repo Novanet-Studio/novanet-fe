@@ -1,44 +1,44 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch } from 'vue'
 
-import { useNavigationLinks } from "~/composables/useNavigationLinks";
-import { colorMap } from "~/utils/colorMap";
-import { animations } from "~/utils/animations";
-import type { COLORS_MAP_KEYS } from "~/types";
+import { useNavigationLinks } from '~/composables/useNavigationLinks'
+import { colorMap } from '~/utils/colorMap'
+import { animations } from '~/utils/animations'
+import type { COLORS_MAP_KEYS } from '~/types'
 
 const props = defineProps<{
-  color: COLORS_MAP_KEYS;
-  emblemColor: COLORS_MAP_KEYS;
-}>();
-const active = ref("Inicio");
-const isOpen = ref(false);
+  color: COLORS_MAP_KEYS
+  emblemColor: COLORS_MAP_KEYS
+}>()
+const active = ref('Inicio')
+const isOpen = ref(false)
 
-const { navigationLinks } = useNavigationLinks();
+const { navigationLinks } = useNavigationLinks()
 
 function drawer() {
-  isOpen.value = !isOpen.value;
+  isOpen.value = !isOpen.value
 }
 
 function setActive(linkName: string) {
-  active.value = linkName;
+  active.value = linkName
 }
 
 watch(
   isOpen,
   (val) => {
     if (process.client) {
-      if (val) document.body.style.setProperty("overflow", "hidden");
-      else document.body.style.removeProperty("overflow");
+      if (val) document.body.style.setProperty('overflow', 'hidden')
+      else document.body.style.removeProperty('overflow')
     }
   },
-  { immediate: true }
-);
+  { immediate: true },
+)
 
 onMounted(() => {
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if (e.key === "Escape" && isOpen.value) isOpen.value = false;
-  });
-});
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen.value) isOpen.value = false
+  })
+})
 </script>
 
 <template>
@@ -48,10 +48,10 @@ onMounted(() => {
     :animate="animations.header.animate"
     :transition="{ ...animations.header.transition }"
   >
-    <div class="fixed top-[5dvh] lg:top-[7dvh] right-6 md:hidden z-50">
+    <div class="fixed right-6 top-[5dvh] z-50 md:hidden lg:top-[7dvh]">
       <button @click="drawer" aria-label="Toggle Menu">
         <svg
-          class="h-8 w-8 fill-current text-black"
+          class="fill-current text-black h-8 w-8"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -81,11 +81,11 @@ onMounted(() => {
     <div
       @keydown.esc="isOpen = false"
       v-show="isOpen"
-      class="z-10 fixed inset-0 transition-opacity"
+      class="fixed inset-0 z-10 transition-opacity"
     >
       <div
         @click="isOpen = false"
-        class="absolute inset-0 bg-black opacity-50"
+        class="bg-black absolute inset-0 opacity-50"
         tabindex="0"
       ></div>
     </div>
@@ -93,20 +93,20 @@ onMounted(() => {
 
   <!-- Menu (Móvil) -->
   <aside
-    class="flex flex-col fixed w-2/5 top-0 right-0 h-screen pt-8 pl-6 pr-4 bg-eerieBlack overflow-auto transform ease-in-out transition-all duration-300 z-50"
+    class="fixed right-0 top-0 z-50 flex h-screen w-2/5 transform flex-col overflow-auto bg-eerieBlack pl-6 pr-4 pt-8 transition-all duration-300 ease-in-out"
     :class="isOpen ? 'translate-x-0' : 'translate-x-full transition-transform'"
   >
     <div class="close">
       <button class="flex w-full justify-end" @click="isOpen = false">
         <Icon
           name="fa7-solid:close"
-          class="text-raspberry text-xl md:text-2xl lg:text-2xl"
+          class="text-xl text-raspberry md:text-2xl lg:text-2xl"
         />
       </button>
     </div>
 
     <ul
-      class="flex flex-col gap-5 text-[1rem] leading-[1.125rem] mt-8 text-columbiaBlue hover:bottom-1"
+      class="mt-8 flex flex-col gap-5 text-[1rem] leading-[1.125rem] text-columbiaBlue hover:bottom-1"
     >
       <li v-for="(item, index) in navigationLinks" :key="index">
         <NuxtLink
@@ -114,7 +114,7 @@ onMounted(() => {
           :class="[
             'flex justify-start focus:outline-none',
             $route.path === item.link
-              ? 'underline decoration-azure underline-offset-8 text-azure'
+              ? 'text-azure underline decoration-azure underline-offset-8'
               : '',
           ]"
           @click="isOpen = false"
@@ -125,13 +125,13 @@ onMounted(() => {
     </ul>
 
     <!-- Social Media Icons (Mobile) -->
-    <div class="flex flex-col mt-auto text-columbiaBlue">
-      <p class="text-[0.875rem] leading-[1.375rem] mb-4">
+    <div class="mt-auto flex flex-col text-columbiaBlue">
+      <p class="mb-4 text-[0.875rem] leading-[1.375rem]">
         Creatividad Innovación Colaboración
         <b class="text-azure">Novanet Studio</b>
       </p>
 
-      <div class="flex gap-2 w-full h-9 text-azure">
+      <div class="flex h-9 w-full gap-2 text-azure">
         <a
           href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA"
           target="_blank"

@@ -1,56 +1,56 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed } from 'vue'
 
-const { hasBeenAnimated } = useSectionObserver();
+const { hasBeenAnimated } = useSectionObserver()
 
-const props = defineProps<{ content: any; others?: any }>();
-const emblemModifierSource = props.others?.emblemModifierSource || {};
+const props = defineProps<{ content: any; others?: any }>()
+const emblemModifierSource = props.others?.emblemModifierSource || {}
 
-const { initObserver } = useSectionObserver();
+const { initObserver } = useSectionObserver()
 
-const { getRecentProjects } = usePortfolio();
+const { getRecentProjects } = usePortfolio()
 const { data: projects, pending: projectsPending } = await useAsyncData(
-  "recent-projects",
+  'recent-projects',
   async () => {
-    const response = await getRecentProjects();
+    const response = await getRecentProjects()
 
-    return response.status === "ok" ? response.data : [];
+    return response.status === 'ok' ? response.data : []
   },
-  { lazy: true }
-);
+  { lazy: true },
+)
 
 watch(projectsPending, (isPending) => {
   if (!isPending) {
     nextTick(() => {
-      initObserver();
-    });
+      initObserver()
+    })
   }
-});
+})
 
 const viewerContent = computed(() => {
   if (!projects.value || projects.value.length === 0) {
-    return null;
+    return null
   }
 
-  const fromSectionId = props.content.name;
+  const fromSectionId = props.content.name
 
   const mappedItems = projects.value.map((project: any) => {
-    const imageUrl = project.miniatura.url;
+    const imageUrl = project.miniatura
 
     return {
       title: project.titulo,
       description: project.descripcionCorta,
       cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
       portrait: imageUrl ? `${imageUrl}` : undefined,
-    };
-  });
+    }
+  })
 
   return {
     ...props.content,
     sectionName: props.content.name,
     items: mappedItems,
-  };
-});
+  }
+})
 </script>
 
 <template>
@@ -75,7 +75,7 @@ const viewerContent = computed(() => {
     <ClientOnly>
       <div
         v-if="projectsPending"
-        class="w-full min-h-screen flex items-center justify-center bg-oxfordBlue"
+        class="flex min-h-screen w-full items-center justify-center bg-oxfordBlue"
       >
         <p class="text-white text-lg">Cargando proyectos recientes...</p>
       </div>
@@ -84,7 +84,7 @@ const viewerContent = computed(() => {
 
       <div
         v-else
-        class="w-full min-h-screen flex items-center justify-center bg-oxfordBlue"
+        class="flex min-h-screen w-full items-center justify-center bg-oxfordBlue"
       >
         <p class="text-white text-lg">
           No hay proyectos recientes para mostrar.

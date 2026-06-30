@@ -1,50 +1,50 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { formatDate } from "~/utils/functions";
+import { computed } from 'vue'
+import { formatDate } from '~/utils/functions'
 
-const { hasBeenAnimated } = useSectionObserver();
+const { hasBeenAnimated } = useSectionObserver()
 
-const props = defineProps<{ content: any; others?: any }>();
-const emblemModifierSource = props.others?.emblemModifierSource || {};
+const props = defineProps<{ content: any; others?: any }>()
+const emblemModifierSource = props.others?.emblemModifierSource || {}
 
-const { getRecentArticles } = useBlog();
+const { getRecentArticles } = useBlog()
 const { data: articles, pending: articlesPending } = await useAsyncData(
-  "recent-articles",
+  'recent-articles',
   async () => {
-    const response = await getRecentArticles();
+    const response = await getRecentArticles()
 
-    return response.status === "ok" ? response.data : [];
+    return response.status === 'ok' ? response.data : []
   },
-  { lazy: true }
-);
+  { lazy: true },
+)
 
 const viewerContent = computed(() => {
   if (!articles.value || articles.value.length === 0) {
-    return null;
+    return null
   }
 
   const mappedItems = articles.value.map((article: any) => {
-    const fromSectionId = props.content.name;
+    const fromSectionId = props.content.name
 
-    const imageUrl = article.imagen[0]?.url;
+    const imageUrl = article.imagen
 
     return {
       title: article.titulo,
       description: article.descripcionCorta,
       date: formatDate(article.fecha),
       cta_route: `/blog/${article.tag
-        .slice(0, article.tag.indexOf(","))
-        .replaceAll(" ", "-")}/${article.slug}?from=${fromSectionId}`,
+        .slice(0, article.tag.indexOf(','))
+        .replaceAll(' ', '-')}/${article.slug}?from=${fromSectionId}`,
       portrait: imageUrl ? `${imageUrl}` : undefined,
-    };
-  });
+    }
+  })
 
   return {
     ...props.content,
     sectionName: props.content.name,
     items: mappedItems,
-  };
-});
+  }
+})
 </script>
 
 <template>
@@ -68,18 +68,18 @@ const viewerContent = computed(() => {
     <ClientOnly>
       <div
         v-if="articlesPending"
-        class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
+        class="flex min-h-screen w-full items-center justify-center bg-columbiaBlue"
       >
-        <p class="text-oxfordBlue text-lg">Cargando artículos...</p>
+        <p class="text-lg text-oxfordBlue">Cargando artículos...</p>
       </div>
 
       <CommonViewer v-else-if="viewerContent" :content="viewerContent" />
 
       <div
         v-else
-        class="w-full min-h-screen flex items-center justify-center bg-columbiaBlue"
+        class="flex min-h-screen w-full items-center justify-center bg-columbiaBlue"
       >
-        <p class="text-oxfordBlue text-lg">
+        <p class="text-lg text-oxfordBlue">
           No hay artículos recientes para mostrar.
         </p>
       </div>

@@ -1,85 +1,85 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 
-const { initObserver } = useSectionObserver();
+const { initObserver } = useSectionObserver()
 
-const route = useRoute();
-const slug = route.params.slug as string;
+const route = useRoute()
+const slug = route.params.slug as string
 
-const { getProjectBySlug } = usePortfolio();
+const { getProjectBySlug } = usePortfolio()
 
 const { data: project, pending } = await useAsyncData(
   `project-${slug}`,
   async () => {
-    const response = await getProjectBySlug(slug);
-    return response.status === "ok" && response.data.length > 0
+    const response = await getProjectBySlug(slug)
+    return response.status === 'ok' && response.data.length > 0
       ? response.data[0]
-      : null;
-  }
-);
+      : null
+  },
+)
 
 onMounted(() => {
   nextTick(() => {
-    initObserver();
-  });
-});
+    initObserver()
+  })
+})
 
 useHead(() => {
-  if (pending.value) return { title: "Cargando Proyecto..." };
+  if (pending.value) return { title: 'Cargando Proyecto...' }
   if (project.value) {
     let metadata: any = [
       {
-        property: "og:title",
+        property: 'og:title',
         content: `${project.value.titulo} | Novanet Studio`,
       },
-    ];
+    ]
 
     if (project.value.descripcionCorta) {
       metadata = [
         ...metadata,
         {
-          property: "og:description",
+          property: 'og:description',
           content: project.value.descripcionCorta,
         },
         {
-          name: "description",
+          name: 'description',
           content: project.value.descripcionCorta,
         },
-      ];
+      ]
     }
 
-    if (project.value.miniatura?.url)
+    if (project.value.miniatura)
       metadata.push({
-        property: "og:image",
-        content: project.value.miniatura.url,
-      });
+        property: 'og:image',
+        content: project.value.miniatura,
+      })
 
     return {
       title: `${project.value.titulo} | Novanet Studio`,
       meta: metadata,
-    };
+    }
   }
 
-  return { title: "Proyecto no encontrado" };
-});
+  return { title: 'Proyecto no encontrado' }
+})
 
 const projectDetailStyles = {
-  bgClass: "bg-oxfordBlue",
-  titleClass: "text-columbiaBlue",
-  dateClass: "text-azure",
-  textClass: "text-columbiaBlue",
-  linkClass: "text-azure",
-};
+  bgClass: 'bg-oxfordBlue',
+  titleClass: 'text-columbiaBlue',
+  dateClass: 'text-azure',
+  textClass: 'text-columbiaBlue',
+  linkClass: 'text-azure',
+}
 
 const projectDetailData = computed(() => {
-  if (!project.value) return null;
+  if (!project.value) return null
 
-  const fromSection = route.query.from as string | undefined;
+  const fromSection = route.query.from as string | undefined
 
-  const backUrl = fromSection ? `/portafolio#${fromSection}` : "/portafolio";
+  const backUrl = fromSection ? `/portafolio#${fromSection}` : '/portafolio'
 
-  const imageUrl = project.value.miniatura.url;
+  const imageUrl = project.value.miniatura
 
   return {
     title: project.value.titulo,
@@ -89,10 +89,10 @@ const projectDetailData = computed(() => {
     fullContent: project.value.descripcion,
     backLink: {
       url: backUrl,
-      text: "Volver al portafolio",
+      text: 'Volver al portafolio',
     },
-  };
-});
+  }
+})
 </script>
 
 <template>
@@ -100,11 +100,11 @@ const projectDetailData = computed(() => {
     <section
       id="project-detail"
       data-color="columbiaBlue"
-      class="bg-oxfordBlue w-full flex justify-center items-center pt-20 pb-20 xs:pt-24 xs:pb-16 md:!pb-20 portrait-lg:!pt-32 lg:!pt-28 lg:!pb-24 3xl:!pt-32 3xl:!pb-20"
+      class="flex w-full items-center justify-center bg-oxfordBlue pb-20 pt-20 md:!pb-20 lg:!pb-24 lg:!pt-28 xs:pb-16 xs:pt-24 3xl:!pb-20 3xl:!pt-32 portrait-lg:!pt-32"
     >
       <ClientOnly>
         <div v-if="pending" class="text-center">
-          <p class="text-columbiaBlue text-2xl">Cargando proyecto...</p>
+          <p class="text-2xl text-columbiaBlue">Cargando proyecto...</p>
         </div>
 
         <CommonDetail
@@ -113,14 +113,14 @@ const projectDetailData = computed(() => {
           :styles="projectDetailStyles"
         />
 
-        <div v-else class="text-center bg-white p-10 rounded-lg shadow-xl">
-          <h1 class="font-bold text-oxfordBlue text-5xl">404</h1>
-          <p class="text-gray-700 text-xl mt-2">
+        <div v-else class="bg-white rounded-lg p-10 text-center shadow-xl">
+          <h1 class="text-5xl font-bold text-oxfordBlue">404</h1>
+          <p class="text-gray-700 mt-2 text-xl">
             El proyecto que buscas no existe.
           </p>
           <NuxtLink
             to="/portafolio"
-            class="inline-block mt-6 px-6 py-2 bg-azure text-white rounded font-semibold hover:bg-opacity-80"
+            class="text-white hover:bg-opacity-80 mt-6 inline-block rounded bg-azure px-6 py-2 font-semibold"
           >
             Volver al portafolio
           </NuxtLink>

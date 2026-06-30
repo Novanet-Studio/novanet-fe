@@ -1,68 +1,68 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
-import { colorMap } from "~/utils/colorMap";
-import { animations } from "~/utils/animations";
-import type { COLORS_MAP_KEYS } from "~/types";
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { colorMap } from '~/utils/colorMap'
+import { animations } from '~/utils/animations'
+import type { COLORS_MAP_KEYS } from '~/types'
 
 const props = defineProps<{
-  color: COLORS_MAP_KEYS;
-  emblemColor: COLORS_MAP_KEYS;
-}>();
+  color: COLORS_MAP_KEYS
+  emblemColor: COLORS_MAP_KEYS
+}>()
 
-const active = ref("Inicio");
-const isOpen = ref(false);
-const route = useRoute();
+const active = ref('Inicio')
+const isOpen = ref(false)
+const route = useRoute()
 
-const { navigationLinks } = useNavigationLinks();
+const { navigationLinks } = useNavigationLinks()
 
 function setActive(linkName: string) {
-  active.value = linkName;
+  active.value = linkName
 }
 
 watch(
   () => route.path,
   (newPath) => {
-    let bestMatch = null;
+    let bestMatch = null
     for (const link of navigationLinks) {
       if (newPath.startsWith(link.link)) {
         if (!bestMatch || link.link.length > bestMatch.link.length) {
-          bestMatch = link;
+          bestMatch = link
         }
       }
     }
     if (bestMatch) {
-      active.value = bestMatch.name;
+      active.value = bestMatch.name
     }
   },
-  { immediate: true }
-);
+  { immediate: true },
+)
 
 watch(
   isOpen,
   (val) => {
     if (import.meta.client) {
-      if (val) document.body.style.setProperty("overflow", "hidden");
-      else document.body.style.removeProperty("overflow");
+      if (val) document.body.style.setProperty('overflow', 'hidden')
+      else document.body.style.removeProperty('overflow')
     }
   },
-  { immediate: true }
-);
+  { immediate: true },
+)
 
 onMounted(() => {
-  document.addEventListener("keydown", (e: KeyboardEvent) => {
-    if (e.key === "Escape" && isOpen.value) isOpen.value = false;
-  });
-});
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Escape' && isOpen.value) isOpen.value = false
+  })
+})
 </script>
 
 <template>
   <header
-    class="fixed w-full px-6 md:px-9 lg:px-12 top-[5dvh] lg:top-[7dvh] bg-transparent transition-colors z-30"
+    class="bg-transparent fixed top-[5dvh] z-30 w-full px-6 transition-colors md:px-9 lg:top-[7dvh] lg:px-12"
     :style="{ color: colorMap[emblemColor] || colorMap[color] || '#fff' }"
   >
     <nav
-      class="mx-auto h-full flex flex-column flex-wrap content-center justify-between"
+      class="flex-column mx-auto flex h-full flex-wrap content-center justify-between"
       aria-label="Global"
     >
       <Motion
@@ -91,7 +91,7 @@ onMounted(() => {
         </div>
       </Motion>
 
-      <div class="hidden lg:justify-end md:flex">
+      <div class="hidden md:flex lg:justify-end">
         <ul class="flex list-none md:justify-end md:gap-10 lg:lg:gap-12">
           <li v-for="(item, index) in navigationLinks" :key="index">
             <NuxtLink
@@ -100,7 +100,7 @@ onMounted(() => {
               :class="[
                 active === item.name
                   ? `border-b-2`
-                  : 'border-b-2 border-transparent',
+                  : 'border-transparent border-b-2',
                 `hover:border-b-2`,
               ]"
               :style="{

@@ -1,68 +1,68 @@
 <script setup lang="ts">
-import { useSectionObserver } from "~/composables/useSectionObserver";
-import { animations } from "~/utils/animations";
-import type { COLORS_MAP_KEYS } from "./types";
+import { useSectionObserver } from '~/composables/useSectionObserver'
+import { animations } from '~/utils/animations'
+import type { COLORS_MAP_KEYS } from './types'
 
 const ERROR_MAIN_INFO: {
-  title: string;
-  description: string;
-  image?: string;
+  title: string
+  description: string
+  image?: string
 } = {
-  title: "Página no encontrada",
-  description: "Lo sentimos. No encontramos la página que estás buscando",
-  image: "images/novanet-studio-og-inicio.webp",
-};
+  title: 'Página no encontrada',
+  description: 'Lo sentimos. No encontramos la página que estás buscando',
+  image: 'images/novanet-studio-og-inicio.webp',
+}
 
 useHead(() => {
   return {
-    title: ERROR_MAIN_INFO.title + " | Novanet Studio",
+    title: ERROR_MAIN_INFO.title + ' | Novanet Studio',
     meta: [
       {
-        name: "description",
+        name: 'description',
         content: ERROR_MAIN_INFO.description,
       },
-      { property: "og:title", content: ERROR_MAIN_INFO.title },
-      { property: "og:description", content: ERROR_MAIN_INFO.description },
-      { property: "og:image", content: ERROR_MAIN_INFO.image },
-      { name: "twitter:card", content: ERROR_MAIN_INFO.image },
-      { name: "twitter:title", content: ERROR_MAIN_INFO.title },
-      { name: "twitter:description", content: ERROR_MAIN_INFO.description },
-      { name: "twitter:image", content: ERROR_MAIN_INFO.image },
+      { property: 'og:title', content: ERROR_MAIN_INFO.title },
+      { property: 'og:description', content: ERROR_MAIN_INFO.description },
+      { property: 'og:image', content: ERROR_MAIN_INFO.image },
+      { name: 'twitter:card', content: ERROR_MAIN_INFO.image },
+      { name: 'twitter:title', content: ERROR_MAIN_INFO.title },
+      { name: 'twitter:description', content: ERROR_MAIN_INFO.description },
+      { name: 'twitter:image', content: ERROR_MAIN_INFO.image },
     ],
-  };
-});
+  }
+})
 
 const error: {
-  alignCenter: boolean;
-  bgColor: string;
-  bgImage: string;
-  color: string;
-  dataColor: COLORS_MAP_KEYS;
-  description: string;
-  HeroImage: string;
-  justifyContent: boolean;
-  justifyEndImage?: boolean;
-  name: string;
-  title: string;
-  titleColor: string;
+  alignCenter: boolean
+  bgColor: string
+  bgImage: string
+  color: string
+  dataColor: COLORS_MAP_KEYS
+  description: string
+  HeroImage: string
+  justifyContent: boolean
+  justifyEndImage?: boolean
+  name: string
+  title: string
+  titleColor: string
 }[] = [
   {
     alignCenter: true,
-    bgColor: "bg-chartreuse",
-    bgImage: "background-emblem-blog",
-    color: "text-oxfordBlue",
-    dataColor: "azure",
+    bgColor: 'bg-chartreuse',
+    bgImage: 'background-emblem-blog',
+    color: 'text-oxfordBlue',
+    dataColor: 'azure',
     description: ERROR_MAIN_INFO.description,
-    HeroImage: "images/novanet-studio-404-joven-binoculares.webp",
+    HeroImage: 'images/novanet-studio-404-joven-binoculares.webp',
     justifyContent: true,
-    name: "Error",
-    title: "Página no encontrada",
-    titleColor: "text-oxfordBlue",
+    name: 'Error',
+    title: 'Página no encontrada',
+    titleColor: 'text-oxfordBlue',
   },
-];
+]
 
-const currentColor: COLORS_MAP_KEYS = "oxfordBlue";
-const emblemColor: COLORS_MAP_KEYS = "oxfordBlue";
+const currentColor: COLORS_MAP_KEYS = 'oxfordBlue'
+const emblemColor: COLORS_MAP_KEYS = 'oxfordBlue'
 </script>
 
 <template>
@@ -88,7 +88,7 @@ const emblemColor: COLORS_MAP_KEYS = "oxfordBlue";
         >
           <div
             :class="[
-              `flex flex-col gap-4 lg:gap-6 portrait-lg:w-full lg:w-2/4`,
+              `flex flex-col gap-4 lg:w-2/4 lg:gap-6 portrait-lg:w-full`,
             ]"
           >
             <Motion
@@ -120,7 +120,7 @@ const emblemColor: COLORS_MAP_KEYS = "oxfordBlue";
           <div
             v-if="item.HeroImage"
             :class="[
-              `flex lg:flex-col portrait-lg:h-[unset] lg:h-full xl:w-2/4 justify-center`,
+              `flex justify-center lg:h-full lg:flex-col xl:w-2/4 portrait-lg:h-[unset]`,
             ]"
           >
             <Motion
@@ -135,7 +135,7 @@ const emblemColor: COLORS_MAP_KEYS = "oxfordBlue";
                 :src="item.HeroImage"
                 :alt="`Imagen princpal de ${item.name}`"
                 :class="[
-                  'justify-self-center 2xs:block 3xs:w-[120%] 2xs:w-[150%] xs:w-[140%] md:!w-[120%] portrait-lg:!w-[150%] lg:!w-[110%] xl:!w-[100%]',
+                  'justify-self-center md:!w-[120%] lg:!w-[110%] xl:!w-[100%] 3xs:w-[120%] 2xs:block 2xs:w-[150%] xs:w-[140%] portrait-lg:!w-[150%]',
                 ]"
               />
             </Motion>

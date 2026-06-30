@@ -1,9 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{ color: COLORS_MAP_KEYS }>();
+const props = defineProps<{ color: COLORS_MAP_KEYS }>()
 
-import { colorMap } from "~/utils/colorMap";
-import { animations } from "~/utils/animations";
-import type { COLORS_MAP_KEYS } from "~/types";
+import { colorMap } from '~/utils/colorMap'
+import { animations } from '~/utils/animations'
+import type { COLORS_MAP_KEYS } from '~/types'
 </script>
 
 <template>
@@ -13,13 +13,13 @@ import type { COLORS_MAP_KEYS } from "~/types";
     :transition="{ ...animations.footer.transition }"
   >
     <footer
-      class="fixed bottom-[7dvh] flex flex-col justify-between items-center w-full md:flex-row transition-colors auto"
+      class="auto fixed bottom-[7dvh] flex w-full flex-col items-center justify-between transition-colors md:flex-row"
       :style="{ color: colorMap[color] || '#fff' }"
     >
       <span
-        class="w-[94dvw] mx-auto flex flex-column flex-wrap content-center justify-between"
+        class="flex-column mx-auto flex w-[94dvw] flex-wrap content-center justify-between"
       >
-        <div class="w-full hidden md:flex md:w-[70%]">
+        <div class="hidden w-full md:flex md:w-[70%]">
           <p
             class="text-[0.875rem] leading-[1.25rem] md:text-[1.125rem] md:leading-[1.75rem] xl:text-[1.375rem] xl:leading-[1.625rem] 3xl:text-[1.563rem] 3xl:leading-[1.813rem]"
           >
@@ -27,7 +27,7 @@ import type { COLORS_MAP_KEYS } from "~/types";
           </p>
         </div>
 
-        <div class="hidden md:flex md:w-[30%] md:gap-3 md:justify-end">
+        <div class="hidden md:flex md:w-[30%] md:justify-end md:gap-3">
           <a
             href="https://maps.app.goo.gl/rzpD2iuE3SB6jsXEA"
             target="_blank"

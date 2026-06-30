@@ -1,15 +1,15 @@
-import type { RouterConfig } from "@nuxt/schema";
+import type { RouterConfig } from '@nuxt/schema'
 
 export default <RouterConfig>{
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
-      return savedPosition;
+      return savedPosition
     }
 
     if (to.path !== from.path) {
-      return { top: 0, left: 0 };
+      return { top: 0, left: 0 }
     }
 
-    return {};
+    return {}
   },
-};
+}

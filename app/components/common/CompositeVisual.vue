@@ -1,27 +1,27 @@
 <script setup lang="ts">
 const props = defineProps<{
-  layers: any[];
-  hasAnimated: boolean;
-  imageClasses?: any;
-  containerClass?: string;
-}>();
+  layers: any[]
+  hasAnimated: boolean
+  imageClasses?: any
+  containerClass?: string
+}>()
 
 const getMaskStyle = (maskUrl?: string) => {
-  if (!maskUrl) return {};
+  if (!maskUrl) return {}
   return {
     maskImage: `url(${maskUrl})`,
     WebkitMaskImage: `url(${maskUrl})`,
-    maskSize: "contain",
-    WebkitMaskSize: "contain",
-    maskRepeat: "no-repeat",
-    WebkitMaskRepeat: "no-repeat",
-    maskPosition: "center",
-  };
-};
+    maskSize: 'contain',
+    WebkitMaskSize: 'contain',
+    maskRepeat: 'no-repeat',
+    WebkitMaskRepeat: 'no-repeat',
+    maskPosition: 'center',
+  }
+}
 </script>
 
 <template>
-  <div :class="[props.containerClass, ' place-items-center']">
+  <div :class="[props.containerClass, 'place-items-center']">
     <Motion
       v-for="layer in layers"
       :key="layer.id"

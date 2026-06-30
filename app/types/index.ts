@@ -1,141 +1,139 @@
 export type COLORS_MAP_KEYS =
-  | "default"
-  | "eerieBlack"
-  | "cadetGray"
-  | "oxfordBlue"
-  | "azure"
-  | "columbiaBlue"
-  | "raspberry"
-  | "chartreuse";
+  | 'default'
+  | 'eerieBlack'
+  | 'cadetGray'
+  | 'oxfordBlue'
+  | 'azure'
+  | 'columbiaBlue'
+  | 'raspberry'
+  | 'chartreuse'
 
 export interface VisualLayer {
-  id: string;
-  type: "image" | "shape";
-  src?: string;
-  bgColor?: string;
-  mask?: string;
-  blendMode?: string;
-  zIndex: number;
-  cssClass?: string;
+  id: string
+  type: 'image' | 'shape'
+  src?: string
+  bgColor?: string
+  mask?: string
+  blendMode?: string
+  zIndex: number
+  cssClass?: string
   animation?: {
-    initial: any;
-    animate: any;
-    transition: any;
-  };
+    initial: any
+    animate: any
+    transition: any
+  }
 }
 
 export interface EmblemAnimation {
-  imageSrc: string;
-  direction?: "left" | "right" | "top" | "bottom";
-  clipPath?: string;
+  imageSrc: string
+  direction?: 'left' | 'right' | 'top' | 'bottom'
+  clipPath?: string
   timing?: {
-    duration?: number;
-    delay?: number;
-    easing?: string;
-  };
+    duration?: number
+    delay?: number
+    easing?: string
+  }
 }
 
 export interface CommonSectionProps<SectionName = string> {
-  name: SectionName;
+  name: SectionName
 
-  bgColor: String;
-  bgImage?: String;
-  emblemAnimation?: EmblemAnimation;
+  bgColor: String
+  bgImage?: String
+  emblemAnimation?: EmblemAnimation
 
-  color: String;
-  dataColor: COLORS_MAP_KEYS;
+  color: String
+  dataColor: COLORS_MAP_KEYS
 
-  title: String;
-  titleColor: String;
-  description: String;
-  HeroImage?: String;
+  title: String
+  titleColor: String
+  description: String
+  HeroImage?: String
   visualLayers?:
     | VisualLayer[]
     | {
-        cssClass?: string;
-        images: VisualLayer[];
-      };
+        cssClass?: string
+        images: VisualLayer[]
+      }
 
-  alignCenter?: Boolean;
-  justifyContent?: Boolean;
+  alignCenter?: Boolean
+  justifyContent?: Boolean
 
-  reverseDirection?: Boolean;
-  flexOrientation?: "flex-row" | "flex-col";
+  reverseDirection?: Boolean
+  flexOrientation?: 'flex-row' | 'flex-col'
 
-  
+  justifyEndImage?: Boolean
 
-  justifyEndImage?: Boolean;
+  buttonLink?: String
 
-  buttonLink?: String;
+  buttonText?: String
+  buttonType?: String
 
-  buttonText?: String;
-  buttonType?: String;
-
-  targetSection?: SectionName;
+  targetSection?: SectionName
 
   //? With form
-  showForm?: Boolean;
-  formButtonText?: String;
-  formFieldBorder?: String;
-  placeHolderColor?: String;
+  showForm?: Boolean
+  formButtonText?: String
+  formFieldBorder?: String
+  placeHolderColor?: String
 
   //? With tabs
-  showTabs?: Boolean;
-  navButtonBack?: Boolean;
-  navButton?: String;
+  showTabs?: Boolean
+  navButtonBack?: Boolean
+  navButton?: String
 
-  serviceImage?: String;
+  serviceImage?: String
   serviceVisualLayers?:
     | VisualLayer[]
     | {
-        cssClass?: string;
-        images: VisualLayer[];
-      };
-  serviceIcon?: String;
+        cssClass?: string
+        images: VisualLayer[]
+      }
+  serviceIcon?: String
 
   list?: Array<{
-    text: String;
-    targetSection: String;
-    icon: String;
-  }>;
-  listColor?: String;
+    text: String
+    targetSection: String
+    icon: String
+  }>
+  listColor?: String
 
-  tabColor?: String;
-  tabColorActive?: String;
+  tabColor?: String
+  tabColorActive?: String
   tabs?: Array<{
-    label: String;
-    content: String;
-  }>;
+    label: String
+    content: String
+  }>
 
   //? ?
-  HideOn3xs?: Boolean;
+  HideOn3xs?: Boolean
 }
 
 export interface CommonViewerProps<SectionName = string> {
-  alignCenter: Boolean;
-  arrowClass: String;
-  bgColor: String;
-  bgImage?: String;
-  dataColor: COLORS_MAP_KEYS;
-  buttonClass: String;
-  color: String;
-  dateColor: String;
-  justifyContent: Boolean;
-  name: SectionName;
-  oneImageViewer: Boolean;
-  sectionTitle: String;
-  titleColor: String;
+  alignCenter: Boolean
+  arrowClass: String
+  bgColor: String
+  bgImage?: String
+  dataColor: COLORS_MAP_KEYS
+  buttonClass: String
+  color: String
+  dateColor: String
+  justifyContent: Boolean
+  name: SectionName
+  oneImageViewer: Boolean
+  sectionTitle: String
+  titleColor: String
 }
 
 export interface GalleryProps<SectionName = string> {
-  alignCenter: Boolean;
-  bgColor: String;
-  bgImage?: String;
-  color?: String;
-  dataColor: COLORS_MAP_KEYS;
-  description?: String;
-  justifyContent?: Boolean;
-  name: SectionName;
-  title?: String;
-  titleColor: String;
+  alignCenter: Boolean
+  bgColor: String
+  bgImage?: String
+  color?: String
+  dataColor: COLORS_MAP_KEYS
+  description?: String
+  justifyContent?: Boolean
+  name: SectionName
+  title?: String
+  titleColor: String
 }

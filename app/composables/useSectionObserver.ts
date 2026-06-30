@@ -1,105 +1,105 @@
-import { onUnmounted, nextTick } from "vue";
-import { useRoute } from "vue-router";
-import type { COLORS_MAP_KEYS } from "~/types";
+import { onUnmounted, nextTick } from 'vue'
+import { useRoute } from 'vue-router'
+import type { COLORS_MAP_KEYS } from '~/types'
 
-let observer: IntersectionObserver | null = null;
+let observer: IntersectionObserver | null = null
 
 export function useSectionObserver() {
-  const route = useRoute();
+  const route = useRoute()
 
   const currentColor = useState<COLORS_MAP_KEYS>(
-    "currentColor",
-    () => "default"
-  );
+    'currentColor',
+    () => 'default',
+  )
   const currentEmblemColor = useState<COLORS_MAP_KEYS>(
-    "currentEmblemColor",
-    () => "default"
-  );
+    'currentEmblemColor',
+    () => 'default',
+  )
   const visibleSectionIds = useState<Set<string>>(
-    "visibleSectionIds",
-    () => new Set()
-  );
+    'visibleSectionIds',
+    () => new Set(),
+  )
   const animatedSectionIds = useState<Set<string>>(
-    "animatedSectionIds",
-    () => new Set()
-  );
+    'animatedSectionIds',
+    () => new Set(),
+  )
 
   const initObserver = () => {
     if (!import.meta.client) {
-      return;
+      return
     }
 
     if (observer) {
-      observer.disconnect();
+      observer.disconnect()
     }
 
-    visibleSectionIds.value.clear();
+    visibleSectionIds.value.clear()
 
     const options = {
       threshold: 0.5,
-    };
+    }
 
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        const targetElement = entry.target as HTMLElement;
-        const targetId = targetElement.id;
-        const targetColor = targetElement.dataset.color || "default";
+        const targetElement = entry.target as HTMLElement
+        const targetId = targetElement.id
+        const targetColor = targetElement.dataset.color || 'default'
         const targetEmblemColor =
-          targetElement.dataset.emblemColor || targetColor;
+          targetElement.dataset.emblemColor || targetColor
 
-        if (!targetId) return;
+        if (!targetId) return
 
         if (entry.isIntersecting) {
-          currentColor.value = targetColor as COLORS_MAP_KEYS;
-          currentEmblemColor.value = targetEmblemColor as COLORS_MAP_KEYS;
+          currentColor.value = targetColor as COLORS_MAP_KEYS
+          currentEmblemColor.value = targetEmblemColor as COLORS_MAP_KEYS
 
           if (!visibleSectionIds.value.has(targetId)) {
-            visibleSectionIds.value.add(targetId);
+            visibleSectionIds.value.add(targetId)
           }
           if (!animatedSectionIds.value.has(targetId)) {
-            animatedSectionIds.value.add(targetId);
+            animatedSectionIds.value.add(targetId)
           }
         } else {
-          visibleSectionIds.value.delete(targetId);
+          visibleSectionIds.value.delete(targetId)
         }
-      });
-    }, options);
+      })
+    }, options)
 
     nextTick(() => {
       document
-        .querySelectorAll<HTMLElement>("section[data-color][id]")
+        .querySelectorAll<HTMLElement>('section[data-color][id]')
         .forEach((section) => {
-          observer!.observe(section);
-        });
-    });
-  };
+          observer!.observe(section)
+        })
+    })
+  }
 
   onUnmounted(() => {
     if (observer) {
-      observer.disconnect();
-      observer = null;
+      observer.disconnect()
+      observer = null
     }
-  });
+  })
 
   const hasBeenAnimated = (id: string) => {
-    return animatedSectionIds.value.has(id);
-  };
+    return animatedSectionIds.value.has(id)
+  }
 
   const scrollToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
+    const el = document.getElementById(sectionId)
 
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
 
   const watchUrlHash = () => {
-    const hash = route.hash;
+    const hash = route.hash
 
     if (hash) {
-      scrollToSection(hash.replace("#", ""));
+      scrollToSection(hash.replace('#', ''))
     }
 
-    return null;
-  };
+    return null
+  }
 
   return {
     currentColor,
@@ -108,5 +108,5 @@ export function useSectionObserver() {
     initObserver,
     scrollToSection,
     watchUrlHash,
-  };
+  }
 }
