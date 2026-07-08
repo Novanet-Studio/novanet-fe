@@ -67,7 +67,7 @@ const tabs = computed(() => {
     projects: category.proyecto.map((project: any) => ({
       link: `/portafolio/${category.slug}/${project.slug}?from=${fromSectionId}`,
       title: project.titulo,
-      portrait: project.miniatura?.url,
+      portrait: project.miniatura,
     })),
   }))
 

@@ -36,8 +36,8 @@ export default function usePortfolio() {
   async function getCategoriesWithProjects() {
     try {
       const [cats, projects] = await Promise.all([
-        get<any>('categorias'),
-        get<any>('proyectos'),
+        get<any>('categorias', { itemsPerPage: '100', orderBy: 'created_at', sort: 'DESC' }),
+        get<any>('proyectos', { itemsPerPage: '100', orderBy: 'created_at', sort: 'DESC' }),
       ])
       if (!cats?.length) return { status: 'error', message: 'No data', data: null }
       const data = cats.map((cat: any) => ({

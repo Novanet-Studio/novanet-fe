@@ -1,5 +1,5 @@
 export default function useBlog() {
-  const { get } = useKairos()
+  const { get, getOne } = useKairos()
 
   function normalize(item: any) {
     return {
@@ -25,9 +25,9 @@ export default function useBlog() {
 
   async function getArticleBySlug(_slug: string) {
     try {
-      const data = await get<any>('articulos', { 'filters[slug][$eq]': _slug })
-      if (!data?.length) return { status: 'error', message: 'No data', data: null }
-      return { status: 'ok', message: 'ok', data: data.map(normalize) }
+      const item = await getOne<any>('articulos', _slug)
+      if (!item) return { status: 'error', message: 'No data', data: null }
+      return { status: 'ok', message: 'ok', data: [normalize(item)] }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }
     }
