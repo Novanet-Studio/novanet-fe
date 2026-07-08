@@ -6,7 +6,7 @@ export default function usePortfolio() {
       slug: item.slug,
       titulo: item.titulo,
       descripcion: item.descripcion,
-      descripcionCorta: item['descripcion-corta'],
+      'descripcion-corta': item['descripcion-corta'],
       ano: item.periodo,
       miniatura: item.miniatura,
       categoria: { slug: item['categoria-slug'] },
@@ -16,8 +16,13 @@ export default function usePortfolio() {
   async function getAllProjects() {
     try {
       const data = await get<any>('proyectos')
-      if (!data?.length) return { status: 'error', message: 'No data', data: null }
-      return { status: 'ok', message: 'ok', data: data.map((p: any) => ({ slug: p.slug })) }
+      if (!data?.length)
+        return { status: 'error', message: 'No data', data: null }
+      return {
+        status: 'ok',
+        message: 'ok',
+        data: data.map((p: any) => ({ slug: p.slug })),
+      }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }
     }
@@ -25,8 +30,14 @@ export default function usePortfolio() {
 
   async function getRecentProjects() {
     try {
-      const data = await get<any>('proyectos', { itemsPerPage: '5', orderBy: 'created_at', sort: 'DESC' })
-      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      const data = await get<any>('proyectos', {
+        itemsPerPage: '5',
+        orderBy: 'periodo',
+        sort: 'DESC',
+      })
+
+      if (!data?.length)
+        return { status: 'error', message: 'No data', data: null }
       return { status: 'ok', message: 'ok', data: data.map(normalizeProject) }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }
@@ -36,10 +47,19 @@ export default function usePortfolio() {
   async function getCategoriesWithProjects() {
     try {
       const [cats, projects] = await Promise.all([
-        get<any>('categorias', { itemsPerPage: '100', orderBy: 'created_at', sort: 'DESC' }),
-        get<any>('proyectos', { itemsPerPage: '100', orderBy: 'created_at', sort: 'DESC' }),
+        get<any>('categorias', {
+          itemsPerPage: '100',
+          orderBy: 'created_at',
+          sort: 'DESC',
+        }),
+        get<any>('proyectos', {
+          itemsPerPage: '100',
+          orderBy: 'created_at',
+          sort: 'DESC',
+        }),
       ])
-      if (!cats?.length) return { status: 'error', message: 'No data', data: null }
+      if (!cats?.length)
+        return { status: 'error', message: 'No data', data: null }
       const data = cats.map((cat: any) => ({
         slug: cat.slug,
         nombre: cat.nombre,
@@ -64,5 +84,10 @@ export default function usePortfolio() {
     }
   }
 
-  return { getAllProjects, getRecentProjects, getCategoriesWithProjects, getProjectBySlug }
+  return {
+    getAllProjects,
+    getRecentProjects,
+    getCategoriesWithProjects,
+    getProjectBySlug,
+  }
 }

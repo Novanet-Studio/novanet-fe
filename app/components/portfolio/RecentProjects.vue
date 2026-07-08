@@ -39,7 +39,7 @@ const viewerContent = computed(() => {
 
     return {
       title: project.titulo,
-      description: project.descripcionCorta,
+      description: project['descripcion-corta'],
       cta_route: `/portafolio/${project.categoria.slug}/${project.slug}?from=${fromSectionId}`,
       portrait: imageUrl ? `${imageUrl}` : undefined,
     }

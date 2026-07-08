@@ -35,16 +35,16 @@ useHead(() => {
       },
     ]
 
-    if (project.value.descripcionCorta) {
+    if (project.value['descripcion-corta']) {
       metadata = [
         ...metadata,
         {
           property: 'og:description',
-          content: project.value.descripcionCorta,
+          content: project.value['descripcion-corta'],
         },
         {
           name: 'description',
-          content: project.value.descripcionCorta,
+          content: project.value['descripcion-corta'],
         },
       ]
     }
@@ -85,7 +85,7 @@ const projectDetailData = computed(() => {
     title: project.value.titulo,
     date: `${project.value.ano}`,
     topContentImage: imageUrl ? `${imageUrl}` : undefined,
-    shortDescription: project.value.descripcionCorta,
+    shortDescription: project.value['descripcion-corta'],
     fullContent: project.value.descripcion,
     backLink: {
       url: backUrl,

@@ -38,20 +38,20 @@ useHead(() => {
       { name: 'twitter:title', content: article.value.titulo },
     ]
 
-    if (article.value.descripcionCorta) {
+    if (article.value['descripcion-corta']) {
       metadata = [
         ...metadata,
         {
           property: 'og:description',
-          content: article.value.descripcionCorta,
+          content: article.value['descripcion-corta'],
         },
         {
           name: 'description',
-          content: article.value.descripcionCorta,
+          content: article.value['descripcion-corta'],
         },
         {
           name: 'twitter:description',
-          content: article.value.descripcionCorta,
+          content: article.value['descripcion-corta'],
         },
       ]
     }

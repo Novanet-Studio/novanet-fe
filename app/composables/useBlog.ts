@@ -8,15 +8,20 @@ export default function useBlog() {
       fecha: item.fecha,
       tag: item.tag,
       descripcion: item.descripcion,
-      descripcionCorta: item['descripcion-corta'],
+      'descripcion-corta': item['descripcion-corta'],
       imagen: item.imagen,
     }
   }
 
   async function getRecentArticles() {
     try {
-      const data = await get<any>('articulos', { limit: '5', sort: 'fecha:DESC' })
-      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      const data = await get<any>('articulos', {
+        itemsPerPage: '5',
+        orderBy: 'Fecha',
+        sort: 'DESC',
+      })
+      if (!data?.length)
+        return { status: 'error', message: 'No data', data: null }
       return { status: 'ok', message: 'ok', data: data.map(normalize) }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }
@@ -35,8 +40,13 @@ export default function useBlog() {
 
   async function getAllArticles() {
     try {
-      const data = await get<any>('articulos', { sort: 'fecha:DESC' })
-      if (!data?.length) return { status: 'error', message: 'No data', data: null }
+      const data = await get<any>('articulos', {
+        itemsPerPage: '100',
+        orderBy: 'Fecha',
+        sort: 'DESC',
+      })
+      if (!data?.length)
+        return { status: 'error', message: 'No data', data: null }
       return { status: 'ok', message: 'ok', data: data.map(normalize) }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }

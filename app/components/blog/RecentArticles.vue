@@ -30,7 +30,7 @@ const viewerContent = computed(() => {
 
     return {
       title: article.titulo,
-      description: article.descripcionCorta,
+      description: article['descripcion-corta'],
       date: formatDate(article.fecha),
       cta_route: `/blog/${article.tag
         .slice(0, article.tag.indexOf(','))
