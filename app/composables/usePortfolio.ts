@@ -9,7 +9,7 @@ export default function usePortfolio() {
       'descripcion-corta': item['descripcion-corta'],
       ano: item.periodo,
       miniatura: item.miniatura,
-      categoria: { slug: item['categoria-slug'] },
+      categoria: { slug: item.relations?.Categoria?.[0]?.data?.slug },
     }
   }
 
@@ -34,6 +34,7 @@ export default function usePortfolio() {
         itemsPerPage: '5',
         orderBy: 'periodo',
         sort: 'DESC',
+        populate: 'Categoria',
       })
 
       if (!data?.length)
@@ -46,29 +47,31 @@ export default function usePortfolio() {
 
   async function getCategoriesWithProjects() {
     try {
-      const [cats, projects] = await Promise.all([
-        get<any>('categorias', {
-          itemsPerPage: '100',
-          orderBy: 'created_at',
-          sort: 'DESC',
-        }),
-        get<any>('proyectos', {
-          itemsPerPage: '100',
-          orderBy: 'created_at',
-          sort: 'DESC',
-        }),
-      ])
-      if (!cats?.length)
+      const projects = await get<any>('proyectos', {
+        itemsPerPage: '100',
+        orderBy: 'created_at',
+        sort: 'DESC',
+        populate: 'Categoria',
+      })
+      if (!projects?.length)
         return { status: 'error', message: 'No data', data: null }
-      const data = cats.map((cat: any) => ({
-        slug: cat.slug,
-        nombre: cat.nombre,
-        descripcion: cat.descripcion,
-        proyecto: (projects ?? [])
-          .filter((p: any) => p['categoria-slug'] === cat.slug)
-          .map(normalizeProject),
-      }))
-      return { status: 'ok', message: 'ok', data }
+
+      // Relación n:n: cada proyecto se agrupa en TODAS sus categorías embebidas.
+      const byCategory = new Map<string, any>()
+      for (const p of projects) {
+        for (const { data: cat } of p.relations?.Categoria ?? []) {
+          if (!byCategory.has(cat.slug)) {
+            byCategory.set(cat.slug, {
+              slug: cat.slug,
+              nombre: cat.nombre,
+              descripcion: cat.descripcion,
+              proyecto: [],
+            })
+          }
+          byCategory.get(cat.slug).proyecto.push(normalizeProject(p))
+        }
+      }
+      return { status: 'ok', message: 'ok', data: [...byCategory.values()] }
     } catch {
       return { status: 'error', message: 'Unknown error', data: null }
     }
